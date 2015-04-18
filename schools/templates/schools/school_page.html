@@ -1,0 +1,199 @@
+{% extends "schools/base.html" %} 
+{% block title%}{{school.name}}{%endblock %}
+
+<!-- sidebar -->
+{% block sidebar %}
+<div class="navbar-default sidebar" role="navigation">
+	<div class="sidebar-nav navbar-collapse">
+		<ul class="nav" id="side-menu">
+			<!-- search box -->
+			<li class="sidebar-search">
+				<div class="input-group custom-search-form">
+					<input type="text" class="form-control" placeholder="Search by Name...">
+					<span class="input-group-btn">
+						<button class="btn btn-default" type="button">
+							<i class="glyphicon glyphicon-search"></i>
+						</button>
+					</span>
+				</div>
+			</li>
+			<!-- /search box -->
+			
+			<!-- costumer selected schools -->
+			
+			<!-- /constumer selected schools -->
+			
+			<!-- recommeded schools -->
+			<div class="container">
+				<div class="row">
+					<div class="col-md-6">
+						<form role="form">
+							<div class="checkbox" action="/schools/compare/" method="get">
+								{% for school in comparison_list %}
+								<label> <input type="checkbox" name = "checked" value = "{{school.id}}">{{school.name}}</label>
+								<!-- some_var = request.POST.getlist('checked') -->
+								{% endfor %}
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+			<!-- /recommeded schools -->
+		</ul>
+	</div>
+	<!-- /.sidebar-collapse -->
+</div>
+<!-- /.navbar-static-side -->
+{% endblock %}
+
+
+<!-- content -->
+{% block content %}
+
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-lg-12">
+			<h1 class="page-header">{{school.name}}</h1>
+		</div>
+		<!-- /.col-lg-12 -->
+	</div>
+	<!-- /.row -->
+	<div class="row">
+		<div class="col-lg-3 col-md-6">
+			<div class="panel panel-primary">
+				<div class="panel-heading">
+					<div class="row">
+						<div class="col-xs-4">
+							<span style="font-size: 4em;"
+								class="glyphicon glyphicon-equalizer glyphicon-align-left"
+								aria-hidden="true"></span>
+						</div>
+						<div class="col-xs-8 text-right">
+							<h4>Media Summary</h4>
+						</div>
+					</div>
+				</div>
+				<a href="#">
+					<div class="panel-footer">
+						<span class="pull-left">View Details</span> <span
+							class="glyphicon glyphicon-arrow-right pull-right"></span>
+						<div class="clearfix"></div>
+					</div>
+				</a>
+			</div>
+		</div>
+
+		<div class="col-lg-3 col-md-6">
+			<div class="panel panel-green">
+				<div class="panel-heading">
+					<div class="row">
+						<div class="col-xs-4">
+							<span style="font-size: 4em;"
+								class="glyphicon glyphicon-info-sign glyphicon-align-left"
+								aria-hidden="true"></span>
+						</div>
+						<div class="col-xs-8 text-right">
+							<h4>General Information</h4>
+						</div>
+					</div>
+				</div>
+				<a href="#">
+					<div class="panel-footer">
+						<span class="pull-left">View Details</span> <span
+							class="glyphicon glyphicon-arrow-right pull-right"></span>
+						<div class="clearfix"></div>
+					</div>
+				</a>
+			</div>
+		</div>
+
+		<div class="col-lg-3 col-md-6">
+			<div class="panel panel-yellow">
+				<div class="panel-heading">
+					<div class="row">
+						<div class="col-xs-4">
+							<span style="font-size: 4em;"
+								class="glyphicon glyphicon-list glyphicon-align-left"
+								aria-hidden="true"></span>
+						</div>
+						<div class="col-xs-8 text-right">
+							<h4>Latest News</h4>
+						</div>
+					</div>
+				</div>
+				<a href="#">
+					<div class="panel-footer">
+						<span class="pull-left">View Details</span> <span
+							class="glyphicon glyphicon-arrow-right pull-right"></span>
+						<div class="clearfix"></div>
+					</div>
+				</a>
+			</div>
+		</div>
+
+		<div class="col-lg-3 col-md-6">
+			<div class="panel panel-red">
+				<div class="panel-heading">
+					<div class="row">
+						<div class="col-xs-4">
+							<span style="font-size: 4em;"
+								class="glyphicon glyphicon-briefcase glyphicon-align-left"
+								aria-hidden="true"></span>
+						</div>
+						<div class="col-xs-8 text-right">
+							<h4>Report</h4>
+						</div>
+					</div>
+				</div>
+				<a href="#">
+					<div class="panel-footer">
+						<span class="pull-left">View Details</span> <span
+							class="glyphicon glyphicon-arrow-right pull-right"></span>
+						<div class="clearfix"></div>
+					</div>
+				</a>
+			</div>
+		</div>
+
+	</div>
+
+	<!-- /.row -->
+	<div class="row">
+		<div class="col-lg-12">
+			<div class="panel panel-default">
+				<div class="panel-heading"><h3>Latest Media Performance ({{latest_date}})</h3></div>
+				<!-- /.panel-heading -->
+				<div class="panel-body">
+					<div id="bar-chart"></div>
+				</div>
+				<!-- /.panel-body -->
+			</div>
+			<!-- /.panel -->
+		</div>
+		<!-- /.col-lg-8 -->
+	</div>
+	<!-- /.row -->
+
+	<script type="text/javascript">
+		google.load("visualization", "1.1", {packages:["bar"]});
+		google.setOnLoadCallback(drawChart);
+		
+		function drawChart() {
+			data_set = {{result_set|safe}}
+			var data = google.visualization.arrayToDataTable(data_set);
+			var options = {
+				height: 700,
+				bars: 'horizontal',
+				axes: {
+		            x: {
+		              0: { side: 'top', label: 'Media Index'} // Top x-axis.
+		            },
+		        }
+			};
+			var chart = new google.charts.Bar(document.getElementById('bar-chart'));
+			chart.draw(data, options);
+		}
+	</script>
+
+</div>
+{% endblock%}

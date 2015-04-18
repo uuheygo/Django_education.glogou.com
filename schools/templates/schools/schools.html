@@ -1,0 +1,25 @@
+{% extends "schools/base.html" %}
+
+{% block title %}America's Top Colleges{% endblock %}
+
+{% block sidebar%}
+####
+####
+####
+####
+{% endblock %}
+
+{% block content %}
+
+<div id="map" style="width: 700px; height: 500px;"></div>
+{% for row in one_page %}
+<p>{{row.overall_rank}}  {{row.school__id}}  {{row.school__name}}</p>
+{% endfor %}
+
+    <!-- for us map -->
+    <script src="/static/schools/jquery.js"></script>
+    <script src="/static/schools/raphael.js"></script>
+    <script src="/static/schools/jquery.usmap.js"></script>
+    <script src="/static/schools/us_map_clickable.js"></script>
+    <!-- end for us map -->
+{% endblock %}
