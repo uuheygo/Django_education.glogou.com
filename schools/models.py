@@ -82,17 +82,16 @@ class SchoolInforYearly(models.Model):
         db_table = 'school_infor_yearly'
 
 
-class SchoolsComparison(models.Model):
-    school = models.OneToOneField(School, db_column='school', primary_key=True)
-    school_list = models.CharField(max_length=1000, blank=True, null=True)
+class SchoolsComparisonId(models.Model):
+    school = models.ForeignKey(School, db_column='school')
+    school_compare = models.ForeignKey(School, db_column='school_compare', blank=True, null=True)
     
     def __unicode__(self):
         return "schools for comparison for %s" % self.school.name
     
     class Meta:
         managed = False
-        db_table = 'schools_comparison'
-
+        db_table = 'schools_comparison_id'
 
 
 class BaiduIndexCh(models.Model):
