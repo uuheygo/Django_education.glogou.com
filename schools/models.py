@@ -83,8 +83,9 @@ class SchoolInforYearly(models.Model):
 
 
 class SchoolsComparisonId(models.Model):
-    school = models.ForeignKey(School, db_column='school')
-    school_compare = models.ForeignKey(School, db_column='school_compare', blank=True, null=True)
+    school = models.ForeignKey(School, db_column='school', related_name='school_to_compare')
+    school_compare = models.ForeignKey(School, db_column='school_compare', 
+                                       related_name='school_compare_list', blank=True, null=True)
     
     def __unicode__(self):
         return "schools for comparison for %s" % self.school.name

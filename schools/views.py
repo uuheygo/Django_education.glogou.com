@@ -6,7 +6,8 @@ import json
 
 from utils.get_media_indexes import get_latest_indexes_for_school_view
 
-from schools.models import School, SchoolInforYearly, BaiduIndexCh, BaiduIndexEn, BaiduNewsEn,\
+from schools.models import School, SchoolInforYearly, SchoolsComparisonId, \
+    BaiduIndexCh, BaiduIndexEn, BaiduNewsEn,\
     BaiduNewsCh, BaiduSite, GoogleIndexEn, GoogleIndexHk, GoogleNews, GoogleSite,\
     YahoojapIndexEn, YahoojapIndexJp
 
@@ -51,12 +52,15 @@ def school_view(request, school_id = '0'):
     school_id = int(school_id)
     school = School.objects.get(id=school_id)
     school_infor = school.schoolinforyearly_set.filter(year=latest_year)
-    result_set = get_latest_indexes_for_school_view(school)
+    result_set = get_latest_indexes_for_school_view(school) # all latest indexes
     latest_date = BaiduIndexCh.objects.aggregate(Max('date'))['date__max']
+    comparison_list = school.school_to_compare.all()
+    print len(comparison_list)
     print result_set
     return render(request, 'schools/school_page.html', 
                   {'school': school, 'school_infor': school_infor, 
-                   'latest_date': latest_date, 'result_set': result_set})
+                   'latest_date': latest_date, 'result_set': result_set,
+                   'comparison_list': comparison_list})
 
 
 

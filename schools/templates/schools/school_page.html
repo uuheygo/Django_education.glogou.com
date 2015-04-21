@@ -3,8 +3,8 @@
 
 <!-- sidebar -->
 {% block sidebar %}
-<div class="navbar-default sidebar" role="navigation">
-	<div class="sidebar-nav navbar-collapse">
+<div class="navbar-default sidebar" role="navigation" style="margin-top: 20px;">
+	<div class="sidebar-nav">
 		<ul class="nav" id="side-menu">
 			<!-- search box -->
 			<li class="sidebar-search">
@@ -24,20 +24,21 @@
 			<!-- /constumer selected schools -->
 			
 			<!-- recommeded schools -->
-			<div class="container">
-				<div class="row">
-					<div class="col-md-6">
+			<li><div style="text-align: center;"><h4>Schools for Comparison:</h4></div></li>
+			<li>
+					<div style="padding-left:20px;">
 						<form role="form">
 							<div class="checkbox" action="/schools/compare/" method="get">
 								{% for school in comparison_list %}
-								<label> <input type="checkbox" name = "checked" value = "{{school.id}}">{{school.name}}</label>
-								<!-- some_var = request.POST.getlist('checked') -->
+								<label> <h5><input type="checkbox" name = "checked" value = "{{school.school_compare.id}}">{{school.school_compare.name}}</h5></label>
+								<br/>
+								<!-- in backend, do some_var = request.POST.getlist('checked') -->
 								{% endfor %}
 							</div>
+							<button type="submit" class="btn btn-default" style="float: right;">Submit</button>
 						</form>
 					</div>
-				</div>
-			</div>
+			</li>
 			<!-- /recommeded schools -->
 		</ul>
 	</div>
@@ -182,7 +183,7 @@
 			data_set = {{result_set|safe}}
 			var data = google.visualization.arrayToDataTable(data_set);
 			var options = {
-				height: 700,
+				height: 600,
 				bars: 'horizontal',
 				axes: {
 		            x: {
