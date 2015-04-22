@@ -2,24 +2,155 @@
 
 {% block title %}America's Top Colleges{% endblock %}
 
-{% block sidebar%}
-####
-####
-####
-####
+<!-- sidebar -->
+{% block sidebar %}
+<div class="navbar-default sidebar" role="navigation" style="margin-top: 20px;">
+    <div class="sidebar-nav">
+        <ul class="nav" id="side-menu">
+            <!-- search box -->
+            <li class="sidebar-search">
+                <h4>SEARCH</h4>
+                <div class="input-group custom-search-form">
+                    <input type="text" class="form-control" placeholder="Search by Name...">
+                    <span class="input-group-btn">
+                        <button class="btn btn-default" type="button">
+                            <i class="glyphicon glyphicon-search"></i>
+                        </button>
+                    </span>
+                </div>
+            </li>
+            <!-- /search box -->
+            
+            
+            <!-- filters -->
+            <li class="sidebar-search">
+                <h4>FILTERS</h4>
+                <div style="padding-left:20px;">
+		            <form role="form" method="GET" action="/schools/" class="sidebarForm">
+		              <div class="form-group">
+		                <label class="sidebarFormLabel">Filter by States</label>
+		                <div id="state">
+			                <select class="form-control" name='state'>
+				                <option>All states</option>
+				                <option>Alabama</option>
+				                <option>Alaska</option>
+				                <option>Arizona</option>
+				                <option>Arkansas</option>
+				                <option>California</option>
+				                <option>Colorado</option>
+				                <option>Connecticut</option>
+				                <option>Delaware</option>
+				                <option>District of Columbia</option>
+				                <option>Florida</option>
+				                <option>Georgia</option>
+				                <option>Hawaii</option>
+				                <option>Idaho</option>
+				                <option>Illinois</option>
+				                <option>Indiana</option>
+				                <option>Iowa</option>
+				                <option>Kansas</option>
+				                <option>Kentucky</option>
+				                <option>Louisiana</option>
+				                <option>Maine</option>
+				                <option>Maryland</option>
+				                <option>Massachusetts</option>
+				                <option>Michigan</option>
+				                <option>Minnesota</option>
+				                <option>Mississippi</option>
+				                <option>Missouri</option>
+				                <option>Montana</option>
+				                <option>Nebraska</option>
+				                <option>Nevada</option>
+				                <option>New Hampshire</option>
+				                <option>New Jersey</option>
+				                <option>New Mexico</option>
+				                <option>New York</option>
+				                <option>North Carolina</option>
+				                <option>North Dakota</option>
+				                <option>Ohio</option>
+				                <option>Oklahoma</option>
+				                <option>Oregon</option>
+				                <option>Pennsylvania</option>
+				                <option>Rhode Island</option>
+				                <option>South Carolina</option>
+				                <option>South Dakota</option>
+				                <option>Tennessee</option>
+				                <option>Texas</option>
+				                <option>Utah</option>
+				                <option>Vermont</option>
+				                <option>Virginia</option>
+				                <option>Washington</option>
+				                <option>West Virginia</option>
+				                <option>Wisconsin</option>
+				                <option>Wyoming</option>
+			                </select>
+		                </div>
+
+		              </div>
+		              <div class="form-group">
+		                <label class="sidebarFormLabel">Filter by Rank</label>
+		                <select class="form-control" name='rank_range'>
+		                    <option value="All">All</option>
+		                    <option value="1-50">top50</option>
+		                    <option value="51-100">51-100</option>
+		                    <option value="101-200">101-200</option>
+		                    <option value="201-300">201-300</option>
+		                    <option value="301-400">301-400</option>
+		                    <option value="401-500">401-500</option>
+		                    <option value="501-650">&gt;500</option>
+		                </select>
+		              </div>
+		              <div style='text-align: right'>
+		                <button id="filter" type="submit" class="btn btn-primary">Submit</button>
+		              </div>  
+		            </form>
+                </div>
+            </li>
+            <!-- /recommeded schools -->
+        </ul>
+    </div>
+    <!-- /.sidebar-collapse -->
+</div>
+<!-- /.navbar-static-side -->
 {% endblock %}
 
+
+
+
 {% block content %}
+<br/>
+<div class="row">
+    <div class="col-sm-8"  style="margin-top: 30px;">
+<!--         <iframe src="http://createaclickablemap.com/map.php?&id=35201&online=true" width="700" height="520" style="border: none;"></iframe> -->
+    <div id="map" style="width: 700px; height: 500px;"></div>
+    </div>
+    <div class="col-sm-4">
+        <div class="sub-header">BROWSE THE LIST</div>
+	    <div  style="height: 420px; overflow: auto;">
+	       <table class="table table-hover table-responsive table-striped">
+	        <th>Rank</th><th>Name</th>
+	        {% for row in one_page %}
+	        <tr><td>{{row.overall_rank}}</td><td><a href="/schools/school_id={{row.school__id}}/">{{row.school__name}}</a></td></tr>
+	        {% endfor %}
+	        </table>
+	    </div>
+	    
+	    {% if page_range|length > 1%}
+	    <ul class="pagination" style="style="text-align: center;">
+	        <li><a id="pre" href="#">&laquo;</a></li>
+	        {% for page_num in page_range %}
+	        <li><a href="/schools/page={{page_num}}/">{{page_num}}</a></li>
+	        {% endfor %}
+	        <li><a id="next" href="#">&raquo;</a></li>
+	    </ul>
+	    {% endif %}
+    </div>
+</div>
 
-<div id="map" style="width: 700px; height: 500px;"></div>
-{% for row in one_page %}
-<p>{{row.overall_rank}}  {{row.school__id}}  {{row.school__name}}</p>
-{% endfor %}
-
-    <!-- for us map -->
+    <!-- for us map
     <script src="/static/schools/jquery.js"></script>
     <script src="/static/schools/raphael.js"></script>
     <script src="/static/schools/jquery.usmap.js"></script>
-    <script src="/static/schools/us_map_clickable.js"></script>
-    <!-- end for us map -->
+    <script src="/static/schools/us_map_clickable.js"></script> -->
+
 {% endblock %}

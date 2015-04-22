@@ -84,18 +84,11 @@
 
 		<div id="page-wrapper">
 			{% block content %}{% endblock %}
-
-			<div class="container">
-				<hr>
-				<!-- Footer -->
-				<footer>
-					<div class="row">
-						<div class="col-lg-12">
-							<p>Copyright &copy; Glogou Inc. 2015</p>
-						</div>
-					</div>
-				</footer>
-			</div>
+            <footer class="footer" style="padding-top: 20px;">
+                <div class="container">
+                    <p class="text-muted">Copyright &copy; Glogou Inc. 2015</p>
+                </div>
+            </footer>
 		</div>
 	</div>
 
@@ -107,8 +100,20 @@
 
 	<!-- Bootstrap Core JavaScript -->
 	<script src="/static/schools/js/bootstrap.min.js"></script>
-
-
+	<script src="/static/schools/js/jquery.js"></script>
+    <script src="/static/schools/js/raphael.js"></script>
+    <script src="/static/schools/js/jquery.usmap.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('#map').usmap({
+                stateStyles: {fill: '#81AC8B'},
+                stateHoverStyles: {fill: '#425957'},
+                stateHoverAnimation: 200,
+                showLabels: true,
+            });
+        });
+        
+    </script>
 
 
 </body>
