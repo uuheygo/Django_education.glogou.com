@@ -52,7 +52,7 @@ class SchoolInforYearly(models.Model):
     overall_rank = models.IntegerField(blank=True, null=True)
     student_population = models.CharField(max_length=10, blank=True, null=True)
     undergrad_population = models.CharField(max_length=10, blank=True, null=True)
-    student_faculty_ration = models.CharField(max_length=10, blank=True, null=True)
+    student_faculty_ratio = models.CharField(max_length=10, blank=True, null=True)
     annual_cost = models.CharField(max_length=10, blank=True, null=True)
     in_state_tuition = models.CharField(max_length=10, blank=True, null=True)
     out_state_tuition = models.CharField(max_length=10, blank=True, null=True)

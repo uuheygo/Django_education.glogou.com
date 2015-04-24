@@ -1,0 +1,124 @@
+{% extends "schools/base.html" %} 
+{% block title%}{{school.name}}{%endblock %}
+
+<!-- sidebar -->
+{% block sidebar %}
+{% include 'schools/sidebar_comparison.html' %}
+{% endblock %}
+
+
+<!-- content -->
+{% block content %}
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header"><b>{{school.name}}</b></h1>
+        </div>
+        <!-- /.col-lg-12 -->
+    </div>
+    <!-- /.row -->
+    <div class="row">
+        <div class="col-lg-3 col-md-6">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <div class="row">
+                        <div class="col-xs-4">
+                            <span style="font-size: 4em;"
+                                class="glyphicon glyphicon-equalizer glyphicon-align-left"
+                                aria-hidden="true"></span>
+                        </div>
+                        <div class="col-xs-8 text-right">
+                            <h4>Media Summary</h4>
+                        </div>
+                    </div>
+                </div>
+                <a href="#">
+                    <div class="panel-footer">
+                        <span class="pull-left">View Details</span> <span
+                            class="glyphicon glyphicon-arrow-right pull-right"></span>
+                        <div class="clearfix"></div>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6">
+            <div class="panel panel-green">
+                <div class="panel-heading">
+                    <div class="row">
+                        <div class="col-xs-4">
+                            <span style="font-size: 4em;"
+                                class="glyphicon glyphicon-info-sign glyphicon-align-left"
+                                aria-hidden="true"></span>
+                        </div>
+                        <div class="col-xs-8 text-right">
+                            <h4>General Information</h4>
+                        </div>
+                    </div>
+                </div>
+                <a href="/schools/school_id={{school.id}}/info/">
+                    <div class="panel-footer">
+                        <span class="pull-left">View Details</span> <span
+                            class="glyphicon glyphicon-arrow-right pull-right"></span>
+                        <div class="clearfix"></div>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6">
+            <div class="panel panel-yellow">
+                <div class="panel-heading">
+                    <div class="row">
+                        <div class="col-xs-4">
+                            <span style="font-size: 4em;"
+                                class="glyphicon glyphicon-list glyphicon-align-left"
+                                aria-hidden="true"></span>
+                        </div>
+                        <div class="col-xs-8 text-right">
+                            <h4>Latest News</h4>
+                        </div>
+                    </div>
+                </div>
+                <a href="#">
+                    <div class="panel-footer">
+                        <span class="pull-left">View Details</span> <span
+                            class="glyphicon glyphicon-arrow-right pull-right"></span>
+                        <div class="clearfix"></div>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6">
+            <div class="panel panel-red">
+                <div class="panel-heading">
+                    <div class="row">
+                        <div class="col-xs-4">
+                            <span style="font-size: 4em;"
+                                class="glyphicon glyphicon-briefcase glyphicon-align-left"
+                                aria-hidden="true"></span>
+                        </div>
+                        <div class="col-xs-8 text-right">
+                            <h4>Report</h4>
+                        </div>
+                    </div>
+                </div>
+                <a href="#">
+                    <div class="panel-footer">
+                        <span class="pull-left">View Details</span> <span
+                            class="glyphicon glyphicon-arrow-right pull-right"></span>
+                        <div class="clearfix"></div>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+    </div>
+
+
+    {% block school_page_box %}{% endblock %}
+
+</div>
+{% endblock%}

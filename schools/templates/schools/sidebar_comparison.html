@@ -1,0 +1,42 @@
+<div class="navbar-default sidebar" role="navigation" style="margin-top: 20px;">
+    <div class="sidebar-nav">
+        <ul class="nav" id="side-menu">
+            <!-- search box -->
+            <li class="sidebar-search">
+                <div class="input-group custom-search-form">
+                    <input type="text" class="form-control" placeholder="Search by Name...">
+                    <span class="input-group-btn">
+                        <button class="btn btn-default" type="button">
+                            <i class="glyphicon glyphicon-search"></i>
+                        </button>
+                    </span>
+                </div>
+            </li>
+            <!-- /search box -->
+            
+            <!-- costumer selected schools -->
+            
+            <!-- /constumer selected schools -->
+            
+            <!-- recommeded schools -->
+            <li><div style="text-align: center;"><h4>Schools for Comparison:</h4></div></li>
+            <li>
+                    <div style="padding-left:20px;">
+                        <form role="form">
+                            <div class="checkbox" action="/schools/compare/" method="get">
+                                {% for school in comparison_list %}
+                                <label> <h5><input type="checkbox" name = "checked" value = "{{school.school_compare.id}}">{{school.school_compare.name}}</h5></label>
+                                <br/>
+                                <!-- in backend, do some_var = request.POST.getlist('checked') -->
+                                {% endfor %}
+                            </div>
+                            <button type="submit" class="btn btn-default" style="float: right;">Submit</button>
+                        </form>
+                    </div>
+            </li>
+            <!-- /recommeded schools -->
+        </ul>
+    </div>
+    <!-- /.sidebar-collapse -->
+</div>
+<!-- /.navbar-static-side -->

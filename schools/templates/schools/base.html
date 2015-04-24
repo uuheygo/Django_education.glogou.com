@@ -85,9 +85,7 @@
 		<div id="page-wrapper">
 			{% block content %}{% endblock %}
             <footer class="footer" style="padding-top: 20px;">
-                <div class="container">
                     <p class="text-muted">Copyright &copy; Glogou Inc. 2015</p>
-                </div>
             </footer>
 		</div>
 	</div>
@@ -110,9 +108,33 @@
                 stateHoverStyles: {fill: '#425957'},
                 stateHoverAnimation: 200,
                 showLabels: true,
+                click: function(event, data){
+				            $.ajax({
+				                url: "/schools/?state=" + data.name,
+				            }).done(function(data){ $('#table').replaceWith($(data)) }); // replace old school_table.html with new html
+				            $("#state_list").val(data.name);
+			            }
             });
+            
+            $("#state_list").val("{{state}}");
+            $("#rank_list").val("{{rank_range}}");
+            
+            
+            function changeHeight() {
+			    var width = $("#map_container").width();
+			    $("#map").css({
+			        "height": 420 * width / 640
+			    });
+			}
+			window.addEventListener('resize', changeHeight);
+			changeHeight();
         });
         
+        function update_results(){
+	        $.ajax({
+	            url: "/schools/?keyword=" + $("#search_box").val(),
+	        }).done(function(data){ $('#table').replaceWith($(data)) }); // replace old school_table.html with new html
+        };
     </script>
 
 
