@@ -11,11 +11,11 @@
         
         {% if page_range|length > 1%}
         <ul class="pagination" style="style="text-align: center;">
-            <li><a id="pre" href="#">&laquo;</a></li>
+            
             {% for page_num in page_range %}
-            <li><a href="/schools/page={{page_num}}/">{{page_num}}</a></li>
+                <li><a href="/schools/page={{page_num}}/">{{page_num}}</a></li>
             {% endfor %}
-            <li><a id="next" href="#">&raquo;</a></li>
+            
         </ul>
         {% endif %}
     </div>

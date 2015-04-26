@@ -171,7 +171,7 @@ class GoogleIndexEn(models.Model):
     class Meta:
         managed = False
         db_table = 'google_index_en'
-
+    
 
 class GoogleIndexHk(models.Model):
     school = models.ForeignKey('School', db_column='school')

@@ -9,11 +9,12 @@ from utils.helper_functions import get_latest_indexes_for_school_view, get_resul
     get_race_percentages
 
 from schools.models import School, SchoolInforYearly, SchoolsComparisonId, \
-    BaiduIndexCh, BaiduIndexEn, BaiduNewsEn,\
-    BaiduNewsCh, BaiduSite, GoogleIndexEn, GoogleIndexHk, GoogleNews, GoogleSite,\
+    BaiduIndexCh, BaiduIndexEn, BaiduNewsEn, BaiduNewsCh, BaiduSite, \
+    GoogleIndexEn, GoogleIndexHk, GoogleNews, GoogleSite,\
     YahoojapIndexEn, YahoojapIndexJp
 
 latest_year = SchoolInforYearly.objects.aggregate(Max('year'))['year__max']
+latest_date = BaiduIndexCh.objects.aggregate(Max('date'))['date__max']
 
 # render schools.html for all or selected schools
 def list_view(request, state = 'All states', rank_range = 'All', page = '1', keyword=''):
@@ -55,7 +56,7 @@ def school_view(request, school_id = '0'):
     school = School.objects.get(id=school_id)
     school_infor = school.schoolinforyearly_set.filter(year=latest_year)
     result_set = get_latest_indexes_for_school_view(school) # all latest indexes
-    latest_date = BaiduIndexCh.objects.aggregate(Max('date'))['date__max']
+    
     comparison_list = school.school_to_compare.all()
     return render(request, 'schools/school_page.html', 
                   {'school': school, 'school_infor': school_infor, 
@@ -93,12 +94,61 @@ def info_view(request, school_id = '0'):
     a_i_n, a_p, black, latino, white, unknown, n_r= -1, -1, -1, -1, -1, -1, -1
     race_percentages = get_race_percentages(school_infor)
     
+    # attendance
+    full_time, part_time = -1, -1
+    if school_infor.fulltime_percentage is not None:
+        full_time = int(school_infor.fulltime_percentage[:-1])
+        part_time = 100 - full_time
+    
     return render(request, 'schools/school_info.html', {'school': school, 
                     'school_infor': school_infor, 'comparison_list': comparison_list,
                     'financial_yes': financial_yes, 'financial_no': financial_no,
                     'admission_yes': admission_yes, 'admission_no': admission_no,
                     'male': male, 'female': female, 'race': race_percentages,
+                    'full_time': full_time, 'part_time': part_time,
                     })
+
+def media_view(request, school_id='0', num_days = 7):
+    school_id = int(school_id)
+    
+    if not request.is_ajax():
+        school = School.objects.get(id=school_id)
+        school_infor = school.schoolinforyearly_set.filter(year=latest_year)
+        comparison_list = school.school_to_compare.all()
+    
+    
+    # ---default media indexes are latest 7 days
+    # gg
+    gg = [None] * 4
+    gg[0] = GoogleIndexEn.objects.filter(school=int(school_id)).order_by('-date')[:num_days] # gg index en
+    gg[1] = GoogleIndexHk.objects.filter(school=int(school_id)).order_by('-date')[:num_days] # gg index hk
+    gg[2] = GoogleNews.objects.filter(school=int(school_id)).order_by('-date')[:num_days] # gg news
+    gg[3] = GoogleSite.objects.filter(school=int(school_id)).order_by('-date')[:num_days] # gg site
+    
+    # bd
+    bd = [None] * 5
+    bd[0] = BaiduIndexCh.objects.filter(school=int(school_id)).order_by('-date')[:num_days] # bd index ch
+    bd[1] = BaiduIndexEn.objects.filter(school=int(school_id)).order_by('-date')[:num_days] # bd index en
+    bd[2] = BaiduNewsCh.objects.filter(school=int(school_id)).order_by('-date')[:num_days] # bd news ch
+    bd[3] = BaiduNewsEn.objects.filter(school=int(school_id)).order_by('-date')[:num_days] # bd news en
+    bd[4] = BaiduSite.objects.filter(school=int(school_id)).order_by('-date')[:num_days] # bd site
+    
+    # yh
+    yh = [None] * 2
+    yh[0] = YahoojapIndexEn.objects.filter(school=int(school_id)).order_by('-date')[:num_days] # yh index en
+    yh[1] = YahoojapIndexJp.objects.filter(school=int(school_id)).order_by('-date')[:num_days] # yh index jp
+    
+    # ajax call to use custom media index period
+    if request.is_ajax():
+        return render(request, 'schools/index_charts.html', {
+                    'gg': gg, 'bd': bd, 'yh': yh,
+                    })
+    
+    return render(request, 'schools/school_media.html', {'school': school, 
+                    'school_infor': school_infor, 'comparison_list': comparison_list,
+                    'gg': gg, 'bd': bd, 'yh': yh,
+                                                        })
+
 
 
 

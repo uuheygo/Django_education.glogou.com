@@ -17,8 +17,8 @@ urlpatterns = [
         'schools.views.media_view', name = 'school_media'), # media details: search engine, site, language, social media
     url(r'^schools/school_id=(?P<school_id>\d+)/info/$', 
         'schools.views.info_view', name = 'school_info'),
-    url(r'^schools/school_id=(?P<school_id>\d+)/media/$', 
+    url(r'^schools/school_id=(?P<school_id>\d+)/news/$', 
         'schools.views.news_view', name = 'school_news'),
-    url(r'^schools/school_id=(?P<school_id>\d+)/media/$', 
+    url(r'^schools/school_id=(?P<school_id>\d+)/report/$', 
         'schools.views.report_view', name = 'school_report')
 ]
