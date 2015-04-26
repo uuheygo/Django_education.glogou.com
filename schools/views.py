@@ -124,6 +124,7 @@ def media_view(request, school_id='0', num_days = 7):
     gg[1] = GoogleIndexHk.objects.filter(school=int(school_id)).order_by('-date')[:num_days] # gg index hk
     gg[2] = GoogleNews.objects.filter(school=int(school_id)).order_by('-date')[:num_days] # gg news
     gg[3] = GoogleSite.objects.filter(school=int(school_id)).order_by('-date')[:num_days] # gg site
+    gg_by_date = [[a, b, c, d] for a, b, c, d in zip(gg[0], gg[1], gg[2], gg[3])]
     
     # bd
     bd = [None] * 5
@@ -132,13 +133,15 @@ def media_view(request, school_id='0', num_days = 7):
     bd[2] = BaiduNewsCh.objects.filter(school=int(school_id)).order_by('-date')[:num_days] # bd news ch
     bd[3] = BaiduNewsEn.objects.filter(school=int(school_id)).order_by('-date')[:num_days] # bd news en
     bd[4] = BaiduSite.objects.filter(school=int(school_id)).order_by('-date')[:num_days] # bd site
+    bd_by_date = [[a, b, c, d, e] for a, b, c, d, e in zip(bd[0], bd[1], bd[2], bd[3], bd[4])]
     
     # yh
     yh = [None] * 2
     yh[0] = YahoojapIndexEn.objects.filter(school=int(school_id)).order_by('-date')[:num_days] # yh index en
     yh[1] = YahoojapIndexJp.objects.filter(school=int(school_id)).order_by('-date')[:num_days] # yh index jp
+    yh_by_date = [[a, b] for a, b in zip(yh[0], yh[1])]
     
-    # ajax call to use custom media index period
+    ############# not done: ajax call to use custom media index period
     if request.is_ajax():
         return render(request, 'schools/index_charts.html', {
                     'gg': gg, 'bd': bd, 'yh': yh,
@@ -146,7 +149,7 @@ def media_view(request, school_id='0', num_days = 7):
     
     return render(request, 'schools/school_media.html', {'school': school, 
                     'school_infor': school_infor, 'comparison_list': comparison_list,
-                    'gg': gg, 'bd': bd, 'yh': yh,
+                    'gg': gg_by_date, 'bd': bd_by_date, 'yh': yh_by_date,
                                                         })
 
 

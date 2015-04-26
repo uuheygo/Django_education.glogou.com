@@ -1,70 +1,146 @@
 <div class="row">
     <!-- gg -->
     <div class="panel panel-default">
-        <div class="panel-heading"><h4>Media Performance on Google</h4></div>
+        <div class="panel-heading"><h4>Google Indexes</h4></div>
         <div class="panel-body">
-        {% for index_obj in gg %}
-        <div class="row">
-            <div id="gg_{{forloop.counter0}}"></div>
-            <script type="text/javascript">
-                google.load('visualization', '1', {packages: ['corechart', 'line']});
-                google.setOnLoadCallback(drawBackgroundColor);
-                
-                function drawBackgroundColor() {
-                      var data = new google.visualization.DataTable();
-                      data.addColumn('date', 'month');
-                      data.addColumn('number', 'index');
-                      
-                      
-                      var year = 
-                      data.addRows([
-                        {% for row in index_obj reversed %}
-                            [new Date("{{row.date.isoformat}}"), {{row.index}}],
-                        {% endfor %}
-                      ]);
-                
-                      var options = {
-                        hAxis: {
-                          title: 'Date',
-                          format:'MMM d, y'
-                        },
-                        vAxis: {
-                          title: 'Index'
-                        },
-                        backgroundColor: '#f1f8e9'
-                      };
-                
-                      var chart = new google.visualization.LineChart(document.getElementById('gg_{{forloop.counter0}}'));
-                      chart.draw(data, options);
-                    }
-            </script>
-        </div>
-        {% endfor %}
+                <div id="gg"></div>
+                <script type="text/javascript">
+                    google.load('visualization', '1', {packages: ['corechart', 'line']});
+                    google.setOnLoadCallback(drawBackgroundColor_gg);
+                    
+                    function drawBackgroundColor_gg() {
+                          var data = new google.visualization.DataTable();
+                          data.addColumn('date', 'month');
+                          data.addColumn('number', 'Google Index(EN)');
+                          data.addColumn('number', 'Google Index(HK)');
+                          data.addColumn('number', 'Google News');
+                          data.addColumn('number', 'Google Site');
+                          
+                          data.addRows([
+                            {% for row in gg reversed %}
+                                [new Date("{{row.0.date.isoformat}}"), {{row.0.index}}, {{row.1.index}}, {{row.2.index}}, {{row.3.index}}],
+                            {% endfor %}
+                          ]);
+                    
+                          var options = {
+                            //title: 'Google Indexes',
+                            curveType: 'function',
+                            hAxis: {
+                              title: 'Date',
+                              format:'MMM d, y'
+                            },
+                            vAxis: {
+                              title: 'Index'
+                            },
+                            backgroundColor: '#f1f8e9',
+                            height: 400
+                            };
+                            
+                          
+                          var chart = new google.visualization.LineChart(document.getElementById('gg'));
+                          chart.draw(data, options);
+                          
+                        }
+                        
+                </script>
         </div>
     </div>
     <!-- gg -->
     
     <!-- bd -->
-    <div class="col-sm-6 panel panel-default">
-        <!-- bd index en -->
-        <div class="row"></div>
-        <!-- /bd index en -->
-        <!-- bd index ch -->
-        <div class="row"></div>
-        <!-- /bd index ch -->
-        <!-- bd news en -->
-        <div class="row"></div>
-        <!-- /bd news en -->
-        <!-- bd news ch -->
-        <div class="row"></div>
-        <!-- /bd news ch -->
-        <!-- bd site -->
-        <div class="row"></div>
-        <!-- /bd site -->
+    <div class="panel panel-default">
+        <div class="panel-heading"><h4>Baidu Indexes</h4></div>
+        <div class="panel-body">
+                <div id="bd"></div>
+                <script type="text/javascript">
+                    google.load('visualization', '1', {packages: ['corechart', 'line']});
+                    google.setOnLoadCallback(drawBackgroundColor_bd);
+                    
+                    function drawBackgroundColor_bd() {
+                          var data = new google.visualization.DataTable();
+                          data.addColumn('date', 'month');
+                          data.addColumn('number', 'Baidu Index(CH)');
+                          data.addColumn('number', 'Baidu Index(EN)');
+                          data.addColumn('number', 'Baidu News(CH)');
+                          data.addColumn('number', 'Baidu News(EN)');
+                          data.addColumn('number', 'Baidu Site');
+                          
+                          data.addRows([
+                            {% for row in bd reversed %}
+                                [new Date("{{row.0.date.isoformat}}"), {{row.0.index}}, {{row.1.index}}, {{row.2.index}}, {{row.3.index}}, {{row.3.index}}],
+                            {% endfor %}
+                          ]);
+                    
+                          var options = {
+                            //title: 'Baidu Indexes',
+                            curveType: 'function',
+                            hAxis: {
+                              title: 'Date',
+                              format:'MMM d, y'
+                            },
+                            vAxis: {
+                              title: 'Index'
+                            },
+                            backgroundColor: '#f1f8e9',
+                            height: 400
+                            };
+                            
+                          var chart = new google.visualization.LineChart(document.getElementById('bd'));
+                          chart.draw(data, options);
+                          
+                        }
+                </script>
+            </div>
     </div>
     <!-- /bd -->
-</div>
     
-<div class="row">
-    <!-- yh -->
+    <div class="panel panel-default">
+        <div class="panel-heading"><h4>Yahoo Japan Indexes</h4></div>
+        <div class="panel-body">
+                <div id="yh"></div>
+                <script type="text/javascript">
+                    google.load('visualization', '1', {packages: ['corechart', 'line']});
+                    google.setOnLoadCallback(drawBackgroundColor_yh);
+                    
+                    function drawBackgroundColor_yh() {
+                          var data = new google.visualization.DataTable();
+                          data.addColumn('date', 'month');
+                          data.addColumn('number', 'Yahoo Index(EN)');
+                          data.addColumn('number', 'Yahoo Index(JP)');
+                          
+                          data.addRows([
+                            {% for row in bd reversed %}
+                                [new Date("{{row.0.date.isoformat}}"), {{row.0.index}}, {{row.1.index}}],
+                            {% endfor %}
+                          ]);
+                    
+                          var options = {
+                            //title: 'Baidu Indexes',
+                            curveType: 'function',
+                            hAxis: {
+                              title: 'Date',
+                              format:'MMM d, y'
+                            },
+                            vAxis: {
+                              title: 'Index'
+                            },
+                            backgroundColor: '#f1f8e9',
+                            height: 400
+                            };
+                            
+                          
+                          var chart = new google.visualization.LineChart(document.getElementById('yh'));
+                          chart.draw(data, options);
+                          
+                        }
+                    function resize() {
+                        drawBackgroundColor_gg();
+                        drawBackgroundColor_bd();
+                        drawBackgroundColor_yh();
+                        }
+                    window.onload = resize();
+                    window.onresize = resize;
+                </script>
+            </div>
+    </div>
 </div>
