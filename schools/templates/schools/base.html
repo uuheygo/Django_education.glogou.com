@@ -15,8 +15,7 @@
 <!-- Custom styles for this template -->
 {% block extra_style %} {% endblock %}
 
-
-<!-- from example 2 -->
+<link rel="stylesheet" href="/static/schools/css/jquery-ui.css">
 <!-- Bootstrap Core CSS -->
 <link href="/static/schools/css/bootstrap.min.css" rel="stylesheet">
 
@@ -42,7 +41,6 @@
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-<!-- end from example 2 -->
 
 
 </head>
@@ -91,53 +89,15 @@
           </div>
 		</div>
 	</div>
+	
 
-
-
-	<!-- from example 1 -->
-	<!-- jQuery -->
-	<script src="/static/schools/js/jquery.min.js"></script>
-
-	<!-- Bootstrap Core JavaScript -->
+	<!-- JavaScript -->
+    <script src="/static/schools/js/jquery.min.js"></script>
 	<script src="/static/schools/js/bootstrap.min.js"></script>
-	<script src="/static/schools/js/jquery.js"></script>
+<!--     <script src="/static/schools/js/jquery.js"></script> -->
     <script src="/static/schools/js/raphael.js"></script>
     <script src="/static/schools/js/jquery.usmap.js"></script>
-    <script type="text/javascript">
-        $(document).ready(function() {
-            $('#map').usmap({
-                stateStyles: {fill: '#81AC8B'},
-                stateHoverStyles: {fill: '#425957'},
-                stateHoverAnimation: 200,
-                showLabels: true,
-                click: function(event, data){
-				            $.ajax({
-				                url: "/schools/?state=" + data.name,
-				            }).done(function(data){ $('#table').replaceWith($(data)) }); // replace old school_table.html with new html
-				            $("#state_list").val(data.name);
-			            }
-            });
-            
-            $("#state_list").val("{{state}}");
-            $("#rank_list").val("{{rank_range}}");
-            
-            
-            function changeHeight() {
-			    var width = $("#map_container").width();
-			    $("#map").css({
-			        "height": 420 * width / 640
-			    });
-			}
-			window.addEventListener('resize', changeHeight);
-			changeHeight();
-        });
-        
-        function update_results(){
-	        $.ajax({
-	            url: "/schools/?keyword=" + $("#search_box").val(),
-	        }).done(function(data){ $('#table').replaceWith($(data)) }); // replace old school_table.html with new html
-        };
-    </script>
+    {% block custom_js %}{% endblock %}
 
 
 </body>

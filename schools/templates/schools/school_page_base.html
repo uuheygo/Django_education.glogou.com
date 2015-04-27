@@ -120,3 +120,50 @@
     {% block school_page_box %}{% endblock %}
 
 {% endblock%}
+
+{% block custom_js %}
+<style>
+    .ui-autocomplete {
+    	max-height: 300px;
+    	overflow-y: auto;
+    	/* prevent horizontal scrollbar */
+    	overflow-x: hidden;
+    }
+    /* IE 6 doesn't support max-height
+       * we use height instead, but this forces the menu to always be this tall
+       */
+    * html .ui-autocomplete {
+    	height: 300px;
+    }
+</style>
+<script src="/static/schools/js/jquery.js"></script>
+<script src="/static/schools/js/jquery-ui.js"></script>
+<script type="text/javascript">
+    $(function() {
+        $("#custom_selection").autocomplete({
+            source: "/schools/custom_selection/",
+            minLength: 2,
+            select: function( event, ui ) {
+                event.preventDefault();
+                var exist_list = document.getElementsByName("checked");
+                for(var i = 0; i < exist_list.length; i++) {
+                    if(exist_list[i].value == ui.item.value && exist_list[i].checked) {
+                        alert(ui.item.label + " is already selected for comparison");
+                        return;
+                    }
+                    else if(exist_list[i].value == ui.item.value) {
+                        exist_list[i].checked = true;
+                        return;
+                    }
+                }
+                $("#compare_list").append("<label> <h5><input type=\"checkbox\" name = \"checked\" value = \"" 
+                    + ui.item.value + "\" checked>" + ui.item.label + "</h5></label>");
+            },
+            focus: function(event, ui) {
+                event.preventDefault();
+                $("#custom_selection").val(ui.item.label);
+            }
+        });
+    });
+</script>
+{% endblock %}

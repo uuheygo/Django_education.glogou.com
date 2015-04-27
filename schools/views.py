@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.shortcuts import render_to_response
 from django.template import RequestContext
+from django.http import HttpResponse
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.db.models import Max
 import json
@@ -152,7 +153,27 @@ def media_view(request, school_id='0', num_days = 7):
                     'gg': gg_by_date, 'bd': bd_by_date, 'yh': yh_by_date,
                                                         })
 
-
+# auto-completion list for custom selection of schools for comparison
+def custom_selection(request):
+    if request.is_ajax():
+        text = request.GET.get('term', '').lower()
+        print text
+        result_set = get_result_set('All states', 'All')
+        results = filter_by_keyword(result_set, text)
+        
+        result_list = []
+        # format matching schools for autocomplete list
+        for school in results:
+            school_json = {}
+            school_json['label'] = school['school__name']
+            school_json['value'] = school['school__id']
+            result_list.append(school_json)
+        print result_list
+        data = json.dumps(result_list)
+    else:
+        data = 'No match'
+    mimetype = 'application/json'
+    return HttpResponse(data, mimetype)
 
 
 

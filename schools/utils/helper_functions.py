@@ -28,19 +28,23 @@ def get_result_set(state, rank_range):
 
 def filter_by_keyword(result_set, keyword):
     results = []
-    remove_list = ['University', 'of', 'College', 'Institute', 'State'] # words to ignore
+#     remove_list = ['University', 'of', 'College', 'Institute', 'State'] # words to ignore
     for school in result_set:
-        school_keywords = re.split("[, ]", school['school__name']) # split the keyword using ',' and ' '
-        for word in remove_list: # remove meaningless words defined in remove_list
-            try:
-                school_keywords.remove(word)
-            except:
-                pass
-            
-            # select schools whose keywords start with the input text
-        for word in school_keywords:
-            if word.lower().startswith(keyword):
-                results.append(school)
+#         school_keywords = re.split("[, ]", school['school__name']) # split the keyword using ',' and ' '
+#         for word in remove_list: # remove meaningless words defined in remove_list
+#             try:
+#                 school_keywords.remove(word)
+#             except:
+#                 pass
+#             
+#             # select schools whose keywords start with the input text
+#         for word in school_keywords:
+#             if word.lower().startswith(keyword):
+#                 results.append(school)
+        if keyword.lower() in school['school__name'].lower():
+            print school['school__name']
+            results.append(school)
+    print results
     return results
         
 def get_latest_indexes_for_school_view(school):

@@ -20,5 +20,6 @@ urlpatterns = [
     url(r'^schools/school_id=(?P<school_id>\d+)/news/$', 
         'schools.views.news_view', name = 'school_news'),
     url(r'^schools/school_id=(?P<school_id>\d+)/report/$', 
-        'schools.views.report_view', name = 'school_report')
+        'schools.views.report_view', name = 'school_report'),
+    url(r'^schools/custom_selection/$', 'schools.views.custom_selection', name = 'custom_selection'),
 ]
