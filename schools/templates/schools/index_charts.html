@@ -1,146 +1,26 @@
-<div class="row">
+<div class="row">    
     <!-- gg -->
+    
     <div class="panel panel-default">
-        <div class="panel-heading"><h4>Google Indexes</h4></div>
-        <div class="panel-body">
-                <div id="gg"></div>
-                <script type="text/javascript">
-                    google.load('visualization', '1', {packages: ['corechart', 'line']});
-                    google.setOnLoadCallback(drawBackgroundColor_gg);
-                    
-                    function drawBackgroundColor_gg() {
-                          var data = new google.visualization.DataTable();
-                          data.addColumn('date', 'month');
-                          data.addColumn('number', 'Google Index(EN)');
-                          data.addColumn('number', 'Google Index(HK)');
-                          data.addColumn('number', 'Google News');
-                          data.addColumn('number', 'Google Site');
-                          
-                          data.addRows([
-                            {% for row in gg reversed %}
-                                [new Date("{{row.0.date.isoformat}}"), {{row.0.index}}, {{row.1.index}}, {{row.2.index}}, {{row.3.index}}],
-                            {% endfor %}
-                          ]);
-                    
-                          var options = {
-                            //title: 'Google Indexes',
-                            curveType: 'function',
-                            hAxis: {
-                              title: 'Date',
-                              format:'MMM d, y'
-                            },
-                            vAxis: {
-                              title: 'Index'
-                            },
-                            backgroundColor: '#f1f8e9',
-                            height: 400
-                            };
-                            
-                          
-                          var chart = new google.visualization.LineChart(document.getElementById('gg'));
-                          chart.draw(data, options);
-                          
-                        }
-                        
-                </script>
+        <div class="panel-heading">
+          <div class="dropdown pull-right">
+            <button id="selected_period" class="btn btn-default dropdown-toggle" type="button" id="chart_period" data-toggle="dropdown">Select Period
+            <span class="caret"></span></button>
+            <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+              <li role="presentation"><a role="menuitem" tabindex="-1" href="/schools/school_id={{school.id}}/media/?num_days=7">last 7 days</a></li>
+              <li role="presentation"><a role="menuitem" tabindex="-1" href="/schools/school_id={{school.id}}/media/?num_days=30">last 30 days</a></li>
+              <li role="presentation"><a role="menuitem" tabindex="-1" href="/schools/school_id={{school.id}}/media/?num_days=180">last 180 days</a></li>
+            </ul>
+          </div>
+            <h3>Media Indexes - Last {{num_days}} days</h3>
         </div>
+        
+        {% include 'schools/gg_index_chart.html' %}
+        {% include 'schools/bd_index_chart.html' %}
+        {% include 'schools/yh_index_chart.html' %}
     </div>
-    <!-- gg -->
     
-    <!-- bd -->
-    <div class="panel panel-default">
-        <div class="panel-heading"><h4>Baidu Indexes</h4></div>
-        <div class="panel-body">
-                <div id="bd"></div>
-                <script type="text/javascript">
-                    google.load('visualization', '1', {packages: ['corechart', 'line']});
-                    google.setOnLoadCallback(drawBackgroundColor_bd);
-                    
-                    function drawBackgroundColor_bd() {
-                          var data = new google.visualization.DataTable();
-                          data.addColumn('date', 'month');
-                          data.addColumn('number', 'Baidu Index(CH)');
-                          data.addColumn('number', 'Baidu Index(EN)');
-                          data.addColumn('number', 'Baidu News(CH)');
-                          data.addColumn('number', 'Baidu News(EN)');
-                          data.addColumn('number', 'Baidu Site');
-                          
-                          data.addRows([
-                            {% for row in bd reversed %}
-                                [new Date("{{row.0.date.isoformat}}"), {{row.0.index}}, {{row.1.index}}, {{row.2.index}}, {{row.3.index}}, {{row.3.index}}],
-                            {% endfor %}
-                          ]);
-                    
-                          var options = {
-                            //title: 'Baidu Indexes',
-                            curveType: 'function',
-                            hAxis: {
-                              title: 'Date',
-                              format:'MMM d, y'
-                            },
-                            vAxis: {
-                              title: 'Index'
-                            },
-                            backgroundColor: '#f1f8e9',
-                            height: 400
-                            };
-                            
-                          var chart = new google.visualization.LineChart(document.getElementById('bd'));
-                          chart.draw(data, options);
-                          
-                        }
-                </script>
-            </div>
-    </div>
-    <!-- /bd -->
+    <script  type="text/javascript">
     
-    <div class="panel panel-default">
-        <div class="panel-heading"><h4>Yahoo Japan Indexes</h4></div>
-        <div class="panel-body">
-                <div id="yh"></div>
-                <script type="text/javascript">
-                    google.load('visualization', '1', {packages: ['corechart', 'line']});
-                    google.setOnLoadCallback(drawBackgroundColor_yh);
-                    
-                    function drawBackgroundColor_yh() {
-                          var data = new google.visualization.DataTable();
-                          data.addColumn('date', 'month');
-                          data.addColumn('number', 'Yahoo Index(EN)');
-                          data.addColumn('number', 'Yahoo Index(JP)');
-                          
-                          data.addRows([
-                            {% for row in bd reversed %}
-                                [new Date("{{row.0.date.isoformat}}"), {{row.0.index}}, {{row.1.index}}],
-                            {% endfor %}
-                          ]);
-                    
-                          var options = {
-                            //title: 'Baidu Indexes',
-                            curveType: 'function',
-                            hAxis: {
-                              title: 'Date',
-                              format:'MMM d, y'
-                            },
-                            vAxis: {
-                              title: 'Index'
-                            },
-                            backgroundColor: '#f1f8e9',
-                            height: 400
-                            };
-                            
-                          
-                          var chart = new google.visualization.LineChart(document.getElementById('yh'));
-                          chart.draw(data, options);
-                          
-                        }
-                    function resize() {
-                        drawBackgroundColor_gg();
-                        drawBackgroundColor_bd();
-                        drawBackgroundColor_yh();
-                        }
-                    window.onload = resize();
-                    window.onresize = resize;
-                </script>
-            </div>
-    </div>
+    </script>
 </div>

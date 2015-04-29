@@ -7,7 +7,7 @@ from django.db.models import Max
 import json
 
 from utils.helper_functions import get_latest_indexes_for_school_view, get_result_set, filter_by_keyword, \
-    get_race_percentages
+    get_race_percentages, get_gg_index, get_bd_index, get_yh_index, get_all_indexes
 
 from schools.models import School, SchoolInforYearly, SchoolsComparisonId, \
     BaiduIndexCh, BaiduIndexEn, BaiduNewsEn, BaiduNewsCh, BaiduSite, \
@@ -109,55 +109,35 @@ def info_view(request, school_id = '0'):
                     'full_time': full_time, 'part_time': part_time,
                     })
 
-def media_view(request, school_id='0', num_days = 7):
+def media_view(request, school_id='0'):
     school_id = int(school_id)
-    
-    if not request.is_ajax():
-        school = School.objects.get(id=school_id)
-        school_infor = school.schoolinforyearly_set.filter(year=latest_year)
-        comparison_list = school.school_to_compare.all()
-    
+    num_days = '7'
+    if request.GET.get('num_days'):
+        num_days = request.GET.get('num_days')
+    num_days = int(num_days)
+    school = School.objects.get(id=school_id)
+    school_infor = school.schoolinforyearly_set.filter(year=latest_year)
+    comparison_list = school.school_to_compare.all()
     
     # ---default media indexes are latest 7 days
     # gg
-    gg = [None] * 4
-    gg[0] = GoogleIndexEn.objects.filter(school=int(school_id)).order_by('-date')[:num_days] # gg index en
-    gg[1] = GoogleIndexHk.objects.filter(school=int(school_id)).order_by('-date')[:num_days] # gg index hk
-    gg[2] = GoogleNews.objects.filter(school=int(school_id)).order_by('-date')[:num_days] # gg news
-    gg[3] = GoogleSite.objects.filter(school=int(school_id)).order_by('-date')[:num_days] # gg site
-    gg_by_date = [[a, b, c, d] for a, b, c, d in zip(gg[0], gg[1], gg[2], gg[3])]
-    
+    gg_by_date = get_gg_index(school_id, num_days)
     # bd
-    bd = [None] * 5
-    bd[0] = BaiduIndexCh.objects.filter(school=int(school_id)).order_by('-date')[:num_days] # bd index ch
-    bd[1] = BaiduIndexEn.objects.filter(school=int(school_id)).order_by('-date')[:num_days] # bd index en
-    bd[2] = BaiduNewsCh.objects.filter(school=int(school_id)).order_by('-date')[:num_days] # bd news ch
-    bd[3] = BaiduNewsEn.objects.filter(school=int(school_id)).order_by('-date')[:num_days] # bd news en
-    bd[4] = BaiduSite.objects.filter(school=int(school_id)).order_by('-date')[:num_days] # bd site
-    bd_by_date = [[a, b, c, d, e] for a, b, c, d, e in zip(bd[0], bd[1], bd[2], bd[3], bd[4])]
-    
+    bd_by_date = get_bd_index(school_id, num_days)
     # yh
-    yh = [None] * 2
-    yh[0] = YahoojapIndexEn.objects.filter(school=int(school_id)).order_by('-date')[:num_days] # yh index en
-    yh[1] = YahoojapIndexJp.objects.filter(school=int(school_id)).order_by('-date')[:num_days] # yh index jp
-    yh_by_date = [[a, b] for a, b in zip(yh[0], yh[1])]
-    
-    ############# not done: ajax call to use custom media index period
-    if request.is_ajax():
-        return render(request, 'schools/index_charts.html', {
-                    'gg': gg, 'bd': bd, 'yh': yh,
-                    })
-    
+    yh_by_date = get_yh_index(school_id, num_days)
+    for row in gg_by_date:
+        print row[0].date, row[0].index
     return render(request, 'schools/school_media.html', {'school': school, 
                     'school_infor': school_infor, 'comparison_list': comparison_list,
                     'gg': gg_by_date, 'bd': bd_by_date, 'yh': yh_by_date,
+                    'num_days': num_days,
                                                         })
 
 # auto-completion list for custom selection of schools for comparison
 def custom_selection(request):
     if request.is_ajax():
         text = request.GET.get('term', '').lower()
-        print text
         result_set = get_result_set('All states', 'All')
         results = filter_by_keyword(result_set, text)
         
@@ -168,7 +148,6 @@ def custom_selection(request):
             school_json['label'] = school['school__name']
             school_json['value'] = school['school__id']
             result_list.append(school_json)
-        print result_list
         data = json.dumps(result_list)
     else:
         data = 'No match'
@@ -176,4 +155,21 @@ def custom_selection(request):
     return HttpResponse(data, mimetype)
 
 
+# compare media index of selected schools
+def compare_view(request):
+    num_days = '7' # default period
+    if request.GET.get('num_days'): # custom selected period
+        num_days = request.GET.get('num_days')
+    num_days = int(num_days)
+    
+    school_ids = request.GET.values()
+    school_dict = {} # store dict of school vs list of index
+    for school_id in school_ids:
+        school_id = int(school_id)
+        school = School.objects.get(id=school_id)
+        index_list = get_all_indexes(school_id, num_days) # contain all indexes in the period gg, bd, yh
+        school_dict[school] = index_list
+    for school in school_dict:
+        print school
+    return render(request, 'schools/school_compare.html', school_dict)
 

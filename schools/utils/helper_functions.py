@@ -24,7 +24,7 @@ def get_result_set(state, rank_range):
         start, end = [int(elem) for elem in rank_range.split('-')]
         result_set = all_schools.filter(overall_rank__lte=end, overall_rank__gte=start, \
                                         school__state_short=state)
-    return result_set
+    return result_set # not a dict of School objs but of selected fields of School objs
 
 def filter_by_keyword(result_set, keyword):
     results = []
@@ -42,9 +42,9 @@ def filter_by_keyword(result_set, keyword):
 #             if word.lower().startswith(keyword):
 #                 results.append(school)
         if keyword.lower() in school['school__name'].lower():
-            print school['school__name']
+            #print school['school__name']
             results.append(school)
-    print results
+    #print results
     return results
         
 def get_latest_indexes_for_school_view(school):
@@ -95,3 +95,45 @@ def get_race_percentages(school_infor):
     if school_infor.enroll_nonresidentalien_percentage is not None:
         race_per[7] = int(school_infor.enroll_nonresidentalien_percentage[:-1])
     return race_per
+
+# get google index for school in the period of last num_days days
+def get_gg_index(school_id, num_days):
+    gg = [None] * 4
+    gg[0] = GoogleIndexEn.objects.filter(school=int(school_id)).order_by('-date')[:num_days] # gg index en
+    gg[1] = GoogleIndexHk.objects.filter(school=int(school_id)).order_by('-date')[:num_days] # gg index hk
+    gg[2] = GoogleNews.objects.filter(school=int(school_id)).order_by('-date')[:num_days] # gg news
+    gg[3] = GoogleSite.objects.filter(school=int(school_id)).order_by('-date')[:num_days] # gg site
+    return [[a, b, c, d] for a, b, c, d in zip(gg[0], gg[1], gg[2], gg[3])]
+    
+# get baidu index for school in the period of last num_days days
+def get_bd_index(school_id, num_days):
+    bd = [None] * 5
+    bd[0] = BaiduIndexCh.objects.filter(school=int(school_id)).order_by('-date')[:num_days] # bd index ch
+    bd[1] = BaiduIndexEn.objects.filter(school=int(school_id)).order_by('-date')[:num_days] # bd index en
+    bd[2] = BaiduNewsCh.objects.filter(school=int(school_id)).order_by('-date')[:num_days] # bd news ch
+    bd[3] = BaiduNewsEn.objects.filter(school=int(school_id)).order_by('-date')[:num_days] # bd news en
+    bd[4] = BaiduSite.objects.filter(school=int(school_id)).order_by('-date')[:num_days] # bd site
+    return [[a, b, c, d, e] for a, b, c, d, e in zip(bd[0], bd[1], bd[2], bd[3], bd[4])]
+        
+# get yahoo index for school in the period of last num_days days
+def get_yh_index(school_id, num_days):
+    yh = [None] * 2
+    yh[0] = YahoojapIndexEn.objects.filter(school=int(school_id)).order_by('-date')[:num_days] # yh index en
+    yh[1] = YahoojapIndexJp.objects.filter(school=int(school_id)).order_by('-date')[:num_days] # yh index jp
+    return [[a, b] for a, b in zip(yh[0], yh[1])]
+    
+# get all indexes of selected period for a School
+def get_all_indexes(school_id, num_days):
+    indexes = [None] * 11
+    indexes[0] = GoogleIndexEn.objects.filter(school=school_id).order_by('-date')[:num_days] # gg index en
+    indexes[1] = GoogleIndexHk.objects.filter(school=school_id).order_by('-date')[:num_days] # gg index hk
+    indexes[2] = GoogleNews.objects.filter(school=school_id).order_by('-date')[:num_days] # gg news
+    indexes[3] = GoogleSite.objects.filter(school=school_id).order_by('-date')[:num_days] # gg site
+    indexes[4] = BaiduIndexCh.objects.filter(school=school_id).order_by('-date')[:num_days] # bd index ch
+    indexes[5] = BaiduIndexEn.objects.filter(school=school_id).order_by('-date')[:num_days] # bd index en
+    indexes[6] = BaiduNewsCh.objects.filter(school=school_id).order_by('-date')[:num_days] # bd news ch
+    indexes[7] = BaiduNewsEn.objects.filter(school=school_id).order_by('-date')[:num_days] # bd news en
+    indexes[8] = BaiduSite.objects.filter(school=school_id).order_by('-date')[:num_days] # bd site
+    indexes[9] = YahoojapIndexEn.objects.filter(school=school_id).order_by('-date')[:num_days] # yh index en
+    indexes[10] = YahoojapIndexJp.objects.filter(school=school_id).order_by('-date')[:num_days] # yh index jp
+    return indexes

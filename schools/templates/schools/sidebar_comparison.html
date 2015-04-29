@@ -2,7 +2,7 @@
     <div class="sidebar-nav">
         <div class="nav" id="side-menu">
             <!-- search box -->
-            <div style="margin-left: 15px;"><h4>Add More Schools</h4></div>
+            <div style="margin-left: 10px;"><h4>Add Schools for Comparison</h4></div>
             <div class="sidebar-search">
                 <div class="input-group custom-search-form ui-front">
                     <input id="custom_selection" type="text" class="form-control ui-widget" placeholder="Add More by Name...">
@@ -13,13 +13,14 @@
             
             <!-- recommeded schools -->
             <hr>
-            <div style="margin-left: 15px;"><h4>Schools for Comparison:</h4></div>
+            <div style="margin-left: 10px;"><h4>Schools for Comparison:</h4></div>
             <div>
                     <div style="padding-left:20px;">
-                        <form role="form">
-                            <div id="compare_list" class="checkbox" action="/schools/compare/" method="get">
+                        <form role="form" action="/schools/compare/" method="get">
+                            <div id="compare_list" class="checkbox">
+                                <label><h5><input type="checkbox" name = "checked_{{school.id}}" value = "{{school.id}}" onclick="this.checked=true" checked>{{school.name}}</h5></label>
                                 {% for school in comparison_list %}
-                                <label> <h5><input type="checkbox" name = "checked" value = "{{school.school_compare.id}}">
+                                <label><h5><input type="checkbox" name = "checked_{{school.school_compare.id}}" value = "{{school.school_compare.id}}">
                                     {{school.school_compare.name}}</h5></label>
                                 <!-- in backend, do some_var = request.POST.getlist('checked') -->
                                 {% endfor %}

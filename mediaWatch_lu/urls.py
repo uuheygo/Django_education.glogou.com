@@ -21,5 +21,6 @@ urlpatterns = [
         'schools.views.news_view', name = 'school_news'),
     url(r'^schools/school_id=(?P<school_id>\d+)/report/$', 
         'schools.views.report_view', name = 'school_report'),
-    url(r'^schools/custom_selection/$', 'schools.views.custom_selection', name = 'custom_selection'),
+    url(r'^schools/compare/$', 'schools.views.compare_view', name = 'school_comparison'),
+    url(r'^schools/custom_selection/$', 'schools.views.custom_selection', name = 'custom_selection'), # custom selection of schools
 ]

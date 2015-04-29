@@ -145,7 +145,11 @@
             minLength: 2,
             select: function( event, ui ) {
                 event.preventDefault();
-                var exist_list = document.getElementsByName("checked");
+                var exist_list = document.getElementById("compare_list").getElementsByTagName("input");
+                if(ui.item.value == "{{school.id}}") {
+                    alert(ui.item.label + " is the school being compared with");
+                    return;
+                }
                 for(var i = 0; i < exist_list.length; i++) {
                     if(exist_list[i].value == ui.item.value && exist_list[i].checked) {
                         alert(ui.item.label + " is already selected for comparison");
@@ -164,6 +168,7 @@
                 $("#custom_selection").val(ui.item.label);
             }
         });
+        
     });
 </script>
 {% endblock %}

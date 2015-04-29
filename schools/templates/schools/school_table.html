@@ -13,7 +13,7 @@
         <ul class="pagination" style="style="text-align: center;">
             
             {% for page_num in page_range %}
-                <li><a href="/schools/page={{page_num}}/">{{page_num}}</a></li>
+                <li id="page_{{page_num}}"><a href="/schools/page={{page_num}}/">{{page_num}}</a></li>
             {% endfor %}
             
         </ul>
