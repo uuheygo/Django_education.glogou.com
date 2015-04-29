@@ -137,3 +137,27 @@ def get_all_indexes(school_id, num_days):
     indexes[9] = YahoojapIndexEn.objects.filter(school=school_id).order_by('-date')[:num_days] # yh index en
     indexes[10] = YahoojapIndexJp.objects.filter(school=school_id).order_by('-date')[:num_days] # yh index jp
     return indexes
+
+# convert list per school to list per chart
+def convert_to_chart_data(list_per_school):
+    list_for_chart = []
+    for i in range(0, len(list_per_school[0])):
+        temp_list = []
+        for j in range(0, len(list_per_school)):
+            temp_list.append(list_per_school[j][i])
+        list_for_chart.append(temp_list)
+
+    list_per_chart = []
+    for one_list in list_for_chart:
+        list_for_day = []
+        for i in range(0, len(one_list[0])):
+            list_per_day = []
+            for j in range(0, len(one_list)):
+                list_per_day.append(one_list[j][i])
+            list_for_day.append(list_per_day)
+        list_per_chart.append(list_for_day)
+    
+#     for elem in list_per_chart:
+#         print elem
+            
+    return list_per_chart

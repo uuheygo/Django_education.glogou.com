@@ -16,7 +16,7 @@
             <div style="margin-left: 10px;"><h4>Schools for Comparison:</h4></div>
             <div>
                     <div style="padding-left:20px;">
-                        <form role="form" action="/schools/compare/" method="get">
+                        <form role="form" action="/schools/school_id={{school.id}}/compare/" method="get">
                             <div id="compare_list" class="checkbox">
                                 <label><h5><input type="checkbox" name = "checked_{{school.id}}" value = "{{school.id}}" onclick="this.checked=true" checked>{{school.name}}</h5></label>
                                 {% for school in comparison_list %}

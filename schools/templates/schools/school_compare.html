@@ -1,16 +1,139 @@
 {% extends "schools/base.html" %} 
+{% load index %}
 
 {% block content %}
+<div class="row">
+    <h3>Compare Media Indexes of <b><a href="/schools/school_id={{this_school.id}}/">{{this_school.name}}</a></b> with Selected Schools</h3>
+    <hr>
+    <h4>
+        {% for school in selected_schools %}
+            <<a href="/schools/school_id={{school.id}}/">{{school.name}}</a>>
+        {% endfor %}
+    </h4>
+    <hr>
+</div>
+<div class="row">
+          <div class="dropdown">
+            <button id="selected_period" class="btn btn-default dropdown-toggle" type="button" id="chart_period" data-toggle="dropdown">Select Period
+            <span class="caret"></span></button>
+            <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+              <li role="presentation"><a role="menuitem" tabindex="-1" onclick="redirectTo(7)">last 7 days</a></li>
+              <li role="presentation"><a role="menuitem" tabindex="-1" onclick="redirectTo(30)">last 30 days</a></li>
+              <li role="presentation"><a role="menuitem" tabindex="-1" onclick="redirectTo(180)">last 180 days</a></li>
+            </ul>
+          </div>
+</div>
+<hr>
+<!-- gg -->
+<div class="row">
+    <div class="panel panel-default">
+        <div class="panel-heading"><h4><b>Google Indexes - Last {{num_days}} days</b></h4></div>
+        <div class="panel-body">
+            <div class="col-sm-6" style="margin-bottom: 10px;"><div id="index_0"></div></div>
+            <div class="col-sm-6" style="margin-bottom: 10px;"><div id="index_1"></div></div>
+            <div class="col-sm-6" style="margin-bottom: 10px;"><div id="index_2"></div></div>
+            <div class="col-sm-6" style="margin-bottom: 10px;"><div id="index_3"></div></div>
+        </div>
+    </div>
+</div>
+<!-- /gg -->
 
+<!-- bd -->
+<div class="row">
+    <div class="panel panel-default">
+        <div class="panel-heading"><h4><b>Baidu Indexes - Last {{num_days}} days</b></h4></div>
+        <div class="panel-body">
+            <div class="col-sm-6" style="margin-bottom: 10px;"><div id="index_4"></div></div>
+            <div class="col-sm-6" style="margin-bottom: 10px;"><div id="index_5"></div></div>
+            <div class="col-sm-6" style="margin-bottom: 10px;"><div id="index_6"></div></div>
+            <div class="col-sm-6" style="margin-bottom: 10px;"><div id="index_7"></div></div>
+            <div class="col-sm-6" style="margin-bottom: 10px;"><div id="index_8"></div></div>
+        </div>
+    </div>
+</div>
+<!-- /bd -->
 
+<!-- yh -->
+<div class="row">
+    <div class="panel panel-default">
+        <div class="panel-heading"><h4><b>Yahoo Japan Indexes - Last {{num_days}} days</b></h4></div>
+        <div class="panel-body">
+            <div class="col-sm-6" style="margin-bottom: 10px;"><div id="index_9"></div></div>
+            <div class="col-sm-6" style="margin-bottom: 10px;"><div id="index_10"></div></div>
+        </div>
+    </div>
+</div>
+<!-- /yh -->
 
 {% endblock %}
 
 {% block custom_js %}
 <script type="text/javascript">
     $(function() {
-        console.log('change');
         $("#page-wrapper").css('margin-left', '0px');
     })
+</script>
+
+<script type="text/javascript">
+    google.load('visualization', '1', {packages: ['corechart', 'line']});
+    google.setOnLoadCallback(drawBackgroundColor);
+    
+    function drawBackgroundColor() {
+      var data = []; // 11 in total corresponding to different indexes
+      var index_name = ["gg index en", "gg index hk", "gg news","gg site", 
+            "bd index ch", "bd index en", "bd news ch", "bd news en", "bd site", "yh index en", "yh index jp"];
+      for(var i = 0; i < 11; i++) {
+          data[i] = new google.visualization.DataTable();
+          data[i].addColumn('date', 'month');
+          {% for name in name_list %}
+            data[i].addColumn('number', '{{name}}');
+          {% endfor %}
+      }
+      
+      {% for list in index_list %}
+      data[{{forloop.counter0}}].addRows([
+          {% for row in list reversed %}
+          [new Date("{{row.0.date.isoformat}}".replace("-", ", ")), 
+            {% for entry in row %}
+                {{entry.index}},
+            {% endfor %}
+          ],
+          {% endfor %}
+      ])
+      
+      var options = {
+        title: index_name[{{forloop.counter0}}],
+        titleTextStyle: {fontSize: 15},
+        legend: {position: 'top', maxLines: 3},
+        //curveType: 'function',
+        hAxis: {
+          title: 'Date',
+          format:'M/d/y',
+          titleTextStyle: {fontSize: 15},
+        },
+        vAxis: {
+          title: 'Index',
+          titleTextStyle: {fontSize: 15},
+        },
+        backgroundColor: '#f1f8e9',
+        //height: 200,
+        width: '100%',
+        pointSize: 7,
+        };
+        
+      var chart{{forloop.counter0}} = new google.visualization.LineChart(document.getElementById('index_{{forloop.counter0}}'));
+      chart{{forloop.counter0}}.draw(data[{{forloop.counter0}}], options);
+      {% endfor %}
+      
+    };
+    
+    $(window).resize(function(){
+        drawBackgroundColor();
+    });
+    
+    function redirectTo(num_days) {
+        currURL = document.URL;
+        window.location = currURL + "&num_days=" + num_days;
+    }
 </script>
 {% endblock %}
