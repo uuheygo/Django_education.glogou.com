@@ -92,7 +92,7 @@
       {% for list in index_list %}
       data[{{forloop.counter0}}].addRows([
           {% for row in list reversed %}
-          [new Date("{{row.0.date.isoformat}}".replace("-", ", ")), 
+          [new Date("{{row.0.date}}"), 
             {% for entry in row %}
                 {{entry.index}},
             {% endfor %}
