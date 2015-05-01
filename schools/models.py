@@ -19,6 +19,8 @@ class School(models.Model):
     state_full = models.CharField(max_length=45)
     state_short = models.CharField(max_length=45, blank=True, null=True)
     logo_url = models.CharField(max_length=200, blank=True, null=True)
+    facebook_url = models.CharField(max_length=200, blank=True, null=True)
+    twitter_url = models.CharField(max_length=200, blank=True, null=True)
     phone = models.CharField(max_length=45, blank=True, null=True)
     profile = models.TextField(blank=True, null=True)
     forbes_url = models.CharField(max_length=200)

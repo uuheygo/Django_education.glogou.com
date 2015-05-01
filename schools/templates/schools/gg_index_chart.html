@@ -14,8 +14,7 @@
                           
                           data.addRows([
                             {% for row in gg reversed %}
-                                [new Date("{{row.0.date.isoformat}}".replace("-", ", ")), {{row.0.index}}, 
-                                    {{row.1.index}}, {{row.2.index}}, {{row.3.index}}],
+                                [new Date("{{row.0.date.isoformat}}".replace("-", ", ")), {{row.0.index}}, {{row.1.index}}, {{row.2.index}}, {{row.3.index}}],
                             {% endfor %}
                           ]);
                     
