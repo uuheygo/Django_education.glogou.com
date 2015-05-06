@@ -1,5 +1,6 @@
 {% extends "schools/base.html" %} 
 {% block title%}{{school.name}}{%endblock %}
+{% load strip_space %}
 
 <!-- sidebar -->
 {% block sidebar %}
@@ -33,7 +34,7 @@
                         </div>
                     </div>
                 </div>
-                <a href="/schools/school_id={{school.id}}/media/">
+                <a href="/schools/school_id={{school.id}}/{{school.name|lower|nospace}}/media/">
                     <div class="panel-footer">
                         <span class="pull-left">View Details</span> <span
                             class="glyphicon glyphicon-arrow-right pull-right"></span>
@@ -57,7 +58,7 @@
                         </div>
                     </div>
                 </div>
-                <a href="/schools/school_id={{school.id}}/info/">
+                <a href="/schools/school_id={{school.id}}/{{school.name|lower|nospace}}/info/">
                     <div class="panel-footer">
                         <span class="pull-left">View Details</span> <span
                             class="glyphicon glyphicon-arrow-right pull-right"></span>
@@ -81,7 +82,7 @@
                         </div>
                     </div>
                 </div>
-                <a href="/schools/school_id={{school.id}}/news/">
+                <a href="/schools/school_id={{school.id}}/{{school.name|lower|nospace}}/news/">
                     <div class="panel-footer">
                         <span class="pull-left">View Details</span> <span
                             class="glyphicon glyphicon-arrow-right pull-right"></span>
@@ -105,7 +106,7 @@
                         </div>
                     </div>
                 </div>
-                <a href="/schools/school_id={{school.id}}/report/">
+                <a href="/schools/school_id={{school.id}}/{{school.name|lower|nospace}}/report/">
                     <div class="panel-footer">
                         <span class="pull-left">View Details</span> <span
                             class="glyphicon glyphicon-arrow-right pull-right"></span>
