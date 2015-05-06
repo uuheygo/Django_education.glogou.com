@@ -4,15 +4,21 @@ from django.template import RequestContext
 from django.http import HttpResponse
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.db.models import Max
+from django.core.mail import send_mail
+from django.http.response import HttpResponseRedirect
 import json
 
 from utils.helper_functions import get_latest_indexes_for_school_view, get_result_set, filter_by_keyword, \
-    get_race_percentages, get_gg_index, get_bd_index, get_yh_index, get_all_indexes, convert_to_chart_data
+    get_race_percentages, get_gg_index, get_bd_index, get_yh_index, get_all_indexes, convert_to_chart_data, \
+    get_data_col
 
-from schools.models import School, SchoolInforYearly, SchoolsComparisonId, \
+from .models import School, SchoolInforYearly, SchoolsComparisonId, \
     BaiduIndexCh, BaiduIndexEn, BaiduNewsEn, BaiduNewsCh, BaiduSite, \
     GoogleIndexEn, GoogleIndexHk, GoogleNews, GoogleSite,\
     YahoojapIndexEn, YahoojapIndexJp
+    
+from .forms import ContactForm
+
 
 latest_year = SchoolInforYearly.objects.aggregate(Max('year'))['year__max']
 latest_date = BaiduIndexCh.objects.aggregate(Max('date'))['date__max']
@@ -57,7 +63,7 @@ def school_view(request, school_id = '0'):
     school = School.objects.get(id=school_id)
     school_infor = school.schoolinforyearly_set.filter(year=latest_year)
     result_set = get_latest_indexes_for_school_view(school) # all latest indexes
-    
+    print result_set
     comparison_list = school.school_to_compare.all()
     return render(request, 'schools/school_page.html', 
                   {'school': school, 'school_infor': school_infor, 
@@ -169,6 +175,7 @@ def compare_view(request, this_id=''):
         if checked != 'num_days':
             school_ids.append(request.GET[checked])
     #print school_ids
+    # get line chart data
     name_list = [] # store selected school names for lookup
     index_list = [] # store index list of each school, one to one with name_list
     selected_schools = [] # selected schools for comparison
@@ -185,7 +192,46 @@ def compare_view(request, this_id=''):
 #     print school_dict['United States Military Academy']
     
     index_list = convert_to_chart_data(index_list)
+    
+    # get column chart data
+    data_sets_col = get_data_col(school_ids)
+    #print data_sets_col
     return render(request, 'schools/school_compare.html', {'this_school': this_school, 
                     'name_list': name_list, 'index_list': index_list, 'num_days': num_days,
-                    'selected_schools': selected_schools,})
+                    'data_sets_col': data_sets_col, 'selected_schools': selected_schools,
+                    'latest_date': latest_date,})
 
+def news_view(request, school_id):
+    return render(request, 'schools/under_construction.html')
+
+def report_view(request, school_id):
+    return render(request, 'schools/under_construction.html')
+
+# contact form
+def contact_view(request):
+    if request.method == 'POST':
+        form = ContactForm(request.POST)
+        if form.is_valid(): # validate form fields
+            subject = form.cleaned_data['subject']
+            name = form.cleaned_data['name']
+            email = form.cleaned_data['email']
+            message = form.cleaned_data['message']
+            cc_myself = form.cleaned_data['cc_myself']
+            
+            recipients = ['pengluustc@gmail.com', 'lupengscu@gmail.com']
+        
+        if cc_myself:
+            recipients.append(email)
+            
+        send_mail(subject, message, email, recipients)
+        return HttpResponseRedirect('/schools/thanks/')
+    
+    form = ContactForm()
+    return render(request, 'schools/contact_us.html', {'form': form})
+    
+    
+    
+    
+    
+    
+    

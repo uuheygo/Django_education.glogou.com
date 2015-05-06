@@ -1,0 +1,78 @@
+{% extends "schools/base.html" %} 
+
+
+{% block content %}
+<div class="" style="margin-left:10%; margin-right:10%; margin-top: 15px;">
+    <div class="panel panel-default">
+    <div class="panel-heading"><h3>Contact Us</h3></div>
+    <div class="panel-body">
+        <div class="col-lg-6">
+            <form action="/schools/contact_us/" method="post">
+        <!--         <div class="form-group"> -->
+        <!--             {% csrf_token %} -->
+        <!--             {{form.as_p}} -->
+        <!--             <input type="submit" value="Submit"/> -->
+        <!--         </div> -->
+                {% csrf_token %}
+                {{ form.non_field_errors }}
+                <div class="fieldWrapper" style="margin-left:15px;">
+                    {{ form.subject.errors }}
+                    <div class="row"><label for="{{ form.subject.id_for_label }}">*Subject:</label></div>
+                    <div class="row">{{ form.subject }}</div>
+                </div>
+                
+                <div class="fieldWrapper" style="margin-left:15px;">
+                    {{ form.name.errors }}
+                    <div class="row"><label for="{{ form.name.id_for_label }}">*Name:</label></div>
+                    <div class="row">{{ form.name }}</div>
+                </div>
+                
+                <div class="fieldWrapper" style="margin-left:15px;">
+                    {{ form.email.errors }}
+                    <div class="row"><label for="{{ form.email.id_for_label }}">*Email:</label></div>
+                    <div class="row">{{ form.email }}</div>
+                </div>
+                
+                <div class="fieldWrapper" style="margin-left:15px;">
+                    {{ form.message.errors }}
+                    <div class="row"><label for="{{ form.message.id_for_label }}">*Your message:</label></div>
+                    <div class="row">{{ form.message }}</div>
+                </div>
+                
+                <div class="fieldWrapper" style="margin-left:15px;">
+                    {{ form.cc_myself.errors }}
+                    <div class="checkbox">{{ form.cc_myself }}<label for="{{ form.cc_myself.id_for_label }}">CC yourself?</label></div>
+                </div>
+                <div class="fieldWrapper" style="margin-left:15px;"><input type="submit" value="Submit"/></div>
+            </form>
+        </div>
+        <div class="col-lg-6">
+            <h3><b>Office</b></h3>
+            <p>2068 Walsh Ave, Suite C<br>
+            Santa Clara, CA, 95050<br>
+            U.S.A.
+            </p>
+            
+            <h3><b>Support and Sales</b></h3>
+            <p>
+            EMAIL: help@glogou.com<br>
+            SKYPE ID: glogou1<br>
+            HOTLINE: (508) 309-2110
+            </p>
+        </div>
+    </div>
+    </div>
+</div>
+
+
+
+{% endblock %}
+
+{% block custom_js %}
+<script type="text/javascript">
+    $(function() {
+        $("#page-wrapper").css('margin-left', '0px');
+        $("#link_contact").addClass("active");
+    })
+</script>
+{% endblock %}

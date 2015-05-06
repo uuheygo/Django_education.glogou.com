@@ -29,9 +29,16 @@
         <div class="panel-heading"><h4><b>Google Indexes - Last {{num_days}} days</b></h4></div>
         <div class="panel-body">
             <div class="col-sm-6" style="margin-bottom: 10px;"><div id="index_0"></div></div>
+            <div class="col-sm-6" style="margin-bottom: 15px;"><div id="index_00"></div></div>
+            <hr>
             <div class="col-sm-6" style="margin-bottom: 10px;"><div id="index_1"></div></div>
+            <div class="col-sm-6" style="margin-bottom: 15px;"><div id="index_11"></div></div>
+            <hr>
             <div class="col-sm-6" style="margin-bottom: 10px;"><div id="index_2"></div></div>
+            <div class="col-sm-6" style="margin-bottom: 15px;"><div id="index_22"></div></div>
+            <hr>
             <div class="col-sm-6" style="margin-bottom: 10px;"><div id="index_3"></div></div>
+            <div class="col-sm-6" style="margin-bottom: 10px;"><div id="index_33"></div></div>
         </div>
     </div>
 </div>
@@ -43,10 +50,19 @@
         <div class="panel-heading"><h4><b>Baidu Indexes - Last {{num_days}} days</b></h4></div>
         <div class="panel-body">
             <div class="col-sm-6" style="margin-bottom: 10px;"><div id="index_4"></div></div>
+            <div class="col-sm-6" style="margin-bottom: 10px;"><div id="index_44"></div></div>
+            <hr>
             <div class="col-sm-6" style="margin-bottom: 10px;"><div id="index_5"></div></div>
+            <div class="col-sm-6" style="margin-bottom: 10px;"><div id="index_55"></div></div>
+            <hr>
             <div class="col-sm-6" style="margin-bottom: 10px;"><div id="index_6"></div></div>
+            <div class="col-sm-6" style="margin-bottom: 10px;"><div id="index_66"></div></div>
+            <hr>
             <div class="col-sm-6" style="margin-bottom: 10px;"><div id="index_7"></div></div>
+            <div class="col-sm-6" style="margin-bottom: 10px;"><div id="index_77"></div></div>
+            <hr>
             <div class="col-sm-6" style="margin-bottom: 10px;"><div id="index_8"></div></div>
+            <div class="col-sm-6" style="margin-bottom: 10px;"><div id="index_88"></div></div>
         </div>
     </div>
 </div>
@@ -58,7 +74,10 @@
         <div class="panel-heading"><h4><b>Yahoo Japan Indexes - Last {{num_days}} days</b></h4></div>
         <div class="panel-body">
             <div class="col-sm-6" style="margin-bottom: 10px;"><div id="index_9"></div></div>
+            <div class="col-sm-6" style="margin-bottom: 10px;"><div id="index_99"></div></div>
+            <hr>
             <div class="col-sm-6" style="margin-bottom: 10px;"><div id="index_10"></div></div>
+            <div class="col-sm-6" style="margin-bottom: 10px;"><div id="index_1010"></div></div>
         </div>
     </div>
 </div>
@@ -75,15 +94,19 @@
 
 <script type="text/javascript">
     google.load('visualization', '1', {packages: ['corechart', 'line']});
-    google.setOnLoadCallback(drawBackgroundColor);
+    google.setOnLoadCallback(drawCharts);
     
-    function drawBackgroundColor() {
+    function drawCharts() {
       var data = []; // 11 in total corresponding to different indexes
+      var data_col = [] // data for column chart
       var index_name = ["gg index en", "gg index hk", "gg news","gg site", 
             "bd index ch", "bd index en", "bd news ch", "bd news en", "bd site", "yh index en", "yh index jp"];
+      
+      //-----------------------line chart--------------------------
       for(var i = 0; i < 11; i++) {
           data[i] = new google.visualization.DataTable();
           data[i].addColumn('date', 'month');
+          
           {% for name in name_list %}
             data[i].addColumn('number', '{{name}}');
           {% endfor %}
@@ -99,6 +122,7 @@
           ],
           {% endfor %}
       ])
+      
       
       var options = {
         title: index_name[{{forloop.counter0}}],
@@ -119,15 +143,59 @@
         width: '100%',
         pointSize: 7,
         };
-        
+
       var chart{{forloop.counter0}} = new google.visualization.LineChart(document.getElementById('index_{{forloop.counter0}}'));
       chart{{forloop.counter0}}.draw(data[{{forloop.counter0}}], options);
       {% endfor %}
       
+      //-----------------------column chart--------------------------
+      google.load("visualization", "1.1", {packages:["corechart"]});
+      
+      var data_set_col = [];
+      
+      {% for data_set in data_sets_col %} // column chart data import
+      data_col[{{forloop.counter0}}] = google.visualization.arrayToDataTable({{data_set|safe}});
+      {% endfor %}
+      
+      console.log(data_col);
+      var options_col = {
+                title: 'Latest Index ({{latest_date}})',
+                height: 200,
+                legend: {position: 'none'},
+                backgroundColor: '#f1f8e9',
+                //chartArea: {top:40, left: 60, 'width': '90%', 'height': '75%'},
+                //bars: 'horizontal',
+                hAxis: {
+                        //title: 'School',
+                        titleTextStyle: {
+                            fontSize: 15,
+                            //color: '#053061',
+                            //bold: true,
+                            //italic: false
+                          }
+                    },
+                vAxis: {
+                        title: 'Search Index',
+                        titleTextStyle: {
+                            fontSize: 15,
+                            //color: '#053061',
+                            //bold: true,
+                            //italic: false
+                          }
+                    },
+            };
+      
+      var chart_col = [];
+      // draw column chart
+      for(var i = 0; i < data_col.length; i++) {
+        chart_col[i] = new google.visualization.ColumnChart(document.getElementById('index_' + i + i));
+        chart_col[i].draw(data_col[i], options_col);
+      }
+      
     };
     
     $(window).resize(function(){
-        drawBackgroundColor();
+        drawCharts();
     });
     
     function redirectTo(num_days) {

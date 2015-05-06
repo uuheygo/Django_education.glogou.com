@@ -23,4 +23,5 @@ urlpatterns = [
         'schools.views.report_view', name = 'school_report'),
     url(r'^schools/school_id=(?P<this_id>\d+)/compare/$', 'schools.views.compare_view', name = 'school_comparison'),
     url(r'^schools/custom_selection/$', 'schools.views.custom_selection', name = 'custom_selection'), # custom selection of schools
+    url(r'^schools/contact_us/$', 'schools.views.contact_view'),
 ]

@@ -161,3 +161,26 @@ def convert_to_chart_data(list_per_school):
 #         print elem
             
     return list_per_chart
+
+def get_data_col(school_ids):
+    schools = []
+    for id in school_ids: # get all indexes of a school
+        id = int(id)
+        schools.append(get_all_indexes(id, 1))
+
+    # group indexes by src for a list of schools
+    data_sets = []
+    for i in range(len(schools[0])):
+        one_set = []
+        one_set.append(['School', 'Index'])
+        for j in range(len(schools)):
+            print schools[j][i][0].school.name
+            one_set.append([schools[j][i][0].school.name.encode('ascii','ignore') + '', float(schools[j][i][0].index)])
+        print one_set
+        data_sets.append(one_set)
+    #print data_sets
+    return data_sets
+        
+        
+        
+    
