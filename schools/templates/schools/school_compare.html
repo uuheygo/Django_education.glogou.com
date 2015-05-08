@@ -1,12 +1,13 @@
 {% extends "schools/base.html" %} 
+{% load strip_space %}
 
 {% block content %}
 <div class="row">
-    <h3>Compare Media Indexes of <b><a href="/schools/school_id={{this_school.id}}/">{{this_school.name}}</a></b> with Selected Schools</h3>
+    <h3>Compare Media Indexes of <b><a href="/schools/school_id={{this_school.id}}/{{school.name|lower|nospace}}/">{{this_school.name}}</a></b> with Selected Schools</h3>
     <hr>
     <h4>
         {% for school in selected_schools %}
-            <<a href="/schools/school_id={{school.id}}/">{{school.name}}</a>>
+            <<a href="/schools/school_id={{school.id}}/{{school.name|lower|nospace}}/">{{school.name}}</a>>
         {% endfor %}
     </h4>
     <hr>

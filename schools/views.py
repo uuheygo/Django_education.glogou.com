@@ -15,7 +15,7 @@ from utils.helper_functions import get_latest_indexes_for_school_view, get_resul
 from .models import School, SchoolInforYearly, SchoolsComparisonId, \
     BaiduIndexCh, BaiduIndexEn, BaiduNewsEn, BaiduNewsCh, BaiduSite, \
     GoogleIndexEn, GoogleIndexHk, GoogleNews, GoogleSite,\
-    YahoojapIndexEn, YahoojapIndexJp
+    YahoojapIndexEn, YahoojapIndexJp, SchoolChName
     
 from .forms import ContactForm
 
@@ -202,7 +202,11 @@ def compare_view(request, this_id=''):
                     'latest_date': latest_date,})
 
 def news_view(request, school_id):
-    return render(request, 'schools/under_construction.html')
+    school = School.objects.get(id=school_id)
+    school_ch = school.schoolchname.ch_simp
+    print school_ch
+    comparison_list = school.school_to_compare.all()
+    return render(request, 'schools/school_news.html', {'school': school, 'school_ch': school_ch, 'comparison_list': comparison_list})
 
 def report_view(request, school_id):
     return render(request, 'schools/under_construction.html')
