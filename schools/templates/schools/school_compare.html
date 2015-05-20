@@ -4,7 +4,6 @@
 {% block content %}
 <div class="row">
     <h3>Compare Media Indexes of <b><a href="/schools/school_id={{this_school.id}}/{{this_school.name|lower|nospace}}/">{{this_school.name}}</a></b> with Selected Schools</h3>
-    <hr>
     <h4>
         {% for school in selected_schools %}
             <<a href="/schools/school_id={{school.id}}/{{school.name|lower|nospace}}/">{{school.name}}</a>>
@@ -86,12 +85,75 @@
 
 {% endblock %}
 
+{% block sidebar %}
+<!-- <div class="sidebar" role="navigation" style="margin-top: 20px;"> -->
+<!--         <ul class="nav nav-sidebar" style="text-align: center;"> -->
+<!--             <li><h4><img src="/static/schools/images/baidu.png"  height="25" style="margin-bottom: 5px;margin-right: 5px;">Baidu</h4></li> -->
+<!--             <li ><a  href="#">Search(English Name)</a></li> -->
+<!--             <li><a href="#">Search(Chinese Name)</a></li> -->
+<!--             <li><a href="#">News(English Name)</a></li> -->
+<!--             <li><a href="#">News(Chinese Name)</a></li> -->
+<!--             <li><a href="#">University Sites</a></li> -->
+<!--         </ul> -->
+<!-- </div> -->
+
+<div class="navbar-default sidebar" role="navigation">
+    <div class="sidebar-nav navbar-collapse collapse">
+        <ul class="nav" id="side-menu">
+            <li>
+                <a href="#"><span class="glyphicon glyphicon-stats"></span> Composite Index</a>
+            </li>
+            <!-- baidu -->
+            <li>
+                <a href="#"><img src="/static/schools/images/baidu.png" width="25" height="25"> Baidu Indexes<span class="glyphicon glyphicon-chevron-left" style="float: right;"></span></a>
+                <ul class="nav nav-second-level">
+                    <li>
+                        <a href="#">Page Index (EN)</a>
+                    </li>
+                    <li>
+                        <a href="#">Page Index (CH)</a>
+                    </li>
+                    <li>
+                        <a href="#">News Index (EN)</a>
+                    </li>
+                    <li>
+                        <a href="#">News Index (CH)</a>
+                    </li>
+                    <li>
+                        <a href="#">Site Index</a>
+                    </li>
+                </ul>
+            </li>
+            <!-- google -->
+            <li>
+                <a href="#"><img src="/static/schools/images/google.png" width="25" height="25"> Google Indexes<span class="glyphicon glyphicon-chevron-left" style="float: right;"></span></a>
+                <ul class="nav nav-second-level">
+                    <li>
+                        <a href="#">Page Index (EN)</a>
+                    </li>
+                    <li>
+                        <a href="#">Page Index (HK)</a>
+                    </li>
+                    <li>
+                        <a href="#">News Index (EN)</a>
+                    </li>
+                    <li>
+                        <a href="#">Site Index</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <!-- /.sidebar-collapse -->
+</div>
+{% endblock %}
+
 {% block custom_js %}
-<script type="text/javascript">
+<!-- <script type="text/javascript">
     $(function() {
         $("#page-wrapper").css('margin-left', '0px');
     })
-</script>
+</script> -->
 
 <script type="text/javascript">
     google.load('visualization', '1', {packages: ['corechart', 'line']});
@@ -201,7 +263,7 @@
     
     function redirectTo(num_days) {
         currURL = document.URL;
-        window.location = currURL + "&num_days=" + num_days;
+        window.location = currURL.split("&num_days")[0] + "&num_days=" + num_days;
     }
 </script>
 {% endblock %}
