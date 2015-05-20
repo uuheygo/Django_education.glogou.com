@@ -99,6 +99,17 @@ class SchoolsComparisonId(models.Model):
         managed = False
         db_table = 'schools_comparison_id'
 
+class CompositeIndex(models.Model):
+    school = models.ForeignKey('School', db_column='school')
+    index = models.DecimalField(db_column='my_index', max_digits=20, decimal_places=7, blank=True, null=True)
+    date = models.DateField(db_column='my_date', blank=True, null=True)
+    
+    def __unicode__(self):
+        return "Composite index for %s" % self.school.name
+    
+    class Meta:
+        managed = False
+        db_table = 'composite_index'
 
 class BaiduIndexCh(models.Model):
     school = models.ForeignKey('School', db_column='school')

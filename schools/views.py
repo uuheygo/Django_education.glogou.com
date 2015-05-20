@@ -10,7 +10,7 @@ import json
 
 from utils.helper_functions import get_latest_indexes_for_school_view, get_result_set, filter_by_keyword, \
     get_race_percentages, get_gg_index, get_bd_index, get_yh_index, get_all_indexes, convert_to_chart_data, \
-    get_data_col
+    get_data_col, get_index, get_index_data_col, convert_to_chart_data_index
 
 from .models import School, SchoolInforYearly, SchoolsComparisonId, \
     BaiduIndexCh, BaiduIndexEn, BaiduNewsEn, BaiduNewsCh, BaiduSite, \
@@ -164,15 +164,25 @@ def custom_selection(request):
 def compare_view(request, this_id=''):
     #print this_id
     num_days = '7' # default period
+    index_name = 'composite_index'
+    index_dict = {'bd_index_en':'Baidu Page Index (EN)', 'bd_index_ch':'Baidu Page Index (CH)',
+                  'bd_news_en':'Baidu News Index (EN)', 'bd_news_ch':'Baidu News Index (CH)',
+                  'bd_site':'Baidu Site Index', 'gg_index_en':'Google Page Index (EN)',
+                  'gg_index_hk':'Google Page Index (HK)', 'gg_news_en':'Google News Index (EN)',
+                  'gg_site':'Google Site Index', 'composite_index':'Composite Index'}
+    
     this_school = School.objects.get(id=int(this_id)) # the school to compare
     
     if request.GET.get('num_days'): # custom selected period
         num_days = request.GET.get('num_days')
     num_days = int(num_days)
     
+    if request.GET.get('index_name'):
+        index_name = request.GET.get('index_name')
+    
     school_ids = []
     for checked in request.GET.keys():
-        if checked != 'num_days':
+        if checked != 'num_days' and checked != 'index_name':
             school_ids.append(request.GET[checked])
     #print school_ids
     # get line chart data
@@ -184,22 +194,25 @@ def compare_view(request, this_id=''):
         school_obj = School.objects.get(id=school_id)
         if school_id != int(this_id):
             selected_schools.append(school_obj)
-        indexes = get_all_indexes(school_id, num_days)[:-2] # contain all indexes in the period gg, bd, yh
+        #indexes = get_all_indexes(school_id, num_days)[:-2] # contain all indexes in the period gg, bd, yh
+        indexes = get_index(school_id, index_name, num_days)
         name_list.append(school_obj.name)
         index_list.append(indexes)
 #     print school_dict
 #     print school_dict['name_list']
 #     print school_dict['United States Military Academy']
     
-    index_list = convert_to_chart_data(index_list)
+    #index_list = convert_to_chart_data(index_list)
     
     # get column chart data
-    data_sets_col = get_data_col(school_ids)
+    #data_sets_col = get_data_col(school_ids)
+    data_sets_col = get_index_data_col(school_ids, index_name)
+    index_list = convert_to_chart_data_index(index_list)
     #print data_sets_col
     return render(request, 'schools/school_compare.html', {'this_school': this_school, 
                     'name_list': name_list, 'index_list': index_list, 'num_days': num_days,
                     'data_sets_col': data_sets_col, 'selected_schools': selected_schools,
-                    'latest_date': latest_date,})
+                    'latest_date': latest_date, 'index_name': index_dict[index_name],})
 
 def news_view(request, school_id):
     school = School.objects.get(id=school_id)

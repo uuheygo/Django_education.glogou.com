@@ -3,7 +3,7 @@ import json
 import re
 from schools.models import School, SchoolInforYearly, BaiduIndexCh, BaiduIndexEn, BaiduNewsEn,\
     BaiduNewsCh, BaiduSite, GoogleIndexEn, GoogleIndexHk, GoogleNews, GoogleSite,\
-    YahoojapIndexEn, YahoojapIndexJp
+    YahoojapIndexEn, YahoojapIndexJp, CompositeIndex
     
 latest_year = SchoolInforYearly.objects.aggregate(Max('year'))['year__max']
 
@@ -138,6 +138,29 @@ def get_all_indexes(school_id, num_days):
     indexes[10] = YahoojapIndexJp.objects.filter(school=school_id).order_by('-date')[:num_days] # yh index jp
     return indexes
 
+# get specific index of selected period for a School 
+def get_index(school_id, index_name, num_days):
+    if index_name == 'composite_index':
+        return CompositeIndex.objects.filter(school=school_id).order_by('-date')[:num_days] # bd index en
+    if index_name == 'bd_index_en' :
+        return BaiduIndexEn.objects.filter(school=school_id).order_by('-date')[:num_days] # bd index en
+    if index_name == 'bd_index_ch' :
+        return BaiduIndexCh.objects.filter(school=school_id).order_by('-date')[:num_days]
+    if index_name == 'bd_news_en' :
+        return BaiduNewsEn.objects.filter(school=school_id).order_by('-date')[:num_days]
+    if index_name == 'bd_news_ch' :
+        return BaiduNewsCh.objects.filter(school=school_id).order_by('-date')[:num_days]
+    if index_name == 'bd_site' :
+        return BaiduSite.objects.filter(school=school_id).order_by('-date')[:num_days]
+    if index_name == 'gg_index_en' :
+        return GoogleIndexEn.objects.filter(school=school_id).order_by('-date')[:num_days]
+    if index_name == 'gg_index_hk' :
+        return GoogleIndexHk.objects.filter(school=school_id).order_by('-date')[:num_days]
+    if index_name == 'gg_news_en' :
+        return GoogleNews.objects.filter(school=school_id).order_by('-date')[:num_days]
+    if index_name == 'gg_site' :
+        return GoogleSite.objects.filter(school=school_id).order_by('-date')[:num_days]
+    
 # convert list per school to list per chart
 def convert_to_chart_data(list_per_school):
     list_for_chart = []
@@ -162,6 +185,14 @@ def convert_to_chart_data(list_per_school):
             
     return list_per_chart
 
+def convert_to_chart_data_index(list_per_school):
+    list_per_day = []
+    for i in range(len(list_per_school[0])):
+        one_list = []
+        for j in range(len(list_per_school)):
+            one_list.append(list_per_school[j][i])
+        list_per_day.append(one_list)
+    return list_per_day
 def get_data_col(school_ids):
     schools = []
     for id in school_ids: # get all indexes of a school
@@ -181,6 +212,12 @@ def get_data_col(school_ids):
     #print data_sets
     return data_sets
         
-        
-        
-    
+def get_index_data_col(school_ids, index_name):
+    data_set = []
+    data_set.append(['School', 'Index'])
+    for id in school_ids:
+        school_id = int(id)
+        #print float(get_index(school_id, index_name, 1)[0].index)
+        data_set.append([School.objects.get(id=school_id).name.encode('ascii','ignore'), 
+                         float(get_index(school_id, index_name, 1)[0].index)])
+    return data_set
