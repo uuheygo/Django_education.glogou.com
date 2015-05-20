@@ -74,7 +74,7 @@ def get_latest_indexes_for_school_view(school):
                      float(YahoojapIndexEn.objects.filter(date=latest_date).aggregate(Max('index'))['index__max'])]
     result_set[11] = ['yahoojap_index_jp', float(school.yahoojapindexjp_set.latest('date').index), 
                      float(YahoojapIndexJp.objects.filter(date=latest_date).aggregate(Max('index'))['index__max'])]
-    return json.dumps(result_set)
+    return json.dumps(result_set[:-2])
 
 def get_race_percentages(school_infor):
     race_per = [-1]*8
@@ -166,7 +166,7 @@ def get_data_col(school_ids):
     schools = []
     for id in school_ids: # get all indexes of a school
         id = int(id)
-        schools.append(get_all_indexes(id, 1))
+        schools.append(get_all_indexes(id, 1)[:-2])
 
     # group indexes by src for a list of schools
     data_sets = []

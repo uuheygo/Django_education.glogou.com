@@ -19,9 +19,9 @@
         <div class="panel-body">
             <div id="bd"></div>
         </div>
-        <div class="panel-body">
-            <div id="yh"></div>
-        </div>
+<!--         <div class="panel-body"> -->
+<!--             <div id="yh"></div> -->
+<!--         </div> -->
     </div>
 
     <script type="text/javascript">
@@ -94,6 +94,7 @@
               var chart2 = new google.visualization.LineChart(document.getElementById('bd'));
               chart2.draw(data2, options2);
               
+              /*
               var data3 = new google.visualization.DataTable();
               data3.addColumn('date', 'month');
               data3.addColumn('number', 'Yahoo Index(EN)');
@@ -123,6 +124,7 @@
               
               var chart3 = new google.visualization.LineChart(document.getElementById('yh'));
               chart3.draw(data3, options3);
+              */
             }
             
             function resize() {

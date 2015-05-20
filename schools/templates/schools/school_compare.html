@@ -3,7 +3,7 @@
 
 {% block content %}
 <div class="row">
-    <h3>Compare Media Indexes of <b><a href="/schools/school_id={{this_school.id}}/{{school.name|lower|nospace}}/">{{this_school.name}}</a></b> with Selected Schools</h3>
+    <h3>Compare Media Indexes of <b><a href="/schools/school_id={{this_school.id}}/{{this_school.name|lower|nospace}}/">{{this_school.name}}</a></b> with Selected Schools</h3>
     <hr>
     <h4>
         {% for school in selected_schools %}
@@ -70,18 +70,18 @@
 <!-- /bd -->
 
 <!-- yh -->
-<div class="row">
-    <div class="panel panel-default">
-        <div class="panel-heading"><h4><b>Yahoo Japan Indexes - Last {{num_days}} days</b></h4></div>
-        <div class="panel-body">
-            <div class="col-sm-6" style="margin-bottom: 10px;"><div id="index_9"></div></div>
-            <div class="col-sm-6" style="margin-bottom: 10px;"><div id="index_99"></div></div>
-            <hr>
-            <div class="col-sm-6" style="margin-bottom: 10px;"><div id="index_10"></div></div>
-            <div class="col-sm-6" style="margin-bottom: 10px;"><div id="index_1010"></div></div>
-        </div>
-    </div>
-</div>
+<!-- <div class="row"> -->
+<!--     <div class="panel panel-default"> -->
+<!--         <div class="panel-heading"><h4><b>Yahoo Japan Indexes - Last {{num_days}} days</b></h4></div> -->
+<!--         <div class="panel-body"> -->
+<!--             <div class="col-sm-6" style="margin-bottom: 10px;"><div id="index_9"></div></div> -->
+<!--             <div class="col-sm-6" style="margin-bottom: 10px;"><div id="index_99"></div></div> -->
+<!--             <hr> -->
+<!--             <div class="col-sm-6" style="margin-bottom: 10px;"><div id="index_10"></div></div> -->
+<!--             <div class="col-sm-6" style="margin-bottom: 10px;"><div id="index_1010"></div></div> -->
+<!--         </div> -->
+<!--     </div> -->
+<!-- </div> -->
 <!-- /yh -->
 
 {% endblock %}

@@ -184,7 +184,7 @@ def compare_view(request, this_id=''):
         school_obj = School.objects.get(id=school_id)
         if school_id != int(this_id):
             selected_schools.append(school_obj)
-        indexes = get_all_indexes(school_id, num_days) # contain all indexes in the period gg, bd, yh
+        indexes = get_all_indexes(school_id, num_days)[:-2] # contain all indexes in the period gg, bd, yh
         name_list.append(school_obj.name)
         index_list.append(indexes)
 #     print school_dict
