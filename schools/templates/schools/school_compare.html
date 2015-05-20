@@ -11,8 +11,11 @@
     </h4>
     <hr>
 </div>
+<!-- gg -->
 <div class="row">
-          <div class="dropdown">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <div class="dropdown pull-right">
             <button id="selected_period" class="btn btn-default dropdown-toggle" type="button" id="chart_period" data-toggle="dropdown">Select Period
             <span class="caret"></span></button>
             <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
@@ -20,13 +23,9 @@
               <li role="presentation"><a role="menuitem" tabindex="-1" onclick="redirectTo(30)">last 30 days</a></li>
               <li role="presentation"><a role="menuitem" tabindex="-1" onclick="redirectTo(180)">last 180 days</a></li>
             </ul>
-          </div>
-</div>
-<hr>
-<!-- gg -->
-<div class="row">
-    <div class="panel panel-default">
-        <div class="panel-heading"><h4><b>Google Indexes - Last {{num_days}} days</b></h4></div>
+            </div>
+            <h4><b>Google Indexes - Last {{num_days}} days</b></h4>
+        </div>
         <div class="panel-body">
             <div class="col-sm-6" style="margin-bottom: 10px;"><div id="index_0"></div></div>
             <div class="col-sm-6" style="margin-bottom: 15px;"><div id="index_00"></div></div>
@@ -108,19 +107,19 @@
                 <a href="#"><img src="/static/schools/images/baidu.png" width="25" height="25"> Baidu Indexes<span class="glyphicon glyphicon-chevron-left" style="float: right;"></span></a>
                 <ul class="nav nav-second-level">
                     <li>
-                        <a href="#">Page Index (EN)</a>
+                        <a href="#" onclick="changeChart('bd_index_en')">Page Index (EN)</a>
                     </li>
                     <li>
-                        <a href="#">Page Index (CH)</a>
+                        <a href="#" onclick="changeChart('bd_index_ch')">Page Index (CH)</a>
                     </li>
                     <li>
-                        <a href="#">News Index (EN)</a>
+                        <a href="#" onclick="changeChart('bd_news_en')">News Index (EN)</a>
                     </li>
                     <li>
-                        <a href="#">News Index (CH)</a>
+                        <a href="#" onclick="changeChart('bd_news_en')">News Index (CH)</a>
                     </li>
                     <li>
-                        <a href="#">Site Index</a>
+                        <a href="#" onclick="changeChart('bd_site')">Site Index</a>
                     </li>
                 </ul>
             </li>
@@ -129,16 +128,16 @@
                 <a href="#"><img src="/static/schools/images/google.png" width="25" height="25"> Google Indexes<span class="glyphicon glyphicon-chevron-left" style="float: right;"></span></a>
                 <ul class="nav nav-second-level">
                     <li>
-                        <a href="#">Page Index (EN)</a>
+                        <a href="#" onclick="changeChart('gg_index_en')">Page Index (EN)</a>
                     </li>
                     <li>
-                        <a href="#">Page Index (HK)</a>
+                        <a href="#" onclick="changeChart('gg_index_hk')">Page Index (HK)</a>
                     </li>
                     <li>
-                        <a href="#">News Index (EN)</a>
+                        <a href="#" onclick="changeChart('gg_news_en')">News Index (EN)</a>
                     </li>
                     <li>
-                        <a href="#">Site Index</a>
+                        <a href="#" onclick="changeChart('gg_site')">Site Index</a>
                     </li>
                 </ul>
             </li>
@@ -264,6 +263,11 @@
     function redirectTo(num_days) {
         currURL = document.URL;
         window.location = currURL.split("&num_days")[0] + "&num_days=" + num_days;
+    }
+    
+    function changeChart(index_name) {
+        currURL = document.URL;
+        window.location = currURL.split("&num_days")[0] + "&index_name=" + index_name;
     }
 </script>
 {% endblock %}
