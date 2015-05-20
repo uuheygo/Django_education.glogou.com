@@ -14,7 +14,7 @@ from django.db import models
 
 class School(models.Model):
     name = models.CharField(max_length=200)
-    url = models.CharField(max_length=200, blank=True, null=True)
+    school_url = models.CharField(db_column='url', max_length=200, blank=True, null=True)
     city = models.CharField(max_length=45, blank=True, null=True)
     state_full = models.CharField(max_length=45)
     state_short = models.CharField(max_length=45, blank=True, null=True)
@@ -102,8 +102,8 @@ class SchoolsComparisonId(models.Model):
 
 class BaiduIndexCh(models.Model):
     school = models.ForeignKey('School', db_column='school')
-    index = models.DecimalField(max_digits=5, decimal_places=2, blank=True, null=True)
-    date = models.DateField(blank=True, null=True)
+    index = models.DecimalField(db_column='my_index', max_digits=20, decimal_places=7, blank=True, null=True)
+    date = models.DateField(db_column='my_date', blank=True, null=True)
     
     def __unicode__(self):
         return "baidu index (ch) for %s" % self.school.name
@@ -115,8 +115,8 @@ class BaiduIndexCh(models.Model):
 
 class BaiduIndexEn(models.Model):
     school = models.ForeignKey('School', db_column='school')
-    index = models.DecimalField(max_digits=5, decimal_places=2, blank=True, null=True)
-    date = models.DateField(blank=True, null=True)
+    index = models.DecimalField(db_column='my_index', max_digits=20, decimal_places=7, blank=True, null=True)
+    date = models.DateField(db_column='my_date', blank=True, null=True)
     
     def __unicode__(self):
         return "baidu index (en) for %s" % self.school.name
@@ -128,8 +128,8 @@ class BaiduIndexEn(models.Model):
 
 class BaiduNewsCh(models.Model):
     school = models.ForeignKey('School', db_column='school')
-    index = models.DecimalField(max_digits=5, decimal_places=2, blank=True, null=True)
-    date = models.DateField(blank=True, null=True)
+    index = models.DecimalField(db_column='my_index', max_digits=20, decimal_places=7, blank=True, null=True)
+    date = models.DateField(db_column='my_date', blank=True, null=True)
     
     def __unicode__(self):
         return "baidu news index (ch) for %s" % self.school.name
@@ -141,8 +141,8 @@ class BaiduNewsCh(models.Model):
 
 class BaiduNewsEn(models.Model):
     school = models.ForeignKey('School', db_column='school')
-    index = models.DecimalField(max_digits=5, decimal_places=2, blank=True, null=True)
-    date = models.DateField(blank=True, null=True)
+    index = models.DecimalField(db_column='my_index', max_digits=20, decimal_places=7, blank=True, null=True)
+    date = models.DateField(db_column='my_date', blank=True, null=True)
     
     def __unicode__(self):
         return "baidu news index (en) for %s" % self.school.name
@@ -154,8 +154,8 @@ class BaiduNewsEn(models.Model):
 
 class BaiduSite(models.Model):
     school = models.ForeignKey('School', db_column='school')
-    index = models.DecimalField(max_digits=5, decimal_places=2, blank=True, null=True)
-    date = models.DateField(blank=True, null=True)
+    index = models.DecimalField(db_column='my_index', max_digits=20, decimal_places=7, blank=True, null=True)
+    date = models.DateField(db_column='my_date', blank=True, null=True)
     
     def __unicode__(self):
         return "baidu site index for %s" % self.school.name
@@ -167,8 +167,8 @@ class BaiduSite(models.Model):
 
 class GoogleIndexEn(models.Model):
     school = models.ForeignKey('School', db_column='school')
-    index = models.DecimalField(max_digits=5, decimal_places=2, blank=True, null=True)
-    date = models.DateField(blank=True, null=True)
+    index = models.DecimalField(db_column='my_index', max_digits=20, decimal_places=7, blank=True, null=True)
+    date = models.DateField(db_column='my_date', blank=True, null=True)
     
     def __unicode__(self):
         return "google index (en) for %s" % self.school.name
@@ -180,8 +180,8 @@ class GoogleIndexEn(models.Model):
 
 class GoogleIndexHk(models.Model):
     school = models.ForeignKey('School', db_column='school')
-    index = models.DecimalField(max_digits=5, decimal_places=2, blank=True, null=True)
-    date = models.DateField(blank=True, null=True)
+    index = models.DecimalField(db_column='my_index', max_digits=20, decimal_places=7, blank=True, null=True)
+    date = models.DateField(db_column='my_date', blank=True, null=True)
 
     def __unicode__(self):
         return "google index (hk) for %s" % self.school.name
@@ -193,8 +193,8 @@ class GoogleIndexHk(models.Model):
 
 class GoogleNews(models.Model):
     school = models.ForeignKey('School', db_column='school')
-    index = models.DecimalField(max_digits=5, decimal_places=2, blank=True, null=True)
-    date = models.DateField(blank=True, null=True)
+    index = models.DecimalField(db_column='my_index', max_digits=20, decimal_places=7, blank=True, null=True)
+    date = models.DateField(db_column='my_date', blank=True, null=True)
     
     def __unicode__(self):
         return "google news index for %s" % self.school.name
@@ -206,8 +206,8 @@ class GoogleNews(models.Model):
 
 class GoogleSite(models.Model):
     school = models.ForeignKey('School', db_column='school')
-    index = models.DecimalField(max_digits=5, decimal_places=2, blank=True, null=True)
-    date = models.DateField(blank=True, null=True)
+    index = models.DecimalField(db_column='my_index', max_digits=20, decimal_places=7, blank=True, null=True)
+    date = models.DateField(db_column='my_date', blank=True, null=True)
 
     def __unicode__(self):
         return "google site index for %s" % self.school.name
@@ -220,8 +220,8 @@ class GoogleSite(models.Model):
 
 class YahoojapIndexEn(models.Model):
     school = models.ForeignKey('School', db_column='school')
-    index = models.DecimalField(max_digits=5, decimal_places=2, blank=True, null=True)
-    date = models.DateField(blank=True, null=True)
+    index = models.DecimalField(db_column='my_index', max_digits=20, decimal_places=7, blank=True, null=True)
+    date = models.DateField(db_column='my_date', blank=True, null=True)
     
     def __unicode__(self):
         return "yahoo japan index (en) for %s" % self.school.name
@@ -233,8 +233,8 @@ class YahoojapIndexEn(models.Model):
 
 class YahoojapIndexJp(models.Model):
     school = models.ForeignKey('School', db_column='school')
-    index = models.DecimalField(max_digits=5, decimal_places=2, blank=True, null=True)
-    date = models.DateField(blank=True, null=True)
+    index = models.DecimalField(db_column='my_index', max_digits=20, decimal_places=7, blank=True, null=True)
+    date = models.DateField(db_column='my_date', blank=True, null=True)
 
     def __unicode__(self):
         return "yahoo japan index (jp) for %s" % self.school.name
