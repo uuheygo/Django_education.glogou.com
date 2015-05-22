@@ -73,7 +73,7 @@
               data2.addRows([
                 {% for row in bd reversed %}
                     [new Date("{{row.0.date}}"), {{row.0.index}}, {{row.1.index}}, 
-                        {{row.2.index}}, {{row.3.index}}, {{row.3.index}}],
+                        {{row.2.index}}, {{row.3.index}}, {{row.4.index}}],
                 {% endfor %}
               ]);
         
