@@ -222,7 +222,23 @@ def news_view(request, school_id):
     return render(request, 'schools/school_news.html', {'school': school, 'school_ch': school_ch, 'comparison_list': comparison_list})
 
 def report_view(request, school_id):
-    return render(request, 'schools/under_construction.html')
+    num_days = '7' # default period
+    if request.GET.get('num_days'): # custom selected period
+        num_days = request.GET.get('num_days')
+    num_days = int(num_days)
+    school_id = int(school_id)
+    school = School.objects.get(id=school_id)
+    school_infor = school.schoolinforyearly_set.filter(year=latest_year)
+    # all latest indexes
+    result_set = get_latest_indexes_for_school_view(school) 
+    # gg
+    gg_by_date = get_gg_index(school_id, num_days)
+    # bd
+    bd_by_date = get_bd_index(school_id, num_days)
+    return render(request, 'schools/school_report.html',
+                  {'school': school, 'school_infor': school_infor, 
+                   'latest_date': latest_date, 'result_set': result_set,
+                   'gg': gg_by_date, 'bd': bd_by_date, 'num_days': num_days,})
 
 # contact form
 def contact_view(request):
