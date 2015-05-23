@@ -48,7 +48,7 @@ def filter_by_keyword(result_set, keyword):
     return results
         
 def get_latest_indexes_for_school_view(school):
-    result_set = [None] * 12
+    result_set = [None] * 10
     latest_date = BaiduIndexCh.objects.aggregate(Max('date'))['date__max']
     latest_date = latest_date.strftime('%Y-%m-%d') # convert to xxxx-xx-xx format string
     result_set[0] = ['Indexes on Major Search Engines', 
@@ -91,15 +91,15 @@ def get_latest_indexes_for_school_view(school):
                      float(school.googlesite_set.latest('date').index), 
                      float(GoogleSite.objects.filter(date=latest_date).aggregate(Max('index'))['index__max']),
                      float(GoogleSite.objects.filter(date=latest_date).aggregate(Avg('index'))['index__avg'])]
-    result_set[10] = ['yahoojap_index_en', 
-                     float(school.yahoojapindexen_set.latest('date').index), 
-                     float(YahoojapIndexEn.objects.filter(date=latest_date).aggregate(Max('index'))['index__max']),
-                     float(YahoojapIndexEn.objects.filter(date=latest_date).aggregate(Avg('index'))['index__avg'])]
-    result_set[11] = ['yahoojap_index_jp', 
-                     float(school.yahoojapindexjp_set.latest('date').index), 
-                     float(YahoojapIndexJp.objects.filter(date=latest_date).aggregate(Max('index'))['index__max']),
-                     float(YahoojapIndexJp.objects.filter(date=latest_date).aggregate(Avg('index'))['index__avg'])]
-    return json.dumps(result_set[:-2])
+#     result_set[10] = ['yahoojap_index_en', 
+#                      float(school.yahoojapindexen_set.latest('date').index), 
+#                      float(YahoojapIndexEn.objects.filter(date=latest_date).aggregate(Max('index'))['index__max']),
+#                      float(YahoojapIndexEn.objects.filter(date=latest_date).aggregate(Avg('index'))['index__avg'])]
+#     result_set[11] = ['yahoojap_index_jp', 
+#                      float(school.yahoojapindexjp_set.latest('date').index), 
+#                      float(YahoojapIndexJp.objects.filter(date=latest_date).aggregate(Max('index'))['index__max']),
+#                      float(YahoojapIndexJp.objects.filter(date=latest_date).aggregate(Avg('index'))['index__avg'])]
+    return json.dumps(result_set)
 
 def get_race_percentages(school_infor):
     race_per = [-1]*8
@@ -159,8 +159,8 @@ def get_all_indexes(school_id, num_days):
     indexes[6] = BaiduNewsCh.objects.filter(school=school_id).order_by('-date')[:num_days] # bd news ch
     indexes[7] = BaiduNewsEn.objects.filter(school=school_id).order_by('-date')[:num_days] # bd news en
     indexes[8] = BaiduSite.objects.filter(school=school_id).order_by('-date')[:num_days] # bd site
-    indexes[9] = YahoojapIndexEn.objects.filter(school=school_id).order_by('-date')[:num_days] # yh index en
-    indexes[10] = YahoojapIndexJp.objects.filter(school=school_id).order_by('-date')[:num_days] # yh index jp
+#     indexes[9] = YahoojapIndexEn.objects.filter(school=school_id).order_by('-date')[:num_days] # yh index en
+#     indexes[10] = YahoojapIndexJp.objects.filter(school=school_id).order_by('-date')[:num_days] # yh index jp
     return indexes
 
 # get specific index of selected period for a School 
