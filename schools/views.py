@@ -117,7 +117,7 @@ def info_view(request, school_id = '0'):
 
 def media_view(request, school_id='0'):
     school_id = int(school_id)
-    num_days = '7'
+    num_days = '30'
     if request.GET.get('num_days'):
         num_days = request.GET.get('num_days')
     num_days = int(num_days)
@@ -163,7 +163,7 @@ def custom_selection(request):
 # compare media index of selected schools
 def compare_view(request, this_id=''):
     #print this_id
-    num_days = '7' # default period
+    num_days = '30' # default period
     index_name = 'composite_index'
     index_dict = {'bd_index_en':'Baidu Page Index (EN)', 'bd_index_ch':'Baidu Page Index (CH)',
                   'bd_news_en':'Baidu News Index (EN)', 'bd_news_ch':'Baidu News Index (CH)',
