@@ -127,6 +127,10 @@ def media_view(request, school_id='0'):
     if request.GET.get('index_category'):
         index_category = request.GET.get('index_category')
     
+    ########### place holder for other categories
+    if index_category != 'general':
+        return render(request, 'schools/under_construction.html')
+    
     school = School.objects.get(id=school_id)
     school_infor = school.schoolinforyearly_set.filter(year=latest_year)
     comparison_list = school.school_to_compare.all()
@@ -238,7 +242,11 @@ def report_view(request, school_id):
     num_days = int(num_days)
     if request.GET.get('index_category'):
         index_category = request.GET.get('index_category')
-        
+    
+    ########### place holder for other categories
+    if index_category != 'general':
+        return render(request, 'schools/under_construction.html')
+    
     school_id = int(school_id)
     school = School.objects.get(id=school_id)
     school_infor = school.schoolinforyearly_set.filter(year=latest_year)[0]
