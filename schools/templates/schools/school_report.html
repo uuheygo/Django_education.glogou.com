@@ -5,6 +5,7 @@
 {% block sidebar %}
 <div class="navbar-default sidebar" role="navigation" style="margin-top: 20px;">
     <div class="sidebar-nav">
+        <div style="margin-left: 10px;"><h4>Index Category:</h4></div>
         <ul class="nav" id="side-menu">
             <!-- general indexes -->
             <li >
@@ -26,4 +27,202 @@
     </div>
     <!-- /.sidebar-collapse -->
 </div>
+{% endblock %}
+
+<!-- report -->
+{% block school_page_box %}
+<div class="panel panel-primary">
+    <div class="panel-heading"><h3>Report Preview</h3></div>
+    <div class="panel-body"  style="text-align: justify;max-height: 500px;overflow-y: scroll;">
+        <div class="row">
+            <!-- info -->
+            <div style="position:relative;text-align: center;"><h2><b>{{school.name}}</b></h2></div>
+            <hr>
+            <div class="col-md-5">
+                <div  style="position:relative;text-align: center;"><img src="{{school.logo_url}}" class="img-thumbnail"></img></div>
+                <ul class="list-unstyled" style="margin-top: 30px;position:relative;text-align: center;">
+                    <li>{{school.city}}, {{school.state_short}}</li>
+                    <li>{{school.phone}}</li>
+                    <li><a href={{school.url}}>{{school.url}}</a></li>
+                </ul>
+                <!-- social icons -->
+                <ul class="list-unstyled">
+                    <li><a href="{{school.facebook_url}}" style="margin-right: 5px;"><img src="/static/schools/images/facebook.png" width="25" height="25"></a>{{school.facebook_url}}</li>
+                    <li><a href="{{school.twitter_url}}" style="margin-right: 5px;"><img src="/static/schools/images/twitter.png" width="25" height="25"></a>{{school.twitter_url}}</li>
+                    <li><a href="{{school.googleplus_url}}" style="margin-right: 5px;"><img src="/static/schools/images/googleplus.png" width="25" height="25"></a>{{school.googleplus_url}}</li>
+                    <li><a href="{{school.linkedin_url}}" style="margin-right: 5px;"><img src="/static/schools/images/linkedin.png" width="25" height="25"></a>{{school.linkedin_url}}</li>
+                    <li><a href="{{school.youtube_url}}" style="margin-right: 5px;"><img src="/static/schools/images/youtube.png" width="25" height="25"></a>{{school.youtube_url}}</li>
+                    
+                </ul>
+                <!-- /social icons -->
+                
+                <!-- google map possibly -->
+                
+                <!-- /google map -->
+            </div>
+            <div  class="col-md-7">
+                    <table class="table"><script>console.log("{{school_infor.overall_rank}}");</script>
+                        <tr class="danger"><td><h4>Rank: </h4></td><td><h4><b>{{school_infor.overall_rank}}</b></h4></td></tr>
+                        <tr><td>Student Population: </td><td><b>{{school_infor.student_population}}</b></td></tr>
+                        <tr><td>Undergraduate Population: </td><td><b>{{school_infor.undergrad_population}}</b></td></tr>
+                        <tr><td>Student to Faculty Ratio: </td><td><b>{{school_infor.student_faculty_ratio}}</b></td></tr>
+                        <tr><td>Total Annual Cost: </td><td><b>{{school_infor.annual_cost}}</b></td></li>
+                        <tr><td>In-State Tuition: </td><td><b>{{school_infor.in_state_tuition}}</b></td></li>
+                        <tr><td>Out-State Tuition: </td><td><b>{{school_infor.out_state_tuition}}</b></td></tr>
+                        <tr><td>SAT Composite Range: </td><td><b>{{school_infor.sat_range}}</b></td></tr>
+                        <tr><td>ACT Composite Range: </td><td><b>{{school_infor.act_range}}</b></td></tr>
+                        <tr><td>Financial Grade: </td><td><b>{{school_infor.financial_grade}}</b></td></tr>
+                    </table>
+            </div>
+            <!-- info -->
+            
+            <!-- school profile -->
+            <div class=" col-md-12">
+                <div class="panel panel-success">
+                    <div class="panel-heading"><h3>Profile</h3></div>
+                    <div class="panel-body">{{school.profile}}</div>
+                </div>
+            </div>
+            <!-- /school profile -->
+            
+
+        </div>
+        
+        <!-- pie charts -->
+        <div class="panel panel-info">
+            <div class="panel-heading"><h3>Student Facts</h3></div>
+            <div class="panel-body">
+            <div class="row">
+                {% if financial_yes > -1 %}
+                    <div class="col-md-6"><div id="financial" style="height: 300px;"></div></div>
+                {% endif %}
+                {% if admission_yes > -1 %}
+                    <div class="col-md-6"><div id="admission" style="height: 300px;"></div></div>
+                {% endif %}
+            </div>
+            <div class="row">
+                {% if male > -1 %}
+                    <div class="col-md-6"><div id="gender" style="height: 300px;"></div></div>
+                {% endif %}
+                {% if race.0 > -1 or race.1 > -1 or race.2 > -1 or race.3 > -1 or race.4 > -1 or race.5 > -1 or race.6 > -1 or race.7 > -1 %}
+                    <div class="col-md-6"><div id="race" style="height: 300px;"></div></div>
+                {% endif %}
+            </div>
+            <div class="row">
+                {% if full_time > -1 %}
+                    <div class="col-md-6"><div id="attendance" style="height: 300px;"></div></div>
+                {% endif %}
+            </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}
+
+{% block custom_js %}
+    <script type="text/javascript">
+      google.load("visualization", "1", {packages:["corechart"]});
+      google.setOnLoadCallback(drawChart);
+      function drawChart() {
+        // data
+        var data0 = google.visualization.arrayToDataTable([
+          ['Financial Aid', 'Percentage'],
+          ['Offered', {{financial_yes}}],
+          ['Not Offered',{{financial_no}}]
+        ]);
+        var data1 = google.visualization.arrayToDataTable([
+          ['Admission', 'Percentage'],
+          ['Accepted', {{admission_yes}}],
+          ['Rejected',{{admission_no}}]
+        ]);
+        var data2 = google.visualization.arrayToDataTable([
+          ['Enrollment by Gender', 'Percentage'],
+          ['Male', {{male}}],
+          ['Female',{{female}}]
+        ]);
+        //var race = {{race|safe}}
+        var data3 = google.visualization.arrayToDataTable([
+          ['Enrollment by Race/Ethnicity', 'Percentage'],
+          {% if race.0 > 0 %}
+          ['American Indian or Alaskan native',{{race.0}}],
+          {% endif %}
+          {% if race.1 > 0 %}
+          ['Asian/Native Hawaiian/Pacific Islander', {{race.1}}],
+          {% endif %}
+          {% if race.2 > 0 %}
+          ['Black or African American', {{race.2}}],
+          {% endif %}
+          {% if race.3 > 0 %}
+          ['Hispanic/Latin', {{race.3}}],
+          {% endif %}
+          {% if race.4 > 0 %}
+          ['White', {{race.4}}],
+          {% endif %}
+          {% if race.5 > 0 %}
+          ['Two or More Races', {{race.5}}],
+          {% endif %}
+          {% if race.6 > 0 %}
+          ['Race/Ethnicity Unknown', {{race.6}}],
+          {% endif %}
+          {% if race.7 > 0 %}
+          ['Non-Resident Alien', {{race.7}}],
+          {% endif %}
+        ]);
+        var data4 = google.visualization.arrayToDataTable([
+          ['Attendance Status', 'Percentage'],
+          ['Full-Time', {{full_time}}],
+          ['Part-Time',{{part_time}}]
+        ]);
+        
+        // option
+        var options0 = {
+          title: 'Financial Aid',
+          fontSize: 10,
+          pieSliceText: 'label',
+          legend: {position: 'right', maxLines: 4}
+        };
+        var options1 = {
+          title: 'Admission',
+          fontSize: 10,
+          pieSliceText: 'label',
+          legend: {position: 'right', maxLines: 4}
+        };
+        var options2 = {
+          title: 'Enrollment by Gender',
+          fontSize: 10,
+          pieSliceText: 'label',
+          legend: {position: 'right', maxLines: 4}
+        };
+        var options3 = {
+          title: 'Enrollment by Race/Ethnicity',
+          fontSize: 10,
+          pieSliceText: 'label',
+          legend: {position: 'right', maxLines: 4}
+        };
+        var options4 = {
+          title: 'Attendance Status',
+          fontSize: 10,
+          pieSliceText: 'label',
+          legend: {position: 'right', maxLines: 4}
+        };
+        
+        // chart
+        var chart0 = new google.visualization.PieChart(document.getElementById('financial'));
+        chart0.draw(data0, options0);
+        
+        var chart1 = new google.visualization.PieChart(document.getElementById('admission'));
+        chart1.draw(data1, options1);
+        
+        var chart2 = new google.visualization.PieChart(document.getElementById('gender'));
+        chart2.draw(data2, options2);
+        
+        var chart3 = new google.visualization.PieChart(document.getElementById('race'));
+        chart3.draw(data3, options3);
+        
+        var chart4 = new google.visualization.PieChart(document.getElementById('attendance'));
+        chart4.draw(data4, options4);
+      }
+    </script>
 {% endblock %}

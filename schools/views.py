@@ -10,7 +10,7 @@ import json
 
 from utils.helper_functions import get_latest_indexes_for_school_view, get_result_set, filter_by_keyword, \
     get_race_percentages, get_gg_index, get_bd_index, get_yh_index, get_all_indexes, convert_to_chart_data, \
-    get_data_col, get_index, get_index_data_col, convert_to_chart_data_index, get_index_report
+    get_data_col, get_index, get_index_data_col, convert_to_chart_data_index, get_index_report, get_pie_data
 
 from .models import School, SchoolInforYearly, SchoolsComparisonId, \
     BaiduIndexCh, BaiduIndexEn, BaiduNewsEn, BaiduNewsCh, BaiduSite, \
@@ -76,36 +76,38 @@ def info_view(request, school_id = '0'):
     school_infor = school.schoolinforyearly_set.filter(year=latest_year)[0]
     comparison_list = school.school_to_compare.all()
     
-    #financial aid
-    financial_yes = -1
-    financial_no = -1
-    if school_infor.financial_aid_percentage is not None:
-        financial_yes = int(school_infor.financial_aid_percentage[:-1])
-        financial_no = 100 - financial_yes
-        
-    #admission
-    admission_yes = -1
-    admission_no = -1
-    if school_infor.admission_percentage is not None:
-        admission_yes = int(school_infor.admission_percentage[:-1])
-        admission_no = 100 - admission_yes
-        
-    #gender enrollment
-    male = -1
-    female = -1
-    if school_infor.admission_percentage is not None:
-        male = int(school_infor.enroll_male_percentage[:-1])
-        female = int(school_infor.enroll_female_percentage[:-1])
-    
-    #Enrollment by Race
-    a_i_n, a_p, black, latino, white, unknown, n_r= -1, -1, -1, -1, -1, -1, -1
-    race_percentages = get_race_percentages(school_infor)
-    
-    # attendance
-    full_time, part_time = -1, -1
-    if school_infor.fulltime_percentage is not None:
-        full_time = int(school_infor.fulltime_percentage[:-1])
-        part_time = 100 - full_time
+    financial_yes, financial_no, admission_yes, admission_no, male, female, race_percentages, full_time, part_time = \
+        get_pie_data(school_infor)
+#     #financial aid
+#     financial_yes = -1
+#     financial_no = -1
+#     if school_infor.financial_aid_percentage is not None:
+#         financial_yes = int(school_infor.financial_aid_percentage[:-1])
+#         financial_no = 100 - financial_yes
+#         
+#     #admission
+#     admission_yes = -1
+#     admission_no = -1
+#     if school_infor.admission_percentage is not None:
+#         admission_yes = int(school_infor.admission_percentage[:-1])
+#         admission_no = 100 - admission_yes
+#         
+#     #gender enrollment
+#     male = -1
+#     female = -1
+#     if school_infor.admission_percentage is not None:
+#         male = int(school_infor.enroll_male_percentage[:-1])
+#         female = int(school_infor.enroll_female_percentage[:-1])
+#     
+#     #Enrollment by Race
+#     #a_i_n, a_p, black, latino, white, unknown, n_r= -1, -1, -1, -1, -1, -1, -1
+#     race_percentages = get_race_percentages(school_infor)
+#     
+#     # attendance
+#     full_time, part_time = -1, -1
+#     if school_infor.fulltime_percentage is not None:
+#         full_time = int(school_infor.fulltime_percentage[:-1])
+#         part_time = 100 - full_time
     
     return render(request, 'schools/school_info.html', {'school': school, 
                     'school_infor': school_infor, 'comparison_list': comparison_list,
@@ -236,10 +238,11 @@ def report_view(request, school_id):
         
     school_id = int(school_id)
     school = School.objects.get(id=school_id)
-    school_infor = school.schoolinforyearly_set.filter(year=latest_year)
+    school_infor = school.schoolinforyearly_set.filter(year=latest_year)[0]
     
     result_set, gg_by_date, bd_by_date = get_index_report(school_id, num_days, index_category)
-    
+    financial_yes, financial_no, admission_yes, admission_no, male, female, race_percentages, full_time, part_time = \
+        get_pie_data(school_infor)
 #     # all latest indexes
 #     result_set = get_latest_indexes_for_school_view(school) 
 #     # gg
@@ -249,7 +252,11 @@ def report_view(request, school_id):
     return render(request, 'schools/school_report.html',
                   {'school': school, 'school_infor': school_infor, 
                    'latest_date': latest_date, 'result_set': result_set,
-                   'gg': gg_by_date, 'bd': bd_by_date, 'num_days': num_days,})
+                   'gg': gg_by_date, 'bd': bd_by_date, 'num_days': num_days,
+                   'financial_yes': financial_yes, 'financial_no': financial_no,
+                    'admission_yes': admission_yes, 'admission_no': admission_no,
+                    'male': male, 'female': female, 'race': race_percentages,
+                    'full_time': full_time, 'part_time': part_time,})
 
 # contact form
 def contact_view(request):

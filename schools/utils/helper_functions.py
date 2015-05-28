@@ -258,3 +258,37 @@ def get_index_report(school_id, num_days, index_category):
     # bd
     bd_by_date = get_bd_index(school_id, num_days, index_category)
     return result_set, gg_by_date, bd_by_date
+
+def get_pie_data(school_infor):
+    #financial aid
+    financial_yes = -1
+    financial_no = -1
+    if school_infor.financial_aid_percentage is not None:
+        financial_yes = int(school_infor.financial_aid_percentage[:-1])
+        financial_no = 100 - financial_yes
+        
+    #admission
+    admission_yes = -1
+    admission_no = -1
+    if school_infor.admission_percentage is not None:
+        admission_yes = int(school_infor.admission_percentage[:-1])
+        admission_no = 100 - admission_yes
+        
+    #gender enrollment
+    male = -1
+    female = -1
+    if school_infor.admission_percentage is not None:
+        male = int(school_infor.enroll_male_percentage[:-1])
+        female = int(school_infor.enroll_female_percentage[:-1])
+    
+    #Enrollment by Race
+    #a_i_n, a_p, black, latino, white, unknown, n_r= -1, -1, -1, -1, -1, -1, -1
+    race_percentages = get_race_percentages(school_infor)
+    
+    # attendance
+    full_time, part_time = -1, -1
+    if school_infor.fulltime_percentage is not None:
+        full_time = int(school_infor.fulltime_percentage[:-1])
+        part_time = 100 - full_time
+    
+    return financial_yes, financial_no, admission_yes, admission_no, male, female, race_percentages, full_time, part_time
