@@ -1,0 +1,29 @@
+{% extends "schools/base.html" %} 
+{% block title%}{{school.name}} - report{%endblock %}
+{% load strip_space %}
+
+{% block sidebar %}
+<div class="navbar-default sidebar" role="navigation" style="margin-top: 20px;">
+    <div class="sidebar-nav">
+        <ul class="nav" id="side-menu">
+            <!-- general indexes -->
+            <li >
+                <a href="/schools/school_id={{school.id}}/{{school.name|lower|nospace}}/report?index_category=general"> General</a>
+            </li>
+            <!-- MBA -->
+            <li>
+                <a href="/schools/school_id={{school.id}}/{{school.name|lower|nospace}}/report?index_category=mba"> MBA Program</a>
+            </li>
+            <!-- law school -->
+            <li>
+                <a href="/schools/school_id={{school.id}}/{{school.name|lower|nospace}}/report?index_category=law"> Law School</a>
+            </li>
+            <!-- engineering school -->
+            <li>
+                <a href="/schools/school_id={{school.id}}/{{school.name|lower|nospace}}/report?index_category=engineering"> Engineering School</a>
+            </li>
+        </ul>
+    </div>
+    <!-- /.sidebar-collapse -->
+</div>
+{% endblock %}
