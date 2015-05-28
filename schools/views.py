@@ -139,7 +139,7 @@ def media_view(request, school_id='0'):
     # yh
     #yh_by_date = get_yh_index(school_id, num_days, index_category)
     
-    return render(request, 'schools/school_media.html', {'school': school, 
+    return render(request, 'schools/school_media.html', {'school': school, 'index_category':index_category,
                     'school_infor': school_infor, 'comparison_list': comparison_list,
                     'gg': gg_by_date, 'bd': bd_by_date, #'yh': yh_by_date,
                     'num_days': num_days,
@@ -171,6 +171,8 @@ def compare_view(request, this_id=''):
     #print this_id
     num_days = '30' # default period
     index_name = 'composite_index'
+    index_category = 'general'
+    
     index_dict = {'bd_index_en':'Baidu Page Index (EN)', 'bd_index_ch':'Baidu Page Index (CH)',
                   'bd_news_en':'Baidu News Index (EN)', 'bd_news_ch':'Baidu News Index (CH)',
                   'bd_site':'Baidu Site Index', 'gg_index_en':'Google Page Index (EN)',
@@ -182,9 +184,10 @@ def compare_view(request, this_id=''):
     if request.GET.get('num_days'): # custom selected period
         num_days = request.GET.get('num_days')
     num_days = int(num_days)
-    
     if request.GET.get('index_name'):
         index_name = request.GET.get('index_name')
+    if request.GET.get('index_category'):
+        index_category = request.GET.get('index_category')
     
     school_ids = []
     for checked in request.GET.keys():
@@ -201,7 +204,7 @@ def compare_view(request, this_id=''):
         if school_id != int(this_id):
             selected_schools.append(school_obj)
         #indexes = get_all_indexes(school_id, num_days)[:-2] # contain all indexes in the period gg, bd, yh
-        indexes = get_index(school_id, index_name, num_days)
+        indexes = get_index(school_id, index_name, num_days, index_category)
         name_list.append(school_obj.name)
         index_list.append(indexes)
 #     print school_dict
@@ -212,10 +215,10 @@ def compare_view(request, this_id=''):
     
     # get column chart data
     #data_sets_col = get_data_col(school_ids)
-    data_sets_col = get_index_data_col(school_ids, index_name)
+    data_sets_col = get_index_data_col(school_ids, index_name, index_category)
     index_list = convert_to_chart_data_index(index_list)
     #print data_sets_col
-    return render(request, 'schools/school_compare.html', {'this_school': this_school, 
+    return render(request, 'schools/school_compare.html', {'this_school': this_school, 'index_category':index_category,
                     'name_list': name_list, 'index_list': index_list, 'num_days': num_days,
                     'data_sets_col': data_sets_col, 'selected_schools': selected_schools,
                     'latest_date': latest_date, 'index_name': index_dict[index_name],})
@@ -250,7 +253,7 @@ def report_view(request, school_id):
 #     # bd
 #     bd_by_date = get_bd_index(school_id, num_days)
     return render(request, 'schools/school_report.html',
-                  {'school': school, 'school_infor': school_infor, 
+                  {'school': school, 'school_infor': school_infor, 'index_category': index_category,
                    'latest_date': latest_date, 'result_set': result_set,
                    'gg': gg_by_date, 'bd': bd_by_date, 'num_days': num_days,
                    'financial_yes': financial_yes, 'financial_no': financial_no,

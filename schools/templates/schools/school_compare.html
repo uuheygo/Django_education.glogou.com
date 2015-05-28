@@ -24,7 +24,7 @@
               <li role="presentation"><a role="menuitem" tabindex="-1" onclick="redirectTo(300)">last 300 days</a></li>
             </ul>
             </div>
-            <h4><b>{{index_name}} - Last {{num_days}} days</b></h4>
+            <h4><b>{{index_name}} ({{index_category|upper}}) - Last {{num_days}} days</b></h4>
         </div>
         <div class="panel-body">
             <div  style="margin-bottom: 10px;"><div id="index_line"></div></div>
@@ -362,13 +362,29 @@
     });
     
     function redirectTo(num_days) {
-        currURL = document.URL;
-        window.location = currURL.split("&num_days")[0] + "&num_days=" + num_days;
+        var currURL = document.URL;
+        var arr = currURL.split('&');
+        for(var i = 0; i < arr.length; i++) {
+            if(arr[i].includes("num_days")) {
+                arr[i] = "num_days=" + num_days;
+                window.location = arr.join("&");
+                return;
+            }
+        }
+        window.location = currURL + "&num_days=" + num_days;
     }
     
     function changeChart(index_name) {
-        currURL = document.URL;
-        window.location = currURL.split("&num_days")[0] + "&index_name=" + index_name;
+        var currURL = document.URL;
+        var arr = currURL.split('&');
+        for(var i = 0; i < arr.length; i++) {
+            if(arr[i].includes("index_name")) {
+                arr[i] = "index_name=" + index_name;
+                window.location = arr.join("&");
+                return;
+            }
+        }
+        window.location = currURL + "&index_name=" + index_name;
     }
 </script>
 {% endblock %}

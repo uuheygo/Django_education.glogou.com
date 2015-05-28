@@ -33,7 +33,7 @@
 {% block school_page_box %}
 <div class="panel panel-primary">
     <div class="panel-heading"><h3>Report Preview</h3></div>
-    <div class="panel-body"  style="text-align: justify;max-height: 500px;overflow-y: scroll;">
+    <div id="target" class="panel-body"  style="text-align: justify;max-height: 500px;overflow-y: scroll;">
         <div class="row">
             <!-- info -->
             <div style="position:relative;text-align: center;"><h2><b>{{school.name}}</b></h2></div>
@@ -92,29 +92,44 @@
         <div class="panel panel-info">
             <div class="panel-heading"><h3>Student Facts</h3></div>
             <div class="panel-body">
-            <div class="row">
-                {% if financial_yes > -1 %}
-                    <div class="col-md-6"><div id="financial" style="height: 300px;"></div></div>
-                {% endif %}
-                {% if admission_yes > -1 %}
-                    <div class="col-md-6"><div id="admission" style="height: 300px;"></div></div>
-                {% endif %}
-            </div>
-            <div class="row">
-                {% if male > -1 %}
-                    <div class="col-md-6"><div id="gender" style="height: 300px;"></div></div>
-                {% endif %}
-                {% if race.0 > -1 or race.1 > -1 or race.2 > -1 or race.3 > -1 or race.4 > -1 or race.5 > -1 or race.6 > -1 or race.7 > -1 %}
-                    <div class="col-md-6"><div id="race" style="height: 300px;"></div></div>
-                {% endif %}
-            </div>
-            <div class="row">
-                {% if full_time > -1 %}
-                    <div class="col-md-6"><div id="attendance" style="height: 300px;"></div></div>
-                {% endif %}
-            </div>
+                <div class="row">
+                    {% if financial_yes > -1 %}
+                        <div class="col-md-6"><div id="financial" style="height: 300px;"></div></div>
+                    {% endif %}
+                    {% if admission_yes > -1 %}
+                        <div class="col-md-6"><div id="admission" style="height: 300px;"></div></div>
+                    {% endif %}
+                </div>
+                <div class="row">
+                    {% if male > -1 %}
+                        <div class="col-md-6"><div id="gender" style="height: 300px;"></div></div>
+                    {% endif %}
+                    {% if race.0 > -1 or race.1 > -1 or race.2 > -1 or race.3 > -1 or race.4 > -1 or race.5 > -1 or race.6 > -1 or race.7 > -1 %}
+                        <div class="col-md-6"><div id="race" style="height: 300px;"></div></div>
+                    {% endif %}
+                </div>
+                <div class="row">
+                    {% if full_time > -1 %}
+                        <div class="col-md-6"><div id="attendance" style="height: 300px;"></div></div>
+                    {% endif %}
+                </div>
             </div>
         </div>
+        
+        <!-- bar chart -->
+        <div class="panel panel-default">
+            <div class="panel-heading"><h3>Latest Media Performance ({{index_category|upper}}, {{latest_date}})</h3></div>
+            <!-- /.panel-heading -->
+            <div class="panel-body">
+                <div id="bar-chart"></div>
+            </div>
+            <!-- /.panel-body -->
+        </div>
+        
+        <!-- column charts -->
+        {% include 'schools/index_charts.html' %}
+        
+        
     </div>
 </div>
 
@@ -223,6 +238,44 @@
         
         var chart4 = new google.visualization.PieChart(document.getElementById('attendance'));
         chart4.draw(data4, options4);
+        
+        // bar chart
+        data_set = {{result_set|safe}}
+        var data = google.visualization.arrayToDataTable(data_set);
+        var options = {
+            height: 500,
+            legend: {position: 'top'},
+            chartArea: {top:40, left: 60, 'width': '90%', 'height': '75%'},
+            //bars: 'horizontal',
+            hAxis: {
+                    title: 'Source of Index',
+                    titleTextStyle: {
+                        fontSize: 18,
+                        color: '#053061',
+                        bold: true,
+                        italic: false
+                      }
+                },
+            vAxis: {
+                    title: 'Search Index',
+                    titleTextStyle: {
+                        fontSize: 18,
+                        color: '#053061',
+                        bold: true,
+                        italic: false
+                      }
+                },
+        };
+        
+        function resize () {
+                        var chart = new google.visualization.ColumnChart(document.getElementById('bar-chart'));
+                        chart.draw(data, options);
+                      }
+        window.onload = resize();
+        window.onresize = resize;
+        
       }
+      
+      
     </script>
 {% endblock %}

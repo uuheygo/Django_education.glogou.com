@@ -1,5 +1,5 @@
 {% load strip_space %}
-<div class="row">    
+
     <div class="panel panel-default">
         <div class="panel-heading">
           <div class="dropdown pull-right">
@@ -11,7 +11,7 @@
               <li role="presentation"><a role="menuitem" tabindex="-1" href="/schools/school_id={{school.id}}/{{school.name|lower|nospace}}/media/?num_days=300">last 300 days</a></li>
             </ul>
           </div>
-            <h3>Media Indexes - Last {{num_days}} days</h3>
+            <h3>Media Indexes ({{index_category|upper}}) - Last {{num_days}} days</h3>
         </div>
         
         <div class="panel-body">
@@ -134,4 +134,3 @@
             window.onload = resize();
             window.onresize = resize;
     </script>
-</div>

@@ -168,27 +168,28 @@ def get_all_indexes(school_id, num_days):
     return indexes
 
 # get specific index of selected period for a School 
-def get_index(school_id, index_name, num_days):
-    if index_name == 'composite_index':
-        return CompositeIndex.objects.filter(school=school_id).order_by('-date')[:num_days] # bd index en
-    if index_name == 'bd_index_en' :
-        return BaiduIndexEn.objects.filter(school=school_id).order_by('-date')[:num_days] # bd index en
-    if index_name == 'bd_index_ch' :
-        return BaiduIndexCh.objects.filter(school=school_id).order_by('-date')[:num_days]
-    if index_name == 'bd_news_en' :
-        return BaiduNewsEn.objects.filter(school=school_id).order_by('-date')[:num_days]
-    if index_name == 'bd_news_ch' :
-        return BaiduNewsCh.objects.filter(school=school_id).order_by('-date')[:num_days]
-    if index_name == 'bd_site' :
-        return BaiduSite.objects.filter(school=school_id).order_by('-date')[:num_days]
-    if index_name == 'gg_index_en' :
-        return GoogleIndexEn.objects.filter(school=school_id).order_by('-date')[:num_days]
-    if index_name == 'gg_index_hk' :
-        return GoogleIndexHk.objects.filter(school=school_id).order_by('-date')[:num_days]
-    if index_name == 'gg_news_en' :
-        return GoogleNews.objects.filter(school=school_id).order_by('-date')[:num_days]
-    if index_name == 'gg_site' :
-        return GoogleSite.objects.filter(school=school_id).order_by('-date')[:num_days]
+def get_index(school_id, index_name, num_days, index_category):
+    if index_category == 'general':
+        if index_name == 'composite_index':
+            return CompositeIndex.objects.filter(school=school_id).order_by('-date')[:num_days] # bd index en
+        if index_name == 'bd_index_en' :
+            return BaiduIndexEn.objects.filter(school=school_id).order_by('-date')[:num_days] # bd index en
+        if index_name == 'bd_index_ch' :
+            return BaiduIndexCh.objects.filter(school=school_id).order_by('-date')[:num_days]
+        if index_name == 'bd_news_en' :
+            return BaiduNewsEn.objects.filter(school=school_id).order_by('-date')[:num_days]
+        if index_name == 'bd_news_ch' :
+            return BaiduNewsCh.objects.filter(school=school_id).order_by('-date')[:num_days]
+        if index_name == 'bd_site' :
+            return BaiduSite.objects.filter(school=school_id).order_by('-date')[:num_days]
+        if index_name == 'gg_index_en' :
+            return GoogleIndexEn.objects.filter(school=school_id).order_by('-date')[:num_days]
+        if index_name == 'gg_index_hk' :
+            return GoogleIndexHk.objects.filter(school=school_id).order_by('-date')[:num_days]
+        if index_name == 'gg_news_en' :
+            return GoogleNews.objects.filter(school=school_id).order_by('-date')[:num_days]
+        if index_name == 'gg_site' :
+            return GoogleSite.objects.filter(school=school_id).order_by('-date')[:num_days]
     
 # convert list per school to list per chart
 def convert_to_chart_data(list_per_school):
@@ -241,14 +242,15 @@ def get_data_col(school_ids):
     #print data_sets
     return data_sets
         
-def get_index_data_col(school_ids, index_name):
+def get_index_data_col(school_ids, index_name, index_category):
     data_set = []
     data_set.append(['School', 'Index'])
-    for id in school_ids:
-        school_id = int(id)
-        #print float(get_index(school_id, index_name, 1)[0].index)
-        data_set.append([School.objects.get(id=school_id).name.encode('ascii','ignore'), 
-                         float(get_index(school_id, index_name, 1)[0].index)])
+    if index_category == 'general':
+        for id in school_ids:
+            school_id = int(id)
+            #print float(get_index(school_id, index_name, 1)[0].index)
+            data_set.append([School.objects.get(id=school_id).name.encode('ascii','ignore'), 
+                             float(get_index(school_id, index_name, 1, index_category)[0].index)])
     return data_set
 
 def get_index_report(school_id, num_days, index_category):
