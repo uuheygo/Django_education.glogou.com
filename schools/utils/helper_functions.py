@@ -47,58 +47,60 @@ def filter_by_keyword(result_set, keyword):
     #print results
     return results
         
-def get_latest_indexes_for_school_view(school):
+def get_latest_indexes_for_school_view(school_id, index_category='general'): 
+    school = School.objects.get(id=school_id)
     result_set = [None] * 10
-    latest_date = BaiduIndexCh.objects.aggregate(Max('date'))['date__max']
-    latest_date = latest_date.strftime('%Y-%m-%d') # convert to xxxx-xx-xx format string
-    result_set[0] = ['Indexes on Major Search Engines', 
-                     'Index of ' + school.name, 
-                     'Max Index of All Schools',
-                     'Average Index of All Schools']
-    result_set[1] = ['baidu_index_ch', 
-                     float(school.baiduindexch_set.latest('date').index), 
-                     float(BaiduIndexCh.objects.filter(date=latest_date).aggregate(Max('index'))['index__max']),
-                     float(BaiduIndexCh.objects.filter(date=latest_date).aggregate(Avg('index'))['index__avg'])]
-    result_set[2] = ['baidu_index_en', 
-                     float(school.baiduindexen_set.latest('date').index), 
-                     float(BaiduIndexEn.objects.filter(date=latest_date).aggregate(Max('index'))['index__max']),
-                     float(BaiduIndexEn.objects.filter(date=latest_date).aggregate(Avg('index'))['index__avg'])]
-    result_set[3] = ['baidu_news_ch', 
-                     float(school.baidunewsch_set.latest('date').index), 
-                     float(BaiduNewsCh.objects.filter(date=latest_date).aggregate(Max('index'))['index__max']),
-                     float(BaiduNewsCh.objects.filter(date=latest_date).aggregate(Avg('index'))['index__avg'])]
-    result_set[4] = ['baidu_news_en', 
-                     float(school.baidunewsen_set.latest('date').index), 
-                     float(BaiduNewsEn.objects.filter(date=latest_date).aggregate(Max('index'))['index__max']),
-                     float(BaiduNewsEn.objects.filter(date=latest_date).aggregate(Avg('index'))['index__avg'])]
-    result_set[5] = ['baidu_site', 
-                     float(school.baidusite_set.latest('date').index), 
-                     float(BaiduSite.objects.filter(date=latest_date).aggregate(Max('index'))['index__max']),
-                     float(BaiduSite.objects.filter(date=latest_date).aggregate(Avg('index'))['index__avg'])]
-    result_set[6] = ['google_index_en', 
-                     float(school.googleindexen_set.latest('date').index), 
-                     float(GoogleIndexEn.objects.filter(date=latest_date).aggregate(Max('index'))['index__max']),
-                     float(GoogleIndexEn.objects.filter(date=latest_date).aggregate(Avg('index'))['index__avg'])]
-    result_set[7] = ['google_index_hk', 
-                     float(school.googleindexhk_set.latest('date').index), 
-                     float(GoogleIndexHk.objects.filter(date=latest_date).aggregate(Max('index'))['index__max']),
-                     float(GoogleIndexHk.objects.filter(date=latest_date).aggregate(Avg('index'))['index__avg'])]
-    result_set[8] = ['google_news', 
-                     float(school.googlenews_set.latest('date').index), 
-                     float(GoogleNews.objects.filter(date=latest_date).aggregate(Max('index'))['index__max']),
-                     float(GoogleNews.objects.filter(date=latest_date).aggregate(Avg('index'))['index__avg'])]
-    result_set[9] = ['google_site', 
-                     float(school.googlesite_set.latest('date').index), 
-                     float(GoogleSite.objects.filter(date=latest_date).aggregate(Max('index'))['index__max']),
-                     float(GoogleSite.objects.filter(date=latest_date).aggregate(Avg('index'))['index__avg'])]
-#     result_set[10] = ['yahoojap_index_en', 
-#                      float(school.yahoojapindexen_set.latest('date').index), 
-#                      float(YahoojapIndexEn.objects.filter(date=latest_date).aggregate(Max('index'))['index__max']),
-#                      float(YahoojapIndexEn.objects.filter(date=latest_date).aggregate(Avg('index'))['index__avg'])]
-#     result_set[11] = ['yahoojap_index_jp', 
-#                      float(school.yahoojapindexjp_set.latest('date').index), 
-#                      float(YahoojapIndexJp.objects.filter(date=latest_date).aggregate(Max('index'))['index__max']),
-#                      float(YahoojapIndexJp.objects.filter(date=latest_date).aggregate(Avg('index'))['index__avg'])]
+    if index_category == 'general':
+        latest_date = BaiduIndexCh.objects.aggregate(Max('date'))['date__max']
+        latest_date = latest_date.strftime('%Y-%m-%d') # convert to xxxx-xx-xx format string
+        result_set[0] = ['Indexes on Major Search Engines', 
+                         'Index of ' + school.name, 
+                         'Max Index of All Schools',
+                         'Average Index of All Schools']
+        result_set[1] = ['baidu_index_ch', 
+                         float(school.baiduindexch_set.latest('date').index), 
+                         float(BaiduIndexCh.objects.filter(date=latest_date).aggregate(Max('index'))['index__max']),
+                         float(BaiduIndexCh.objects.filter(date=latest_date).aggregate(Avg('index'))['index__avg'])]
+        result_set[2] = ['baidu_index_en', 
+                         float(school.baiduindexen_set.latest('date').index), 
+                         float(BaiduIndexEn.objects.filter(date=latest_date).aggregate(Max('index'))['index__max']),
+                         float(BaiduIndexEn.objects.filter(date=latest_date).aggregate(Avg('index'))['index__avg'])]
+        result_set[3] = ['baidu_news_ch', 
+                         float(school.baidunewsch_set.latest('date').index), 
+                         float(BaiduNewsCh.objects.filter(date=latest_date).aggregate(Max('index'))['index__max']),
+                         float(BaiduNewsCh.objects.filter(date=latest_date).aggregate(Avg('index'))['index__avg'])]
+        result_set[4] = ['baidu_news_en', 
+                         float(school.baidunewsen_set.latest('date').index), 
+                         float(BaiduNewsEn.objects.filter(date=latest_date).aggregate(Max('index'))['index__max']),
+                         float(BaiduNewsEn.objects.filter(date=latest_date).aggregate(Avg('index'))['index__avg'])]
+        result_set[5] = ['baidu_site', 
+                         float(school.baidusite_set.latest('date').index), 
+                         float(BaiduSite.objects.filter(date=latest_date).aggregate(Max('index'))['index__max']),
+                         float(BaiduSite.objects.filter(date=latest_date).aggregate(Avg('index'))['index__avg'])]
+        result_set[6] = ['google_index_en', 
+                         float(school.googleindexen_set.latest('date').index), 
+                         float(GoogleIndexEn.objects.filter(date=latest_date).aggregate(Max('index'))['index__max']),
+                         float(GoogleIndexEn.objects.filter(date=latest_date).aggregate(Avg('index'))['index__avg'])]
+        result_set[7] = ['google_index_hk', 
+                         float(school.googleindexhk_set.latest('date').index), 
+                         float(GoogleIndexHk.objects.filter(date=latest_date).aggregate(Max('index'))['index__max']),
+                         float(GoogleIndexHk.objects.filter(date=latest_date).aggregate(Avg('index'))['index__avg'])]
+        result_set[8] = ['google_news', 
+                         float(school.googlenews_set.latest('date').index), 
+                         float(GoogleNews.objects.filter(date=latest_date).aggregate(Max('index'))['index__max']),
+                         float(GoogleNews.objects.filter(date=latest_date).aggregate(Avg('index'))['index__avg'])]
+        result_set[9] = ['google_site', 
+                         float(school.googlesite_set.latest('date').index), 
+                         float(GoogleSite.objects.filter(date=latest_date).aggregate(Max('index'))['index__max']),
+                         float(GoogleSite.objects.filter(date=latest_date).aggregate(Avg('index'))['index__avg'])]
+    #     result_set[10] = ['yahoojap_index_en', 
+    #                      float(school.yahoojapindexen_set.latest('date').index), 
+    #                      float(YahoojapIndexEn.objects.filter(date=latest_date).aggregate(Max('index'))['index__max']),
+    #                      float(YahoojapIndexEn.objects.filter(date=latest_date).aggregate(Avg('index'))['index__avg'])]
+    #     result_set[11] = ['yahoojap_index_jp', 
+    #                      float(school.yahoojapindexjp_set.latest('date').index), 
+    #                      float(YahoojapIndexJp.objects.filter(date=latest_date).aggregate(Max('index'))['index__max']),
+    #                      float(YahoojapIndexJp.objects.filter(date=latest_date).aggregate(Avg('index'))['index__avg'])]
     return json.dumps(result_set)
 
 def get_race_percentages(school_infor):
@@ -122,22 +124,24 @@ def get_race_percentages(school_infor):
     return race_per
 
 # get google index for school in the period of last num_days days
-def get_gg_index(school_id, num_days):
+def get_gg_index(school_id, num_days, index_category):
     gg = [None] * 4
-    gg[0] = GoogleIndexEn.objects.filter(school=int(school_id)).order_by('-date')[:num_days] # gg index en
-    gg[1] = GoogleIndexHk.objects.filter(school=int(school_id)).order_by('-date')[:num_days] # gg index hk
-    gg[2] = GoogleNews.objects.filter(school=int(school_id)).order_by('-date')[:num_days] # gg news
-    gg[3] = GoogleSite.objects.filter(school=int(school_id)).order_by('-date')[:num_days] # gg site
+    if index_category == 'general':
+        gg[0] = GoogleIndexEn.objects.filter(school=int(school_id)).order_by('-date')[:num_days] # gg index en
+        gg[1] = GoogleIndexHk.objects.filter(school=int(school_id)).order_by('-date')[:num_days] # gg index hk
+        gg[2] = GoogleNews.objects.filter(school=int(school_id)).order_by('-date')[:num_days] # gg news
+        gg[3] = GoogleSite.objects.filter(school=int(school_id)).order_by('-date')[:num_days] # gg site
     return [[a, b, c, d] for a, b, c, d in zip(gg[0], gg[1], gg[2], gg[3])]
     
 # get baidu index for school in the period of last num_days days
-def get_bd_index(school_id, num_days):
+def get_bd_index(school_id, num_days, index_category):
     bd = [None] * 5
-    bd[0] = BaiduIndexCh.objects.filter(school=int(school_id)).order_by('-date')[:num_days] # bd index ch
-    bd[1] = BaiduIndexEn.objects.filter(school=int(school_id)).order_by('-date')[:num_days] # bd index en
-    bd[2] = BaiduNewsCh.objects.filter(school=int(school_id)).order_by('-date')[:num_days] # bd news ch
-    bd[3] = BaiduNewsEn.objects.filter(school=int(school_id)).order_by('-date')[:num_days] # bd news en
-    bd[4] = BaiduSite.objects.filter(school=int(school_id)).order_by('-date')[:num_days] # bd site
+    if index_category == 'general':
+        bd[0] = BaiduIndexCh.objects.filter(school=int(school_id)).order_by('-date')[:num_days] # bd index ch
+        bd[1] = BaiduIndexEn.objects.filter(school=int(school_id)).order_by('-date')[:num_days] # bd index en
+        bd[2] = BaiduNewsCh.objects.filter(school=int(school_id)).order_by('-date')[:num_days] # bd news ch
+        bd[3] = BaiduNewsEn.objects.filter(school=int(school_id)).order_by('-date')[:num_days] # bd news en
+        bd[4] = BaiduSite.objects.filter(school=int(school_id)).order_by('-date')[:num_days] # bd site
     return [[a, b, c, d, e] for a, b, c, d, e in zip(bd[0], bd[1], bd[2], bd[3], bd[4])]
         
 # get yahoo index for school in the period of last num_days days
@@ -246,3 +250,11 @@ def get_index_data_col(school_ids, index_name):
         data_set.append([School.objects.get(id=school_id).name.encode('ascii','ignore'), 
                          float(get_index(school_id, index_name, 1)[0].index)])
     return data_set
+
+def get_index_report(school_id, num_days, index_category):
+    result_set = get_latest_indexes_for_school_view(school_id, index_category) 
+    # gg
+    gg_by_date = get_gg_index(school_id, num_days, index_category)
+    # bd
+    bd_by_date = get_bd_index(school_id, num_days, index_category)
+    return result_set, gg_by_date, bd_by_date

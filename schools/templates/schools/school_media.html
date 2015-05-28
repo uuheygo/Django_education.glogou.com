@@ -1,8 +1,66 @@
 {% extends "schools/school_page_base.html" %} 
-
+{% block title%}{{school.name}} - media{%endblock %}
+{% load strip_space %}
 
 <!-- media performance -->
 {% block school_page_box %}
     {% include 'schools/index_charts.html' %}
 {% endblock %}
 <!-- /media performance -->
+
+{% block sidebar %}
+<div class="navbar-default sidebar" role="navigation" style="margin-top: 20px;">
+    <div class="sidebar-nav">
+        <div style="margin-left: 10px;"><h4>Index Category:</h4></div>
+        <ul class="nav" id="side-menu">
+            <!-- general indexes -->
+            <li >
+                <a href="/schools/school_id={{school.id}}/{{school.name|lower|nospace}}/media?index_category=general"> General</a>
+            </li>
+            <!-- MBA -->
+            <li>
+                <a href="/schools/school_id={{school.id}}/{{school.name|lower|nospace}}/media?index_category=mba"> MBA Program</a>
+            </li>
+            <!-- law school -->
+            <li>
+                <a href="/schools/school_id={{school.id}}/{{school.name|lower|nospace}}/media?index_category=law"> Law School</a>
+            </li>
+            <!-- engineering school -->
+            <li>
+                <a href="/schools/school_id={{school.id}}/{{school.name|lower|nospace}}/media?index_category=engineering"> Engineering School</a>
+            </li>
+        </ul>
+        
+        <!-- search box -->
+        <div style="margin-left: 10px;"><h4>Add Schools for Comparison</h4></div>
+        <div class="sidebar-search">
+            <div class="input-group custom-search-form ui-front">
+                <input id="custom_selection" type="text" class="form-control ui-widget" placeholder="Add More by Name...">
+            </div>
+        </div>
+        <!-- /search box -->
+        
+        
+        <!-- recommeded schools -->
+        <div style="margin-left: 10px;"><h4>Schools for Comparison:</h4></div>
+        <div>
+                <div style="padding-left:20px;">
+                    <form role="form" action="/schools/school_id={{school.id}}/{{school.name|lower|nospace}}/compare/" method="get">
+                        <div id="compare_list" class="checkbox">
+                            <label><h5><input type="checkbox" name = "checked_{{school.id}}" value = "{{school.id}}" onclick="this.checked=true" checked>{{school.name}}</h5></label><br>
+                            {% for school in comparison_list %}
+                            <label><h5><input type="checkbox" name = "checked_{{school.school_compare.id}}" value = "{{school.school_compare.id}}">
+                                {{school.school_compare.name}}</h5></label><br>
+                            <!-- in backend, do some_var = request.POST.getlist('checked') -->
+                            {% endfor %}
+                        </div>
+                        <hr>
+                        <button type="submit" class="btn btn-default" style="float: right; margin-right: 15px;">Submit</button>
+                    </form>
+                </div>
+        </div>
+        <!-- /recommeded schools -->
+    </div>
+    <!-- /.sidebar-collapse -->
+</div>
+{% endblock %}

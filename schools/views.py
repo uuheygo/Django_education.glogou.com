@@ -10,7 +10,7 @@ import json
 
 from utils.helper_functions import get_latest_indexes_for_school_view, get_result_set, filter_by_keyword, \
     get_race_percentages, get_gg_index, get_bd_index, get_yh_index, get_all_indexes, convert_to_chart_data, \
-    get_data_col, get_index, get_index_data_col, convert_to_chart_data_index
+    get_data_col, get_index, get_index_data_col, convert_to_chart_data_index, get_index_report
 
 from .models import School, SchoolInforYearly, SchoolsComparisonId, \
     BaiduIndexCh, BaiduIndexEn, BaiduNewsEn, BaiduNewsCh, BaiduSite, \
@@ -62,7 +62,7 @@ def school_view(request, school_id = '0'):
     school_id = int(school_id)
     school = School.objects.get(id=school_id)
     school_infor = school.schoolinforyearly_set.filter(year=latest_year)
-    result_set = get_latest_indexes_for_school_view(school) # all latest indexes
+    result_set = get_latest_indexes_for_school_view(school_id) # all latest indexes
     print result_set
     comparison_list = school.school_to_compare.all()
     return render(request, 'schools/school_page.html', 
@@ -118,24 +118,28 @@ def info_view(request, school_id = '0'):
 def media_view(request, school_id='0'):
     school_id = int(school_id)
     num_days = '30'
+    index_category = 'general'
     if request.GET.get('num_days'):
         num_days = request.GET.get('num_days')
     num_days = int(num_days)
+    if request.GET.get('index_category'):
+        index_category = request.GET.get('index_category')
+    
     school = School.objects.get(id=school_id)
     school_infor = school.schoolinforyearly_set.filter(year=latest_year)
     comparison_list = school.school_to_compare.all()
     
-    # ---default media indexes are latest 7 days
+    # ---default media indexes are latest 30 days
     # gg
-    gg_by_date = get_gg_index(school_id, num_days)
+    gg_by_date = get_gg_index(school_id, num_days, index_category)
     # bd
-    bd_by_date = get_bd_index(school_id, num_days)
+    bd_by_date = get_bd_index(school_id, num_days, index_category)
     # yh
-    yh_by_date = get_yh_index(school_id, num_days)
+    #yh_by_date = get_yh_index(school_id, num_days, index_category)
     
     return render(request, 'schools/school_media.html', {'school': school, 
                     'school_infor': school_infor, 'comparison_list': comparison_list,
-                    'gg': gg_by_date, 'bd': bd_by_date, 'yh': yh_by_date,
+                    'gg': gg_by_date, 'bd': bd_by_date, #'yh': yh_by_date,
                     'num_days': num_days,
                                                         })
 
@@ -222,19 +226,26 @@ def news_view(request, school_id):
     return render(request, 'schools/school_news.html', {'school': school, 'school_ch': school_ch, 'comparison_list': comparison_list})
 
 def report_view(request, school_id):
-    num_days = '7' # default period
+    num_days = '30' # default period
+    index_category = 'general' # default category
     if request.GET.get('num_days'): # custom selected period
         num_days = request.GET.get('num_days')
     num_days = int(num_days)
+    if request.GET.get('index_category'):
+        index_category = request.GET.get('index_category')
+        
     school_id = int(school_id)
     school = School.objects.get(id=school_id)
     school_infor = school.schoolinforyearly_set.filter(year=latest_year)
-    # all latest indexes
-    result_set = get_latest_indexes_for_school_view(school) 
-    # gg
-    gg_by_date = get_gg_index(school_id, num_days)
-    # bd
-    bd_by_date = get_bd_index(school_id, num_days)
+    
+    result_set, gg_by_date, bd_by_date = get_index_report(school_id, num_days, index_category)
+    
+#     # all latest indexes
+#     result_set = get_latest_indexes_for_school_view(school) 
+#     # gg
+#     gg_by_date = get_gg_index(school_id, num_days)
+#     # bd
+#     bd_by_date = get_bd_index(school_id, num_days)
     return render(request, 'schools/school_report.html',
                   {'school': school, 'school_infor': school_infor, 
                    'latest_date': latest_date, 'result_set': result_set,
