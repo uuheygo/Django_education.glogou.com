@@ -380,7 +380,7 @@
         var currURL = document.URL;
         var arr = currURL.split('&');
         for(var i = 0; i < arr.length; i++) {
-            if(arr[i].includes("index_name")) {
+            if(arr[i].indexOf("index_name") > -1) {
                 arr[i] = "index_name=" + index_name;
                 window.location = arr.join("&");
                 return;
