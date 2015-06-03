@@ -123,6 +123,13 @@ def get_race_percentages(school_infor):
         race_per[7] = int(school_infor.enroll_nonresidentalien_percentage[:-1])
     return race_per
 
+# get composite index for school in the period of last num_days days
+def get_composite_index(school_id, num_days, index_category):
+    composite = None
+    if index_category == 'general':
+        composite = CompositeIndex.objects.filter(school=int(school_id)).order_by('-date')[:num_days]
+    return composite
+
 # get google index for school in the period of last num_days days
 def get_gg_index(school_id, num_days, index_category):
     gg = [None] * 4
@@ -255,11 +262,13 @@ def get_index_data_col(school_ids, index_name, index_category):
 
 def get_index_report(school_id, num_days, index_category):
     result_set = get_latest_indexes_for_school_view(school_id, index_category) 
+    # composite
+    composite_by_date = get_composite_index(school_id, num_days, index_category)
     # gg
     gg_by_date = get_gg_index(school_id, num_days, index_category)
     # bd
     bd_by_date = get_bd_index(school_id, num_days, index_category)
-    return result_set, gg_by_date, bd_by_date
+    return result_set, composite_by_date, gg_by_date, bd_by_date
 
 def get_pie_data(school_infor):
     #financial aid

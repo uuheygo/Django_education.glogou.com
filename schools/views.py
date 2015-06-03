@@ -10,7 +10,8 @@ import json
 
 from utils.helper_functions import get_latest_indexes_for_school_view, get_result_set, filter_by_keyword, \
     get_race_percentages, get_gg_index, get_bd_index, get_yh_index, get_all_indexes, convert_to_chart_data, \
-    get_data_col, get_index, get_index_data_col, convert_to_chart_data_index, get_index_report, get_pie_data
+    get_data_col, get_index, get_index_data_col, convert_to_chart_data_index, get_index_report, get_pie_data,\
+    get_composite_index
 
 from .models import School, SchoolInforYearly, SchoolsComparisonId, \
     BaiduIndexCh, BaiduIndexEn, BaiduNewsEn, BaiduNewsCh, BaiduSite, \
@@ -136,6 +137,7 @@ def media_view(request, school_id='0'):
     comparison_list = school.school_to_compare.all()
     
     # ---default media indexes are latest 30 days
+    composite_by_date = get_composite_index(school_id, num_days, index_category)
     # gg
     gg_by_date = get_gg_index(school_id, num_days, index_category)
     # bd
@@ -146,7 +148,7 @@ def media_view(request, school_id='0'):
     return render(request, 'schools/school_media.html', {'school': school, 'index_category':index_category,
                     'school_infor': school_infor, 'comparison_list': comparison_list,
                     'gg': gg_by_date, 'bd': bd_by_date, #'yh': yh_by_date,
-                    'num_days': num_days,
+                    'num_days': num_days, 'composite': composite_by_date,
                                                         })
 
 # auto-completion list for custom selection of schools for comparison
@@ -251,7 +253,7 @@ def report_view(request, school_id):
     school = School.objects.get(id=school_id)
     school_infor = school.schoolinforyearly_set.filter(year=latest_year)[0]
     
-    result_set, gg_by_date, bd_by_date = get_index_report(school_id, num_days, index_category)
+    result_set, composite_by_date, gg_by_date, bd_by_date = get_index_report(school_id, num_days, index_category)
     financial_yes, financial_no, admission_yes, admission_no, male, female, race_percentages, full_time, part_time = \
         get_pie_data(school_infor)
 #     # all latest indexes
@@ -262,7 +264,7 @@ def report_view(request, school_id):
 #     bd_by_date = get_bd_index(school_id, num_days)
     return render(request, 'schools/school_report.html',
                   {'school': school, 'school_infor': school_infor, 'index_category': index_category,
-                   'latest_date': latest_date, 'result_set': result_set,
+                   'latest_date': latest_date, 'result_set': result_set, 'composite': composite_by_date,
                    'gg': gg_by_date, 'bd': bd_by_date, 'num_days': num_days,
                    'financial_yes': financial_yes, 'financial_no': financial_no,
                     'admission_yes': admission_yes, 'admission_no': admission_no,

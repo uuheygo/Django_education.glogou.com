@@ -15,6 +15,9 @@
         </div>
         
         <div class="panel-body">
+            <div id="composite"></div>
+        </div>
+        <div class="panel-body">
             <div id="gg"></div>
         </div>
         <div class="panel-body">
@@ -30,6 +33,35 @@
         google.setOnLoadCallback(drawBackgroundColor);
         
         function drawBackgroundColor() {
+              var data0 = new google.visualization.DataTable();
+              data0.addColumn('date', 'month');
+              data0.addColumn('number', 'Composite Index');
+              
+              data0.addRows([
+                {% for row in composite reversed %}
+                    [new Date("{{row.date}}"), {{row.index}}],
+                {% endfor %}
+              ]);
+        
+              var options0 = {
+                title: 'Composite Indexes',
+                //curveType: 'function',
+                hAxis: {
+                  title: 'Date',
+                  format:'M/d/y',
+                },
+                vAxis: {
+                  title: 'Index'
+                },
+                backgroundColor: '#f1f8e9',
+                height: 300,
+                pointSize: 10,
+                };
+                
+              
+              var chart0 = new google.visualization.LineChart(document.getElementById('composite'));
+              chart0.draw(data0, options0);
+              
               var data1 = new google.visualization.DataTable();
               data1.addColumn('date', 'month');
               data1.addColumn('number', 'Google Index(EN)');
