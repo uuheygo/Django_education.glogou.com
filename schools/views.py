@@ -230,7 +230,7 @@ def compare_view(request, this_id=''):
 def news_view(request, school_id):
     school = School.objects.get(id=school_id)
     school_ch = school.schoolchname.ch_simp
-    print school_ch
+    # print school_ch
     comparison_list = school.school_to_compare.all()
     return render(request, 'schools/school_news.html', {'school': school, 'school_ch': school_ch, 'comparison_list': comparison_list})
 
