@@ -6,9 +6,9 @@
             <button id="selected_period" class="btn btn-default dropdown-toggle" type="button" id="chart_period" data-toggle="dropdown">Select Period
             <span class="caret"></span></button>
             <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
-              <li role="presentation"><a role="menuitem" tabindex="-1" href="/school_id={{school.id}}/{{school.name|lower|nospace}}/media/?num_days=30">last 30 days</a></li>
-              <li role="presentation"><a role="menuitem" tabindex="-1" href="/school_id={{school.id}}/{{school.name|lower|nospace}}/media/?num_days=100">last 100 days</a></li>
-              <li role="presentation"><a role="menuitem" tabindex="-1" href="/school_id={{school.id}}/{{school.name|lower|nospace}}/media/?num_days=300">last 300 days</a></li>
+              <li role="presentation"><a role="menuitem" tabindex="-1" onclick="redirectTo(30)">last 30 days</a></li>
+              <li role="presentation"><a role="menuitem" tabindex="-1" onclick="redirectTo(100)">last 100 days</a></li>
+              <li role="presentation"><a role="menuitem" tabindex="-1" onclick="redirectTo(300)">last 300 days</a></li>
             </ul>
           </div>
             <h3>Media Indexes ({{index_category|upper}}) - Last {{num_days}} days</h3>
@@ -126,6 +126,19 @@
               var chart3 = new google.visualization.LineChart(document.getElementById('yh'));
               chart3.draw(data3, options3);
               */
+            }
+            
+            function redirectTo(num_days) {
+                var currURL = document.URL;
+                var arr = currURL.split('&');
+                for(var i = 0; i < arr.length; i++) {
+                    if(arr[i].indexOf("num_days") > -1) {
+                        arr[i] = "num_days=" + num_days;
+                        window.location = arr.join("&");
+                        return;
+                    }
+                }
+                window.location = currURL + "?num_days=" + num_days;
             }
             
             function resize() {

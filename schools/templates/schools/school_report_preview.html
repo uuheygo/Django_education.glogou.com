@@ -11,7 +11,7 @@
                 <ul class="list-unstyled" style="margin-top: 30px;position:relative;text-align: center;">
                     <li>{{school.city}}, {{school.state_short}}</li>
                     <li>{{school.phone}}</li>
-                    <li><a href={{school.url}}>{{school.url}}</a></li>
+                    <li>{{school.school_url}}</li>
                 </ul>
                 
                 
@@ -41,13 +41,13 @@
             <div class="panel-body">
                 <div class="col-xs-1"></div>
                 <!-- social icons -->
-                <div class="col-xs-11">
-                <ul class="list-unstyled">
-                    <li><a href="{{school.facebook_url}}" style="margin-right: 5px;"><img src="/static/schools/images/facebook.png" width="25" height="25"></a>{{school.facebook_url}}</li>
-                    <li><a href="{{school.twitter_url}}" style="margin-right: 5px;"><img src="/static/schools/images/twitter.png" width="25" height="25"></a>{{school.twitter_url}}</li>
-                    <li><a href="{{school.googleplus_url}}" style="margin-right: 5px;"><img src="/static/schools/images/googleplus.png" width="25" height="25"></a>{{school.googleplus_url}}</li>
-                    <li><a href="{{school.linkedin_url}}" style="margin-right: 5px;"><img src="/static/schools/images/linkedin.png" width="25" height="25"></a>{{school.linkedin_url}}</li>
-                    <li><a href="{{school.youtube_url}}" style="margin-right: 5px;"><img src="/static/schools/images/youtube.png" width="25" height="25"></a>{{school.youtube_url}}</li>
+                <div class="col-xs-12">
+                <ul class="list-unstyled" style="padding: 0; margin: 0;">
+                    <li><img src="/static/schools/images/facebook.png" width="25" height="25" style="margin-right: 5px;">{{school.facebook_url}}</li>
+                    <li><img src="/static/schools/images/twitter.png" width="25" height="25" style="margin-right: 5px;">{{school.twitter_url}}</li>
+                    <li><img src="/static/schools/images/googleplus.png" width="25" height="25" style="margin-right: 5px;">{{school.googleplus_url}}</li>
+                    <li><img src="/static/schools/images/linkedin.png" width="25" height="25" style="margin-right: 5px;">{{school.linkedin_url}}</li>
+                    <li><img src="/static/schools/images/youtube.png" width="25" height="25" style="margin-right: 5px;">{{school.youtube_url}}</li>
                     
                 </ul>
                 </div>
@@ -74,23 +74,23 @@
             <div class="panel-body">
                 <div class="row">
                     {% if financial_yes > -1 %}
-                        <div class="col-xs-6"><div id="financial" style="height: 300px;"></div></div>
+                        <div class="col-xs-6"><div id="financial" style="height: 250px;"></div></div>
                     {% endif %}
                     {% if admission_yes > -1 %}
-                        <div class="col-xs-6"><div id="admission" style="height: 300px;"></div></div>
+                        <div class="col-xs-6"><div id="admission" style="height: 250px;"></div></div>
                     {% endif %}
                 </div>
                 <div class="row">
                     {% if male > -1 %}
-                        <div class="col-xs-6"><div id="gender" style="height: 300px;"></div></div>
+                        <div class="col-xs-6"><div id="gender" style="height: 250px;"></div></div>
                     {% endif %}
                     {% if race.0 > -1 or race.1 > -1 or race.2 > -1 or race.3 > -1 or race.4 > -1 or race.5 > -1 or race.6 > -1 or race.7 > -1 %}
-                        <div class="col-xs-6"><div id="race" style="height: 300px;"></div></div>
+                        <div class="col-xs-6"><div id="race" style="height: 250px;"></div></div>
                     {% endif %}
                 </div>
                 <div class="row">
                     {% if full_time > -1 %}
-                        <div class="col-xs-6"><div id="attendance" style="height: 300px;"></div></div>
+                        <div class="col-xs-6"><div id="attendance" style="height: 250px;"></div></div>
                     {% endif %}
                 </div>
             </div>
@@ -105,7 +105,7 @@
             </div>
             <!-- /.panel-body -->
         </div>
-        <!-- column charts -->
+        <!-- line charts -->
         {% include 'schools/index_charts.html' %}
         
     </div>
