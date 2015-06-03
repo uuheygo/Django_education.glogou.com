@@ -15,19 +15,19 @@
         <ul class="nav" id="side-menu">
             <!-- general indexes -->
             <li >
-                <a href="/schools/school_id={{school.id}}/{{school.name|lower|nospace}}/media?index_category=general"> General</a>
+                <a href="/school_id={{school.id}}/{{school.name|lower|nospace}}/media?index_category=general"> General</a>
             </li>
             <!-- MBA -->
             <li>
-                <a href="/schools/school_id={{school.id}}/{{school.name|lower|nospace}}/media?index_category=mba"> MBA Program</a>
+                <a href="/school_id={{school.id}}/{{school.name|lower|nospace}}/media?index_category=mba"> MBA Program</a>
             </li>
             <!-- law school -->
             <li>
-                <a href="/schools/school_id={{school.id}}/{{school.name|lower|nospace}}/media?index_category=law"> Law School</a>
+                <a href="/school_id={{school.id}}/{{school.name|lower|nospace}}/media?index_category=law"> Law School</a>
             </li>
             <!-- engineering school -->
             <li>
-                <a href="/schools/school_id={{school.id}}/{{school.name|lower|nospace}}/media?index_category=engineering"> Engineering School</a>
+                <a href="/school_id={{school.id}}/{{school.name|lower|nospace}}/media?index_category=engineering"> Engineering School</a>
             </li>
         </ul>
         
@@ -45,7 +45,7 @@
         <div style="margin-left: 10px;"><h4>Schools for Comparison:</h4></div>
         <div>
                 <div style="padding-left:20px;">
-                    <form role="form" action="/schools/school_id={{school.id}}/{{school.name|lower|nospace}}/compare/" method="get">
+                    <form role="form" action="/school_id={{school.id}}/{{school.name|lower|nospace}}/compare/" method="get">
                         <div id="compare_list" class="checkbox">
                             <label><h5><input type="checkbox" name = "checked_{{school.id}}" value = "{{school.id}}" onclick="this.checked=true" checked>{{school.name}}</h5></label><br>
                             {% for school in comparison_list %}
