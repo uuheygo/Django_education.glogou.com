@@ -14,12 +14,14 @@
         </div>
         
         {% if page_range|length > 1%}
-        <ul class="pagination" style="text-align: center;">
+        <div style="text-align: center;">
+        <ul class="pagination pagination-sm" style="display: inline-block;">
             
             {% for page_num in page_range %}
-                <li id="page_{{page_num}}"><a href="/page={{page_num}}/">{{page_num}}</a></li>
+                <li id="page_{{page_num}}"><a href="/page={{page_num}}/" style="font-size:12px;">{{page_num}}</a></li>
             {% endfor %}
             
         </ul>
+        </div>
         {% endif %}
     </div>
