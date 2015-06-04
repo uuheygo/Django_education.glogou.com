@@ -195,9 +195,13 @@ def compare_view(request, this_id=''):
     if request.GET.get('index_category'):
         index_category = request.GET.get('index_category')
     
+    ##### place holde for other index category
+    if index_category != 'general':
+        return render(request, 'schools/under_construction.html')
+    
     school_ids = []
     for checked in request.GET.keys():
-        if checked != 'num_days' and checked != 'index_name':
+        if checked != 'num_days' and checked != 'index_name' and checked != 'index_category':
             school_ids.append(request.GET[checked])
     #print school_ids
     # get line chart data
