@@ -114,7 +114,62 @@
 <!-- /.navbar-static-side -->
 {% endblock %}
 
+<!-- carousel-side --->
+{% block banner %}
+    <div id="myCarousel" class="carousel slide">
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+            <li data-target="#myCarousel1" data-slide-to="0" class="active"></li>
+            <li data-target="#myCarousel2" data-slide-to="1"></li>
+            <li data-target="#myCarousel3" data-slide-to="2"></li>
 
+        </ol>
+
+        <!-- Wrapper for slides -->
+        <!-- the original one -->
+
+        <div class="carousel-inner">
+            <div class="item active" >
+                <div class="fill" style="background-image:url('http://placehold.it/200x508&text=Slide One');">
+                    <a><img class="banner" id="myCarousel1" src="/static/images/slide1.jpg" style = "width: 100%"></a>
+                </div>
+
+                <div class="carousel-caption">
+                    <h2>Powerful analysis tool for American college education</h2>
+                </div>
+            </div>
+            <div class="item">
+                <div class="fill" style="background-image:url('http://placehold.it/200x508&text=Slide Two');">
+                    <a><img class="banner" id="myCarousel2" src="/static/images/slide2.jpg" style = "width: 100%"></a>
+                </div>
+                <div class="carousel-caption">
+                    <h2>Efficient Product for exploring market of American colleges</h2>
+                </div>
+            </div>
+            <div class="item">
+                <div class="fill" style="background-image:url('http://placehold.it/200x508&text=Slide Three');">
+                    <a><img class="banner" id="myCarousel3" src="/static/images/slide3.jpg" style = "width: 100%"></a>
+                </div>
+                <div class="carousel-caption">
+                    <h2>Real-time service for monitoring American college marketing</h2>
+                </div>
+            </div>
+        </div>
+
+
+
+        <!-- Controls -->
+        <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+            <span class="icon-prev"></span>
+        </a>
+        <a class="right carousel-control" href="#myCarousel" data-slide="next">
+            <span class="icon-next"></span>
+        </a>
+    </div>
+{% endblock %}}
+
+
+<h3>Please select states of universities of your interest</h3>
 
 
 {% block content %}
