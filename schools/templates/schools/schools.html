@@ -190,6 +190,9 @@
 {% block custom_js %}
     <script type="text/javascript">
         $(document).ready(function() {
+            $('#myCarousel').carousel({
+              interval: 4000
+            });
             $("#link_schools").addClass("active");
             $('#map').usmap({
                 stateStyles: {fill: '#81AC8B'},
