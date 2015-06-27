@@ -1,0 +1,20 @@
+# --------weight factor
+
+# market          bd_index_eng      bd_index_chinese      bd_news_eng     bd_news_chinese      gg_index_eng     gg_new      gg_hk      gg_site      bd_site       yj_index_eng 
+# China Market        2                   8                    2                7                    3            2            4        3            7                0
+# All Asia Market     4                   6                    4                5                    6            6            3        6            6                4
+# Japan Market        1                   1                    1                1                    5            5            2        5            1                8
+
+#---------calculation of indexes----------
+# 1. individual indexes are calculated by dividing result counts by average counts;
+#    the average is pre-calculated;
+#    the individual indexes are calculated before importing to db;
+# 2. composite indexes are calculated as sum of multiplication between indexes and their corresponding weight factor;
+#    composite indexes are stored in a separate Table
+
+#---------run program-----------
+1. Main program is auto_processing.py which calls other methods in other modules to crawl and process data, and import to databases
+2. School English and Chinese names with additional key word are stored in school_info.csv
+3. For testing, you'll need to change the range of school list(line 35 in crawl_bd_gg.py) to crawl only for a few schools
+4. In auto_processing.py, adjust the IPs pass to import_to_db() method for your own uses
+5. If you want to add keywords for crawling schools, do it in crawl_db_gg.py

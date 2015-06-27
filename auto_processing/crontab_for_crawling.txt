@@ -1,0 +1,4 @@
+# This is the cron job to crawl data and write to the database.
+
+00 09 * * 1,4 python ~/crawling_lu/auto_processing/auto_processing.py >> ~/crawling_lu/auto_processing/result.log
+#25 22 * * 2 python ~/crawling_lu/auto_processing/auto_processing.py >> ~/crawling_lu/auto_processing/result.log

@@ -1,0 +1,7 @@
+success_*
+errors_*
+*.pyc
+indexes_*
+composite_*
+result.log
+test.py
