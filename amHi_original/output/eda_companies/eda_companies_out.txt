@@ -1,0 +1,8 @@
+"Mentor Graphics" 	 1370000 	 2170000 	 879 	 172
+"Cadence Design" 	 1360000 	 78600 	 10 	 1
+"Magma Design" 	 158000 	 548000 	 20 	 239
+"Synopsys" 	 1630000 	 152000 	 1350 	 114
+"PDF Solutions" 	 8300000 	 31800 	 7 	 0
+"ALTIUM " 	 6880000 	 59 	 975 	 0
+"Zuken" 	 829000 	 64400000 	 14 	 645
+"ASM Assembly" 	 968000 	 81600 	 2 	 12
