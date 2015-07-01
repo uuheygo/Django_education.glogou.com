@@ -14,6 +14,12 @@ from bs4 import BeautifulSoup
 import string
 import urllib2
 
+# input: a file contains the name of schools to be crawled
+# return: name of the file which contains the crawled results.
+#         The name file contains time stamp, in the following way: 'success_2015_06_04_09_00_03'
+# error is logged into the file: 'errors_2015_06_04_09_00_03'
+# Note:
+# This function uses mechanize to open a webpage.
 def get_bd_index_all_mechanize(file_name):
     
     ts = time.time()
@@ -262,6 +268,10 @@ def get_bd_index_all_mechanize(file_name):
     f_error.close()
     f_success.close()
     return f_success.name
-    
+
+# input: a file contains the name of schools to be crawled
+# return: name of the file which contains the crawled results.
+#         The name file contains time stamp, in the following way: 'success_2015_06_04_09_00_03'
+# error is logged into the file: 'errors_2015_06_04_09_00_03'
 def crawl_search_counts(filename):
     return get_bd_index_all_mechanize(filename)

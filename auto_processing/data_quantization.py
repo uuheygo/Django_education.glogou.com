@@ -80,7 +80,7 @@ def calculate_composite_index_with_quantization(wf_list, index_arr):
 
             # weighted average
             composite_index += index * wf
-            
+
         composite_index_list.append(composite_index)
 
     return composite_index_list

@@ -15,8 +15,19 @@ from calculate_index import calculate_indexes
 from import_db import import_to_db
 
 f_schools = 'school_info.csv'
+
+# return a file name which contains the "raw, un-processed "crawled results.
+# the name of the file which contains the crawled results.
+# The name file contains time stamp, in the following way: 'success_2015_06_04_09_00_03'
 f_counts = crawl_search_counts(f_schools)
+
+# return two file names, one is for normalized index, another is for composite index.
+# the name of the file contains the time stamps
+# For example:
+#f_indexes = 'indexes_2015_06_04_09_00_03'
+#f_composite_indexes = 'composite_index_2015_06_04_09_00_03'
 f_indexes, f_composite_indexes = calculate_indexes(f_counts)
+
 #f_indexes = 'indexes_2015_06_04_09_00_03'
 #f_composite_indexes = 'composite_index_2015_06_04_09_00_03'
 date = '-'.join(f_indexes.split('_')[1:4])
@@ -34,11 +45,10 @@ except Exception:
 print ''
 
 try:
-    import_to_db('localhost', f_composite_indexes, f_indexes, date) # glogou_production_server
-    #import_to_db('54.235.87.95', f_composite_indexes, f_indexes, date) # glogou_crawling_sever
-    print date, 'localhost 54.235.87.95 task successful'
+    import_to_db('localhost', f_composite_indexes, f_indexes, date) # localhost
+    print date, 'localhost task successful'
 except Exception:
-    print sys.exc_info(), 'localhost 54.235.87.95 failed'
+    print sys.exc_info(), 'localhost failed'
 print ''
 
 try:

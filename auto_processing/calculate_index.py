@@ -1,9 +1,14 @@
+# Note: This function only calculate China marketing index for now, it will not calculate Japan and Asian marketing index.
+#
+from weight_factor import wf_china_marketing_list
+
 # ------------input format------------
 # id "gg index en", "gg index hk", "gg news","gg site", "bd index ch", "bd index en", "bd news ch", "bd news en", "bd site", "yh index en", "yh index jp"
 # delimited by tab
-
-
 # 11 indexes
+#
+# __BL__FIX_THIS_, for more generic case, calculate average shall exclude the "extreme value", "those outliers",
+# because the "extreme value" or outliers can be wrong data from data sources.
 def calculate_average(arr):
     # list of sums
     list_sum = [0] * len(arr[0])
@@ -23,6 +28,11 @@ def calculate_average(arr):
     return list_average
 
 # convert counts to normalized indexes
+# Input: count_arr, a two dimension array of raw count,
+#        avearge_list, a one dimension array which contains the average of above two dimension arrays.
+# output: a two dimension array of normalized data.
+#
+# ___FIX_THIS__, average can be zero for more generic case. Need to handle such situation
 def calculate_normalized_index(count_arr, average_list):
     index_arr = []
     for count_list in count_arr:
@@ -33,8 +43,12 @@ def calculate_normalized_index(count_arr, average_list):
         #print index_list
     return index_arr
 
+# calculate composite index with weighted factors
+# Input: index_arr, a two dimension array of normalized index.,
+#        wf_list,, a one dimension array which contains the weight factor
+# output: a one dimension array of composite_index_list
 def calculate_composite_index(wf_list, index_arr):
-    composite_index_list = [] # composite indexes for schools
+    composite_index_list = [] # composite indexes
     for index_list in index_arr:
         composite_index = 0
         for index, wf in zip(index_list, wf_list):
@@ -43,7 +57,9 @@ def calculate_composite_index(wf_list, index_arr):
     
     return composite_index_list
 
-def process_data(filename):
+# input: a file name of  raw, unprocessed crawled data
+# output: a file name of normalized index, a file name of composite index
+def process_data(filename, wf_list):
     # read all indexes into a 2-D array
     count_arr = []
     
@@ -77,7 +93,7 @@ def process_data(filename):
     #     "yh index en"           0
     #     "yh index jp"           0
     
-    wf_list = [3, 4, 2, 3, 8, 2, 7, 2, 7, 0, 0] # list of weight factors
+
     composite_index_list = calculate_composite_index(wf_list, index_arr)
     composite_index_file = 'composite_index_'  + '_'.join(filename.split('_')[1:])
     with open(composite_index_file, 'w') as output_composit_index:
@@ -85,9 +101,11 @@ def process_data(filename):
             output_composit_index.write(str(i + 1) + '\t' + str(composite_index_list[i]) + '\n')
     
     return output_index_arr_file.name, output_composit_index.name
-    
+
+# input: a file name of  raw, unprocessed crawled data
+# output: a file name of normalized index, a file name of composite index
 def calculate_indexes(filename):
-    return process_data(filename)
+    return process_data(filename, wf_china_marketing_list)
     
     
     
