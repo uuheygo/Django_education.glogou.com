@@ -35,24 +35,36 @@
 
 import math
 
+#input: index, normalized value, typical value shall be around 1, but it can any decimal number from 0 to a large number
+#output: a decimal number by applying non-uniform quantization
+#        if input value is less than 0.001 or 0, output will be 0. This function will not return negative value
+def non_uniform_quantization(index):
+
+    if (index == 0):
+        return 0
+
+    # logarithmic quantizaton method: 20*log10(x*1000) = 20*log10(x) + 60
+    quantized = 20*math.log(index, 10) + 60
+
+    # If quantized is less than 0, which means normalized count is less than 0.001,
+    # we set to ZERO
+    if(quantized < 0):
+        quantized = 0
+
+    return quantized
+
 # Input: a two dimensional array which hold normalized data of collected count.
 # Output: a two dimensional array which hold quantized normalized data.
 def calculate_normalized_index_with_quantization(index_arr):
     index_arr_quantized = []
 
-    for count_list in index_arr:
+    for index_list in index_arr:
         index_list = []
-        for count in (count_list):
+        for index in (index_list):
 
-            # logarithmic quantizaton method: 20*log10(x*1000) = 20*log10(x) + 60
-            quantized = 20*math.log(count, 10) + 60
-
-            # If quantized is less than 0, which means normalized count is less than 0.001,
-            # we set to ZERO
-            if(quantized < 0):
-                quantized = 0
-
+            quantized = non_uniform_quantization(index)
             index_list.append(quantized)
+
         index_arr_quantized.append(index_list)
 
     return index_arr_quantized
