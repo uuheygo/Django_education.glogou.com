@@ -4,7 +4,10 @@ import re
 from schools.models import School, SchoolInforYearly, BaiduIndexCh, BaiduIndexEn, BaiduNewsEn,\
     BaiduNewsCh, BaiduSite, GoogleIndexEn, GoogleIndexHk, GoogleNews, GoogleSite,\
     YahoojapIndexEn, YahoojapIndexJp, CompositeIndex
-    
+
+# Option to show either normalized 'index' or renormalized index value
+g_USE_INDEX_OR_INDEX_RE = 1       # 0, use normalized index, 1, use renormalized index
+
 latest_year = SchoolInforYearly.objects.aggregate(Max('year'))['year__max']
 
 def get_result_set(state, rank_range):
@@ -57,50 +60,67 @@ def get_latest_indexes_for_school_view(school_id, index_category='general'):
                          'Index of ' + school.name, 
                          'Max Index of All Schools',
                          'Average Index of All Schools']
-        result_set[1] = ['baidu_index_ch', 
-                         float(school.baiduindexch_set.latest('date').index), 
-                         float(BaiduIndexCh.objects.filter(date=latest_date).aggregate(Max('index'))['index__max']),
-                         float(BaiduIndexCh.objects.filter(date=latest_date).aggregate(Avg('index'))['index__avg'])]
+
+        if(g_USE_INDEX_OR_INDEX_RE == 0):
+            index_choice = 'index'
+            index_choice_max = 'index__max'
+            index_choice_avg = 'index__avg'
+        else:
+            index_choice = 'index_re'
+            index_choice_max = 'index_re__max'
+            index_choice_avg = 'index_re__avg'
+
+        # Intentional leave the following  code here for future debugging purpose
+        tmp1 = BaiduIndexCh.objects.filter(date=latest_date)
+        tmp2 = tmp1.aggregate(Max(index_choice))
+        tmp3 = tmp2[index_choice_max]
+        tmp4 = float(tmp3)
+
+        result_set[1] = ['baidu_index_ch',
+                         float(school.baiduindexch_set.latest('date').index),
+                         tmp4,   # NOTE, tmp4 is same as the following line
+                         # float(BaiduIndexCh.objects.filter(date=latest_date).aggregate(Max(index_choice))[index_choice_max]),
+                         float(BaiduIndexCh.objects.filter(date=latest_date).aggregate(Avg(index_choice))[index_choice_avg])]
         result_set[2] = ['baidu_index_en', 
                          float(school.baiduindexen_set.latest('date').index), 
-                         float(BaiduIndexEn.objects.filter(date=latest_date).aggregate(Max('index'))['index__max']),
-                         float(BaiduIndexEn.objects.filter(date=latest_date).aggregate(Avg('index'))['index__avg'])]
+                         float(BaiduIndexEn.objects.filter(date=latest_date).aggregate(Max(index_choice))[index_choice_max]),
+                         float(BaiduIndexEn.objects.filter(date=latest_date).aggregate(Avg(index_choice))[index_choice_avg])]
         result_set[3] = ['baidu_news_ch', 
                          float(school.baidunewsch_set.latest('date').index), 
-                         float(BaiduNewsCh.objects.filter(date=latest_date).aggregate(Max('index'))['index__max']),
-                         float(BaiduNewsCh.objects.filter(date=latest_date).aggregate(Avg('index'))['index__avg'])]
+                         float(BaiduNewsCh.objects.filter(date=latest_date).aggregate(Max(index_choice))[index_choice_max]),
+                         float(BaiduNewsCh.objects.filter(date=latest_date).aggregate(Avg(index_choice))[index_choice_avg])]
         result_set[4] = ['baidu_news_en', 
                          float(school.baidunewsen_set.latest('date').index), 
-                         float(BaiduNewsEn.objects.filter(date=latest_date).aggregate(Max('index'))['index__max']),
-                         float(BaiduNewsEn.objects.filter(date=latest_date).aggregate(Avg('index'))['index__avg'])]
+                         float(BaiduNewsEn.objects.filter(date=latest_date).aggregate(Max(index_choice))[index_choice_max]),
+                         float(BaiduNewsEn.objects.filter(date=latest_date).aggregate(Avg(index_choice))[index_choice_avg])]
         result_set[5] = ['baidu_site', 
                          float(school.baidusite_set.latest('date').index), 
-                         float(BaiduSite.objects.filter(date=latest_date).aggregate(Max('index'))['index__max']),
-                         float(BaiduSite.objects.filter(date=latest_date).aggregate(Avg('index'))['index__avg'])]
+                         float(BaiduSite.objects.filter(date=latest_date).aggregate(Max(index_choice))[index_choice_max]),
+                         float(BaiduSite.objects.filter(date=latest_date).aggregate(Avg(index_choice))[index_choice_avg])]
         result_set[6] = ['google_index_en', 
                          float(school.googleindexen_set.latest('date').index), 
-                         float(GoogleIndexEn.objects.filter(date=latest_date).aggregate(Max('index'))['index__max']),
-                         float(GoogleIndexEn.objects.filter(date=latest_date).aggregate(Avg('index'))['index__avg'])]
+                         float(GoogleIndexEn.objects.filter(date=latest_date).aggregate(Max(index_choice))[index_choice_max]),
+                         float(GoogleIndexEn.objects.filter(date=latest_date).aggregate(Avg(index_choice))[index_choice_avg])]
         result_set[7] = ['google_index_hk', 
                          float(school.googleindexhk_set.latest('date').index), 
-                         float(GoogleIndexHk.objects.filter(date=latest_date).aggregate(Max('index'))['index__max']),
-                         float(GoogleIndexHk.objects.filter(date=latest_date).aggregate(Avg('index'))['index__avg'])]
+                         float(GoogleIndexHk.objects.filter(date=latest_date).aggregate(Max(index_choice))[index_choice_max]),
+                         float(GoogleIndexHk.objects.filter(date=latest_date).aggregate(Avg(index_choice))[index_choice_avg])]
         result_set[8] = ['google_news', 
                          float(school.googlenews_set.latest('date').index), 
-                         float(GoogleNews.objects.filter(date=latest_date).aggregate(Max('index'))['index__max']),
-                         float(GoogleNews.objects.filter(date=latest_date).aggregate(Avg('index'))['index__avg'])]
+                         float(GoogleNews.objects.filter(date=latest_date).aggregate(Max(index_choice))[index_choice_max]),
+                         float(GoogleNews.objects.filter(date=latest_date).aggregate(Avg(index_choice))[index_choice_avg])]
         result_set[9] = ['google_site', 
                          float(school.googlesite_set.latest('date').index), 
-                         float(GoogleSite.objects.filter(date=latest_date).aggregate(Max('index'))['index__max']),
-                         float(GoogleSite.objects.filter(date=latest_date).aggregate(Avg('index'))['index__avg'])]
+                         float(GoogleSite.objects.filter(date=latest_date).aggregate(Max(index_choice))[index_choice_max]),
+                         float(GoogleSite.objects.filter(date=latest_date).aggregate(Avg(index_choice))[index_choice_avg])]
     #     result_set[10] = ['yahoojap_index_en', 
     #                      float(school.yahoojapindexen_set.latest('date').index), 
-    #                      float(YahoojapIndexEn.objects.filter(date=latest_date).aggregate(Max('index'))['index__max']),
-    #                      float(YahoojapIndexEn.objects.filter(date=latest_date).aggregate(Avg('index'))['index__avg'])]
+    #                      float(YahoojapIndexEn.objects.filter(date=latest_date).aggregate(Max(index_choice))[index_choice_max]),
+    #                      float(YahoojapIndexEn.objects.filter(date=latest_date).aggregate(Avg(index_choice))[index_choice_avg])]
     #     result_set[11] = ['yahoojap_index_jp', 
     #                      float(school.yahoojapindexjp_set.latest('date').index), 
-    #                      float(YahoojapIndexJp.objects.filter(date=latest_date).aggregate(Max('index'))['index__max']),
-    #                      float(YahoojapIndexJp.objects.filter(date=latest_date).aggregate(Avg('index'))['index__avg'])]
+    #                      float(YahoojapIndexJp.objects.filter(date=latest_date).aggregate(Max(index_choice))[index_choice_max]),
+    #                      float(YahoojapIndexJp.objects.filter(date=latest_date).aggregate(Avg(index_choice))[index_choice_avg])]
     return json.dumps(result_set)
 
 def get_race_percentages(school_infor):
