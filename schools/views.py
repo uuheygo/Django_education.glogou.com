@@ -6,12 +6,13 @@ from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.db.models import Max
 from django.core.mail import send_mail
 from django.http.response import HttpResponseRedirect
+from utils.helper_functions import get_school_name, get_school_id
 import json
 
 from utils.helper_functions import get_latest_indexes_for_school_view, get_result_set, filter_by_keyword, \
     get_race_percentages, get_gg_index, get_bd_index, get_yh_index, get_all_indexes, convert_to_chart_data, \
     get_data_col, get_index, get_index_data_col, convert_to_chart_data_index, get_index_report, get_pie_data,\
-    get_composite_index
+    get_composite_index, get_school_name
 
 from .models import School, SchoolInforYearly, SchoolsComparisonId, \
     BaiduIndexCh, BaiduIndexEn, BaiduNewsEn, BaiduNewsCh, BaiduSite, \
@@ -40,6 +41,7 @@ def list_view(request, state = 'All states', rank_range = 'All', page = '1', key
     # filter by keywords
     if len(keyword) > 1:
         result_set = filter_by_keyword(result_set, keyword)
+
     
     # paginator the result set 50/page
     paginator = Paginator(result_set, 100)
@@ -66,7 +68,7 @@ def school_view(request, school_id = '0'):
     result_set = get_latest_indexes_for_school_view(school_id) # all latest indexes
     print result_set
     comparison_list = school.school_to_compare.all()
-    return render(request, 'schools/school_page.html', 
+    return render(request, 'schools/school_page.html',
                   {'school': school, 'school_infor': school_infor, 
                    'latest_date': latest_date, 'result_set': result_set,
                    'comparison_list': comparison_list})
@@ -174,19 +176,18 @@ def custom_selection(request):
 
 # compare media index of selected schools
 def compare_view(request, this_id=''):
-    #print this_id
+    this_school = School.objects.get(id = int(this_id))
     num_days = '30' # default period
     index_name = 'composite_index'
     index_category = 'general'
-    
+
     index_dict = {'bd_index_en':'Baidu Page Index (EN)', 'bd_index_ch':'Baidu Page Index (CH)',
                   'bd_news_en':'Baidu News Index (EN)', 'bd_news_ch':'Baidu News Index (CH)',
                   'bd_site':'Baidu Site Index', 'gg_index_en':'Google Page Index (EN)',
                   'gg_index_hk':'Google Page Index (HK)', 'gg_news_en':'Google News Index (EN)',
                   'gg_site':'Google Site Index', 'composite_index':'Composite Index'}
-    
-    this_school = School.objects.get(id=int(this_id)) # the school to compare
-    
+
+
     if request.GET.get('num_days'): # custom selected period
         num_days = request.GET.get('num_days')
     num_days = int(num_days)
@@ -198,23 +199,26 @@ def compare_view(request, this_id=''):
     ##### place holde for other index category
     if index_category != 'general':
         return render(request, 'schools/under_construction.html')
-    
-    school_ids = []
+
+    school_names = []
     for checked in request.GET.keys():
         if checked != 'num_days' and checked != 'index_name' and checked != 'index_category':
-            school_ids.append(request.GET[checked])
-    #print school_ids
+            school_names.append(request.GET[checked])
+    school_ids = []
+    for school_name in school_names :
+        school_ids.append(int(get_school_id(school_name)))
+
+
     # get line chart data
     name_list = [] # store selected school names for lookup
     index_list = [] # store index list of each school, one to one with name_list
     selected_schools = [] # selected schools for comparison
-    for school_id in school_ids:
-        school_id = int(school_id)
-        school_obj = School.objects.get(id=school_id)
-        if school_id != int(this_id):
+    for school_name in school_names:
+        school_name = str(school_name)
+        school_obj = School.objects.get(name =school_name)
+        if school_obj.id != int(this_id) :
             selected_schools.append(school_obj)
-        #indexes = get_all_indexes(school_id, num_days)[:-2] # contain all indexes in the period gg, bd, yh
-        indexes = get_index(school_id, index_name, num_days, index_category)
+        indexes = get_index(school_obj.id, index_name, num_days, index_category)
         name_list.append(school_obj.name)
         index_list.append(indexes)
 #     print school_dict
@@ -222,13 +226,12 @@ def compare_view(request, this_id=''):
 #     print school_dict['United States Military Academy']
     
     #index_list = convert_to_chart_data(index_list)
-    
     # get column chart data
     #data_sets_col = get_data_col(school_ids)
     data_sets_col = get_index_data_col(school_ids, index_name, index_category)
     index_list = convert_to_chart_data_index(index_list)
     #print data_sets_col
-    return render(request, 'schools/school_compare.html', {'this_school': this_school, 'index_category':index_category,
+    return render(request,'schools/school_compare.html', {'this_school': this_school,'index_category':index_category,
                     'name_list': name_list, 'index_list': index_list, 'num_days': num_days,
                     'data_sets_col': data_sets_col, 'selected_schools': selected_schools,
                     'latest_date': latest_date, 'index_name': index_dict[index_name],})

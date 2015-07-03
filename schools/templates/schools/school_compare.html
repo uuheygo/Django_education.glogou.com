@@ -1,4 +1,9 @@
 {% extends "schools/base_glogou.html" %} 
+
+{% block title%}Comparison with {% for school in selected_schools %}|{{school.name}}|{% endfor %} for Asia Recruiting, Asian Alumni Engagement, International Fundraising and Development.{%endblock %}
+{% block description %}Comparison with {% for school in selected_schools %}|{{school.name}}|{% endfor %} for Asia Recruiting, Asian Alumni Engagement, International Fundraising and Development.{% endblock %}
+{% block keyword %}Comparison with {% for school in selected_schools %}|{{school.name}}|{% endfor %} for Marketing tool, Asia Media Monitoring Recruiting, Asian Alumni Engagement, International Fundraising and Developmentschool.{% endblock %}
+
 {% load strip_space %}
 
 {% block content %}
