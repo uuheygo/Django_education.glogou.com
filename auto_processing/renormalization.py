@@ -77,7 +77,11 @@ def update_index_table_with_renormalized_index(conn, table_name):
         cnt += 1
 
     # Commit the database change
-    conn.commit()
+    try:
+        conn.commit()
+    except MySQLdb.Error, e:
+        print "commit failed"
+        print e
 
     print '\n====== %s, Total row changed: %d'%(table_name, cnt)
 
