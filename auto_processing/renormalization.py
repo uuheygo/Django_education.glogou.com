@@ -25,29 +25,30 @@ def update_db_with_renormlized_index():
                        db = 'mediaWatch_lu',
                        charset='utf8', # some school names has unicode
                        use_unicode=True)
-    x = conn.cursor()
 
-    update_index_table_with_renormalized_index(x, 'baidu_index_ch')
-    update_index_table_with_renormalized_index(x, 'baidu_index_en')
-    update_index_table_with_renormalized_index(x, 'baidu_news_ch')
-    update_index_table_with_renormalized_index(x, 'baidu_news_en')
-    update_index_table_with_renormalized_index(x, 'baidu_site')
-    update_index_table_with_renormalized_index(x, 'google_index_en')
-    update_index_table_with_renormalized_index(x, 'google_index_hk')
-    update_index_table_with_renormalized_index(x, 'google_news')
-    update_index_table_with_renormalized_index(x, 'google_site')
-    update_index_table_with_renormalized_index(x, 'yahoojap_index_en')
-    update_index_table_with_renormalized_index(x, 'yahoojap_index_jp')
+    update_index_table_with_renormalized_index(conn, 'baidu_index_ch')
+    update_index_table_with_renormalized_index(conn, 'baidu_index_en')
+    update_index_table_with_renormalized_index(conn, 'baidu_news_ch')
+    update_index_table_with_renormalized_index(conn, 'baidu_news_en')
+    update_index_table_with_renormalized_index(conn, 'baidu_site')
+    update_index_table_with_renormalized_index(conn, 'google_index_en')
+    update_index_table_with_renormalized_index(conn, 'google_index_hk')
+    update_index_table_with_renormalized_index(conn, 'google_news')
+    update_index_table_with_renormalized_index(conn, 'google_site')
+    update_index_table_with_renormalized_index(conn, 'yahoojap_index_en')
+    update_index_table_with_renormalized_index(conn, 'yahoojap_index_jp')
 
-    ## __FXI_ME__, table composite_index may need special handling, but
-    # we do it at this moment just to try it for testing purpuse.
-    update_index_table_with_renormalized_index(x, 'composite_index')
+    ## __FXI_ME__, renormalize table composite_index need special handling, but
+    # we do it in this way at this moment just for quick testing purpose..
+    update_index_table_with_renormalized_index(conn, 'composite_index')
 
 # Update one index table with renormalized index
 # __FIX_ME__, this function update each record with one SQL statement, 
 # this must not be right. We shall be able to update entire column with one sql statement.
 # Since this function is excuated offline, it is OK to be slow at this moment.
-def update_index_table_with_renormalized_index(x, table_name):
+def update_index_table_with_renormalized_index(conn, table_name):
+
+    x = conn.cursor()
 
     retrieve_index_st = 'select my_index, id from %s'%(table_name)
     x.execute(retrieve_index_st)
@@ -62,10 +63,24 @@ def update_index_table_with_renormalized_index(x, table_name):
         my_index_re = non_uniform_quantization(my_index)
         update_statement = 'update %s set my_index_re = %20.7f where id = %d'%(table_name, my_index_re, id)
         print update_statement
-        x.execute(update_statement)
+
+        try:
+            x.execute(update_statement)
+        except MySQLdb.Error, e:
+            print "query failed"
+            print e
+
+        # __FIX_ME__, It was said that the SQL statement used in above is NOT safe, prone to
+        # SQL injection attack, the following will be safer, somehow, I could not get it work, not sure why.
+        #ret = x.execute("""update %s set my_index_re = %20.7f where id = %d""", (table_name, float(my_index_re), id))
+
         cnt += 1
+
+    # Commit the database change
+    conn.commit()
 
     print '\n====== %s, Total row changed: %d'%(table_name, cnt)
 
+### ============================================================================================
 # main script for offline updating the existing table with renormalized index.
 update_db_with_renormlized_index()
