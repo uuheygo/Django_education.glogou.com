@@ -12,7 +12,7 @@ def get_result_set(state, rank_range):
     all_schools = SchoolInforYearly.objects.filter(year=latest_year).values('school__id', 'overall_rank', 
                                                            'school__name', 'school__state_short',
                                                            'annual_cost', 'student_population').order_by('overall_rank')
-                                                           
+
     if state == 'All states' and rank_range == 'All':
         result_set = all_schools
     elif state == 'All states' and rank_range != 'All':
@@ -303,3 +303,12 @@ def get_pie_data(school_infor):
         part_time = 100 - full_time
     
     return financial_yes, financial_no, admission_yes, admission_no, male, female, race_percentages, full_time, part_time
+
+def get_school_name(school_id):
+    school = School.objects.get(id=school_id)
+    return school.name
+
+def get_school_id(school_name):
+    school = School.objects.get(name = school_name)
+    return school.id
+

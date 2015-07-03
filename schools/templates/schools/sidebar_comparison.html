@@ -19,9 +19,9 @@
                     <div style="padding-left:20px;">
                         <form role="form" action="/school_id={{school.id}}/{{school.name|lower|nospace}}/compare/" method="get">
                             <div id="compare_list" class="checkbox">
-                                <label><h5><input type="checkbox" name = "checked_{{school.id}}" value = "{{school.id}}" onclick="this.checked=true" checked>{{school.name}}</h5></label><br>
+                                <label><h5><input type="checkbox" name = "ck_{{school.id}}" value = "{{school.name}}" onclick="this.checked=true" checked>{{school.name}}</h5></label><br>
                                 {% for school in comparison_list %}
-                                <label><h5><input type="checkbox" name = "checked_{{school.school_compare.id}}" value = "{{school.school_compare.id}}">
+                                <label><h5><input type="checkbox" name = "ck_{{school.school_compare.id}}" value = "{{school.school_compare.name}}">
                                     {{school.school_compare.name}}</h5></label><br>
                                 <!-- in backend, do some_var = request.POST.getlist('checked') -->
                                 {% endfor %}
