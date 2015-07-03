@@ -44,6 +44,7 @@ def non_uniform_quantization(index):
         return 0
 
     # logarithmic quantizaton method: 20*log10(x*1000) = 20*log10(x) + 60
+    # __FIX_ME_IMPORTANT__, Shall we add +60 or +40, ?
     quantized = 20*math.log(index, 10) + 60
 
     # If quantized is less than 0, which means normalized count is less than 0.001,

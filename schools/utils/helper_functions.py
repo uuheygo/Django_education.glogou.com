@@ -3,10 +3,7 @@ import json
 import re
 from schools.models import School, SchoolInforYearly, BaiduIndexCh, BaiduIndexEn, BaiduNewsEn,\
     BaiduNewsCh, BaiduSite, GoogleIndexEn, GoogleIndexHk, GoogleNews, GoogleSite,\
-    YahoojapIndexEn, YahoojapIndexJp, CompositeIndex
-
-# Option to show either normalized 'index' or renormalized index value
-g_USE_INDEX_OR_INDEX_RE = 1       # 0, use normalized index, 1, use renormalized index
+    YahoojapIndexEn, YahoojapIndexJp, CompositeIndex, g_USE_INDEX_OR_INDEX_RE
 
 latest_year = SchoolInforYearly.objects.aggregate(Max('year'))['year__max']
 
@@ -61,16 +58,20 @@ def get_latest_indexes_for_school_view(school_id, index_category='general'):
                          'Max Index of All Schools',
                          'Average Index of All Schools']
 
+
+        # This is needed because aggregate(Max(...)) and aggregate(Avg(...)) can NOT access through alias
+        # property '.index'. For those, We have to access database column directly.
         if(g_USE_INDEX_OR_INDEX_RE == 0):
-            index_choice = 'index'
-            index_choice_max = 'index__max'
-            index_choice_avg = 'index__avg'
+            index_choice = 'index_no'
+            index_choice_max = 'index_no__max'
+            index_choice_avg = 'index_no__avg'
         else:
             index_choice = 'index_re'
             index_choice_max = 'index_re__max'
             index_choice_avg = 'index_re__avg'
 
-        # Intentional leave the following  code here for future debugging purpose
+        # Intentionally leave the following  code here for future debugging purpose
+        # Because this piece of code often choke
         tmp1 = BaiduIndexCh.objects.filter(date=latest_date)
         tmp2 = tmp1.aggregate(Max(index_choice))
         tmp3 = tmp2[index_choice_max]
@@ -78,8 +79,8 @@ def get_latest_indexes_for_school_view(school_id, index_category='general'):
 
         result_set[1] = ['baidu_index_ch',
                          float(school.baiduindexch_set.latest('date').index),
-                         tmp4,   # NOTE, tmp4 is same as the following line
-                         # float(BaiduIndexCh.objects.filter(date=latest_date).aggregate(Max(index_choice))[index_choice_max]),
+                         # tmp4,   # NOTE, tmp4 is same as the following line
+                         float(BaiduIndexCh.objects.filter(date=latest_date).aggregate(Max(index_choice))[index_choice_max]),
                          float(BaiduIndexCh.objects.filter(date=latest_date).aggregate(Avg(index_choice))[index_choice_avg])]
         result_set[2] = ['baidu_index_en', 
                          float(school.baiduindexen_set.latest('date').index), 
