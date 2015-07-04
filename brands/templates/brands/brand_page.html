@@ -1,0 +1,64 @@
+{% extends "brands/brand_page_base.html" %}
+{% block title%}{{brand.name}} Asia Recruiting, Asian Alumni Engagement, {{brand.name}} International Fundraising and Development{%endblock %}
+{% block description %}Marketing tools for {{brand.name}}  Asia Recruiting, Asian Alumni Engagement, International Fundraising and Development{% endblock %}
+{% block keyword %}Marketing tool, Asia Media Monitoring for {{brand.name}}  Asia Recruiting, Asian Alumni Engagement, International Fundraising and Development{% endblock %}
+
+
+ {% block brand_page_box %}
+     <div class="row">
+        <div class="col-lg-12">
+            <div class="panel panel-default">
+			    <div class="panel-heading"><h3>Latest Media Performance ({{latest_date}})</h3></div>
+			    <!-- /.panel-heading -->
+			    <div class="panel-body">
+			        <div id="bar-chart"></div>
+			    </div>
+			    <!-- /.panel-body -->
+            </div>
+            <!-- /.panel -->
+        </div>
+        <!-- /.col-lg-8 -->
+    </div>
+    
+    <script type="text/javascript">
+	    google.load("visualization", "1.1", {packages:["corechart"]});
+	    google.setOnLoadCallback(drawChart);
+	    
+	    function drawChart() {
+	        data_set = {{result_set|safe}}
+	        var data = google.visualization.arrayToDataTable(data_set);
+	        var options = {
+	            height: 500,
+                legend: {position: 'top'},
+                chartArea: {top:40, left: 60, 'width': '90%', 'height': '75%'},
+	            //bars: 'horizontal',
+                hAxis: {
+                        title: 'Source of Index',
+                        titleTextStyle: {
+                            fontSize: 18,
+                            color: '#053061',
+                            bold: true,
+                            italic: false
+                          }
+                    },
+                vAxis: {
+                        title: 'Search Index',
+                        titleTextStyle: {
+                            fontSize: 18,
+                            color: '#053061',
+                            bold: true,
+                            italic: false
+                          }
+                    },
+	        };
+            
+            function resize () {
+                            var chart = new google.visualization.ColumnChart(document.getElementById('bar-chart'));
+                            chart.draw(data, options);
+                          }
+            window.onload = resize();
+            window.onresize = resize;
+
+	    }
+    </script>
+{% endblock %}

@@ -1,0 +1,111 @@
+    {% load strip_space %}
+    <div id="target" class="panel-body"  style="text-align: justify;max-height: 500px;overflow-y: scroll;">
+        <div class="row">
+            <!-- info -->
+            <div style="position:relative;text-align: center;"><h2><b>{{brand.name}}</b></h2></div>
+            <br>
+            <hr>
+            <br>
+            <div class="col-xs-5">
+                <div  style="position:relative;text-align: center;"><img src="{{brand.logo_url}}" class="img-thumbnail"></img></div>
+                <ul class="list-unstyled" style="margin-top: 30px;position:relative;text-align: center;">
+                    <li>{{brand.city}}, {{brand.state_short}}</li>
+                    <li>{{brand.phone}}</li>
+                    <li>{{brand.brand_url}}</li>
+                </ul>
+                
+                
+                <!-- google map possibly -->
+                
+                <!-- /google map -->
+            </div>
+            <div  class="col-xs-7">
+                    <table class="table">
+                        <tr class="danger"><td><h4>Rank: </h4></td><td><h4><b>{{brand_infor.overall_rank}}</b></h4></td></tr>
+                        <tr><td>Student Population: </td><td><b>{{brand_infor.student_population}}</b></td></tr>
+                        <tr><td>Undergraduate Population: </td><td><b>{{brand_infor.undergrad_population}}</b></td></tr>
+                        <tr><td>Student to Faculty Ratio: </td><td><b>{{brand_infor.student_faculty_ratio}}</b></td></tr>
+                        <tr><td>Total Annual Cost: </td><td><b>{{brand_infor.annual_cost}}</b></td></li>
+                        <tr><td>In-State Tuition: </td><td><b>{{brand_infor.in_state_tuition}}</b></td></li>
+                        <tr><td>Out-State Tuition: </td><td><b>{{brand_infor.out_state_tuition}}</b></td></tr>
+                        <tr><td>SAT Composite Range: </td><td><b>{{brand_infor.sat_range}}</b></td></tr>
+                        <tr><td>ACT Composite Range: </td><td><b>{{brand_infor.act_range}}</b></td></tr>
+                        <tr><td>Financial Grade: </td><td><b>{{brand_infor.financial_grade}}</b></td></tr>
+                    </table>
+            </div>
+        </div>
+
+        <div class="panel panel-default">
+            <div class="panel-heading"><h3>Social Media Websites</h3></div>
+            <!-- /.panel-heading -->
+            <div class="panel-body">
+                <div class="col-xs-1"></div>
+                <!-- social icons -->
+                <div class="col-xs-12">
+                <ul class="list-unstyled" style="padding: 0; margin: 0;">
+                    <li><img src="/static/brands/images/facebook.png" width="25" height="25" style="margin-right: 5px;">{{brand.facebook_url}}</li>
+                    <li><img src="/static/brands/images/twitter.png" width="25" height="25" style="margin-right: 5px;">{{brand.twitter_url}}</li>
+                    <li><img src="/static/brands/images/googleplus.png" width="25" height="25" style="margin-right: 5px;">{{brand.googleplus_url}}</li>
+                    <li><img src="/static/brands/images/linkedin.png" width="25" height="25" style="margin-right: 5px;">{{brand.linkedin_url}}</li>
+                    <li><img src="/static/brands/images/youtube.png" width="25" height="25" style="margin-right: 5px;">{{brand.youtube_url}}</li>
+                    
+                </ul>
+                </div>
+                <!-- /social icons -->
+            </div>
+        </div>
+        
+            <!-- info -->
+        <br>
+        <div class="row">
+            <!-- brand profile -->
+            <div class=" col-xs-12">
+                <div class="panel panel-success">
+                    <div class="panel-heading"><h3>Profile</h3></div>
+                    <div class="panel-body">{{brand.profile}}</div>
+                </div>
+            </div>
+            <!-- /brand profile -->
+        </div>
+        <br>
+        <!-- pie charts -->
+        <div class="panel panel-info page-break">
+            <div class="panel-heading"><h3>Student Facts</h3></div>
+            <div class="panel-body">
+                <div class="row">
+                    {% if financial_yes > -1 %}
+                        <div class="col-xs-6"><div id="financial" style="height: 250px;"></div></div>
+                    {% endif %}
+                    {% if admission_yes > -1 %}
+                        <div class="col-xs-6"><div id="admission" style="height: 250px;"></div></div>
+                    {% endif %}
+                </div>
+                <div class="row">
+                    {% if male > -1 %}
+                        <div class="col-xs-6"><div id="gender" style="height: 250px;"></div></div>
+                    {% endif %}
+                    {% if race.0 > -1 or race.1 > -1 or race.2 > -1 or race.3 > -1 or race.4 > -1 or race.5 > -1 or race.6 > -1 or race.7 > -1 %}
+                        <div class="col-xs-6"><div id="race" style="height: 250px;"></div></div>
+                    {% endif %}
+                </div>
+                <div class="row">
+                    {% if full_time > -1 %}
+                        <div class="col-xs-6"><div id="attendance" style="height: 250px;"></div></div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        <br>
+        <!-- bar chart -->
+        <div class="panel panel-default page-break">
+            <div class="panel-heading"><h3>Latest Media Performance ({{index_category|upper}}, {{latest_date}})</h3></div>
+            <!-- /.panel-heading -->
+            <div class="panel-body">
+                <div id="bar-chart"></div>
+            </div>
+            <!-- /.panel-body -->
+        </div>
+        <!-- line charts -->
+        {% include 'brands/index_charts.html' %}
+        
+    </div>

@@ -1,0 +1,165 @@
+/*****************Subpage Template**********************/
+.page-top ol {
+	margin-bottom:0;
+	}
+.page-top ol li a {
+	color:#325aaa;
+	}
+.page-top h1{
+	color:#fff;
+	background-color:#325aaa;
+	margin:0px;
+	padding:5px 1%;
+	}
+
+/*****************About_us page /-Grace-/********************/
+.aboutus-title a{
+	font-weight:bold;
+	font-size: 1.5em;
+	}
+.aboutus-detail {
+	font-size:1.2em;
+	font-weight:bold;
+	font-style:italic;
+	color:#325aaa;
+	line-height:30px;
+	margin:15px;
+	}
+.aboutus-detail ul li {
+	color: #666;
+	font-size:0.9em;
+	font-weight:semi-bold;
+	/*background-color: #325aaa*/
+	}
+
+.callout button {
+    font-size:1.2em;
+    font-weight:bold;
+    color: white;
+    background-color: orange;
+    }
+
+	
+/*****************Testimonals page********************/
+.testimonial-title a{
+	font-weight:bold;
+	font-size: 1.5em;
+	}
+.testimonial-detail {
+	font-size:1.2em; 
+	font-weight:bold;
+	font-style:italic;
+	color:#325aaa;
+	line-height:30px;
+	}
+.testimonial-detail a {
+	color:#666;
+	}
+
+/************** Contact Us /-Grace-/********************/
+.contact-detail h3 {
+    font-weight:bold;
+	font-size: 1.8em;
+	color:#325aaa;
+    }
+
+.contact-detail p {
+    font-weight:bold;
+    color:#325aaa;
+    }
+
+.contact-detail ul li a {
+    color:#325aaa;
+    }
+
+/******************Asia-media-guide*********************/
+.MG-intro h2 {
+	margin:-20px 0 40px 0;
+	}
+.nav-tabs {
+	padding-left:15px;
+	}
+.MG-links ul {
+	list-style-type:none;
+	}
+.MG-links ul li {
+	margin:10px 0;
+	}
+.MG-links>ul>li>a {
+	color:#fff;
+	background-color:#325aaa;
+	border:none;
+	}
+.MG-details ul {
+	list-style-type:none;
+	padding:10px 20px;
+	}
+.MG-details ul li {
+	color:#fff;
+	background-color:#325aaa;
+	}
+.MG-details>ul>li>a {
+	color:#fff;
+	background-color:#325aaa;
+	border:none;
+	}
+.MG-details p {
+	padding:20px;
+	}
+
+.MG-questions {
+	background-color:#f5f5f5;
+	padding:20px;
+	}
+.MG-questions h2 {
+	color:#325aaa;
+	}
+
+/**********************Services******************************/
+.page-header {
+	border-color:#ccc;
+	padding-bottom:20px;
+	}
+.media {
+	min-height:100px;
+	}
+.market-summary {
+	padding:20px;
+	}
+.service-block {
+	border:1px solid #eee;
+	margin:4% 7%;
+	padding: 10px;
+	background-color:#325aaa;
+	}
+.service-block h2 {
+	color:#fff;
+	}
+.service-block ul {
+	list-style-type:square;
+	padding-left:25%;
+	color:#fff;
+	}
+.service-block ul li a {
+	color:#fff;
+	}
+/*******************Products*******************************/
+.product-row {
+	margin:30px 0;
+	}
+.single-profile-top .btn {
+	background-color:#325aaa;
+	border:none;
+	color:#fff;
+	padding:5px;
+	}
+.single-profile-bottom .btn {
+	background-color:#325aaa;
+	border:none;
+	color:#fff;
+	padding:5px;
+	}
+/********************Markets*********************************/
+.carousel-control {
+	padding-top:5%;
+	}
