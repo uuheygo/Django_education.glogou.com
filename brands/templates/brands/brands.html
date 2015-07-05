@@ -1,6 +1,6 @@
 {% extends "brands/base_glogou.html" %}
 
-{% block title %}College Asia Recruiting, Asian Alumni Engagement, College International Fundraising and Development{% endblock %}
+{% block title %}Brands Asia Marketing, Asia Branding, Branding in China{% endblock %}
 
 <!-- sidebar -->
 {% block sidebar %}
@@ -116,68 +116,70 @@
 
 <!-- carousel-side --->
 {% block banner %}
-    <div id="myCarousel" class="carousel slide">
-        <!-- Indicators -->
-        <ol class="carousel-indicators">
-            <li data-target="#myCarousel1" data-slide-to="0" class="active"></li>
-            <li data-target="#myCarousel2" data-slide-to="1"></li>
-            <li data-target="#myCarousel3" data-slide-to="2"></li>
 
-        </ol>
+            <!-- For some unknown reasons, the following include does not work, have to put carousel code  in this file  -->
+            <!-- need to debug why, __FIX_THIS__ -->
+            <!-- {% include 'brands/brands_carousel.html' %} -->
 
-        <!-- Wrapper for slides -->
-        <!-- the original one -->
+            <div class = "row">
+                <div class="col-md-12">
+                    <div class="carousel slide" id="myCarousel">
+                        <div class="carousel-inner">
+                            <div class="item active">
+                                <div class="col-md-3"><a href="#"><img class="img-responsive" src="/static/static_brands/images/select/chanel.jpg" class="img-responsive" style="min-height:100px;height:200px;"></a></div>
+                            </div><!-- end of item active -->
 
-        <div class="carousel-inner">
-            <div class="item active" >
-                <div class="fill" style="background-image:url('http://placehold.it/200x508&text=Slide One');">
-                    <a><img class="banner" id="myCarousel1" src="/static/images/slide1.jpg" style = "width: 100%"></a>
-                </div>
+                            <div class="item">
+                                <div class="col-md-3"><a href="/shop__Jimmy Choo.html"><img class="img-responsive" src="/static/static_brands/images/select/Jimmy%20Choo.jpg" class="img-responsive" style="min-height:100px;height:200px;"></a></div>
+                            </div><!-- end item -->
 
-                <div class="carousel-caption">
-                    <h2>Powerful Marketing Tool for Asia Recruiting</h2>
-                </div>
-            </div>
-            <div class="item">
-                <div class="fill" style="background-image:url('http://placehold.it/200x508&text=Slide Two');">
-                    <a><img class="banner" id="myCarousel2" src="/static/images/slide2.jpg" style = "width: 100%"></a>
-                </div>
-                <div class="carousel-caption">
-                    <h2>Discover Most Effective Methods to Engage Asian Alumni</h2>
-                </div>
-            </div>
-            <div class="item">
-                <div class="fill" style="background-image:url('http://placehold.it/200x508&text=Slide Three');">
-                    <a><img class="banner" id="myCarousel3" src="/static/images/slide3.jpg" style = "width: 100%"></a>
-                </div>
-                <div class="carousel-caption">
-                    <h2>Insights for Successful Asia Fundraising and Development</h2>
-                </div>
-            </div>
-        </div>
+                            <div class="item">
+                                <div class="col-md-3"><a href="/shop__Juicy Couture.html"><img class="img-responsive" src="/static/static_brands/images/select/Juicy%20Couture.jpg" class="img-responsive" style="min-height:100px;height:200px;"></a></div>
+                            </div><!-- end item -->
+
+                            <div class="item">
+                                <div class="col-md-3"><a href="/shop__Celine.html"><img class="img-responsive" src="/static/static_brands/images/select/Celine.jpg" class="img-responsive" style="min-height:100px;height:200px;"></a></div>
+                            </div><!-- end item -->
+
+                            <div class="item">
+                                <div class="col-md-3"><a href="/shop__Dr.martens.html"><img class="img-responsive" src="/static/static_brands/images/select/Dr.martens.jpg" class="img-responsive" style="min-height:100px;height:200px;"></a></div>
+                            </div><!-- end item -->
+
+                            <div class="item">
+                                <div class="col-md-3"><a href="/shop__Coach.html"><img class="img-responsive" src="/static/static_brands/images/select/Coach.jpg" class="img-responsive" style="min-height:100px;height:200px;"></a></div>
+                            </div><!-- end item -->
+
+                            <div class="item">
+                                <div class="col-md-3"><a href="/shop__Christian Louboutin.html"><img class="img-responsive" src="/static/static_brands/images/select/Christian%20Louboutin.jpg" class="img-responsive" style="min-height:100px;height:200px;"></a></div>
+                            </div><!-- end item -->
+
+                        </div><!-- end of carousel-inner -->
+                        <a class="left carousel-control" href="#myCarousel" data-slide="prev"><i class="glyphicon glyphicon-chevron-left"></i></a>
+                        <a class="right carousel-control" href="#myCarousel" data-slide="next"><i class="glyphicon glyphicon-chevron-right"></i></a>
+                    </div><!-- end of myCarousel -->
+                </div><!-- end of col-md-12 -->
+            </div><!-- end of row -->
+
+            <!-- The following javascripts are put here, because those are needed for myCarousel and the nav panel -->
+            <script type="text/javascript" src="/static/static_brands/js/jquery-1.11.0.min.js"></script>
+            <script type="text/javascript" src="/static/static_brands/js/bootstrap.js"></script>
+            <script type="text/javascript" src="/static/static_brands/js/boot_design.js"></script>
 
 
-
-        <!-- Controls -->
-        <a class="left carousel-control" href="#myCarousel" data-slide="prev">
-            <span class="icon-prev"></span>
-        </a>
-        <a class="right carousel-control" href="#myCarousel" data-slide="next">
-            <span class="icon-next"></span>
-        </a>
-    </div>
 {% endblock %}}
 
 
-<h3>Please select states of universities of your interest</h3>
+<h3>Please select brands of your interest</h3>
 
 
 {% block content %}
 <br/>
 <div class="row">
-    <div class="col-sm-12 col-lg-8"  style="margin-top: 30px;" id="map_container">
+    <div class="col-sm-12 col-lg-8"  style="margin-top: 30px;" >
+    <!-- <div class="col-sm-12 col-lg-8"  style="margin-top: 30px;" id="map_container">        -->
 <!--         <iframe src="http://createaclickablemap.com/map.php?&id=35201&online=true" width="700" height="520" style="border: none;"></iframe> -->
-    <div id="map" style="height: 420px;"></div>
+        <!-- <div id="map" style="height: 420px;"></div> -->
+        {% include 'brands/brands_picview.html' %}
     </div>
     {% include 'brands/brand_table.html' %}
 </div>
