@@ -1,0 +1,11 @@
+english_phrase 	 chinese_phrase 	 bd_index_common 	 bd_index_chinese 	 bd_news_common 	 bd_news_chinese 	 gg_index_common 	 gg_new 	 gg_hk 	 gg_site 	 bd_site 	 yj_index_eng
+"Hawaii" travel 	 夏威夷旅游 travel 	 939000 	 6840000 	 1 	 1530 	 237000000 	 57400000 	 235000000 	 22300 	 3600 	 230000000
+"California" travel 	 美国加州旅游 travel 	 6350000 	 1050000 	 8 	 661 	 716000000 	 103000000 	 696000000 	 64600 	 1120 	 688000000
+"Phuket" travel 	 泰国普吉岛旅游 travel 	 1990000 	 4370000 	 6 	 997 	 69400000 	 139000 	 69700000 	 5140 	 13 	 64600000
+"Maldives" travel 	 马尔代夫旅游 travel 	 942000 	 4610000 	 202 	 1830 	 70000000 	 149000 	 74700000 	 9890 	 3780 	 69300000
+"Jeju-do" travel 	 韩国济州岛旅游 travel 	 16200 	 3850000 	 0 	 762 	 915000 	 583 	 347000 	 2860000 	 23300 	 347000
+"Bali" travel 	 印尼巴厘岛旅游 travel 	 2700000 	 4110000 	 60 	 1620 	 131000000 	 11100000 	 116000000 	 348 	 130 	 130000000
+"Washington DC" travel 	 华盛顿旅游 travel 	 3580000 	 2060000 	 0 	 36 	 297000000 	 18200000 	 289000000 	 2 	 1 	 288000000
+"new york" travel 	 纽约旅游 travel 	 9860000 	 1380000 	 9 	 66 	 840000000 	 43700000 	 1050000000 	 489000 	 4 	 816000000
+"Los Angels" travel 	 洛杉矶旅游 travel 	 2480000 	 3750000 	 0 	 199 	 6640000 	 1110 	 420000000 	 278000 	 2940 	 408000000
+"USA" travel 	 美国旅游 travel 	 7860000 	 2630000 	 18 	 1460 	 971000000 	 42200000 	 1090000000 	 5160 	 853 	 955000000

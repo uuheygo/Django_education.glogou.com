@@ -7,19 +7,21 @@
             {% for row in one_page %}
             <tr>
                 <td>{{row.overall_rank}}</td>
-                <td><a href="/schools/school_id={{row.school__id}}/{{row.school__name|lower|nospace}}/">{{row.school__name}}</a></td>
+                <td><a href="/school_id={{row.school__id}}/{{row.school__name|lower|nospace}}/">{{row.school__name}}</a></td>
             </tr>
             {% endfor %}
             </table>
         </div>
         
         {% if page_range|length > 1%}
-        <ul class="pagination" style="text-align: center;">
+        <div style="text-align: center;">
+        <ul class="pagination pagination-sm" style="width:100000px;">
             
             {% for page_num in page_range %}
-                <li id="page_{{page_num}}"><a href="/schools/page={{page_num}}/">{{page_num}}</a></li>
+                <li id="page_{{page_num}}"><a href="/page={{page_num}}/" style="font-size:12px;">{{page_num}}</a></li>
             {% endfor %}
             
         </ul>
+        </div>
         {% endif %}
     </div>

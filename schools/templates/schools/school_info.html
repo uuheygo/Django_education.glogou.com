@@ -59,25 +59,24 @@
     <div class="panel panel-info">
         <div class="panel-heading"><h3>Student Facts</h3></div>
         <div class="panel-body"></div>
-		    <div class="row">
-		        {% if financial_yes > -1 %}
-		            <div class="col-md-6 col-lg-4"><div id="financial" style="width: 290px; height: 300px;"></div></div>
-		        {% endif %}
-		        {% if admission_yes > -1 %}
-		            <div class="col-md-6 col-lg-4"><div id="admission" style="width: 290px; height: 300px;"></div></div>
-		        {% endif %}
-		        {% if male > -1 %}
-		            <div class="col-md-6 col-lg-4"><div id="gender" style="width: 290px; height: 300px;"></div></div>
-		        {% endif %}
-		    </div>
-		    <div class="row">
-		        {% if race.0 > -1 or race.1 > -1 or race.2 > -1 or race.3 > -1 or race.4 > -1 or race.5 > -1 or race.6 > -1 or race.7 > -1 %}
-		            <div class="col-md-6 col-lg-4"><div id="race" style="width: 290px; height: 300px;"></div></div>
-		        {% endif %}
-		        {% if full_time > -1 %}
-		            <div class="col-md-6 col-lg-4"><div id="attendance" style="width: 290px; height: 300px;"></div></div>
-		        {% endif %}
-		    </div>
+	    <div class="row">
+	        {% if financial_yes > -1 %}
+	            <div class="col-md-6 col-lg-4"><div id="financial" style="width: 290px; height: 300px;"></div></div>
+	        {% endif %}
+	        {% if admission_yes > -1 %}
+	            <div class="col-md-6 col-lg-4"><div id="admission" style="width: 290px; height: 300px;"></div></div>
+	        {% endif %}
+	        {% if male > -1 %}
+	            <div class="col-md-6 col-lg-4"><div id="gender" style="width: 290px; height: 300px;"></div></div>
+	        {% endif %}
+	    </div>
+	    <div class="row">
+	        {% if race.0 > -1 or race.1 > -1 or race.2 > -1 or race.3 > -1 or race.4 > -1 or race.5 > -1 or race.6 > -1 or race.7 > -1 %}
+	            <div class="col-md-6 col-lg-4"><div id="race" style="width: 290px; height: 300px;"></div></div>
+	        {% endif %}
+	        {% if full_time > -1 %}
+	            <div class="col-md-6 col-lg-4"><div id="attendance" style="width: 290px; height: 300px;"></div></div>
+	        {% endif %}
 	    </div>
     </div>
     <!-- /pie charts -->

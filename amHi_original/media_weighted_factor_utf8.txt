@@ -1,0 +1,4 @@
+market 	 bd_index_eng 	 bd_index_chinese 	 bd_news_eng	 bd_news_chinese 	 gg_index_eng	 gg_new 	 gg_hk 	 gg_site 	 bd_site 	  yj_index_eng 
+China Market	2	8	2	7	3	2	4	3	7	0
+All Asia Market	4	6	4	5	6	6	3	6	6	4
+Japan Market	1	1	1	1	5	5	2	5	1	8

@@ -1,0 +1,197 @@
+{% extends "schools/school_page_base.html" %} 
+{% block title%}{{school.name}} - report{%endblock %}
+{% load strip_space %}
+
+{% block sidebar %}
+<div class="navbar-default sidebar" role="navigation" style="margin-top: 20px;">
+    <div class="sidebar-nav">
+        <div style="margin-left: 10px;"><h4>Index Category:</h4></div>
+        <ul class="nav" id="side-menu">
+            <!-- general indexes -->
+            <li >
+                <a href="/school_id={{school.id}}/{{school.name|lower|nospace}}/report?index_category=general"> General</a>
+            </li>
+            <!-- MBA -->
+            <li>
+                <a href="/school_id={{school.id}}/{{school.name|lower|nospace}}/report?index_category=mba"> MBA Program</a>
+            </li>
+            <!-- law school -->
+            <li>
+                <a href="/school_id={{school.id}}/{{school.name|lower|nospace}}/report?index_category=law"> Law School</a>
+            </li>
+            <!-- engineering school -->
+            <li>
+                <a href="/school_id={{school.id}}/{{school.name|lower|nospace}}/report?index_category=engineering"> Engineering School</a>
+            </li>
+        </ul>
+    </div>
+    <!-- /.sidebar-collapse -->
+</div>
+{% endblock %}
+
+<!-- report -->
+{% block school_page_box %}
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <div class="pull-right">
+            <button type="button" class="btn btn-default btn-lg" onclick="printReport()">
+                <span class="glyphicon glyphicon-print" aria-hidden="true"></span> Print Report
+            </button>
+        </div>
+        <h3>Report Preview</h3>
+    </div>
+    {% include "schools/school_report_preview.html"%}
+</div>
+
+
+{% endblock %}
+
+{% block custom_js %}
+<script type="text/javascript">
+    google.load("visualization", "1", {packages:["corechart"]});
+    google.setOnLoadCallback(drawChart);
+    function drawChart() {
+    // data
+    var data0 = google.visualization.arrayToDataTable([
+      ['Financial Aid', 'Percentage'],
+      ['Offered', {{financial_yes}}],
+      ['Not Offered',{{financial_no}}]
+    ]);
+    var data1 = google.visualization.arrayToDataTable([
+      ['Admission', 'Percentage'],
+      ['Accepted', {{admission_yes}}],
+      ['Rejected',{{admission_no}}]
+    ]);
+    var data2 = google.visualization.arrayToDataTable([
+      ['Enrollment by Gender', 'Percentage'],
+      ['Male', {{male}}],
+      ['Female',{{female}}]
+    ]);
+    //var race = {{race|safe}}
+    var data3 = google.visualization.arrayToDataTable([
+      ['Enrollment by Race/Ethnicity', 'Percentage'],
+      {% if race.0 > 0 %}
+      ['American Indian or Alaskan native',{{race.0}}],
+      {% endif %}
+      {% if race.1 > 0 %}
+      ['Asian/Native Hawaiian/Pacific Islander', {{race.1}}],
+      {% endif %}
+      {% if race.2 > 0 %}
+      ['Black or African American', {{race.2}}],
+      {% endif %}
+      {% if race.3 > 0 %}
+      ['Hispanic/Latin', {{race.3}}],
+      {% endif %}
+      {% if race.4 > 0 %}
+      ['White', {{race.4}}],
+      {% endif %}
+      {% if race.5 > 0 %}
+      ['Two or More Races', {{race.5}}],
+      {% endif %}
+      {% if race.6 > 0 %}
+      ['Race/Ethnicity Unknown', {{race.6}}],
+      {% endif %}
+      {% if race.7 > 0 %}
+      ['Non-Resident Alien', {{race.7}}],
+      {% endif %}
+    ]);
+    var data4 = google.visualization.arrayToDataTable([
+      ['Attendance Status', 'Percentage'],
+      ['Full-Time', {{full_time}}],
+      ['Part-Time',{{part_time}}]
+    ]);
+    
+    // option
+    var options0 = {
+      title: 'Financial Aid',
+      fontSize: 10,
+      pieSliceText: 'label',
+      legend: {position: 'right', maxLines: 4}
+    };
+    var options1 = {
+      title: 'Admission',
+      fontSize: 10,
+      pieSliceText: 'label',
+      legend: {position: 'right', maxLines: 4}
+    };
+    var options2 = {
+      title: 'Enrollment by Gender',
+      fontSize: 10,
+      pieSliceText: 'label',
+      legend: {position: 'right', maxLines: 4}
+    };
+    var options3 = {
+      title: 'Enrollment by Race/Ethnicity',
+      fontSize: 10,
+      pieSliceText: 'label',
+      legend: {position: 'right', maxLines: 4}
+    };
+    var options4 = {
+      title: 'Attendance Status',
+      fontSize: 10,
+      pieSliceText: 'label',
+      legend: {position: 'right', maxLines: 4}
+    };
+    
+    // chart
+    var chart0 = new google.visualization.PieChart(document.getElementById('financial'));
+    chart0.draw(data0, options0);
+    
+    var chart1 = new google.visualization.PieChart(document.getElementById('admission'));
+    chart1.draw(data1, options1);
+    
+    var chart2 = new google.visualization.PieChart(document.getElementById('gender'));
+    chart2.draw(data2, options2);
+    
+    var chart3 = new google.visualization.PieChart(document.getElementById('race'));
+    chart3.draw(data3, options3);
+    
+    var chart4 = new google.visualization.PieChart(document.getElementById('attendance'));
+    chart4.draw(data4, options4);
+    
+    // bar chart
+    data_set = {{result_set|safe}}
+    var data = google.visualization.arrayToDataTable(data_set);
+    var options = {
+        height: 350,
+        legend: {position: 'top'},
+        chartArea: {top:40, left: 60, 'width': '90%', 'height': '60%'},
+        //bars: 'horizontal',
+        hAxis: {
+                title: 'Source of Index',
+                titleTextStyle: {
+                    fontSize: 18,
+                    color: '#053061',
+                    bold: true,
+                    italic: false
+                  }
+            },
+        vAxis: {
+                title: 'Search Index',
+                titleTextStyle: {
+                    fontSize: 18,
+                    color: '#053061',
+                    bold: true,
+                    italic: false
+                  }
+            },
+    };
+    
+    function resize () {
+                    var chart = new google.visualization.ColumnChart(document.getElementById('bar-chart'));
+                    chart.draw(data, options);
+                  }
+    window.onload = resize();
+    window.onresize = resize;
+    
+    }
+      
+    // print report
+    function printReport(){
+        var restorepage = document.body.innerHTML;
+        document.body.innerHTML = document.getElementById("target").innerHTML;
+        window.print();
+        document.body.innerHTML = restorepage;
+    }
+</script>
+{% endblock %}

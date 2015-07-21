@@ -1,0 +1,8 @@
+english_phrase 	 chinese_phrase 	 bd_index_common 	 bd_index_chinese 	 bd_news_common 	 bd_news_chinese 	 gg_index_common 	 gg_new 	 gg_hk 	 gg_site 	 bd_site 	 yj_index_eng	 yj_index_jp
+"Mentor Graphics" pcb 	 明导国际 pcb 	 70700 	 51900 	 157 	 10 	 379000 	 1240 	 382000 	 80500 	 18300 	 377000	 138000
+"Cadence Design" pcb 	 铿腾电子 pcb 	 132000 	 31100 	 198 	 0 	 163000 	 309 	 168000 	 633000 	 26000 	 178000	 62700
+"Synopsys" pcb 	 新思科技 pcb 	 348000 	 169000 	 18 	 15 	 225000 	 2550 	 226000 	 35100 	 5860 	 229000	 128000
+"PDF Solutions" pcb 	 普迪飞 pcb 	 1140000 	 52 	 1 	 0 	 69700 	 4 	 66400 	 1370 	 168 	 4920	 915000
+"ALTIUM " pcb 	 澳大利亚奥腾 pcb 	 388000 	 572 	 671 	 0 	 507000 	 1450 	 509000 	 103000 	 17500 	 540000	 417000
+"Zuken" pcb 	 图研 pcb 	 64000 	 392000 	 10 	 3 	 124000 	 112 	 123000 	 2540 	 895 	 124000	 137000
+"ASM Assembly" pcb 	 "ASM ""先进装配系统""" pcb 	 40300 	 190000 	 0 	 0 	 80400 	 53 	 80600 	 2250 	 1150 	 14000	 21800

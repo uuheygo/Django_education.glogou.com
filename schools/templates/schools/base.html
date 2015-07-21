@@ -36,6 +36,14 @@
 <link href="/static/schools/css/font-awesome.min.css" rel="stylesheet"
 	type="text/css">
 
+<style media="print" type="text/css">
+
+@media print {
+    .page-break { height:0; page-break-before:always; margin:0; border-top:none; }
+}
+
+</style>
+
 <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
 <!--[if lt IE 9]>
@@ -50,7 +58,7 @@
 	<div id="wrapper">
 
 		<!-- Navigation -->
-		<nav class="navbar navbar-default navbar-static-top" role="navigation"
+		<nav class="navbar navbar-inverse navbar-static-top" role="navigation"
 			style="margin-bottom: 0">
 			<div class="container">
 				<div class="navbar-header">
@@ -68,8 +76,8 @@
 					<ul class="nav navbar-nav">
 						<li id="link_about"><a href="#">ABOUT US</a></li>
 						<li id="link_services"><a href="#">SERVICES</a></li>
-						<li id="link_schools"><a href="/schools/">EXPLORE SCHOOLS</a></li>
-						<li id="link_contact"><a href="/schools/contact_us">CONTACT US</a></li>
+						<li id="link_schools"><a href="/">EXPLORE SCHOOLS</a></li>
+						<li id="link_contact"><a href="/contact_us">CONTACT US</a></li>
 					</ul>
 				</div>
 				<!-- /.navbar-collapse -->

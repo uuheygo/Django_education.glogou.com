@@ -1,0 +1,11 @@
+Hawaii 	Hawaii  travel	夏威夷旅游	gohawaii.com
+California	California travel	美国加州旅游	visitcalifornia.com
+thailand phuket	Phuket travel	泰国普吉岛旅游	phukettourist.com
+Maldives	Maldives travel	马尔代夫旅游	visitmaldives.com
+Korea Jeju-do	Jeju-do travel	韩国济州岛旅游	jeju.go.kr
+Indonesia Bali Island	Bali travel	印尼巴厘岛旅游	balitourismboard.org
+Capital Region USA	Washington DC travel	华盛顿旅游	capitalregionusa.org
+New York	new york travel	纽约旅游	nycgo.com
+Los Angels	Los Angels Travel	洛杉矶旅游	discoverlosangeles.com
+San Francisco	San Francisco travel	旧金山旅游	sanfrancisco.travel
+BrandUSA	USA travel	美国旅游	discoveramerica.com

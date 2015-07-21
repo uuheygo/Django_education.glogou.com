@@ -1,0 +1,650 @@
+1	williams.edu	Williams College	威廉姆斯学院	
+2	stanford.edu	Stanford University	斯坦福大学	 
+3	swarthmore.edu	Swarthmore College	斯沃斯莫尔学院	
+4	princeton.edu	Princeton University	普林斯顿大学	
+5	mit.edu	Massachusetts Institute of Technology	麻省理工学院	
+6	yale.edu	Yale University	耶鲁大学	
+7	harvard.edu	Harvard University	哈佛大学	
+8	pomona.edu	Pomona College	波莫纳学院	
+9	usma.edu	United States Military Academy West Point	西点军校	 
+10	amherst.edu	Amherst College	阿默斯特学院	
+11	haverford.edu	Haverford College	哈弗福德学院	
+12	upenn.edu	University of Pennsylvania	宾夕法尼亚大学	 
+13	brown.edu	Brown University	布朗大学	 
+14	bowdoin.edu	Bowdoin College	鲍登学院	
+15	wesleyan.edu	Wesleyan University	卫斯理大学	
+16	carleton.edu	Carleton College	卡尔顿学院	
+17	nd.edu	University of Notre Dame	圣母大学	 
+18	dartmouth.edu	Dartmouth College	达特茅斯学院	
+19	northwestern.edu	Northwestern University	美国西北大学	
+20	columbia.edu	Columbia University	哥伦比亚大学	
+21	caltech.edu	California Institute of Technology	加州理工	
+22	davidson.edu	Davidson College	大卫森学院	
+23	duke.edu	Duke University	杜克大学	
+24	uchicago.edu	University of Chicago	芝加哥大学	 
+25	tufts.edu	Tufts University	塔夫斯大学	
+26	vassar.edu	Vassar College	瓦萨学院	
+27	usna.edu	United States Naval Academy	美国海军学院	 
+28	georgetown.edu	Georgetown University	乔治敦大学	
+29	wellesley.edu	Wellesley College	韦尔斯利学院	
+30	middlebury.edu	Middlebury College	明德学院	
+31	cornell.edu	Cornell University	康奈尔大学	
+32	rice.edu	Rice University	莱斯大学	 
+33	wlu.edu	Washington and Lee University	华盛顿与李大学	
+34	usafa.af.mil	United States Air Force Academy	美国空军学院	
+35	barnard.edu	Barnard College	巴纳德学院	
+36	bc.edu	Boston College	波士顿学院	 
+37	berkeley.edu	University of California Berkeley	加州大学伯克利分校	 
+38	colgate.edu	Colgate University	科尔盖特大学	
+39	colby.edu	Colby College	柯比学院	
+40	virginia.edu	University of Virginia	弗吉尼亚大学	 
+41	wm.edu	College of William and Mary	威廉和玛丽学院	
+42	kenyon.edu	Kenyon College	凯尼恩学院	
+43	oberlin.edu	Oberlin College	欧柏林学院	
+44	ucla.edu	University of California Los Angeles	加州大学洛杉矶分校	
+45	umich.edu	University of Michigan Ann Arbor	密歇根大学 安娜堡	 
+46	reed.edu	Reed College	里德学院	
+47	whitman.edu	Whitman College	惠特曼学院	
+48	lafayette.edu	Lafayette College	拉斐特学院	
+49	smith.edu	Smith College	史密斯学院	
+50	unc.edu	University of North Carolina Chapel Hill	北卡 教堂山	 
+51	coloradocollege.edu	Colorado College	科罗拉多学院	 
+52	hmc.edu	Harvey Mudd College	哈维穆德学院	
+53	holycross.edu	College of the Holy Cross	圣十字学院	
+54	vanderbilt.edu	Vanderbilt University	范德比尔特大学	 
+55	hamilton.edu	Hamilton College	汉密尔顿学院	
+56	fandm.edu	Franklin and Marshall College	富兰克林和马歇尔学院	
+57	union.edu	Union College	美国联合学院	New York
+58	grinnell.edu	Grinnell College	格林内尔学院	
+59	cmu.edu	Carnegie Mellon University	卡内基梅隆大学	 
+60	bates.edu	Bates College	贝茨学院	
+61	wfu.edu	Wake Forest University	维克森林大学	
+62	rochester.edu	University of Rochester	罗切斯特大学	
+63	wustl.edu	Washington University in St Louis	华盛顿大学圣路易斯	
+64	cooper.edu	Cooper Union	库珀联盟学院	
+65	brynmawr.edu	Bryn Mawr College	布林莫尔学院	
+66	macalester.edu	Macalester College	马卡莱斯特学院	
+67	jhu.edu	Johns Hopkins University	约翰霍普金斯大学	
+68	illinois.edu	University of Illinois Urbana Champaign	伊利诺伊大学 香槟	 
+69	scrippscollege.edu	Scripps College	斯克里普斯学院	
+70	wisc.edu	University of Wisconsin Madison	美国威斯康星大学麦迪逊分校	 
+71	villanova.edu	Villanova University	维拉诺瓦大学	
+72	nyu.edu	New York University	纽约大学	 
+73	washington.edu	University of Washington Seattle	华盛顿大学	 
+74	brandeis.edu	Brandeis University	美国布兰迪斯大学	
+75	wheaton.edu	Wheaton College	惠顿学院 伊利诺伊	Illinois
+76	utexas.edu	University of Texas Austin	得克萨斯大学奥斯汀分校	 
+77	lehigh.edu	Lehigh University	利哈伊大学	
+78	usc.edu	University of Southern California	南加州大学	 
+79	byu.edu	Brigham Young University Idaho	杨百翰大学	Idaho
+80	oxy.edu	Occidental College	美国 西方学院	
+81	centre.edu	Centre College 	森特学院	Danville
+82	umd.edu	University of Maryland College Park	马里兰大学帕克分校	 
+83	trincoll.edu	Trinity College	美国三一学院	Connecticut
+84	conncoll.edu	Connecticut College	康涅狄格学院	
+85	wofford.edu	Wofford College	沃福德大学	
+86	scu.edu	Santa Clara University	圣塔克拉拉大学	
+87	ufl.edu	University of Florida	佛罗里达大学	
+88	dickinson.edu	Dickinson College	迪金森学院	
+89	bu.edu	Boston University	波士顿大学	 
+90	gatech.edu	Georgia Institute of Technology	佐治亚理工学院	
+91	depauw.edu	DePauw University	美国德堡大学	
+92	earlham.edu	Earlham College	厄勒姆学院	
+93	rhodes.edu	Rhodes College	罗德学院	
+94	uga.edu	University of Georgia	乔治亚大学	 
+95	denison.edu	Denison University	丹尼森大学	
+96	richmond.edu	University of Richmond	里奇蒙大学	
+97	mtholyoke.edu	Mount Holyoke College	曼荷莲女子文理学院	
+98	sewanee.edu	Sewanee University of the South	西沃恩南方大学	
+99	slc.edu	Sarah Lawrence College	莎拉劳伦斯学院	
+100	furman.edu	Furman University	弗曼大学	
+101	smu.edu	Southern Methodist University	南方卫理公会大学	
+102	skidmore.edu	Skidmore College	斯基德莫尔学院	
+103	gettysburg.edu	Gettysburg College	葛底斯堡学院	
+104	pitzer.edu	Pitzer College	匹泽学院	
+105	providence.edu	Providence College	普罗维登斯学院	
+106	lawrence.edu	Lawrence University	劳伦斯大学	
+107	iub.edu	Indiana University Bloomington	印地安那大学伯明顿分校	 
+108	umn.edu	University of Minnesota Twin Cities	明尼苏达双城大学	 
+109	stolaf.edu	Saint Olaf College	圣奥拉夫学院	
+110	hampshire.edu	Hampshire College	罕布什尔学院	
+111	kzoo.edu	Kalamazoo College	卡拉马祖学院	
+112	pepperdine.edu	Pepperdine University	佩珀代因大学	
+113	ucdavis.edu	University of California Davis	美国加州大学戴维斯分校	 
+114	uscga.edu	United States Coast Guard Academy	美国海岸警卫学院	 
+115	lclark.edu	Lewis & Clark College	路易克拉克大学	
+116	ucsb.edu	University of California Santa Barbara	加利福尼亚大学圣塔芭芭拉分校	 
+117	vt.edu	Virginia Tech	弗吉尼亚理工大学	 
+118	colorado.edu	University of Colorado Boulder	科罗拉多大学波尔得分校	 
+119	purdue.edu	Purdue University West Lafayette	普渡大学西拉法叶校区	 
+120	yu.edu	Yeshiva University	叶史瓦大学	
+121	muhlenberg.edu	Muhlenberg College	穆伦堡学院	
+122	gwu.edu	George Washington University	乔治华盛顿大学	
+123	redlands.edu	University of Redlands	雷德兰兹大学	
+124	coa.edu	College of the Atlantic	大西洋学院	
+125	bennington.edu	Bennington College	本宁顿学院	
+126	ucsd.edu	University of California San Diego	加利福尼亚大学圣地亚哥分校	 
+127	case.edu	Case Western Reserve University	凯斯西储大学	
+128	miami.edu	University of Miami	迈阿密大学	Florida
+129	vmi.edu	Virginia Military Institute	弗吉尼亚军事学院	 
+130	willamette.edu	Willamette University	威拉米特大学	
+131	rpi.edu	Rensselaer Polytechnic Institute	伦斯勒理工学院	
+132	trinity.edu	Trinity University	美国三一大学	TX
+133	juniata.edu	Juniata College	杰尼阿塔学院	
+134	american.edu	American University	美国大学 American University	Washington DC
+135	udel.edu	University of Delaware	特拉华大学	 
+136	wooster.edu	College of Wooster	伍斯特学院	
+137	tamu.edu	Texas A&M University College Station	德克萨斯农工大学	 
+138	stlawu.edu	Saint Lawrence University	圣劳伦斯大学	
+139	du.edu	University of Denver	丹佛大学	 
+140	uvm.edu	University of Vermont	佛蒙特大学	 
+141	utah.edu	University of Utah	犹他大学	 
+142	presby.edu	Presbyterian College	长老会学院	
+143	drake.edu	Drake University	德雷克大学	
+144	uci.edu	University of California Irvine	加州大学欧文分校	 
+145	owu.edu	Ohio Wesleyan University	俄亥俄卫斯理大学	
+146	clarku.edu	Clark University	克拉克大学	
+147	tulane.edu	Tulane University	杜兰大学	
+148	gcc.edu	Grove City College	格罗夫城市学院	
+149	knox.edu	Knox College	诺克斯学院	
+150	fordham.edu	Fordham University	福特汉姆大学	
+151	smcvt.edu	Saint Michael's College	圣迈克尔学院	Vermont
+152	hendrix.edu	Hendrix College	亨德里克斯学院	
+153	mines.edu	Colorado School of Mines	科罗拉多矿业学院	  
+154	bard.edu	Bard College	巴德学院	
+155	osu.edu	Ohio State University	俄亥俄州立大学哥伦布分校	
+156	creighton.edu	Creighton University	克赖顿大学	
+157	calpoly.edu	California Polytechnic State University	加州州立理工大学	 
+158	syr.edu	Syracuse University	雪城大学	
+159	thomasaquinas.edu	Thomas Aquinas College	托马斯阿奎那斯学院	
+160	hws.edu	Hobart and William Smith Colleges	霍巴特和威廉史密斯学院	
+161	westmont.edu	Westmont College	韦斯特蒙特学院	
+162	stjohnscollege.edu	Saint John's College	圣约翰学院 马里兰州	MD
+163	clemson.edu	Clemson University	克莱姆森大学	
+164	uconn.edu	University of Connecticut	康涅狄格大学	 
+165	beloit.edu	Beloit College	伯洛伊特学院	
+166	psu.edu	Pennsylvania State University University Park	宾夕法尼亚州立大学大学城分校	 
+167	ncsu.edu	North Carolina State University Raleigh	北卡罗莱纳州立大学罗利分校	 
+168	tcnj.edu	College of New Jersey	新泽西学院	
+169	msu.edu	Michigan State University	密歇根州立大学	  
+170	loyola.edu	Loyola University Maryland	洛约拉大学马里兰分校	
+171	hsc.edu	Hampden Sydney College	汉普顿悉尼学院	
+172	hope.edu	Hope College	霍普学院	
+173	wpi.edu	Worcester Polytechnic Institute	伍斯特理工学院	
+174	binghamton.edu	Binghamton University	宾厄姆顿大学	
+175	wheatoncollege.edu	Wheaton College	惠顿学院 马萨诸塞州	Massachusetts
+176	miamioh.edu	Miami University Oxford	迈阿密大学牛津分校	
+177	rutgers.edu	Rutgers University New Brunswick	罗格斯大学 新不伦瑞克	
+178	hillsdale.edu	Hillsdale College	希尔斯代尔学院	
+179	wabash.edu	Wabash College	瓦巴什学院	
+180	ncf.edu	New College of Florida	新佛罗里达学院	 
+181	pugetsound.edu	University of Puget Sound	普吉特湾大学	
+182	elon.edu	Elon University	依隆大学	
+183	lmu.edu	Loyola Marymount University	洛约拉马利蒙特大学	
+184	transy.edu	Transylvania University	特兰西瓦尼亚大学	
+185	unh.edu	University of New Hampshire	新罕布什尔大学	 
+186	sc.edu	University of South Carolina Columbia	南卡罗来纳大学哥伦比亚	 
+187	up.edu	University of Portland	波特兰大学	
+188	jmu.edu	James Madison University	詹姆斯麦迪逊大学	
+189	anselm.edu	Saint Anselm College	圣安瑟伦学院	
+190	lsu.edu	Louisiana State University	路易斯安那州立大学	
+191	slu.edu	Saint Louis University	圣路易斯大学	MO
+192	uiowa.edu	University of Iowa	爱荷华大学	 
+193	ursinus.edu	Ursinus College	尤西纽斯学院 	
+194	cofo.edu	College of the Ozarks	奥沙克学院	
+195	baylor.edu	Baylor University	贝勒大学	
+196	bentley.edu	Bentley University	本特利大学	
+197	southwestern.edu	Southwestern University	西南大学 美国	TX
+198	pitt.edu	University of Pittsburgh	匹兹堡大学	 
+199	manhattan.edu	Manhattan College	曼哈顿学院	
+200	uwyo.edu	University of Wyoming	怀俄明大学	 
+201	gustavus.edu	Gustavus Adolphus College	古斯塔夫阿道尔夫学院	
+202	ou.edu	University of Oklahoma Norman	俄克拉何马州诺曼大学	 
+203	samford.edu	Samford University	桑佛德大学	
+204	auburn.edu	Auburn University	奥本大学	
+205	carroll.edu	Carroll College	卡罗尔学院	
+206	cua.edu	The Catholic University of America	美国天主教大学	
+207	smcm.edu	Saint Mary's College	马里兰州圣玛丽学院	MD
+208	marquette.edu	Marquette University	马凯特大学	
+209	northeastern.edu	Northeastern University	美国东北大学	
+210	wittenberg.edu	Wittenberg University	维滕贝格大学	
+211	usmma.edu	United States Merchant Marine Academy	美国商船学院	 
+212	udallas.edu	University of Dallas	达拉斯大学	 
+213	utulsa.edu	University of Tulsa	塔尔萨大学	
+214	usfca.edu	University of San Francisco	旧金山大学	-California
+215	cuny.edu	CUNY City College	纽约城市大学城市学院	
+216	tcu.edu	Texas Christian University	德克萨斯基督教大学	 
+217	csbsju.edu	Saint John's University	圣约翰大学 明尼苏达	MN
+218	ucsc.edu	University of California Santa Cruz	加利福尼亚大学圣塔克鲁兹分校	 
+219	stmarys-ca.edu	Saint Mary's College	加州圣玛丽学院	CA
+220	calvin.edu	Calvin College	卡尔文学院	
+221	stonehill.edu	Stonehill College	斯通希尔学院	
+222	umass.edu	University of Massachusetts Amherst	马萨诸塞大学阿默斯特分校	 
+223	sandiego.edu	University of San Diego 	圣地亚哥大学	-California
+224	rollins.edu	Rollins College	罗林斯学院	
+225	allegheny.edu	Allegheny College	阿勒格尼学院	
+226	fsu.edu	Florida State University	佛罗里达州立大学	 
+227	sju.edu	Saint Joseph's University	圣约瑟夫大学	PA
+228	emerson.edu	Emerson College	爱默生学院	
+229	stthomas.edu	University of Saint Thomas	圣托马斯大学	Minnesota
+230	missouri.edu	University of Missouri Columbia	密苏里大学哥伦比亚分校	 
+231	whitworth.edu	Whitworth University	惠氏大学	
+232	gmu.edu	George Mason University	乔治梅森大学	
+233	clarkson.edu	Clarkson University	克拉克森大学	
+234	fairfield.edu	Fairfield University	费尔菲尔德大学	
+235	uoregon.edu	University of Oregon	俄勒冈大学	 
+236	lakeforest.edu	Lake Forest College	森林湖学院	
+237	luther.edu	Luther College	路德学院	
+238	gonzaga.edu	Gonzaga University	冈萨加大学	
+239	butler.edu	Butler University	巴特勒大学	
+240	linfield.edu	Linfield College	林菲尔德学院	
+241	esf.edu	College of Environmental Science and Forestry	纽约州立大学环境科学与林业科学学院	
+242	udayton.edu	University of Dayton	代顿大学	
+243	saintmarys.edu	Saint Mary's College	圣玛丽学院	Indiana
+244	cuny.edu	Baruch College	纽约市立大学巴鲁克学院	
+245	sbc.edu	Sweet Briar College	斯威特布赖尔学院	
+246	truman.edu	Truman State University	杜鲁门州立大学	
+247	iit.edu	Illinois Institute of Technology	伊利诺理工大学	 
+248	augustana.edu	Augustana College	奥古斯塔纳学院 伊利诺伊州	Illinois
+249	stonybrook.edu	Stony Brook University	纽约州立大学石溪分校	
+250	arizona.edu	University of Arizona	亚利桑那大学	 
+251	jcu.edu	John Carroll University	约翰 卡罗尔大学	
+252	citadel.edu	The Citadel	塞特多大学	college
+253	iwu.edu	Illinois Wesleyan University	伊利诺伊州卫斯理大学	
+254	agnesscott.edu	Agnes Scott College	阿格尼斯斯科特学院	
+255	umw.edu	University of Mary Washington	玛丽华盛顿大学	
+256	fisk.edu	Fisk University	费斯克大学	
+257	taylor.edu	Taylor University	泰勒大学	
+258	hanover.edu	Hanover College	汉诺威学院	
+259	rockhurst.edu	Rockhurst University	罗克赫斯特大学	
+260	collegeofidaho.edu	College of Idaho	爱达荷大学	 
+261	iastate.edu	Iowa State University	爱荷华州立大学	 
+262	sdsu.edu	San Diego State University	圣地亚哥州立大学	 
+263	ucr.edu	University of California Riverside	加州大学河滨分校	 
+264	plu.edu	Pacific Lutheran University	太平洋路德大学	
+265	scranton.edu	University of Scranton	斯克兰顿大学	
+266	seattleu.edu	Seattle University	西雅图大学	 
+267	snc.edu	Saint Norbert College	圣诺伯特学院	
+268	bryant.edu	Bryant University	布莱恩特大学	
+269	geneseo.edu	State University of New York at Geneseo	纽约州立大学杰纳苏分校	 
+270	valpo.edu	Valparaiso University	瓦尔帕莱索大学	
+271	austincollege.edu	Austin College	奥斯汀学院	
+272	ithaca.edu	Ithaca College	伊萨卡学院	
+273	csupomona.edu	California State Polytechnic University, Pomona	加州州立理工大学波莫纳分校	 
+274	onu.edu	Ohio Northern University	北俄亥俄大学	
+275	etown.edu	Elizabethtown College	伊丽莎白学院	
+276	pacificu.edu	Pacific University Oregon	太平洋大学 俄勒冈	
+277	whittier.edu	Whittier College	惠蒂尔学院	
+278	bradley.edu	Bradley University	布拉德利大学	
+279	csbsju.edu	College of Saint Benedict	圣本笃学院	
+280	unl.edu	University of Nebraska Lincoln	内布拉斯加大学林肯分校	 
+281	callutheran.edu	California Lutheran University	加州路德大学	
+282	covenant.edu	Covenant College	圣约学院	
+283	washcoll.edu	Washington College	华盛顿学院	MD
+284	cuny.edu	Hunter College	纽约市立大学亨特学院	
+285	goucher.edu	Goucher College	古彻学院	
+286	buffalo.edu	University at Buffalo	纽约州立大学布法罗分校	 
+287	cedarville.edu	Cedarville University	锡达维尔大学	
+288	westminster-mo.edu	Westminster College	威斯特敏斯特学院 密苏里	MO
+289	cuny.edu	Queens College	纽约市立大学皇后学院	
+290	westminster.edu	Westminster College	威斯特敏斯特学院 宾州	PA
+291	mills.edu	Mills College	米尔斯学院	
+292	utk.edu	University of Tennessee Knoxville	田纳西州诺克斯维尔大学	 
+293	uark.edu	University of Arkansas	阿肯色大学	 
+294	doane.edu	Doane College	多恩学院	
+295	asbury.edu	Asbury University	阿斯伯里大学	
+296	touro.edu	Touro College	图罗学院	
+297	ku.edu	University of Kansas	堪萨斯大学	 
+298	cornellcollege.edu	Cornell College	康奈尔学院	
+299	simmons.edu	Simmons College	西蒙斯学院	
+300	montana.edu	Montana State University Bozeman	蒙大拿州立大学波兹曼分校	
+301	usu.edu	Utah State University	犹他州立大学	 
+302	masters.edu	The Master's College	美国马斯特学院与神学院	Santa Clarita
+303	stevens.edu	Stevens Institute of Technology	史蒂文斯理工学院	
+304	duq.edu	Duquesne University	杜肯大学	
+305	quinnipiac.edu	Quinnipiac University	昆尼皮亚克大学	
+306	lvc.edu	Lebanon Valley College	黎巴嫩谷学院	
+307	evansville.edu	University of Evansville	埃文斯维尔大学	
+308	ripon.edu	Ripon College	里彭学院	
+309	wwu.edu	Western Washington University	西华盛顿大学	 
+310	colostate.edu	Colorado State University	科罗拉多州立大学	 
+311	albion.edu	Albion College	阿尔比恩学院	
+312	luc.edu	Loyola University Chicago	芝加哥洛约拉大学	
+313	goshen.edu	Goshen College	戈申学院	
+314	spelman.edu	Spelman College	斯佩尔曼学院	
+315	houghton.edu	Houghton College	霍顿学院	
+316	uu.edu	Union University	美国联合大学	TN
+317	obu.edu	Ouachita Baptist University	沃希托浸会大学	
+318	nebrwesleyan.edu	Nebraska Wesleyan University	内布拉斯加卫斯理大学	 
+319	susqu.edu	Susquehanna University	萨斯奎汉纳大学	
+320	depaul.edu	DePaul University	德保罗大学	
+321	chapman.edu	Chapman University	查普曼大学	
+322	xavier.edu	Xavier University	泽维尔大学	
+323	oregonstate.edu	Oregon State University	俄勒冈州立大学	
+324	marist.edu	Marist College	玛利斯特学院	
+325	wesleyancollege.edu	Wesleyan College Macon	卫斯理学院	
+326	spu.edu	Seattle Pacific University	西雅图太平洋大学	
+327	drexel.edu	Drexel University	德雷塞尔大学	
+328	nwc.edu	University of Northwestern St Paul	西北大学圣保罗分校	
+329	drew.edu	Drew University	德鲁大学	
+330	siena.edu	Siena College	锡耶纳学院	
+331	shu.edu	Seton Hall University	西顿霍尔大学	
+332	nwciowa.edu	Northwestern College Orange City	西北学院 爱荷华	
+333	millsaps.edu	Millsaps College	米尔萨普学院	
+334	erskine.edu	Erskine College	厄斯金学院	
+335	ua.edu	University of Alabama	阿拉巴马大学	 
+336	uky.edu	University of Kentucky	肯塔基大学	 
+337	marlboro.edu	Marlboro College	万宝路学院	
+338	fullerton.edu	California State University Fullerton	加州州立大学富尔顿分校	 
+339	coe.edu	Coe College	柯伊学院	
+340	newschool.edu	The New School	美国新学院大学	Greenwich
+341	biola.edu	Biola University	比奥拉大学	
+342	gordon.edu	Gordon College	戈登学院	
+343	bethel.edu	Bethel University	伯特利大学	
+344	lasalle.edu	La Salle University	拉萨尔大学	
+345	sjsu.edu	San Jose State University	圣何塞州立大学	 
+346	cuny.edu	Brooklyn College	纽约市立大学布鲁克林学院	
+347	sjca.edu	Saint John's College	圣约翰学院 新墨西哥	NM
+348	messiah.edu	Messiah College	弥赛亚学院	
+349	mtu.edu	Michigan Technological University	密歇根理工大学	 
+350	pacific.edu	University of the Pacific	加州太平洋大学	Stockton CA
+351	byui.edu	Brigham Young University 	杨百翰大学爱达荷分校	Utah
+352	eckerd.edu	Eckerd College	埃克德学院	
+353	washjeff.edu	Washington & Jefferson College	华盛顿杰弗逊学院	
+354	csulb.edu	California State University Long Beach	加州州立大学长滩分校	 
+355	wagner.edu	Wagner College	瓦格纳学院	
+356	berea.edu	Berea College	伯里亚学院	
+357	merrimack.edu	Merrimack College	梅里马克学院	
+358	umaryland.edu	University of Maryland Baltimore County	马里兰大学巴尔的摩分校	 
+359	olemiss.edu	University of Mississippi	密西西比大学	 
+360	concordiacollege.edu	Concordia College 	康科迪亚学院摩海德分校	Moorhead
+361	uic.edu	University of Illinois Chicago	伊利诺斯大学芝加哥分校	 
+362	asu.edu	Arizona State University	亚利桑那州立大学	 
+363	hamline.edu	Hamline University	哈姆林大学	
+364	franciscan.edu	Franciscan University of Steubenville	圣芳济会大学斯托本维尔	
+365	msstate.edu	Mississippi State University	密西西比州立大学	 
+366	la.edu	Mount Saint Mary's College Los Angeles	圣玛丽山学院 洛杉矶	
+367	k-state.edu	Kansas State University	堪萨斯州立大学	 
+368	georgefox.edu	George Fox University	乔治福克斯大学	
+369	okstate.edu	Oklahoma State University	俄克拉荷马州立大学	 
+370	wsu.edu	Washington State University	华盛顿州立大学	 
+371	rit.edu	Rochester Institute of Technology	罗彻斯特理工学院	
+372	central.edu	Central College	美国中央学院	Pella
+373	albany.edu	University at Albany	纽约州立大学奥尔巴尼分校	
+374	randolphcollege.edu	Randolph College	兰道夫学院	
+375	jewell.edu	William Jewell College	威廉贾威尔大学	
+376	stvincent.edu	Saint Vincent College	圣文森特学院	
+377	salisbury.edu	Salisbury University	索尔兹伯里大学	
+378	latech.edu	Louisiana Tech University	路易斯安那理工大学	 
+379	nmt.edu	New Mexico Institute of Mining and Technology	新墨西哥矿业及科技学院	 
+380	appstate.edu	Appalachian State University	阿巴拉契亚州立大学	
+381	cnu.edu	Christopher Newport University	克里斯托弗纽波特大学	
+382	hollins.edu	Hollins University	霍林斯大学	
+383	bsc.edu	Birmingham Southern College	伯明翰南方学院	
+384	towson.edu	Towson University	陶森大学	
+385	morehouse.edu	Morehouse College	莫尔豪斯学院	
+386	georgetowncollege.edu	Georgetown College 	乔治敦学院	Georgetown Kentucky
+387	jbu.edu	John Brown University	约翰布朗大学	
+388	mst.edu	Missouri University of Science and Technology	密苏里科技大学	
+389	uh.edu	University of Houston	休斯顿大学	
+390	stmarytx.edu	Saint Mary's University of San Antonio	圣玛丽大学圣安东尼奥分校	 
+391	uc.edu	University of Cincinnati	辛辛那提大学	
+392	bellarmine.edu	Bellarmine University	贝拉明大学	
+393	newpaltz.edu	State University of New York at New Paltz	纽约州立大学新帕尔茨分校	 
+394	cuny.edu	Lehman College	纽约城市大学赫伯特莱曼学院	
+395	calstatela.edu	California State University Los Angeles	加州州立大学洛杉矶分校	 
+396	umn.edu	University of Minnesota Morris	明尼苏达大学莫里斯分校	 
+397	temple.edu	Temple University	天普大学	
+398	stetson.edu	Stetson University	斯泰森大学	
+399	howard.edu	Howard University	霍华德大学 华盛顿	
+400	sjcny.edu	Saint Joseph's College	圣若瑟书院	NY
+401	berry.edu	Berry College	贝里学院	
+402	ttu.edu	Texas Tech University	德州理工大学	 
+403	wlc.edu	Wisconsin Lutheran College	威斯康星路德学院	 
+404	simpson.edu	Simpson College	辛普森学院	
+405	ucf.edu	University of Central Florida	中佛罗里达大学	
+406	huntington.edu	Huntington University	亨廷顿大学	
+407	weber.edu	Weber State University	韦伯州立大学	
+408	dordt.edu	Dordt College	多尔特学院	
+409	csusb.edu	California State University San Bernardino	加州州立大学圣伯纳迪诺分校	 
+410	lemoyne.edu	Le Moyne College	莱莫恩学院	
+411	ndsu.edu	North Dakota State University	北达科他州立大学	
+412	bw.edu	Baldwin Wallace University	鲍德温华莱士大学	
+413	warren-wilson.edu	Warren Wilson College	沃伦威尔逊学院	
+414	marietta.edu	Marietta College	玛丽埃塔学院	
+415	augie.edu	Augustana College	奥古斯塔纳学院 南达科他	South Dakota
+416	njit.edu	New Jersey Institute of Technology	新泽西理工学院	
+417	laverne.edu	University of La Verne	拉文大学	
+418	adelphi.edu	Adelphi University	阿德菲大学	
+419	csuchico.edu	California State University Chico	加州州立大学奇科分校	 
+420	smumn.edu	Saint Mary's University of Minnesota	明尼苏达圣玛丽大学	
+421	cofc.edu	College of Charleston	查尔斯顿学院	
+422	fit.edu	Florida Institute of Technology	佛罗里达理工学院	 
+423	unm.edu	University of New Mexico	新墨西哥大学	 
+424	uri.edu	University of Rhode Island	罗德岛大学	 
+425	roanoke.edu	Roanoke College	罗阿诺克学院	
+426	uncw.edu	University of North Carolina Wilmington	北卡罗莱纳大学 威尔明顿	 
+427	cuny.edu	College of Staten Island	纽约城市大学斯塔滕岛学院	
+428	fresnostate.edu	California State University Fresno	加州州立大学弗雷斯诺分校	 
+429	rmc.edu	Randolph Macon College	兰道尔夫 麦肯学院	
+430	csus.edu	California State University Sacramento	加州州立大学萨克拉门托分校	 
+431	css.edu	College of St. Scholastica	美国圣斯考拉斯蒂卡学院	
+432	clarke.edu	Clarke University 	克拉克大学 迪比克	Dubuque
+433	une.edu	University of New England	新英格兰大学	Maine
+434	centenary.edu	Centenary College of Louisiana	路易斯安那百年学院	 
+435	usf.edu	University of South Florida	南佛罗里达大学	Tempa
+436	wju.edu	Wheeling Jesuit University	惠灵基督会大学	
+437	shc.edu	Spring Hill College	斯普林希尔学院	
+438	umt.edu	University of Montana	蒙大拿大学	 
+439	converse.edu	Converse College	匡威学院	
+440	ohio.edu	Ohio University Athens	俄亥俄大学 雅典	
+441	canisius.edu	Canisius College	凯尼休斯学院	
+442	nmsu.edu	New Mexico State University Las Cruces	新墨西哥州州立大学拉斯克鲁塞斯分校	 
+443	wvu.edu	West Virginia University	西弗吉尼亚大学	 
+444	capital.edu	Capital University	美国首都大学	 Columbus
+445	umaine.edu	University of Maine Orono	缅因大学奥罗诺分校	
+446	uwec.edu	University of Wisconsin Eau Claire	威斯康星大学欧克莱尔分校	 
+447	csum.edu	California Maritime Academy	加利福尼亚州海洋学院	 
+448	ngu.edu	North Greenville University	北格林维尔大学	
+449	sonoma.edu	Sonoma State University	索诺玛州立大学	
+450	hawaii.edu	University of Hawaii Manoa	夏威夷大学马诺阿分校	 
+451	hofstra.edu	Hofstra University	霍夫斯特拉大学	
+452	wcupa.edu	West Chester University	宾夕法尼亚 西切斯特大学	
+453	gsu.edu	Georgia State University	佐治亚州立大学	 
+454	apu.edu	Azusa Pacific University	梓太平洋大学	
+455	rwu.edu	Roger Williams University	罗杰 威廉姆斯大学	
+456	uidaho.edu	University of Idaho	爱达荷大学	 
+457	salem.edu	Salem College	萨利姆学院	
+458	carrollu.edu	Carroll University	卡罗尔大学	
+459	elmhurst.edu	Elmhurst College	艾姆赫斯特学院	
+460	vcu.edu	Virginia Commonwealth University	弗吉尼亚联邦大学	 
+461	hartwick.edu	Hartwick College	哈特威克学院	
+462	jsums.edu	Jackson State University	杰克逊州立大学	
+463	maryville.edu	Maryville University of Saint Louis	圣路易斯玛丽维尔大学	
+464	sfsu.edu	San Francisco State University	旧金山州立大学	 
+465	uml.edu	University of Massachusetts Lowell	马萨诸塞大学卢维尔分校	 
+466	uah.edu	University of Alabama Huntsville	阿拉巴马大学汉茨维尔分校	 
+467	immaculata.edu	Immaculata University	依马库雷塔大学	
+468	moravian.edu	Moravian College	摩拉维亚学院	
+469	und.edu	University of North Dakota	北达科他州大学	 
+470	belmont.edu	Belmont University	贝尔蒙特大学	
+471	kings.edu	King's College Wilkes Barre	国王学院 宾夕法尼亚	
+472	msoe.edu	Milwaukee School of Engineering	工程学院密尔沃基	 
+473	stedwards.edu	Saint Edward's University	圣爱德华大学	
+474	vanguard.edu	Vanguard University of Southern California	南加州先锋大学	 
+475	lyon.edu	Lyon College	里昂学院	
+476	csustan.edu	California State University Stanislaus	加州州立大学斯坦尼斯洛斯分校	 
+477	mercer.edu	Mercer University	美世大学	
+478	illinoisstate.edu	Illinois State University	伊利诺伊州立大学	  
+479	lycoming.edu	Lycoming College	林克明学院	
+480	unr.edu	University of Nevada Reno	内华达大学雷诺分校	 
+481	sjfc.edu	Saint John Fisher College	圣约翰费舍尔学院	
+482	hiram.edu	Hiram College	海勒姆学院	
+483	cuny.edu	John Jay College Criminal Justice	约翰杰伊刑事司法学院	
+484	uni.edu	University of Northern Iowa	北艾奥瓦大学	 
+485	okbu.edu	Oklahoma Baptist University	俄克拉荷马浸会大学	 
+486	usd.edu	University of South Dakota	南达科他大学	 
+487	uaf.edu	University of Alaska Fairbanks	阿拉斯加费尔班克斯大学	 
+488	sfc.edu	Saint Francis College	圣弗朗西斯学院	
+489	fdu.edu	Fairleigh Dickinson University Metropolitan Campus	菲尔莱狄更斯大学大都会校区	
+490	northcentralcollege.edu	North Central College	北中央学院	
+491	sdstate.edu	South Dakota State University	南达科他州立大学	 
+492	lynn.edu	Lynn University	林恩大学	
+493	ucdenver.edu	University of Colorado Denver	科罗拉多大学丹佛分校	 
+494	utdallas.edu	University of Texas Dallas	德克萨斯大学达拉斯分校	 
+495	oglethorpe.edu	Oglethorpe University	奥格尔索普大学	
+496	western.edu	Western State Colorado University	西部州立科罗拉多大学	 
+497	pace.edu	Pace University	佩斯大学	
+498	unca.edu	University of North Carolina Asheville	北卡罗莱纳大学阿什维尔分校	 
+499	oit.edu	Oregon Institute of Technology	技术俄勒冈研究所	
+500	hastings.edu	Hastings College	黑斯廷斯学院	
+501	ecu.edu	East Carolina University	东卡罗来纳大学	 
+502	mbc.edu	Mary Baldwin College	玛丽鲍尔温学院	
+503	unf.edu	University of North Florida	北佛罗里达大学	 
+504	rowan.edu	Rowan University	罗文大学	
+505	odu.edu	Old Dominion University	欧道明大学	
+506	otterbein.edu	Otterbein University	奥特伯恩大学	
+507	csun.edu	California State University Northridge	加州州立大学北岭分校	 
+508	alaska.edu	University of Alaska Anchorage	阿拉斯加大学安克雷奇分校	 
+509	stockton.edu	Richard Stockton College of New Jersey	新泽西理查德斯托克顿学院	
+510	elmira.edu	Elmira College	艾迈拉大学	
+511	utep.edu	University of Texas El Paso	德克萨斯大学埃尔帕索分校	 
+512	ehc.edu	Emory and Henry College	埃默里和亨利学院	
+513	wells.edu	Wells College	韦尔斯学院	
+514	montclair.edu	Montclair State University	蒙特克莱尔州立大学	
+515	bethelks.edu	Bethel College	贝瑟尔大学	
+516	utpa.edu	University of Texas Pan American	德州大学泛美分校	 
+517	hood.edu	Hood College	胡德学院	
+518	alfred.edu	Alfred University	阿尔弗雷德大学	
+519	guilford.edu	Guilford College	吉尔福德学院	
+520	oneonta.edu	College at Oneonta	纽约州立大学奥尼塔分校	
+521	stjohns.edu	Saint John's University	圣约翰大学 纽约	NY
+522	mc.edu	Mississippi College	密西西比学院	 
+523	fau.edu	Florida Atlantic University	佛罗里达大西洋大学	 
+524	uncc.edu	University of North Carolina Charlotte	北卡罗莱大学夏洛特分校	 
+525	okcu.edu	Oklahoma City University	俄克拉荷马市大学	 
+526	acu.edu	Abilene Christian University	阿比林基督教大学	
+527	rider.edu	Rider University	莱德大学 美国	
+528	uab.edu	University of Alabama Birmingham	阿拉巴马州 伯明翰大学	 
+529	erau.edu	Embry Riddle Aeronautical University Daytona Beach	安柏瑞德航空大学代托纳海滩分校	
+530	maryvillecollege.edu	Maryville College	玛丽维尔学院	
+531	umb.edu	University of Massachusetts Boston	马萨诸塞大学波士顿分校	 
+532	humboldt.edu	Humboldt State University	洪堡州立大学	
+533	stkate.edu	Saint Catherine University	圣凯瑟琳大学	
+534	ozarks.edu	University of the Ozarks	奥沙克大学	
+535	flsouthern.edu	Florida Southern College	南佛罗里达学院	 
+536	uccs.edu	University of Colorado Colorado Springs	科罗拉多大学斯普林斯分校	 
+537	csueastbay.edu	California State University East Bay	加州州立大学东湾分校	 
+538	farmingdale.edu	Farmingdale State College	法明代尔州立学院	
+539	fiu.edu	Florida International University	佛罗里达国际大学	 
+540	carthage.edu	Carthage College	迦太基学院	
+541	ric.edu	Rhode Island College	罗德岛学院	
+542	umsl.edu	University of Missouri Saint Louis	密苏里大学圣路易斯分校	 
+543	queens.edu	Queens University of Charlotte	夏洛特皇后大学	
+544	uncg.edu	University of North Carolina Greensboro	北卡罗莱纳大学格林斯博罗分校	 
+545	wilmu.edu	Wilmington University	威尔明顿大学	
+546	nau.edu	Northern Arizona University	北亚利桑那大学	 
+547	gvsu.edu	Grand Valley State University	大峡谷州立大学	
+548	louisville.edu	University of Louisville	路易斯维尔大学	
+549	alma.edu	Alma College	阿尔玛学院	
+550	loyno.edu	Loyola University New Orleans	新奥尔良洛约拉大学	
+551	mtech.edu	Montana Tech of the University of Montana	蒙大拿大学蒙大拿技术学院	
+552	hartford.edu	University of Hartford	哈特福德大学	
+553	usm.edu	University of Southern Mississippi	南密西西比大学	 
+554	monmouthcollege.edu	Monmouth College	蒙茅斯学院	
+555	millikin.edu	Millikin University	密立金大学	
+556	uvu.edu	Utah Valley University	犹他谷大学	 
+557	siue.edu	Southern Illinois University Edwardsville	南伊利诺伊大学爱德华兹维尔分校	 
+558	highpoint.edu	High Point University	高点大学	
+559	andrews.edu	Andrews University	圣安德鲁斯大学 美国	Berrien Springs
+560	rocky.edu	Rocky Mountain College	洛基山学院	
+561	bsu.edu	Ball State University	鲍尔州立大学	
+562	meredith.edu	Meredith College	梅雷迪思学院	
+563	oru.edu	Oral Roberts University	美国奥罗罗伯特大学	
+564	pdx.edu	Portland State University	波特兰州立大学	 
+565	unomaha.edu	University of Nebraska Omaha	内布拉斯加大学奥马哈分校	 
+566	stcloudstate.edu	Saint Cloud State University	圣克劳德州立大学	
+567	nova.edu	Nova Southeastern University	诺瓦东南大学	
+568	webster.edu	Webster University	韦伯斯特大学	
+569	millersville.edu	Millersville University	米勒斯维尔大学	
+570	wichita.edu	Wichita State University	威奇塔州立大学	
+571	uno.edu	University of New Orleans	新奥尔良大学	Louisiana
+572	louisiana.edu	University of Louisiana Lafayette	路易斯安那州拉斐特大学	
+573	twu.edu	Texas Woman's University	得克萨斯女子大学	 
+574	wayne.edu	Wayne State University	韦恩州立大学	
+575	missouristate.edu	Missouri State University	密苏里州立大学	 
+576	wku.edu	Western Kentucky University	西肯塔基大学	 
+577	cn.edu	Carson Newman University	卡森纽曼大学	
+578	anderson.edu	Anderson University	安德森大学	Indiana
+579	albright.edu	Albright College	奥尔布赖特学院	
+580	ben.edu	Benedictine University	班尼迪克大学	
+581	unt.edu	University of North Texas	北德克萨斯大学	 
+582	ashland.edu	Ashland University	阿什兰大学	
+583	barry.edu	Barry University	巴里大学	
+584	claflin.edu	Claflin University	克拉夫林大学	
+585	wmich.edu	Western Michigan University	西密歇根大学	 
+586	siu.edu	Southern Illinois University Carbondale	南伊利诺伊大学卡本代尔分校	 
+587	shsu.edu	Sam Houston State University	萨姆休斯顿州立大学	 
+588	murraystate.edu	Murray State University	莫瑞州立大学	
+589	ncat.edu	North Carolina A&T State University	北卡罗莱纳农工州立大学	 
+590	ic.edu	Illinois College	伊利诺伊学院	 
+591	ualr.edu	University of Arkansas Little Rock	阿肯色大学 小石城	 
+592	mountunion.edu	University of Mount Union	美国尤宁山大学	OH
+593	southalabama.edu	University of South Alabama	南阿拉巴马大学	Mobile
+594	kent.edu	Kent State University	肯特州立大学	
+595	georgiasouthern.edu	Georgia Southern University	南佐治亚大学	
+596	fortlewis.edu	Fort Lewis College	路易斯堡学院	
+597	uwf.edu	University of West Florida	西佛罗里达大学	 
+598	uwm.edu	University of Wisconsin Milwaukee	威斯康星大学密尔沃基分校	 
+599	catawba.edu	Catawba College	卡托巴学院	
+600	unlv.edu	University of Nevada Las Vegas	内华达大学拉斯维加斯分校	 
+601	uta.edu	University of Texas Arlington	得克萨斯大学阿灵顿分校	 
+602	lamar.edu	Lamar University	拉马尔大学	
+603	niu.edu	Northern Illinois University	北伊利诺伊大学	 
+604	tamucc.edu	Texas A&M University Corpus Christi	德州农工大学柯柏斯克里斯提学院	 
+605	sage.edu	Russell Sage College	罗素塞奇学院	
+606	isu.edu	Idaho State University	爱达荷州立大学	 
+607	iupui.edu	Indiana University Purdue University Indianapolis	印第安纳大学 普渡大学印第安纳波利斯分校	 Indianapolis
+608	selu.edu	Southeastern Louisiana University	东南路易斯安那大学	 
+609	memphis.edu	University of Memphis	孟菲斯大学	 
+610	unco.edu	University of Northern Colorado	北科罗拉多大学	 
+611	ut.edu	University of Tampa	坦帕大学	
+612	mtsu.edu	Middle Tennessee State University	中田纳西州立大学	 
+613	oakland.edu	Oakland University	奥克兰大学 美国	
+614	famu.edu	Florida Agricultural and Mechanical University	佛罗里达州农业与机械大学	 
+615	txstate.edu	Texas State University San Marcos	得克萨斯州立大学圣马科斯分校	 
+616	mnsu.edu	Minnesota State University Mankato	明尼苏达州立大学曼凯托分校	 
+617	sfasu.edu	Stephen F Austin State University	斯蒂芬奥斯汀州立大学	
+618	cbu.edu	Christian Brothers University	基督教兄弟大学	
+619	uakron.edu	University of Akron	阿克伦大学	
+620	nku.edu	Northern Kentucky University	北肯塔基大学	 
+621	kennesaw.edu	Kennesaw State University	肯尼索州立大学	
+622	etsu.edu	East Tennessee State University	东田纳西州立大学	 
+623	liberty.edu	Liberty University	利伯缇大学	
+624	bgsu.edu	Bowling Green State University	鲍灵格林州立大学	
+625	boisestate.edu	Boise State University	博伊西州立大学	
+626	cmich.edu	Central Michigan University	中央密歇根大学	 
+627	wiu.edu	Western Illinois University	西伊利诺伊大学	 
+628	utoledo.edu	University of Toledo	托莱多大学	
+629	iup.edu	Indiana University of Pennsylvania	宾夕法尼亚州印第安纳大学	 
+630	troy.edu	Troy University	特洛伊大学	
+631	tamuk.edu	Texas A&M University Kingsville	德州农工大学金斯维尔分校	 
+632	tuskegee.edu	Tuskegee University	塔斯基吉大学	
+633	wright.edu	Wright State University	莱特州立大学	
+634	coastal.edu	Coastal Carolina University	卡罗莱纳海岸大学	
+635	umkc.edu	University of Missouri Kansas City	密苏里大学堪萨斯城分校	 
+636	emich.edu	Eastern Michigan University	东密歇根大学	
+637	uco.edu	University of Central Oklahoma	中央俄克拉荷马大学	
+638	msudenver.edu	Metropolitan State University of Denver	丹佛大都会州立大学	
+639	colum.edu	Columbia College Chicago	芝加哥哥伦比亚学院	
+640	ysu.edu	Youngstown State University	扬斯敦州立大学	
+641	utsa.edu	University of Texas San Antonio	德克萨斯州 圣安东尼奥大学	 
+642	coloradomesa.edu	Colorado Mesa University	科罗拉多州梅萨大学	 
+643	tnstate.edu	Tennessee State University	田纳西州立大学	 
+644	tamuc.edu	Texas A&M University Commerce	德州农工康莫斯分校	 
+645	eku.edu	Eastern Kentucky University	东肯塔基大学	 
+646	csuohio.edu	Cleveland State University	克利夫兰州立大学	 
+647	indstate.edu	Indiana State University	印第安纳州立大学	 
+648	morgan.edu	Morgan State University	摩根州立大学 马里兰	
+649	tsu.edu	Texas Southern University	得克萨斯南方大学	 
+650	jwu.edu	Johnson & Wales University	强生威尔士大学	

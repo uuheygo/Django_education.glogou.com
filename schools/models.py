@@ -11,6 +11,11 @@ from __future__ import unicode_literals
 
 from django.db import models
 
+# Option to show either normalized 'index' or renormalized index value
+# This option is mainly used to set alias (property) in model.
+# NOTE, NOT all SQL functions can be accessed using this alias (property) method.
+# An example of such exception is: aggregate(Max(...)) and aggregate(Avg(...))
+g_USE_INDEX_OR_INDEX_RE = 1       # 0, use normalized index, 1, use renormalized index
 
 class School(models.Model):
     name = models.CharField(max_length=200)
@@ -32,7 +37,7 @@ class School(models.Model):
         return self.name
         
     class Meta:
-        managed = False
+        managed = True
         db_table = 'school'
         
 
@@ -47,7 +52,7 @@ class SchoolChName(models.Model):
         return "Chinese names for %s" % self.school.name
     
     class Meta:
-        managed = False
+        managed = True
         db_table = 'school_ch_name'
 
 
@@ -83,7 +88,7 @@ class SchoolInforYearly(models.Model):
         return "Yearly information for %s" % self.school.name
         
     class Meta:
-        managed = False
+        managed = True
         db_table = 'school_infor_yearly'
 
 
@@ -96,160 +101,316 @@ class SchoolsComparisonId(models.Model):
         return "schools for comparison for %s" % self.school.name
     
     class Meta:
-        managed = False
+        managed = True
         db_table = 'schools_comparison_id'
 
 class CompositeIndex(models.Model):
     school = models.ForeignKey('School', db_column='school')
-    index = models.DecimalField(db_column='my_index', max_digits=20, decimal_places=7, blank=True, null=True)
+    index_no = models.DecimalField(db_column='my_index', max_digits=20, decimal_places=7, blank=True, null=True)
+
+    # Re-normalized index
+    index_re = models.DecimalField(db_column='my_index_re', max_digits=20, decimal_places=7, blank=True, null=True)
+
     date = models.DateField(db_column='my_date', blank=True, null=True)
     
     def __unicode__(self):
         return "Composite index for %s" % self.school.name
-    
+
+    def _get_index(self):
+        if(g_USE_INDEX_OR_INDEX_RE == 0):
+            return self.index_no
+        else:
+            return self.index_re
+
+    # create a property field to get index
+    index = property(_get_index)
+
     class Meta:
-        managed = False
+        managed = True
         db_table = 'composite_index'
 
 class BaiduIndexCh(models.Model):
     school = models.ForeignKey('School', db_column='school')
-    index = models.DecimalField(db_column='my_index', max_digits=20, decimal_places=7, blank=True, null=True)
+    index_no = models.DecimalField(db_column='my_index', max_digits=20, decimal_places=7, blank=True, null=True)
+
+    # renormalized index
+    index_re = models.DecimalField(db_column='my_index_re', max_digits=20, decimal_places=7, blank=True, null=True)
+
     date = models.DateField(db_column='my_date', blank=True, null=True)
-    
+
     def __unicode__(self):
         return "baidu index (ch) for %s" % self.school.name
-    
+
+    def _get_index(self):
+        if(g_USE_INDEX_OR_INDEX_RE == 0):
+            return self.index_no
+        else:
+            return self.index_re
+
+    # create a property field to get index
+    index = property(_get_index)
+
     class Meta:
-        managed = False
+        managed = True
         db_table = 'baidu_index_ch'
 
 
 class BaiduIndexEn(models.Model):
     school = models.ForeignKey('School', db_column='school')
-    index = models.DecimalField(db_column='my_index', max_digits=20, decimal_places=7, blank=True, null=True)
+    index_no = models.DecimalField(db_column='my_index', max_digits=20, decimal_places=7, blank=True, null=True)
+
+    # renormalized index
+    index_re = models.DecimalField(db_column='my_index_re', max_digits=20, decimal_places=7, blank=True, null=True)
+
     date = models.DateField(db_column='my_date', blank=True, null=True)
     
     def __unicode__(self):
         return "baidu index (en) for %s" % self.school.name
-    
+
+    def _get_index(self):
+        if(g_USE_INDEX_OR_INDEX_RE == 0):
+            return self.index_no
+        else:
+            return self.index_re
+
+    # create a property field to get index
+    index = property(_get_index)
+
     class Meta:
-        managed = False
+        managed = True
         db_table = 'baidu_index_en'
 
 
 class BaiduNewsCh(models.Model):
     school = models.ForeignKey('School', db_column='school')
-    index = models.DecimalField(db_column='my_index', max_digits=20, decimal_places=7, blank=True, null=True)
+    index_no = models.DecimalField(db_column='my_index', max_digits=20, decimal_places=7, blank=True, null=True)
+
+    # renormalized index
+    index_re = models.DecimalField(db_column='my_index_re', max_digits=20, decimal_places=7, blank=True, null=True)
+
     date = models.DateField(db_column='my_date', blank=True, null=True)
-    
+
+    def _get_index(self):
+        if(g_USE_INDEX_OR_INDEX_RE == 0):
+            return self.index_no
+        else:
+            return self.index_re
+
+    # create a property field to get index
+    index = property(_get_index)
+
     def __unicode__(self):
         return "baidu news index (ch) for %s" % self.school.name
     
     class Meta:
-        managed = False
+        managed = True
         db_table = 'baidu_news_ch'
 
 
 class BaiduNewsEn(models.Model):
     school = models.ForeignKey('School', db_column='school')
-    index = models.DecimalField(db_column='my_index', max_digits=20, decimal_places=7, blank=True, null=True)
+    index_no = models.DecimalField(db_column='my_index', max_digits=20, decimal_places=7, blank=True, null=True)
+
+    # renormalized index
+    index_re = models.DecimalField(db_column='my_index_re', max_digits=20, decimal_places=7, blank=True, null=True)
+
     date = models.DateField(db_column='my_date', blank=True, null=True)
     
     def __unicode__(self):
         return "baidu news index (en) for %s" % self.school.name
-    
+
+    def _get_index(self):
+        if(g_USE_INDEX_OR_INDEX_RE == 0):
+            return self.index_no
+        else:
+            return self.index_re
+
+    # create a property field to get index
+    index = property(_get_index)
+
     class Meta:
-        managed = False
+        managed = True
         db_table = 'baidu_news_en'
 
 
 class BaiduSite(models.Model):
     school = models.ForeignKey('School', db_column='school')
-    index = models.DecimalField(db_column='my_index', max_digits=20, decimal_places=7, blank=True, null=True)
+    index_no = models.DecimalField(db_column='my_index', max_digits=20, decimal_places=7, blank=True, null=True)
+
+    # renormalized index
+    index_re = models.DecimalField(db_column='my_index_re', max_digits=20, decimal_places=7, blank=True, null=True)
+
     date = models.DateField(db_column='my_date', blank=True, null=True)
     
     def __unicode__(self):
         return "baidu site index for %s" % self.school.name
-    
+
+    def _get_index(self):
+        if(g_USE_INDEX_OR_INDEX_RE == 0):
+            return self.index_no
+        else:
+            return self.index_re
+
+    # create a property field to get index
+    index = property(_get_index)
+
     class Meta:
-        managed = False
+        managed = True
         db_table = 'baidu_site'
 
 
 class GoogleIndexEn(models.Model):
     school = models.ForeignKey('School', db_column='school')
-    index = models.DecimalField(db_column='my_index', max_digits=20, decimal_places=7, blank=True, null=True)
+    index_no = models.DecimalField(db_column='my_index', max_digits=20, decimal_places=7, blank=True, null=True)
+
+    # renormalized index
+    index_re = models.DecimalField(db_column='my_index_re', max_digits=20, decimal_places=7, blank=True, null=True)
+
     date = models.DateField(db_column='my_date', blank=True, null=True)
     
     def __unicode__(self):
         return "google index (en) for %s" % self.school.name
-    
+
+    def _get_index(self):
+        if(g_USE_INDEX_OR_INDEX_RE == 0):
+            return self.index_no
+        else:
+            return self.index_re
+
+    # create a property field to get index
+    index = property(_get_index)
+
     class Meta:
-        managed = False
+        managed = True
         db_table = 'google_index_en'
     
 
 class GoogleIndexHk(models.Model):
     school = models.ForeignKey('School', db_column='school')
-    index = models.DecimalField(db_column='my_index', max_digits=20, decimal_places=7, blank=True, null=True)
+    index_no = models.DecimalField(db_column='my_index', max_digits=20, decimal_places=7, blank=True, null=True)
+
+    # renormalized index
+    index_re = models.DecimalField(db_column='my_index_re', max_digits=20, decimal_places=7, blank=True, null=True)
+
     date = models.DateField(db_column='my_date', blank=True, null=True)
 
     def __unicode__(self):
         return "google index (hk) for %s" % self.school.name
-    
+
+    def _get_index(self):
+        if(g_USE_INDEX_OR_INDEX_RE == 0):
+            return self.index_no
+        else:
+            return self.index_re
+
+    # create a property field to get index
+    index = property(_get_index)
+
     class Meta:
-        managed = False
+        managed = True
         db_table = 'google_index_hk'
 
 
 class GoogleNews(models.Model):
     school = models.ForeignKey('School', db_column='school')
-    index = models.DecimalField(db_column='my_index', max_digits=20, decimal_places=7, blank=True, null=True)
+    index_no = models.DecimalField(db_column='my_index', max_digits=20, decimal_places=7, blank=True, null=True)
+
+    # renormalized index
+    index_re = models.DecimalField(db_column='my_index_re', max_digits=20, decimal_places=7, blank=True, null=True)
+
     date = models.DateField(db_column='my_date', blank=True, null=True)
     
     def __unicode__(self):
         return "google news index for %s" % self.school.name
-    
+
+    def _get_index(self):
+        if(g_USE_INDEX_OR_INDEX_RE == 0):
+            return self.index_no
+        else:
+            return self.index_re
+
+    # create a property field to get index
+    index = property(_get_index)
+
     class Meta:
-        managed = False
+        managed = True
         db_table = 'google_news'
 
 
 class GoogleSite(models.Model):
     school = models.ForeignKey('School', db_column='school')
-    index = models.DecimalField(db_column='my_index', max_digits=20, decimal_places=7, blank=True, null=True)
+    index_no = models.DecimalField(db_column='my_index', max_digits=20, decimal_places=7, blank=True, null=True)
+
+    # renormalized index
+    index_re = models.DecimalField(db_column='my_index_re', max_digits=20, decimal_places=7, blank=True, null=True)
+
     date = models.DateField(db_column='my_date', blank=True, null=True)
 
     def __unicode__(self):
         return "google site index for %s" % self.school.name
 
+    def _get_index(self):
+        if(g_USE_INDEX_OR_INDEX_RE == 0):
+            return self.index_no
+        else:
+            return self.index_re
+
+    # create a property field to get index
+    index = property(_get_index)
+
     class Meta:
-        managed = False
+        managed = True
         db_table = 'google_site'
 
 
 
 class YahoojapIndexEn(models.Model):
     school = models.ForeignKey('School', db_column='school')
-    index = models.DecimalField(db_column='my_index', max_digits=20, decimal_places=7, blank=True, null=True)
+    index_no = models.DecimalField(db_column='my_index', max_digits=20, decimal_places=7, blank=True, null=True)
+
+    # renormalized index
+    index_re = models.DecimalField(db_column='my_index_re', max_digits=20, decimal_places=7, blank=True, null=True)
+
     date = models.DateField(db_column='my_date', blank=True, null=True)
     
     def __unicode__(self):
         return "yahoo japan index (en) for %s" % self.school.name
-    
+
+    def _get_index(self):
+        if(g_USE_INDEX_OR_INDEX_RE == 0):
+            return self.index_no
+        else:
+            return self.index_re
+
+    # create a property field to get index
+    index = property(_get_index)
+
     class Meta:
-        managed = False
+        managed = True
         db_table = 'yahoojap_index_en'
 
 
 class YahoojapIndexJp(models.Model):
     school = models.ForeignKey('School', db_column='school')
-    index = models.DecimalField(db_column='my_index', max_digits=20, decimal_places=7, blank=True, null=True)
+    index_no = models.DecimalField(db_column='my_index', max_digits=20, decimal_places=7, blank=True, null=True)
+
+    # renormalized index
+    index_re = models.DecimalField(db_column='my_index_re', max_digits=20, decimal_places=7, blank=True, null=True)
+
     date = models.DateField(db_column='my_date', blank=True, null=True)
 
     def __unicode__(self):
         return "yahoo japan index (jp) for %s" % self.school.name
-    
+
+    def _get_index(self):
+        if(g_USE_INDEX_OR_INDEX_RE == 0):
+            return self.index_no
+        else:
+            return self.index_re
+
+    # create a property field to get index
+    index = property(_get_index)
+
     class Meta:
-        managed = False
+        managed = True
         db_table = 'yahoojap_index_jp'
