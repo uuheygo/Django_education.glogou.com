@@ -1,0 +1,233 @@
+{% extends "brands/base_glogou.html" %}
+
+{% block title %}Brands Asia Marketing, Asia Branding, Branding in China{% endblock %}
+
+<!-- sidebar -->
+{% block sidebar %}
+<div class="navbar-default sidebar" role="navigation" style="margin-top: 20px;">
+    <div class="sidebar-nav">
+        <ul class="nav" id="side-menu">
+            <!-- search box -->
+            <li class="sidebar-search">
+                <h4>SEARCH</h4>
+                <div class="input-group custom-search-form">
+                    <input id="search_box" onkeyup="update_results()" type="text" class="form-control" placeholder="Search by Name...">
+                    <span class="input-group-btn">
+                        <button class="btn btn-default" type="button">
+                            <i class="glyphicon glyphicon-search"></i>
+                        </button>
+                    </span>
+                </div>
+            </li>
+            <!-- /search box -->
+            
+            
+            <!-- filters -->
+            <li class="sidebar-search">
+                <h4>FILTERS</h4>
+                <div style="padding-left:20px;">
+		            <form role="form" method="GET" action="/" class="sidebarForm">
+		              <div class="form-group">
+		                <label class="sidebarFormLabel">Filter by States</label>
+		                <div>
+			                <select class="form-control" id='state_list' name='state'>
+				                <option value='All states'>All states</option>
+				                <option value="AL">Alabama</option>
+							    <option value="AK">Alaska</option>
+							    <option value="AZ">Arizona</option>
+							    <option value="AR">Arkansas</option>
+							    <option value="CA">California</option>
+							    <option value="CO">Colorado</option>
+							    <option value="CT">Connecticut</option>
+							    <option value="DE">Delaware</option>
+							    <option value="DC">District Of Columbia</option>
+							    <option value="FL">Florida</option>
+							    <option value="GA">Georgia</option>
+							    <option value="HI">Hawaii</option>
+							    <option value="ID">Idaho</option>
+							    <option value="IL">Illinois</option>
+							    <option value="IN">Indiana</option>
+							    <option value="IA">Iowa</option>
+							    <option value="KS">Kansas</option>
+							    <option value="KY">Kentucky</option>
+							    <option value="LA">Louisiana</option>
+							    <option value="ME">Maine</option>
+							    <option value="MD">Maryland</option>
+							    <option value="MA">Massachusetts</option>
+							    <option value="MI">Michigan</option>
+							    <option value="MN">Minnesota</option>
+							    <option value="MS">Mississippi</option>
+							    <option value="MO">Missouri</option>
+							    <option value="MT">Montana</option>
+							    <option value="NE">Nebraska</option>
+							    <option value="NV">Nevada</option>
+							    <option value="NH">New Hampshire</option>
+							    <option value="NJ">New Jersey</option>
+							    <option value="NM">New Mexico</option>
+							    <option value="NY">New York</option>
+							    <option value="NC">North Carolina</option>
+							    <option value="ND">North Dakota</option>
+							    <option value="OH">Ohio</option>
+							    <option value="OK">Oklahoma</option>
+							    <option value="OR">Oregon</option>
+							    <option value="PA">Pennsylvania</option>
+							    <option value="RI">Rhode Island</option>
+							    <option value="SC">South Carolina</option>
+							    <option value="SD">South Dakota</option>
+							    <option value="TN">Tennessee</option>
+							    <option value="TX">Texas</option>
+							    <option value="UT">Utah</option>
+							    <option value="VT">Vermont</option>
+							    <option value="VA">Virginia</option>
+							    <option value="WA">Washington</option>
+							    <option value="WV">West Virginia</option>
+							    <option value="WI">Wisconsin</option>
+							    <option value="WY">Wyoming</option>
+			                </select>
+		                </div>
+
+		              </div>
+		              <div class="form-group">
+		                <label class="sidebarFormLabel">Filter by Rank</label>
+		                <select class="form-control" id='rank_list' name='rank_range'>
+		                    <option value="All">All</option>
+		                    <option value="1-50">top50</option>
+		                    <option value="51-100">51-100</option>
+		                    <option value="101-200">101-200</option>
+		                    <option value="201-300">201-300</option>
+		                    <option value="301-400">301-400</option>
+		                    <option value="401-500">401-500</option>
+		                    <option value="501-650">&gt;500</option>
+		                </select>
+		              </div>
+		              <div style='text-align: right'>
+		                <button id="filter" type="submit" class="btn btn-primary">Submit</button>
+		              </div>  
+		            </form>
+                </div>
+            </li>
+            <!-- /recommeded brands -->
+        </ul>
+    </div>
+    <!-- /.sidebar-collapse -->
+</div>
+<!-- /.navbar-static-side -->
+{% endblock %}
+
+<!-- carousel-side --->
+{% block banner %}
+
+            <!-- For some unknown reasons, the following include does not work, have to put carousel code  in this file  -->
+            <!-- need to debug why, __FIX_THIS__ -->
+            <!-- {% include 'brands/brands_carousel.html' %} -->
+
+            <div class = "row">
+                <div class="col-md-12">
+                    <div class="carousel slide" id="myCarousel">
+                        <div class="carousel-inner">
+                            <div class="item active">
+                                <div class="col-md-3"><a href="#"><img class="img-responsive" src="/static/static_brands/images/select/chanel.jpg" class="img-responsive" style="min-height:100px;height:200px;"></a></div>
+                            </div><!-- end of item active -->
+
+                            <div class="item">
+                                <div class="col-md-3"><a href="/shop__Jimmy Choo.html"><img class="img-responsive" src="/static/static_brands/images/select/Jimmy%20Choo.jpg" class="img-responsive" style="min-height:100px;height:200px;"></a></div>
+                            </div><!-- end item -->
+
+                            <div class="item">
+                                <div class="col-md-3"><a href="/shop__Juicy Couture.html"><img class="img-responsive" src="/static/static_brands/images/select/Juicy%20Couture.jpg" class="img-responsive" style="min-height:100px;height:200px;"></a></div>
+                            </div><!-- end item -->
+
+                            <div class="item">
+                                <div class="col-md-3"><a href="/shop__Celine.html"><img class="img-responsive" src="/static/static_brands/images/select/Celine.jpg" class="img-responsive" style="min-height:100px;height:200px;"></a></div>
+                            </div><!-- end item -->
+
+                            <div class="item">
+                                <div class="col-md-3"><a href="/shop__Dr.martens.html"><img class="img-responsive" src="/static/static_brands/images/select/Dr.martens.jpg" class="img-responsive" style="min-height:100px;height:200px;"></a></div>
+                            </div><!-- end item -->
+
+                            <div class="item">
+                                <div class="col-md-3"><a href="/shop__Coach.html"><img class="img-responsive" src="/static/static_brands/images/select/Coach.jpg" class="img-responsive" style="min-height:100px;height:200px;"></a></div>
+                            </div><!-- end item -->
+
+                            <div class="item">
+                                <div class="col-md-3"><a href="/shop__Christian Louboutin.html"><img class="img-responsive" src="/static/static_brands/images/select/Christian%20Louboutin.jpg" class="img-responsive" style="min-height:100px;height:200px;"></a></div>
+                            </div><!-- end item -->
+
+                        </div><!-- end of carousel-inner -->
+                        <a class="left carousel-control" href="#myCarousel" data-slide="prev"><i class="glyphicon glyphicon-chevron-left"></i></a>
+                        <a class="right carousel-control" href="#myCarousel" data-slide="next"><i class="glyphicon glyphicon-chevron-right"></i></a>
+                    </div><!-- end of myCarousel -->
+                </div><!-- end of col-md-12 -->
+            </div><!-- end of row -->
+
+            <!-- The following javascripts are put here, because those are needed for myCarousel and the nav panel -->
+            <script type="text/javascript" src="/static/static_brands/js/jquery-1.11.0.min.js"></script>
+            <script type="text/javascript" src="/static/static_brands/js/bootstrap.js"></script>
+            <script type="text/javascript" src="/static/static_brands/js/boot_design.js"></script>
+
+
+{% endblock %}}
+
+
+<h3>Please select brands of your interest</h3>
+
+
+{% block content %}
+<br/>
+<div class="row">
+    <div class="col-sm-12 col-lg-8"  style="margin-top: 30px;" >
+    <!-- <div class="col-sm-12 col-lg-8"  style="margin-top: 30px;" id="map_container">        -->
+<!--         <iframe src="http://createaclickablemap.com/map.php?&id=35201&online=true" width="700" height="520" style="border: none;"></iframe> -->
+        <!-- <div id="map" style="height: 420px;"></div> -->
+        {% include 'brands/brands_picview.html' %}
+    </div>
+    {% include 'brands/brand_table.html' %}
+</div>
+
+{% endblock %}
+
+
+
+
+{% block custom_js %}
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('#myCarousel').carousel({
+              interval: 4000
+            });
+            $("#link_brands").addClass("active");
+            $('#map').usmap({
+                stateStyles: {fill: '#81AC8B'},
+                stateHoverStyles: {fill: '#425957'},
+                stateHoverAnimation: 200,
+                showLabels: true,
+                click: function(event, data){
+                            $.ajax({
+                                url: "/?state=" + data.name,
+                            }).done(function(data){ $('#table').replaceWith($(data)) }); // replace old brand_table.html with new html
+                            $("#state_list").val(data.name);
+                        }
+            });
+            
+            $("#state_list").val("{{state}}");
+            $("#rank_list").val("{{rank_range}}");
+            
+            
+            function changeHeight() {
+                var width = $("#map_container").width();
+                $("#map").css({
+                    "height": 420 * width / 640
+                });
+            }
+            window.addEventListener('resize', changeHeight);
+            changeHeight();
+            $("#page_{{one_page.number}}").addClass("active");
+        });
+        
+        function update_results(){
+            $.ajax({
+                url: "/?keyword=" + $("#search_box").val(),
+            }).done(function(data){ $('#table').replaceWith($(data)) }); // replace old brand_table.html with new html
+        };
+    </script>
+{% endblock %}

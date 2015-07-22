@@ -1,4 +1,12 @@
 *.pyc
+*.log
+*.out
+*.DS_Store
+.idea/
+*.py~
+*.class
+*.bak
+*.pyc
 .project
 .pydevproject
 

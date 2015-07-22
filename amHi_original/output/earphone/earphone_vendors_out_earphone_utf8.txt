@@ -1,0 +1,5 @@
+english_phrase 	 chinese_phrase 	 bd_index_common 	 bd_index_chinese 	 bd_news_common 	 bd_news_chinese 	 gg_index_common 	 gg_new 	 gg_hk 	 gg_site 	 bd_site 	 yj_index_eng	 yj_index_jp
+"Beats" earphone 	 Beats earphone 	 562000 	 289000 	 3 	 3 	 697000 	 4530 	 684000 	 246 	 368 	 654000	 39100000
+"Audio-Technica" earphone 	 铁三角 earphone 	 74100 	 300000 	 0 	 175 	 464000 	 2910 	 463000 	 4110 	 2020 	 1410000	 12400000
+"Sennheiser" earphone 	 森海塞尔 earphone 	 269000 	 322000 	 1 	 12 	 863000 	 3500 	 808000 	 1810 	 931 	 2470000	 29200000
+"Bose" earphone 	 Bose earphone 	 250000 	 422000 	 4 	 4 	 478000 	 7590 	 478000 	 2680 	 4750 	 475000	 110000000

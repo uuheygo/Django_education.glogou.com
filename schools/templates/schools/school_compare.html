@@ -1,12 +1,18 @@
-{% extends "schools/base.html" %} 
+{% extends "schools/base_glogou.html" %} 
+
+{% block title%}Comparison with {% for school in selected_schools %}|{{school.name}}|{% endfor %} for Asia Recruiting, Asian Alumni Engagement, International Fundraising and Development.{%endblock %}
+{% block description %}Comparison with {% for school in selected_schools %}|{{school.name}}|{% endfor %} for Asia Recruiting, Asian Alumni Engagement, International Fundraising and Development.{% endblock %}
+{% block keyword %}Comparison with {% for school in selected_schools %}|{{school.name}}|{% endfor %} for Marketing tool, Asia Media Monitoring Recruiting, Asian Alumni Engagement, International Fundraising and Developmentschool.{% endblock %}
+
 {% load strip_space %}
 
 {% block content %}
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
 <div class="row">
-    <h3>Compare Media Indexes of <b><a href="/schools/school_id={{this_school.id}}/{{this_school.name|lower|nospace}}/">{{this_school.name}}</a></b> with Selected Schools</h3>
+    <h3>Compare Media Indexes of <b><a href="/school_id={{this_school.id}}/{{this_school.name|lower|nospace}}/">{{this_school.name}}</a></b> with Selected Schools</h3>
     <h4>
         {% for school in selected_schools %}
-            <<a href="/schools/school_id={{school.id}}/{{school.name|lower|nospace}}/">{{school.name}}</a>>
+            <<a href="/school_id={{school.id}}/{{school.name|lower|nospace}}/">{{school.name}}</a>>
         {% endfor %}
     </h4>
     <hr>
@@ -19,12 +25,12 @@
             <button id="selected_period" class="btn btn-default dropdown-toggle" type="button" id="chart_period" data-toggle="dropdown">Select Period
             <span class="caret"></span></button>
             <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
-              <li role="presentation"><a role="menuitem" tabindex="-1" onclick="redirectTo(7)">last 7 days</a></li>
               <li role="presentation"><a role="menuitem" tabindex="-1" onclick="redirectTo(30)">last 30 days</a></li>
-              <li role="presentation"><a role="menuitem" tabindex="-1" onclick="redirectTo(180)">last 180 days</a></li>
+              <li role="presentation"><a role="menuitem" tabindex="-1" onclick="redirectTo(100)">last 100 days</a></li>
+              <li role="presentation"><a role="menuitem" tabindex="-1" onclick="redirectTo(300)">last 300 days</a></li>
             </ul>
             </div>
-            <h4><b>{{index_name}} - Last {{num_days}} days</b></h4>
+            <h4><b>{{index_name}} ({{index_category|upper}}) - Last {{num_days}} days</b></h4>
         </div>
         <div class="panel-body">
             <div  style="margin-bottom: 10px;"><div id="index_line"></div></div>
@@ -65,45 +71,197 @@
 <div class="navbar-default sidebar" role="navigation" style="margin-top: 20px;">
     <div class="sidebar-nav">
         <ul class="nav" id="side-menu">
+            <!-- general indexes -->
             <li>
-                <a href="#" onclick="changeChart('composite_index')"><span class="glyphicon glyphicon-stats"></span> Composite Index</a>
-            </li>
-            <!-- baidu -->
-            <li>
-                <a href="#"><img src="/static/schools/images/baidu.png" width="25" height="25"> Baidu Indexes<span class="glyphicon glyphicon-chevron-left" style="float: right;"></span></a>
-                <ul class="nav nav-second-level">
+                <a href="#"> General<span class="glyphicon glyphicon-chevron-left" style="float: right;"></span></a>
+                <ul class="nav">
                     <li>
-                        <a href="#" onclick="changeChart('bd_index_en')">Baidu Page Index (EN)</a>
+                        <a href="#" onclick="changeChart('general', 'composite_index')"><img src="/static/schools/images/index.png" width="25" height="25"> Composite Index</a>
                     </li>
+                    <!-- baidu -->
                     <li>
-                        <a href="#" onclick="changeChart('bd_index_ch')">Baidu Page Index (CH)</a>
+                        <a href="#"><img src="/static/schools/images/baidu.png" width="25" height="25"> Baidu Indexes<span class="glyphicon glyphicon-chevron-left" style="float: right;"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a href="#" onclick="changeChart('general', 'bd_index_en')">Baidu Page Index (EN)</a>
+                            </li>
+                            <li>
+                                <a href="#" onclick="changeChart('general', 'general', 'bd_index_ch')">Baidu Page Index (CH)</a>
+                            </li>
+                            <li>
+                                <a href="#" onclick="changeChart('general', 'bd_news_en')">Baidu News Index (EN)</a>
+                            </li>
+                            <li>
+                                <a href="#" onclick="changeChart('general', 'bd_news_ch')">Baidu News Index (CH)</a>
+                            </li>
+                            <li>
+                                <a href="#" onclick="changeChart('general', 'bd_site')">Baidu Site Index</a>
+                            </li>
+                        </ul>
                     </li>
+                    <!-- google -->
                     <li>
-                        <a href="#" onclick="changeChart('bd_news_en')">Baidu News Index (EN)</a>
-                    </li>
-                    <li>
-                        <a href="#" onclick="changeChart('bd_news_ch')">Baidu News Index (CH)</a>
-                    </li>
-                    <li>
-                        <a href="#" onclick="changeChart('bd_site')">Baidu Site Index</a>
+                        <a href="#"><img src="/static/schools/images/google.png" width="25" height="25"> Google Indexes<span class="glyphicon glyphicon-chevron-left" style="float: right;"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a href="#" onclick="changeChart('general', 'gg_index_en')">Google Page Index (EN)</a>
+                            </li>
+                            <li>
+                                <a href="#" onclick="changeChart('general', 'gg_index_hk')">Google Page Index (HK)</a>
+                            </li>
+                            <li>
+                                <a href="#" onclick="changeChart('general', 'gg_news_en')">Google News Index (EN)</a>
+                            </li>
+                            <li>
+                                <a href="#" onclick="changeChart('general', 'gg_site')">Google Site Index</a>
+                            </li>
+                        </ul>
                     </li>
                 </ul>
             </li>
-            <!-- google -->
+            <!-- MBA -->
             <li>
-                <a href="#"><img src="/static/schools/images/google.png" width="25" height="25"> Google Indexes<span class="glyphicon glyphicon-chevron-left" style="float: right;"></span></a>
-                <ul class="nav nav-second-level">
+                <a href="#"> MBA Program<span class="glyphicon glyphicon-chevron-left" style="float: right;"></span></a>
+                <ul class="nav">
                     <li>
-                        <a href="#" onclick="changeChart('gg_index_en')">Google Page Index (EN)</a>
+                        <a href="#" onclick="changeChart('mba', 'composite_index')"><img src="/static/schools/images/index.png" width="25" height="25"> Composite Index</a>
                     </li>
+                    <!-- baidu -->
                     <li>
-                        <a href="#" onclick="changeChart('gg_index_hk')">Google Page Index (HK)</a>
+                        <a href="#"><img src="/static/schools/images/baidu.png" width="25" height="25"> Baidu Indexes<span class="glyphicon glyphicon-chevron-left" style="float: right;"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a href="#" onclick="changeChart('mba', 'bd_index_en')">Baidu Page Index (EN)</a>
+                            </li>
+                            <li>
+                                <a href="#" onclick="changeChart('mba', 'bd_index_ch')">Baidu Page Index (CH)</a>
+                            </li>
+                            <li>
+                                <a href="#" onclick="changeChart('mba', 'bd_news_en')">Baidu News Index (EN)</a>
+                            </li>
+                            <li>
+                                <a href="#" onclick="changeChart('mba', 'bd_news_ch')">Baidu News Index (CH)</a>
+                            </li>
+                            <li>
+                                <a href="#" onclick="changeChart('mba', 'bd_site')">Baidu Site Index</a>
+                            </li>
+                        </ul>
                     </li>
+                    <!-- google -->
                     <li>
-                        <a href="#" onclick="changeChart('gg_news_en')">Google News Index (EN)</a>
+                        <a href="#"><img src="/static/schools/images/google.png" width="25" height="25"> Google Indexes<span class="glyphicon glyphicon-chevron-left" style="float: right;"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a href="#" onclick="changeChart('mba', 'gg_index_en')">Google Page Index (EN)</a>
+                            </li>
+                            <li>
+                                <a href="#" onclick="changeChart('mba', 'gg_index_hk')">Google Page Index (HK)</a>
+                            </li>
+                            <li>
+                                <a href="#" onclick="changeChart('mba', 'gg_news_en')">Google News Index (EN)</a>
+                            </li>
+                            <li>
+                                <a href="#" onclick="changeChart('mba', 'gg_site')">Google Site Index</a>
+                            </li>
+                        </ul>
                     </li>
+                </ul>
+            </li>
+            <!-- law school -->
+            <li>
+                <a href="#"> Law School<span class="glyphicon glyphicon-chevron-left" style="float: right;"></span></a>
+                <ul class="nav">
                     <li>
-                        <a href="#" onclick="changeChart('gg_site')">Google Site Index</a>
+                        <a href="#" onclick="changeChart('law', 'composite_index')"><img src="/static/schools/images/index.png" width="25" height="25"> Composite Index</a>
+                    </li>
+                    <!-- baidu -->
+                    <!-- baidu -->
+                    <li>
+                        <a href="#"><img src="/static/schools/images/baidu.png" width="25" height="25"> Baidu Indexes<span class="glyphicon glyphicon-chevron-left" style="float: right;"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a href="#" onclick="changeChart('law', 'bd_index_en')">Baidu Page Index (EN)</a>
+                            </li>
+                            <li>
+                                <a href="#" onclick="changeChart('law','bd_index_ch')">Baidu Page Index (CH)</a>
+                            </li>
+                            <li>
+                                <a href="#" onclick="changeChart('law', 'bd_news_en')">Baidu News Index (EN)</a>
+                            </li>
+                            <li>
+                                <a href="#" onclick="changeChart('law', 'bd_news_ch')">Baidu News Index (CH)</a>
+                            </li>
+                            <li>
+                                <a href="#" onclick="changeChart('law', 'bd_site')">Baidu Site Index</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <!-- google -->
+                    <li>
+                        <a href="#"><img src="/static/schools/images/google.png" width="25" height="25"> Google Indexes<span class="glyphicon glyphicon-chevron-left" style="float: right;"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a href="#" onclick="changeChart('law', 'gg_index_en')">Google Page Index (EN)</a>
+                            </li>
+                            <li>
+                                <a href="#" onclick="changeChart('law', 'gg_index_hk')">Google Page Index (HK)</a>
+                            </li>
+                            <li>
+                                <a href="#" onclick="changeChart('law', 'gg_news_en')">Google News Index (EN)</a>
+                            </li>
+                            <li>
+                                <a href="#" onclick="changeChart('law', 'gg_site')">Google Site Index</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <!-- engineering school -->
+            <li>
+                <a href="#"> Engineering School<span class="glyphicon glyphicon-chevron-left" style="float: right;"></span></a>
+                <ul class="nav">
+                    <li>
+                        <a href="#" onclick="changeChart('engineering', 'composite_index')"><img src="/static/schools/images/index.png" width="25" height="25"> Composite Index</a>
+                    </li>
+                    <!-- baidu -->
+                    <!-- baidu -->
+                    <li>
+                        <a href="#"><img src="/static/schools/images/baidu.png" width="25" height="25"> Baidu Indexes<span class="glyphicon glyphicon-chevron-left" style="float: right;"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a href="#" onclick="changeChart('engineering', 'bd_index_en')">Baidu Page Index (EN)</a>
+                            </li>
+                            <li>
+                                <a href="#" onclick="changeChart('engineering', 'bd_index_ch')">Baidu Page Index (CH)</a>
+                            </li>
+                            <li>
+                                <a href="#" onclick="changeChart('engineering', 'bd_news_en')">Baidu News Index (EN)</a>
+                            </li>
+                            <li>
+                                <a href="#" onclick="changeChart('engineering', 'bd_news_ch')">Baidu News Index (CH)</a>
+                            </li>
+                            <li>
+                                <a href="#" onclick="changeChart('engineering', 'bd_site')">Baidu Site Index</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <!-- google -->
+                    <li>
+                        <a href="#"><img src="/static/schools/images/google.png" width="25" height="25"> Google Indexes<span class="glyphicon glyphicon-chevron-left" style="float: right;"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a href="#" onclick="changeChart('engineering', 'gg_index_en')">Google Page Index (EN)</a>
+                            </li>
+                            <li>
+                                <a href="#" onclick="changeChart('engineering', 'gg_index_hk')">Google Page Index (HK)</a>
+                            </li>
+                            <li>
+                                <a href="#" onclick="changeChart('engineering', 'gg_news_en')">Google News Index (EN)</a>
+                            </li>
+                            <li>
+                                <a href="#" onclick="changeChart('engineering', 'gg_site')">Google Site Index</a>
+                            </li>
+                        </ul>
                     </li>
                 </ul>
             </li>
@@ -172,7 +330,7 @@
       google.load("visualization", "1.1", {packages:["corechart"]});
       data_col = google.visualization.arrayToDataTable({{data_sets_col|safe}});
       
-      console.log(data_col);
+      //console.log(data_col);
       var options_col = {
                 title: 'Latest Index ({{latest_date}})',
                 height: 300,
@@ -212,13 +370,35 @@
     });
     
     function redirectTo(num_days) {
-        currURL = document.URL;
-        window.location = currURL.split("&num_days")[0] + "&num_days=" + num_days;
+        var currURL = document.URL;
+        var arr = currURL.split('&');
+        for(var i = 0; i < arr.length; i++) {
+            if(arr[i].indexOf("num_days") > -1) {
+                arr[i] = "num_days=" + num_days;
+                window.location = arr.join("&");
+                return;
+            }
+        }
+        window.location = currURL + "&num_days=" + num_days;
     }
     
-    function changeChart(index_name) {
-        currURL = document.URL;
-        window.location = currURL.split("&num_days")[0] + "&index_name=" + index_name;
+    function changeChart(index_category, index_name) {
+        var currURL = document.URL;
+        var arr = currURL.split('&');
+        var is_default = true;
+        for(var i = 0; i < arr.length; i++) {
+            if(arr[i].indexOf("index_name") > -1) {
+                arr[i] = "index_name=" + index_name;
+                is_default = false;
+            }
+            if(arr[i].indexOf("index_category") > -1) {
+                arr[i] = "index_category=" + index_category;
+            }
+        }
+        if(! is_default)
+            window.location = arr.join("&");
+        else
+            window.location = currURL + "&index_category=" + index_category + "&index_name=" + index_name;
     }
 </script>
 {% endblock %}

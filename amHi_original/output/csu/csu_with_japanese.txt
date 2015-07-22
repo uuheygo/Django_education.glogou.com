@@ -1,0 +1,23 @@
+California Maritime Academy	California Maritime Academy	加州海事学院	csum.edu	カリフォルニア海上大学	Vallejo
+"California Polytechnic State University, San Luis Obispo"	"California Polytechnic State University, San Luis Obispo"	加州州立理工大学	calpoly.edu	カリフォルニアポリテクニック州立大学、サンルイスオビスポ	San Luis Obispo
+"California State Polytechnic University, Pomona"	"California State Polytechnic University, Pomona"	波莫纳加州州立理工大学	csupomona.edu	カリフォルニア州立ポリテクニック大学、ポモナ	Pomona
+"California State University, Bakersfield"	"CSU, California State University, Bakersfield"	贝克斯菲尔德加州州立大学	csub.edu	カリフォルニア州立大学、ベーカーズフィールド	Bakersfield
+"California State University, Channel Islands"	"CSU, California State University, Channel Islands"	切奈尔岛加州州立大学	csuci.edu	カリフォルニア州立大学、チャネル諸島	Camarillo
+"California State University, Chico"	"CSU, California State University, Chico"	奇科加州州立大学	csuchico.edu	カリフォルニア州立大学、チコ	Chico
+"California State University, Dominguez Hills"	"CSU, California State University, Dominguez Hills"	多明内兹山加州州立大学	csudh.edu	カリフォルニア州立大学、ドミンゲス·ヒルズ	Carson
+"California State University, East Bay"	"CSU, California State University, East Bay"	东湾加州州立大学	csueastbay.edu	カリフォルニア州立大学、イースト·ベイ	Hayward
+"California State University, Fresno"	"CSU, California State University, Fresno"	弗雷斯诺加州州立大学	fresnostate.edu	カリフォルニア州立大学、フレスノ	Fresno
+"California State University, Fullerton"	"CSU, California State University, Fullerton"	富勒顿加州州立大学	fullerton.edu	カリフォルニア州立大学、フラートン	Fullerton
+"California State University, Long Beach"	"CSU, California State University, Long Beach"	长滩加州州立大学	csulb.edu	カリフォルニア州立大学、ロング·ビーチ	Long Beach
+"California State University, Los Angeles"	"CSU, California State University, Los Angeles"	洛杉矶加州州立大学	calstatela.edu	カリフォルニア州立大学、ロサンゼルス	Los Angeles
+"California State University, Monterey Bay"	"CSU, California State University, Monterey Bay"	蒙特利湾加州州立大学	csumb.edu	カリフォルニア州立大学、モンテレーベイ	Seaside
+"California State University, Northridge"	"CSU, California State University, Northridge"	北岭加州州立大学	csun.edu	カリフォルニア州立大学、ノースリッジ	Northridge
+"California State University, Sacramento"	"CSU, California State University, Sacramento"	萨克拉门托加州州立大学	csus.edu	カリフォルニア州立大学、サクラメント	Sacramento
+"California State University, San Bernardino"	"CSU, California State University, San Bernardino"	圣博纳德加州州立大学	csusb.edu	カリフォルニア州立大学、サンバーナーディノ	San Bernardino
+"California State University, San Marcos"	"CSU, California State University, San Marcos"	圣马可斯加州州立大学	csusm.edu	カリフォルニア州立大学、サンマルコス	San Marcos
+"California State University, Stanislaus"	"CSU, California State University, Stanislaus"	斯坦尼斯洛斯加州州立大学	csustan.edu	カリフォルニア州立大学、スタニスラウス	Turlock
+Humboldt State University	Humboldt State University	洪堡加州州立大学	humboldt.edu	フンボルト州立大学	Arcata
+San Diego State University	"SDSU, San Diego State University"	圣地亚哥州立大学	sdsu.edu	サンディエゴ州立大学	San Diego
+San Francisco State University	"SFSU, San Francisco State University"	旧金山州立大学	sfsu.edu	サンフランシスコ州立大学	San Francisco
+San Jose State University	"SJSU, San Jose State University"	圣荷西州立大学	sjsu.edu	サンノゼ州立大学	San Jose
+Sonoma State University	Sonoma State University	索诺玛加州州立大学	sonoma.edu	ソノマ州立大学	Rohnert Park

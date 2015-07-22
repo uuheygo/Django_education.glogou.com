@@ -1,0 +1,11 @@
+Hawaii 	Hawaii	夏威夷	gohawaii.com	ハワイ
+California	California	美国加州	visitcalifornia.com	カリフォルニア州
+thailand phuket	Phuket	泰国普吉岛	phukettourist.com	タイ、プーケット
+Maldives	Maldives	马尔代夫	visitmaldives.com	モルディブ共和国
+Korea Jeju-do	Jeju-do	韩国济州岛	jeju.go.kr	韓国済州島
+Indonesia Bali Island	Bali	印尼巴厘岛	balitourismboard.org	インドネシア、バリ島
+Capital Region USA	Washington DC	华盛顿	capitalregionusa.org	アメリカ首都圏
+New York	new york	纽约	nycgo.com	ニューヨーク
+Los Angels	Los Angels	洛杉矶	discoverlosangeles.com	ロサンゼルス
+San Francisco	San Francisco	旧金山	sanfrancisco.travel	サンフランシスコ
+BrandUSA	USA	美国	discoveramerica.com	BrandUSA

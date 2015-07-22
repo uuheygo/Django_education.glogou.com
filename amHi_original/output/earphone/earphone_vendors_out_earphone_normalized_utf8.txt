@@ -1,0 +1,7 @@
+english_phrase 	 chinese_phrase 	 bd_index_common 	 bd_index_chinese 	 bd_news_common 	 bd_news_chinese 	 gg_index_common 	 gg_new 	 gg_hk 	 gg_site 	 bd_site 	 yj_index_eng 	 china_media_index	 asia_media_index	 japan_media_index
+"Beats" earphone  	  Beats earphone  	 2.165703 	 0.929260 	 1.500000 	 0.375000 	 1.186383 	 1.128269 	 1.177281 	 0.109577 	 0.249407 	 0.633721 	 29.989879 	 44.221916 	 24.764843
+"Audio-Technica" earphone  	  铁三角 earphone  	 0.285549 	 0.964630 	 0.000000 	 21.875000 	 0.789787 	 0.724782 	 0.796902 	 1.830735 	 1.369027 	 1.366279 	 183.495071 	 152.446790 	 53.744764
+"Sennheiser" earphone  	  森海塞尔 earphone  	 1.036609 	 1.035370 	 0.500000 	 1.500000 	 1.468936 	 0.871731 	 1.390706 	 0.806236 	 0.630973 	 2.393411 	 40.404785 	 56.271669 	 42.366166
+"Bose" earphone  	  Bose earphone  	 0.963391 	 1.356913 	 2.000000 	 0.500000 	 0.813617 	 1.890411 	 0.822719 	 1.193764 	 3.219248 	 0.460271 	 55.910664 	 69.506525 	 32.856121
+
+Average  	 Value  	 259500.000000 	 311000.000000 	 2.000000 	 8.000000 	 587500.000000 	 4015.000000 	 581000.000000 	 2245.000000 	 1475.500000 	 1032000.000000 	 77.450100 	 80.611725 	 38.432974

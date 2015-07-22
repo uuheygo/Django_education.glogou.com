@@ -1,0 +1,180 @@
+{% extends "brands/base_glogou.html" %}
+{% block title%}{{brand.name}} Branding in Asia, Asia Branding, {{brand.name}} Branding in China{%endblock %}
+{% block description %}Marketing tools for {{brand.name}}  Branding in Asia, Asia Branding, Branding in China{% endblock %}
+{% block keyword %}Marketing tool, Asia Media Monitoring for {{brand.name}}  Branding in Asia, Asia Branding, Branding in China{% endblock %}
+
+{% load strip_space %}
+
+<!-- sidebar -->
+{% block sidebar %}
+{% include 'brands/sidebar_comparison.html' %}
+{% endblock %}
+
+
+<!-- content -->
+{% block content %}
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+
+     <div class="row">
+        <div class="col-lg-12">
+            <h5 >How to use Asia Marketing Indicators for <b>international recruiting, alumni engagement and fundraising, Click Here</b>. Applicants and Alumni <b> Click Here</b></h5>
+            <h1 class="page-header"><b><a href="/brand_id={{brand.id}}/{{brand.name|lower|nospace}}/">{{brand.name}}</a></b></h1>
+        </div>
+
+        <!-- /.col-lg-12 -->
+    </div>
+    <!-- /.row -->
+    <div class="row">
+        <div class="col-lg-3 col-md-6">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <div class="row">
+                        <div class="col-xs-4">
+                            <span style="font-size: 4em;"
+                                class="glyphicon glyphicon-equalizer glyphicon-align-left"
+                                aria-hidden="true"></span>
+                        </div>
+                        <div class="col-xs-8 text-right">
+                            <h4>Media Summary</h4>
+                        </div>
+                    </div>
+                </div>
+                <a href="/brand_id={{brand.id}}/{{brand.name|lower|nospace}}/media/">
+                    <div class="panel-footer">
+                        <span class="pull-left">View Details</span> <span
+                            class="glyphicon glyphicon-arrow-right pull-right"></span>
+                        <div class="clearfix"></div>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6">
+            <div class="panel panel-green">
+                <div class="panel-heading">
+                    <div class="row">
+                        <div class="col-xs-4">
+                            <span style="font-size: 4em;"
+                                class="glyphicon glyphicon-info-sign glyphicon-align-left"
+                                aria-hidden="true"></span>
+                        </div>
+                        <div class="col-xs-8 text-right">
+                            <h4>General Information</h4>
+                        </div>
+                    </div>
+                </div>
+                <a href="/brand_id={{brand.id}}/{{brand.name|lower|nospace}}/info/">
+                    <div class="panel-footer">
+                        <span class="pull-left">View Details</span> <span
+                            class="glyphicon glyphicon-arrow-right pull-right"></span>
+                        <div class="clearfix"></div>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6">
+            <div class="panel panel-yellow">
+                <div class="panel-heading">
+                    <div class="row">
+                        <div class="col-xs-4">
+                            <span style="font-size: 4em;"
+                                class="glyphicon glyphicon-list glyphicon-align-left"
+                                aria-hidden="true"></span>
+                        </div>
+                        <div class="col-xs-8 text-right">
+                            <h4>Latest News</h4>
+                        </div>
+                    </div>
+                </div>
+                <a href="/brand_id={{brand.id}}/{{brand.name|lower|nospace}}/news/">
+                    <div class="panel-footer">
+                        <span class="pull-left">View Details</span> <span
+                            class="glyphicon glyphicon-arrow-right pull-right"></span>
+                        <div class="clearfix"></div>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6">
+            <div class="panel panel-red">
+                <div class="panel-heading">
+                    <div class="row">
+                        <div class="col-xs-4">
+                            <span style="font-size: 4em;"
+                                class="glyphicon glyphicon-briefcase glyphicon-align-left"
+                                aria-hidden="true"></span>
+                        </div>
+                        <div class="col-xs-8 text-right">
+                            <h4>Report</h4>
+                        </div>
+                    </div>
+                </div>
+                <a href="/brand_id={{brand.id}}/{{brand.name|lower|nospace}}/report/">
+                    <div class="panel-footer">
+                        <span class="pull-left">View Details</span> <span
+                            class="glyphicon glyphicon-arrow-right pull-right"></span>
+                        <div class="clearfix"></div>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+    </div>
+
+    {% block brand_page_box %}{% endblock %}
+
+{% endblock%}
+
+{% block custom_js %}
+<style>
+    .ui-autocomplete {
+    	max-height: 300px;
+    	overflow-y: auto;
+    	/* prevent horizontal scrollbar */
+    	overflow-x: hidden;
+    }
+    /* IE 6 doesn't support max-height
+       * we use height instead, but this forces the menu to always be this tall
+       */
+    * html .ui-autocomplete {
+    	height: 300px;
+    }
+</style>
+<script src="/static/brands/js/jquery.js"></script>
+<script src="/static/brands/js/jquery-ui.js"></script>
+<script type="text/javascript">
+    $(function() {
+        $("#custom_selection").autocomplete({
+            source: "/custom_selection/",
+            minLength: 2,
+            select: function( event, ui ) {
+                event.preventDefault();
+                var exist_list = document.getElementById("compare_list").getElementsByTagName("input");
+                if(ui.item.value == "{{brand.id}}") {
+                    alert(ui.item.label + " is the brand being compared with");
+                    return;
+                }
+                for(var i = 0; i < exist_list.length; i++) {
+                    if(exist_list[i].value == ui.item.value && exist_list[i].checked) {
+                        alert(ui.item.label + " is already selected for comparison");
+                        return;
+                    }
+                    else if(exist_list[i].value == ui.item.value) {
+                        exist_list[i].checked = true;
+                        return;
+                    }
+                }
+                $("#compare_list").append("<label> <h5><input type=\"checkbox\" name = \"ck\" value = \""
+                    + ui.item.label + "\" ck>" + ui.item.label + "</h5></label>");
+            },
+            focus: function(event, ui) {
+                event.preventDefault();
+                $("#custom_selection").val(ui.item.label);
+            }
+        });
+        
+    });
+</script>
+{% endblock %}

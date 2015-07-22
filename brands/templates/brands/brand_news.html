@@ -1,0 +1,131 @@
+{% extends "brands/brand_page_base.html" %}
+
+{% block brand_page_box %}
+ <div class="row">
+    <div class="panel panel-default">
+        <div class="panel-heading"><div id="google_translate_element" class="pull-right"></div><h3>Recent Feeds</h3></div>
+            <div class="panel-body">
+                <div class="col-md-6" style="overflow-y: auto;height: 400px;">
+                    <table class='table table-bordered table-striped'>
+                        <thead><tr><th>Feeds in English</th></tr></thead>
+                        <tbody id="feed_en"></tbody>
+                    </table>
+                </div>
+                <div class="col-md-6" style="overflow-y: auto;height: 400px;">
+                    <table class='table table-bordered table-striped'>
+                        <thead><tr><th>Feeds in Chinese</th></tr></thead>
+                        <tbody id="feed_ch"></tbody>
+                    </table>
+                </div>
+        </div>
+    </div>
+</div>
+
+<!-- <script type="text/javascript">
+
+google.load("feeds", "1");
+
+function OnLoad() {
+  // Query
+  var query_en = 'site:google.com "{{brand.name}}"';
+  google.feeds.findFeeds(query_en, findDone_en);
+  
+  var query_ch = 'site:google.com "{{brand_ch}}"';
+  google.feeds.findFeeds(query_ch, findDone_ch);
+}
+
+function findDone_en(result) {
+  // console.log(result);
+  // Make sure we didn't get an error.
+  if (!result.error) {
+    // Get content div
+    var content = document.getElementById('feed_en');
+    var html = '';
+
+    // Loop through the results and print out the title of the feed and link to
+    // the url.
+    for (var i = 0; i < result.entries.length; i++) {
+      var entry = result.entries[i];
+      html += '<tr><td><a href="' + entry.link + '"><div style="color:black;">' + entry.title + '</div>&nbsp;&nbsp;&nbsp;&nbsp;<i><small>(' + entry.contentSnippet + ')</small></i>' + '</a></td></tr>';
+    }
+    content.innerHTML = html;
+  }
+}
+
+function findDone_ch(result) {
+  // console.log(result);
+  // Make sure we didn't get an error.
+  if (!result.error) {
+    // Get content div
+    var content = document.getElementById('feed_ch');
+    var html = '';
+
+    // Loop through the results and print out the title of the feed and link to
+    // the url.
+    for (var i = 0; i < result.entries.length; i++) {
+      var entry = result.entries[i];
+      html += '<tr><td><a href="' + entry.link + '"><div style="color:black;">' + entry.title + '</div>&nbsp;&nbsp;&nbsp;&nbsp;<i><small>(' + entry.contentSnippet + ')</small></i>' + '</a></td></tr>';
+    }
+    content.innerHTML = html;
+  }
+}
+
+google.setOnLoadCallback(OnLoad);
+
+</script> -->
+
+
+    <script type="text/javascript">
+
+    google.load("feeds", "1");
+
+    function initialize() {
+      // English news
+      var feed_en = new google.feeds.Feed("http://news.google.com/news?pz=1&cf=all&ned=us&hl=en&output=rss&q=\"{{brand.name}}\"");
+      feed_en.setNumEntries(20);
+      feed_en.includeHistoricalEntries();
+      
+      feed_en.load(function(result) {
+        if (!result.error) {
+          var container = document.getElementById("feed_en");
+          var html = '';
+          for (var i = 0; i < result.feed.entries.length; i++) {
+            var entry = result.feed.entries[i];
+            html += '<tr><td><a href="' + entry.link + '"><div style="color:black;">' 
+                + entry.title + '</div>&nbsp;&nbsp;&nbsp;&nbsp;<i><small>(' + entry.contentSnippet 
+                + ')</small></i>' + '</a></td></tr>';
+            container.innerHTML = html;
+          }
+        }
+      });
+      
+      // Chinese news
+      var feed_ch = new google.feeds.Feed("http://news.google.com/news?pz=1&cf=all&output=rss&q=\"{{brand_ch}}\"");
+      feed_ch.setNumEntries(20);
+      feed_ch.includeHistoricalEntries();
+      
+      feed_ch.load(function(result) {
+        if (!result.error) {
+          var container = document.getElementById("feed_ch");
+          var html = '';
+          for (var i = 0; i < result.feed.entries.length; i++) {
+            var entry = result.feed.entries[i];
+            html += '<tr><td><a href="' + entry.link + '"><div style="color:black;">' 
+                + entry.title + '</div>&nbsp;&nbsp;&nbsp;&nbsp;<i><small>(' + entry.contentSnippet 
+                + ')</small></i>' + '</a></td></tr>';
+            container.innerHTML = html;
+          }
+        }
+      });
+    }
+    google.setOnLoadCallback(initialize);
+
+    </script>
+    <div id="feed"></div>
+    
+<script type="text/javascript">
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({pageLanguage: 'zh-CN', layout: google.translate.TranslateElement.InlineLayout.SIMPLE, multilanguagePage: true}, 'google_translate_element');
+}
+</script><script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+{% endblock %}

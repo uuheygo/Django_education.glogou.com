@@ -1,0 +1,24 @@
+english_phrase 	 chinese_phrase 	 bd_index_common 	 bd_index_chinese 	 bd_news_common 	 bd_news_chinese 	 gg_index_common 	 gg_new 	 gg_hk 	 gg_site 	 bd_site 	 yj_index_eng	 yj_index_jp
+"California Maritime Academy" mba 	 加州海事学院 mba 	 838 	 11300 	 0 	 0 	 159000 	 5 	 47700 	 55700 	 548 	 14100	 137000
+""California Polytechnic State University, San Luis Obispo"" mba 	 加州州立理工大学 mba 	 34300 	 630000 	 1 	 10 	 236000 	 308 	 299000 	 717000 	 12100 	 298000	 699
+""California State Polytechnic University, Pomona"" mba 	 波莫纳加州州立理工大学 mba 	 30000 	 8010 	 0 	 1 	 333000 	 219 	 290000 	 446000 	 9160 	 268000	 32400
+""CSU, California State University, Bakersfield"" mba 	 贝克斯菲尔德加州州立大学 mba 	 28200 	 2430 	 0 	 0 	 329000 	 1060 	 9830000 	 39600 	 3170 	 357000	 3210
+""CSU, California State University, Channel Islands"" mba 	 切奈尔岛加州州立大学 mba 	 25900 	 167 	 0 	 0 	 356000 	 2000 	 9920000 	 146000 	 1840 	 44000	 110000
+""CSU, California State University, Chico"" mba 	 奇科加州州立大学 mba 	 44000 	 6320 	 0 	 3 	 328000 	 847 	 73000 	 399000 	 13600 	 57300	 28900
+""CSU, California State University, Dominguez Hills"" mba 	 多明内兹山加州州立大学 mba 	 16700 	 157 	 0 	 0 	 133000 	 246 	 174000 	 76400 	 7040 	 133000	 2040
+""CSU, California State University, East Bay"" mba 	 东湾加州州立大学 mba 	 28800 	 49900 	 0 	 5 	 978000 	 8320 	 1100000 	 73800 	 6590 	 71200	 15300
+""CSU, California State University, Fresno"" mba 	 弗雷斯诺加州州立大学 mba 	 23100 	 7210 	 0 	 0 	 409000 	 1700 	 437000 	 57200 	 10000 	 435000	 30700
+""CSU, California State University, Fullerton"" mba 	 富勒顿加州州立大学 mba 	 3280 	 3230 	 0 	 0 	 421000 	 1400 	 421000 	 97100 	 14700 	 418000	 85300
+""CSU, California State University, Long Beach"" mba 	 长滩加州州立大学 mba 	 37300 	 1540000 	 0 	 3 	 1070000 	 11400 	 1150000 	 232000 	 42500 	 73900	 45200
+""CSU, California State University, Los Angeles"" mba 	 洛杉矶加州州立大学 mba 	 35600 	 2350000 	 0 	 7 	 5600000 	 66100 	 113000 	 283000 	 12700 	 113000	 67700
+""CSU, California State University, Monterey Bay"" mba 	 蒙特利湾加州州立大学 mba 	 19300 	 5220 	 0 	 0 	 159000 	 627 	 210000 	 210000 	 3440 	 30800	 2330
+""CSU, California State University, Northridge"" mba 	 北岭加州州立大学 mba 	 30700 	 85600 	 0 	 4 	 394000 	 648 	 394000 	 571000 	 81300 	 391000	 15600
+""CSU, California State University, Sacramento"" mba 	 萨克拉门托加州州立大学 mba 	 41100 	 515000 	 0 	 1 	 806000 	 6440 	 731000 	 311000 	 16100 	 75000	 20600
+""CSU, California State University, San Bernardino"" mba 	 圣博纳德加州州立大学 mba 	 21100 	 148 	 0 	 0 	 313000 	 715 	 446000 	 118000 	 3950 	 236000	 8040
+""CSU, California State University, San Marcos"" mba 	 圣马可斯加州州立大学 mba 	 18800 	 758 	 0 	 0 	 402000 	 638 	 58400 	 250000 	 6210 	 61100	 2820
+""CSU, California State University, Stanislaus"" mba 	 斯坦尼斯洛斯加州州立大学 mba 	 25000 	 759 	 0 	 1 	 80500 	 279 	 476000 	 149000 	 3760 	 470000	 2530
+"Humboldt State University" mba 	 洪堡加州州立大学 mba 	 13000 	 18000 	 0 	 1 	 76200 	 118 	 75000 	 181000 	 5410 	 74500	 4910
+""SDSU, San Diego State University"" mba 	 圣地亚哥州立大学 mba 	 104000 	 215000 	 0 	 16 	 440000 	 247 	 86300 	 559000 	 47200 	 86200	 76000
+""SFSU, San Francisco State University"" mba 	 旧金山州立大学 mba 	 8050 	 302000 	 0 	 6 	 510000 	 100 	 48000 	 707000 	 18400 	 47700	 170000
+""SJSU, San Jose State University"" mba 	 圣荷西州立大学 mba 	 5520 	 10200 	 0 	 1 	 516000 	 128 	 44500 	 542000 	 29100 	 233000	 36900
+"Sonoma State University" mba 	 索诺玛加州州立大学 mba 	 11500 	 7680 	 0 	 0 	 169000 	 328 	 111000 	 110000 	 8900 	 111000	 17700

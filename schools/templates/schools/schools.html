@@ -1,6 +1,6 @@
-{% extends "schools/base.html" %}
+{% extends "schools/base_glogou.html" %}
 
-{% block title %}America's Top Colleges{% endblock %}
+{% block title %}College Asia Recruiting, Asian Alumni Engagement, College International Fundraising and Development{% endblock %}
 
 <!-- sidebar -->
 {% block sidebar %}
@@ -26,7 +26,7 @@
             <li class="sidebar-search">
                 <h4>FILTERS</h4>
                 <div style="padding-left:20px;">
-		            <form role="form" method="GET" action="/schools/" class="sidebarForm">
+		            <form role="form" method="GET" action="/" class="sidebarForm">
 		              <div class="form-group">
 		                <label class="sidebarFormLabel">Filter by States</label>
 		                <div>
@@ -114,7 +114,62 @@
 <!-- /.navbar-static-side -->
 {% endblock %}
 
+<!-- carousel-side --->
+{% block banner %}
+    <div id="myCarousel" class="carousel slide">
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+            <li data-target="#myCarousel1" data-slide-to="0" class="active"></li>
+            <li data-target="#myCarousel2" data-slide-to="1"></li>
+            <li data-target="#myCarousel3" data-slide-to="2"></li>
 
+        </ol>
+
+        <!-- Wrapper for slides -->
+        <!-- the original one -->
+
+        <div class="carousel-inner">
+            <div class="item active" >
+                <div class="fill" style="background-image:url('http://placehold.it/200x508&text=Slide One');">
+                    <a><img class="banner" id="myCarousel1" src="/static/images/slide1.jpg" style = "width: 100%"></a>
+                </div>
+
+                <div class="carousel-caption">
+                    <h2>Powerful Marketing Tool for Asia Recruiting</h2>
+                </div>
+            </div>
+            <div class="item">
+                <div class="fill" style="background-image:url('http://placehold.it/200x508&text=Slide Two');">
+                    <a><img class="banner" id="myCarousel2" src="/static/images/slide2.jpg" style = "width: 100%"></a>
+                </div>
+                <div class="carousel-caption">
+                    <h2>Discover Most Effective Methods to Engage Asian Alumni</h2>
+                </div>
+            </div>
+            <div class="item">
+                <div class="fill" style="background-image:url('http://placehold.it/200x508&text=Slide Three');">
+                    <a><img class="banner" id="myCarousel3" src="/static/images/slide3.jpg" style = "width: 100%"></a>
+                </div>
+                <div class="carousel-caption">
+                    <h2>Insights for Successful Asia Fundraising and Development</h2>
+                </div>
+            </div>
+        </div>
+
+
+
+        <!-- Controls -->
+        <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+            <span class="icon-prev"></span>
+        </a>
+        <a class="right carousel-control" href="#myCarousel" data-slide="next">
+            <span class="icon-next"></span>
+        </a>
+    </div>
+{% endblock %}}
+
+
+<h3>Please select states of universities of your interest</h3>
 
 
 {% block content %}
@@ -135,6 +190,9 @@
 {% block custom_js %}
     <script type="text/javascript">
         $(document).ready(function() {
+            $('#myCarousel').carousel({
+              interval: 4000
+            });
             $("#link_schools").addClass("active");
             $('#map').usmap({
                 stateStyles: {fill: '#81AC8B'},
@@ -143,7 +201,7 @@
                 showLabels: true,
                 click: function(event, data){
                             $.ajax({
-                                url: "/schools/?state=" + data.name,
+                                url: "/?state=" + data.name,
                             }).done(function(data){ $('#table').replaceWith($(data)) }); // replace old school_table.html with new html
                             $("#state_list").val(data.name);
                         }
@@ -166,7 +224,7 @@
         
         function update_results(){
             $.ajax({
-                url: "/schools/?keyword=" + $("#search_box").val(),
+                url: "/?keyword=" + $("#search_box").val(),
             }).done(function(data){ $('#table').replaceWith($(data)) }); // replace old school_table.html with new html
         };
     </script>
