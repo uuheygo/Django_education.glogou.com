@@ -1,0 +1,289 @@
+html,body {
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+/*     overflow-x: hidden;  */
+	}
+
+.topmenu {
+	padding-left:0;
+	}
+.topmenu li {
+	display:inline;
+	}
+.topmenu li a {
+	color:#FBD45E;
+	}
+.topmenu li a:hover {
+	color:#FFF;
+	}
+
+.navbar-brand img {height:60px;}
+
+.top-number p {
+	display:inline-block;
+	margin-right:10px;
+	}
+.social-share {
+	margin-right:10px;
+	}
+.search {
+    vertical-align: bottom;
+	height:30px;
+	}
+
+#mainmenu {
+	font-size:1.25em;
+	}
+
+#header {
+	border-bottom:10px solid #FBD45E;
+	}
+	
+#splash {
+	padding:10px 0; 
+	}
+#splash > div > h1 {
+	font-size:2em;
+	color:#4587D1; 
+	margin:40px 5%;
+	}
+	
+.slideshow {
+	max-width:100%;
+	}
+.slide-caption {
+	color:#FBD45E;
+	font-size:2em;
+	text-shadow:1px 1px 1px #ccc;
+	}	
+	
+.promotion {
+	margin:40px 0;
+	}
+
+.section-title {
+	margin:0; 
+	padding:0;
+	}	
+	
+.section-title h1 {
+	font-size:2.5em; 
+	color:#FFF; 
+	background-color:#325aaa; 
+	padding:25px 0; 
+	margin:-70px 0 70px 0;
+	text-shadow:1px 1px 1px #ccc;
+	}
+
+#intro {
+	background-color:#F2F2F2;
+	}	
+.intro-detail h2 {
+	font-size:2em; 
+	padding-right:5%;
+	margin:0;
+	line-height:120%;
+	}
+
+.markets {
+	padding:0px;
+	}
+
+.recent-work-wrap .overlay {
+	padding:0; margin:0; 
+	}
+.recent-work-wrap .recent-work-inner {
+	padding:10px;
+	}
+.recent-work-wrap .recent-work-inner a {
+	line-height:100%;
+	color:#325aaa;
+	}
+.recent-work-wrap .recent-work-inner h3 a {
+	font-size:1em;
+    color:#325aaa;
+	}
+.recent-work-wrap .overlay .preview {
+	line-height:100%;
+	height:100%;
+	color:#325aaa;
+	}
+	
+.services-wrap {height:232px; overflow:hidden;}	
+
+.service-button {
+	background-color:#4587D1;
+	}
+	
+.ssp {
+	border:1px solid #ddd;
+	}
+.ssp .panel-heading {
+	border-radius:3px; 
+	padding: 10px 15px;
+	}	
+.ssp .panel-body {
+	height:210px; 
+	padding:15px; 
+	background-color:#fff;
+	}
+.ssp .panel-body img {
+	margin-bottom:20px; 
+	height:90%; 
+	width:100%;
+	}	
+
+.showcase {
+	padding:0px 10px;
+	}
+
+#footer {
+	border-top:10px solid #FBD45E;
+	}
+
+#footer-links {
+	margin-bottom:20px;
+	}
+#footer-links h3 {
+	color:#FBD45E;
+	text-align:center;
+	}	
+#footer-links ul li {
+	padding:5px 0;
+	display:block;
+	}
+
+
+/***********Responsive*********************************/
+/* lg */ 
+@media (min-width: 1200px) {
+	#splash>div>h1 {
+		font-size:2.5em;
+		}
+	}
+	
+/* md */
+@media (min-width: 992px) and (max-width: 1199px) {
+	.container {
+		width:96%;
+		margin-left:2%;
+		margin-right:2%;
+		}
+	.markets img {
+		display:none;
+		}
+	.recent-work-wrap .overlay {
+		opacity:1; 
+		position:relative;
+		border:1px solid #ccc;
+		} 
+	#market-1 {background-color:#a0f2ff;}
+	#market-2 {background-color:#;}
+	#market-3 {background-color:#fdbaba;}
+	#market-4 {background-color:#a7ff82;}
+	}
+	
+/* sm */
+@media (min-width: 768px) and (max-width: 991px) {
+	.container {
+		width:96%;
+		margin-left:2%;
+		margin-right:2%;
+		}
+	#mainmenu {
+		font-size:1em;
+		}
+	.intro-detail h2 {
+		font-size:1.6em;
+		}
+	.markets img {
+		display:none;
+		}
+	.recent-work-wrap .overlay {
+		opacity:1; 
+		position:relative;
+		border:1px solid #ccc;
+		} 
+	#market-1 {background-color:#a0f2ff;}
+	#market-2 {background-color:#;}
+	#market-3 {background-color:#fdbaba;}
+	#market-4 {background-color:#a7ff82;}
+	.showcase {
+		padding:10px;
+		}
+	.ssp {
+		margin-bottom:30px;
+		}
+	#footer-links ul {
+		padding:5px 10%;
+		}
+	}
+	
+/* xs */
+@media (max-width: 767px) {
+	.topmenu {
+		display:none;
+		}
+	.intro-detail h2 {
+		margin:-40px 0 40px 0;
+		padding:0 5%;
+		font-size:1.6em;
+		}
+	.markets img {
+		display:none;
+		}
+	.recent-work-wrap .overlay {
+		opacity:1; 
+		position:relative;
+		border:1px solid #ccc;
+		} 
+	#market-1 {background-color:#a0f2ff;}
+	#market-2 {background-color:#;}
+	#market-3 {background-color:#fdbaba;}
+	#market-4 {background-color:#a7ff82;}
+	.showcase {
+		padding:10px;
+		}
+	.ssp {
+		margin-bottom:30px;
+		}
+	#footer-links ul {
+	padding:5px 10%;
+		}
+	}
+
+/* XS Portrait */
+@media (max-width: 480px) {
+	.top-number>p{
+		display:none;
+		}
+	#splash>div>h1 {
+		font-size:1.5em;
+		}
+	.intro-detail h2 {
+		margin:-40px 0 40px 0;
+		padding:0 5%;
+		font-size:1.6em;
+		}
+	.markets img {
+		display:none;
+		}
+	.recent-work-wrap .overlay {
+		opacity:1; 
+		position:relative;
+		border:1px solid #ccc;
+		height:132px;
+		} 
+	#market-1 {background-color:#a0f2ff;}
+	#market-2 {background-color:#;}
+	#market-3 {background-color:#fdbaba;}
+	#market-4 {background-color:#a7ff82;}
+	.showcase {
+		padding:10px;
+		}
+	#footer-links {
+		display:none;
+		}
+	}

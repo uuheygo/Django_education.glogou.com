@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<!--<meta name="viewport" content="width=device-width, initial-scale=1">-->
+<meta name="viewport"
+	content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="author" content="">
+<meta name="ROBOTS" content="INDEX, FOLLOW"></meta>
+<meta name="google-translate-customization" content="f9bc02b19860b691-8978d89705169d70-g70a725282a857857-e"></meta>
+<title>{% block title %} {% endblock %}</title>
+
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+
+<!-- Custom styles for this template -->
+{% block extra_style %} {% endblock %}
+
+<link rel="stylesheet" href="/static/brands/css/jquery-ui.css">
+<!-- Bootstrap Core CSS -->
+<link href="/static/brands/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- MetisMenu CSS -->
+<link href="/static/brands/css/metisMenu.min.css" rel="stylesheet">
+
+<!-- Timeline CSS -->
+<link href="/static/brands/css/timeline.css" rel="stylesheet">
+
+<!-- Custom CSS -->
+<link href="/static/brands/css/sb-admin-2.css" rel="stylesheet">
+
+<!-- Morris Charts CSS -->
+<link href="/static/brands/css/morris.css" rel="stylesheet">
+
+<!-- Custom Fonts -->
+<link href="/static/brands/css/font-awesome.min.css" rel="stylesheet"
+	type="text/css">
+
+<style media="print" type="text/css">
+
+@media print {
+    .page-break { height:0; page-break-before:always; margin:0; border-top:none; }
+}
+
+</style>
+
+<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+
+</head>
+
+<body>
+	<div id="wrapper">
+
+		<!-- Navigation -->
+		<nav class="navbar navbar-inverse navbar-static-top" role="navigation"
+			style="margin-bottom: 0">
+			<div class="container">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse"
+						data-target="#bs-example-navbar-collapse-1">
+						<span class="sr-only">Toggle navigation</span> <span
+							class="icon-bar"></span> <span class="icon-bar"></span> <span
+							class="icon-bar"></span> <span class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand" href="#">Glogou</a>
+				</div>
+				<!-- Collect the nav links, forms, and other content for toggling -->
+				<div class="collapse navbar-collapse"
+					id="bs-example-navbar-collapse-1">
+					<ul class="nav navbar-nav">
+						<li id="link_about"><a href="#">ABOUT US</a></li>
+						<li id="link_services"><a href="#">SERVICES</a></li>
+						<li id="link_brands"><a href="/">EXPLORE SCHOOLS</a></li>
+						<li id="link_contact"><a href="/contact_us">CONTACT US</a></li>
+					</ul>
+				</div>
+				<!-- /.navbar-collapse -->
+			</div>
+			<!-- /.container -->
+
+			{% block sidebar %}{% endblock %}
+
+		</nav>
+
+		<div id="page-wrapper">
+		  <div class="container-fluid">
+			{% block content %}{% endblock %}
+			<footer class="footer" style="padding-top: 20px;">
+                <p class="text-muted">Copyright &copy; Glogou Inc. 2015</p>
+            </footer>
+          </div>
+		</div>
+	</div>
+	
+
+	<!-- JavaScript -->
+    <script src="/static/brands/js/jquery.min.js"></script>
+	<script src="/static/brands/js/bootstrap.min.js"></script>
+<!--     <script src="/static/brands/js/jquery.js"></script> -->
+    <script src="/static/brands/js/raphael.js"></script>
+    <script src="/static/brands/js/jquery.usmap.js"></script>
+    <script src="/static/brands/js/metisMenu.min.js"></script>
+    <script src="/static/brands/js/sb-admin-2.js"></script>
+    {% block custom_js %}{% endblock %}
+
+
+</body>
+</html>
