@@ -9,3 +9,11 @@
 *.pyc
 .project
 .pydevproject
+
+*.log
+*.out
+*.DS_Store
+.idea/
+
+
+*.py~
