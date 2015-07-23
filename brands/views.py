@@ -14,7 +14,7 @@ from utils.helper_functions import get_latest_indexes_for_brand_view, get_result
     get_data_col, get_index, get_index_data_col, convert_to_chart_data_index, get_index_report, get_pie_data,\
     get_composite_index, get_brand_name
 
-from .models import Brand, BrandInforYearly, BrandsComparisonId, \
+from .models import Brand, BrandInforYearly, Products,BrandsComparisonId, \
     br_BaiduIndexCh, br_BaiduIndexEn, br_BaiduNewsEn, br_BaiduNewsCh, br_BaiduSite, \
     br_GoogleIndexEn, br_GoogleIndexHk, br_GoogleNews, br_GoogleSite,\
     br_YahoojapIndexEn, br_YahoojapIndexJp, BrandChName
@@ -24,6 +24,43 @@ from .forms import ContactForm
 
 latest_year = BrandInforYearly.objects.aggregate(Max('year'))['year__max']
 latest_date = br_BaiduIndexCh.objects.aggregate(Max('date'))['date__max']
+
+def brand_list(request):
+
+    product_list = Products.objects.all()
+    product_dic = {}
+
+    for i in product_list:
+        prod_name = i.brand_name.rstrip()
+        prod_cat = i.cat_name.rstrip()
+        if prod_cat in product_dic:
+            brand_dic = product_dic[prod_cat]
+            cap = prod_name[0]
+            if cap in brand_dic:
+                arr = brand_dic[cap]
+                arr.append(prod_name)
+            else:
+                arr = []
+                arr.append(prod_name)
+                brand_dic[cap] = arr
+        else:
+            brand_dic = {}
+            cap = prod_name[0]
+            arr = []
+            arr.append(prod_name)
+            brand_dic[cap] = arr
+            product_dic[prod_cat] = brand_dic
+
+    ret_dic = {'product_list': product_dic}
+
+    keywords = "Global shopping guide, Buy luxury products, Luxury store, Outlet, \
+    Mall, Online Promotions, How to market to international buyers, global buyers, \
+    Chinese customer, China customer, best marketing advertising campaigns"
+    title = "Shopping luxury products globally"
+
+
+    result = {'title': title, 'description': keywords, 'keywords': keywords,   'dic': ret_dic}
+    return render(request, 'brands/brand_list.html', result)
 
 # render brands.html for all or selected brands
 def list_view(request, state = 'All states', rank_range = 'All', page = '1', keyword=''):

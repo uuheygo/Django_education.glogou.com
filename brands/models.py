@@ -405,3 +405,14 @@ class br_YahoojapIndexJp(models.Model):
     class Meta:
         managed = True
         db_table = 'br_yahoojap_index_jp'
+
+class Products(models.Model):
+    product_id = models.CharField(max_length=6L, primary_key = True)
+    brand_name = models.CharField(max_length=100L)
+    cat_name = models.CharField(max_length=50L)
+
+    class Meta:
+        db_table = 'products'
+
+    def __unicode__(self):
+        return self.brand_name + " " + self.cat_name
