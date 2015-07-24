@@ -1,8 +1,11 @@
-# Note: This function only calculate China marketing index for now, it will not calculate Japan and Asian marketing index.
+# Note 1: This function only calculate China marketing index for now, it will not calculate Japan and Asian marketing index.
+# Note 2: At this moment, it uses simple method to calculated re-normalized composite index. This need to revisit.  __BL_WARNING__
 #
 from weight_factor import wf_china_marketing_list
+from data_quantization import calculate_normalized_index_with_quantization
+from data_quantization import calculate_composite_index_with_quantization
 
-# ------------input format------------
+# format of input file, two dimensional array
 # id "gg index en", "gg index hk", "gg news","gg site", "bd index ch", "bd index en", "bd news ch", "bd news en", "bd site", "yh index en", "yh index jp"
 # delimited by tab
 # 11 indexes
@@ -58,7 +61,12 @@ def calculate_composite_index(wf_list, index_arr):
     return composite_index_list
 
 # input: a file name of  raw, unprocessed crawled data
-# output: a file name of normalized index, a file name of composite index
+# output: four file names.
+#         a file name of normalized index,
+#         a file name of composite index,
+#         a file name of renormalized index,
+#         a file name of renormalized composite index calculated with simple algorithm,
+#
 def process_data(filename, wf_list):
     # read all indexes into a 2-D array
     count_arr = []
@@ -72,38 +80,53 @@ def process_data(filename, wf_list):
     print list_average
     
     # calculate individual indexes and output to file
+    # output name format will be: indexes_2015_07_09_09_00_02
     index_arr_file = 'indexes_' + '_'.join(filename.split('_')[1:])
-    with open(index_arr_file, 'w') as output_index_arr_file:
+
+    # file to hold renormalized data, output name format will be: indexes_re_2015_07_09_09_00_02
+    index_re_arr_file = 'indexes_re_' + '_'.join(filename.split('_')[1:])
+
+    with open(index_arr_file, 'w') as output_index_arr_file, open(index_re_arr_file, 'w') as output_index_re_arr_file:
+
+        # calculate normalized index, return in two dimension array
         index_arr = calculate_normalized_index(count_arr, list_average)
+
+        # calculate re-normalized index, return in two dimension array
+        index_re_arr = calculate_normalized_index_with_quantization(index_arr)
+
         for i in range(len(index_arr)):
             output_index_arr_file.write(str(i + 1) + '\t' + '\t'.join(str(x) for x in index_arr[i]) + '\n')
-    
-    # calculate composite indexes and output to file
-    
-    #----------china market----------
-    #     "gg index en"           3
-    #     "gg index hk"           4
-    #     "gg news"               2
-    #     "gg site"               3
-    #     "bd index ch"           8
-    #     "bd index en"           2
-    #     "bd news ch"            7
-    #     "bd news en"            2
-    #     "bd site"               7
-    #     "yh index en"           0
-    #     "yh index jp"           0
-    
 
+        for i in range(len(index_re_arr)):
+            output_index_re_arr_file.write(str(i + 1) + '\t' + '\t'.join(str(x) for x in index_re_arr[i]) + '\n')
+
+    # calculate composite indexes and output to file, wf_list holds the weighted factor
     composite_index_list = calculate_composite_index(wf_list, index_arr)
     composite_index_file = 'composite_index_'  + '_'.join(filename.split('_')[1:])
     with open(composite_index_file, 'w') as output_composit_index:
         for i in range(len(composite_index_list)):
             output_composit_index.write(str(i + 1) + '\t' + str(composite_index_list[i]) + '\n')
-    
-    return output_index_arr_file.name, output_composit_index.name
+
+    # it uses simple method to calculated re-normalized composite index. This need to revisit.  __BL_WARNING__
+    composite_index_with_quantization_list = calculate_composite_index_with_quantization(composite_index_list)
+    composite_index_re_file = 'composite_re_index_'  + '_'.join(filename.split('_')[1:])
+    with open(composite_index_re_file, 'w') as output_composit_re_index:
+        for i in range(len(composite_index_with_quantization_list)):
+            output_composit_re_index.write(str(i + 1) + '\t' + str(composite_index_with_quantization_list[i]) + '\n')
+
+    return output_index_arr_file.name, output_composit_index.name, output_index_re_arr_file.name, output_composit_re_index.name
 
 # input: a file name of  raw, unprocessed crawled data
-# output: a file name of normalized index, a file name of composite index
+# output: four file names.
+#         a file name of normalized index,
+#         a file name of composite index,
+#         a file name of renormalized index,
+#         a file name of renormalized composite index calculated with simple algorithm,
+#
+#         the file name for normalized index will be: indexes_2015_07_09_09_00_02
+#         the file name for composite index will be: composite_index_2015_07_09_09_00_02
+#         the file name for renormalized index will be: indexes_re_2015_07_09_09_00_02
+#         the file name for renormlized composite index will be: composite_re_index_2015_07_09_09_00_02
 def calculate_indexes(filename):
     return process_data(filename, wf_china_marketing_list)
     

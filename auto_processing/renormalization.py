@@ -8,16 +8,15 @@
 # NOTE_3: Following the spirit of renormalization methods in physics, the "non-uniform" quantization methods we use
 # can be considered as a special type of "regularization".
 #
-#  NOTE_4, the methods we calculte  composite index after "re-normalization" need further investigation (7/1/2015)
+#  NOTE_4, the methods we calculate  composite index after "re-normalization" need further investigation (7/1/2015)
 #
 from  data_quantization import non_uniform_quantization
 import MySQLdb
 
 # Update the database with renormalized index.
+# This will update EVERY row of existing tables. So it shall only be used for offline, complete-recalculation.
 # NOTE: the table composite_index may need special handling.
-def update_db_with_renormlized_index():
-
-    host_ip = 'localhost'
+def update_db_with_renormlized_index(host_ip):
 
     conn = MySQLdb.connect(host = host_ip,
                        user = 'mediaWatch',
@@ -42,10 +41,10 @@ def update_db_with_renormlized_index():
     # we do it in this way at this moment just for quick testing purpose..
     update_index_table_with_renormalized_index(conn, 'composite_index')
 
-# Update one index table with renormalized index
+# This will update EVERY row of one existing tables with renormalized index
 # __FIX_ME__, this function update each record with one SQL statement, 
 # this must not be right. We shall be able to update entire column with one sql statement.
-# Since this function is excuated offline, it is OK to be slow at this moment.
+# Since this function is executed offline, it is OK to be slow at this moment.
 def update_index_table_with_renormalized_index(conn, table_name):
 
     x = conn.cursor()
@@ -61,7 +60,7 @@ def update_index_table_with_renormalized_index(conn, table_name):
         id = row[1]
 
         my_index_re = non_uniform_quantization(my_index)
-        update_statement = 'update %s set my_index_re = %20.7f where id = %d'%(table_name, my_index_re, id)
+        update_statement = 'UPDATE %s SET my_index_re = %20.7f WHERE id = %d'%(table_name, my_index_re, id)
         print update_statement
 
         try:
@@ -87,4 +86,7 @@ def update_index_table_with_renormalized_index(conn, table_name):
 
 ### ============================================================================================
 # main script for offline updating the existing table with renormalized index.
-update_db_with_renormlized_index()
+# This will update EVERY row of existing tables, even though the renormalized index for this row may already exist
+# because of the previous actions. This shall only be used for offline, complete-recalculation.
+if __name__ == "__main__":
+    update_db_with_renormlized_index('localhost')

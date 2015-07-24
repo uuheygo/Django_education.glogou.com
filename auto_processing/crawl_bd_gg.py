@@ -1,4 +1,6 @@
-# google blocking period is about 90 min
+# NOTE 1: google blocking period is about 90 min
+# NOTE 2: Between crawl each school, it use the following function to sleep,  sleep(random.random() * 2), 
+#         This is completely un-deterministic, may cause issues in future.  __BL_FIX_ME__
 
 
 import mechanize
@@ -14,13 +16,21 @@ from bs4 import BeautifulSoup
 import string
 import urllib2
 
+G_SLEEP_TEN_MINUTES = 600           # in seconds
+
 # input: a file contains the name of schools to be crawled
 # return: name of the file which contains the crawled results.
 #         The name file contains time stamp, in the following way: 'success_2015_06_04_09_00_03'
 # error is logged into the file: 'errors_2015_06_04_09_00_03'
-# Note:
-# This function uses mechanize to open a webpage.
-def get_bd_index_all_mechanize(file_name):
+#
+# Note 1: This function uses mechanize to open websites for Google related, 
+# Note 2: For Baidu website, it just open directly using urlopen. This is for historical reason.
+#         Baidu websites shall be able to open with mechanize as well.
+# Note 3: It uses beautifulsoap to parse html pages.
+# Note 4: This function does not support retrieving information from Yahoo Japan yet.
+#         A previous version of code had support Yahoo Japan
+# Note 5. This function does not support retrieving information from Naver
+def get_index_count(file_name):
     
     ts = time.time()
     st = datetime.datetime.fromtimestamp(ts).strftime('%Y_%m_%d_%H_%M_%S')
@@ -39,6 +49,9 @@ def get_bd_index_all_mechanize(file_name):
     count =0
     # default includes all 650 schools, need to change range for testing purposes
     for school in all_schools[0:]:
+
+        # __FIX_ME__, Between crawl each school, this sleep time is completely undeterminstic,
+        # We shall set a range for it.
         sleep(random.random() * 2)
         
         while True:
@@ -260,11 +273,13 @@ def get_bd_index_all_mechanize(file_name):
                 #print sys.exc_info()[:2]
                 #print 'count =', count, ' &&&' + '\t'.join(school) + '\n'
                 count += 1
-                #if count % 10 == 0: # sleep 10 min every 10 runs 
-                sleep(600) # sleep 10 min if failed
+                #if count % 10 == 0: # sleep 10 min every 10 runs
+
+                sleep(G_SLEEP_TEN_MINUTES)  # sleep 10 min if failed
                 f_error.write(school[0] + '\t' + school[2] + '\n')
                 f_error.flush()
                 pass
+
     f_error.close()
     f_success.close()
     return f_success.name
@@ -274,4 +289,4 @@ def get_bd_index_all_mechanize(file_name):
 #         The name file contains time stamp, in the following way: 'success_2015_06_04_09_00_03'
 # error is logged into the file: 'errors_2015_06_04_09_00_03'
 def crawl_search_counts(filename):
-    return get_bd_index_all_mechanize(filename)
+    return get_index_count(filename)
