@@ -17,7 +17,7 @@
 
      <div class="row">
         <div class="col-lg-12">
-            <h5 >How to use Asia Marketing Indicators for <b>international recruiting, alumni engagement and fundraising, Click Here</b>. Applicants and Alumni <b> Click Here</b></h5>
+            <h5 >How to use Asia Marketing Indicators for <b>international recruiting, alumni engagement and fundraising,<a href="/college_recruiting/" >Click Here</a></b>. Applicants and Alumni <b><a href="/alumni_engagement/" > Click Here</a></b></h5>
             <h1 class="page-header"><b><a href="/school_id={{school.id}}/{{school.name|lower|nospace}}/">{{school.name}}</a></b></h1>
         </div>
 
@@ -152,22 +152,22 @@
             select: function( event, ui ) {
                 event.preventDefault();
                 var exist_list = document.getElementById("compare_list").getElementsByTagName("input");
-                if(ui.item.value == "{{school.id}}") {
+                if(ui.item.label == "{{school.name}}") {
                     alert(ui.item.label + " is the school being compared with");
                     return;
                 }
                 for(var i = 0; i < exist_list.length; i++) {
-                    if(exist_list[i].value == ui.item.value && exist_list[i].checked) {
+                    if(exist_list[i].value == ui.item.label && exist_list[i].checked) {
                         alert(ui.item.label + " is already selected for comparison");
                         return;
                     }
-                    else if(exist_list[i].value == ui.item.value) {
+                    else if(exist_list[i].value == ui.item.label) {
                         exist_list[i].checked = true;
                         return;
                     }
                 }
                 $("#compare_list").append("<label> <h5><input type=\"checkbox\" name = \"ck\" value = \""
-                    + ui.item.label + "\" ck>" + ui.item.label + "</h5></label>");
+                    + ui.item.label + "\" ck checked>" + ui.item.label + "</h5></label>");
             },
             focus: function(event, ui) {
                 event.preventDefault();

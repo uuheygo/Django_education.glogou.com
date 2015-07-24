@@ -38,6 +38,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'schools',
+    'brands',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -82,7 +83,7 @@ DATABASES = {
         # The following settings are not used with sqlite3:
         'USER': 'mediaWatch',
         'PASSWORD': 'Morefruit2013',
-        'HOST': '127.0.0.1',                      # Empty for localhost through domain sockets or '127.0.0.1' for localhost through TCP.
+         'HOST': '127.0.0.1',     # Empty for localhost through domain sockets or '127.0.0.1' for localhost through TCP.
         'PORT': '',             # Set to empty string for default.
         'OPTIONS':{
                     'charset': 'utf8',
@@ -110,7 +111,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.abspath(os.path.join(BASE_DIR, '../static'))
+
+
+STATIC_ROOT = os.path.abspath(os.path.join(BASE_DIR, '../static'))    
 #STATICFILES_DIRS = (
 #                    os. path. join(BASE_DIR, 'schools' , 'static' ),
 #)

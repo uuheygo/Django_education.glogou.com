@@ -17,4 +17,8 @@ urlpatterns = [
         'schools.views.school_view', name = 'school_page'),
     url(r'^custom_selection/$', 'schools.views.custom_selection', name = 'custom_selection'), # custom selection of schools
     url(r'^contact_us/$', 'schools.views.contact_view'),
+
+    url(r'^college_recruiting/$', 'schools.views.college_recruiting_view', name='college_recruiting'),
+    url(r'^alumni_engagement/$', 'schools.views.alumni_engagement_view', name='alumni_engagement'),
+
 ]

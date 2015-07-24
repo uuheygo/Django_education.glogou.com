@@ -9,6 +9,7 @@ urlpatterns = [
 
     #url(r'^admin/', include(admin.site.urls)),
     url(r'^', include('schools.urls')),
+    url(r'^brands/', include('brands.urls')),
 
     # Add this line for robots.txt, one main reason is that, we do not want search engine to index
     # our testing server. NOTE, we will not check-in robots.txt to github, because

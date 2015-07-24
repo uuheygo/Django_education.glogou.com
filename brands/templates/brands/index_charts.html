@@ -1,0 +1,181 @@
+{% load strip_space %}
+
+    <div class="panel panel-default page-break">
+        <div class="panel-heading">
+          <div class="dropdown pull-right">
+            <button id="selected_period" class="btn btn-default dropdown-toggle" type="button" id="chart_period" data-toggle="dropdown">Select Period
+            <span class="caret"></span></button>
+            <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+              <li role="presentation"><a role="menuitem" tabindex="-1" onclick="redirectTo(30)">last 30 days</a></li>
+              <li role="presentation"><a role="menuitem" tabindex="-1" onclick="redirectTo(100)">last 100 days</a></li>
+              <li role="presentation"><a role="menuitem" tabindex="-1" onclick="redirectTo(300)">last 300 days</a></li>
+            </ul>
+          </div>
+            <h3>Media Indexes ({{index_category|upper}}) - Last {{num_days}} days</h3>
+        </div>
+        
+        <div class="panel-body">
+            <div id="composite"></div>
+        </div>
+        <div class="panel-body">
+            <div id="gg"></div>
+        </div>
+        <div class="panel-body">
+            <div id="bd"></div>
+        </div>
+<!--         <div class="panel-body"> -->
+<!--             <div id="yh"></div> -->
+<!--         </div> -->
+    </div>
+
+    <script type="text/javascript">
+        google.load('visualization', '1', {packages: ['corechart', 'line']});
+        google.setOnLoadCallback(drawBackgroundColor);
+        
+        function drawBackgroundColor() {
+              var data0 = new google.visualization.DataTable();
+              data0.addColumn('date', 'month');
+              data0.addColumn('number', 'Composite Index');
+              
+              data0.addRows([
+                {% for row in composite reversed %}
+                    [new Date("{{row.date}}"), {{row.index}}],
+                {% endfor %}
+              ]);
+        
+              var options0 = {
+                title: 'Composite Indexes',
+                //curveType: 'function',
+                hAxis: {
+                  title: 'Date',
+                  format:'M/d/y',
+                },
+                vAxis: {
+                  title: 'Index'
+                },
+                backgroundColor: '#f1f8e9',
+                height: 280,
+                pointSize: 10,
+                };
+                
+              
+              var chart0 = new google.visualization.LineChart(document.getElementById('composite'));
+              chart0.draw(data0, options0);
+              
+              var data1 = new google.visualization.DataTable();
+              data1.addColumn('date', 'month');
+              data1.addColumn('number', 'Google Index(EN)');
+              data1.addColumn('number', 'Google Index(HK)');
+              data1.addColumn('number', 'Google News');
+              data1.addColumn('number', 'Google Site');
+              
+              data1.addRows([
+                {% for row in gg reversed %}
+                    [new Date("{{row.0.date}}"), {{row.0.index}}, {{row.1.index}}, {{row.2.index}}, {{row.3.index}}],
+                {% endfor %}
+              ]);
+        
+              var options1 = {
+                title: 'Google Indexes',
+                //curveType: 'function',
+                hAxis: {
+                  title: 'Date',
+                  format:'M/d/y',
+                },
+                vAxis: {
+                  title: 'Index'
+                },
+                backgroundColor: '#f1f8e9',
+                height: 280,
+                pointSize: 10,
+                };
+                
+              
+              var chart1 = new google.visualization.LineChart(document.getElementById('gg'));
+              chart1.draw(data1, options1);
+              
+              var data2 = new google.visualization.DataTable();
+              data2.addColumn('date', 'month');
+              data2.addColumn('number', 'Baidu Index(CH)');
+              data2.addColumn('number', 'Baidu Index(EN)');
+              data2.addColumn('number', 'Baidu News(CH)');
+              data2.addColumn('number', 'Baidu News(EN)');
+              data2.addColumn('number', 'Baidu Site');
+              
+              data2.addRows([
+                {% for row in bd reversed %}
+                    [new Date("{{row.0.date}}"), {{row.0.index}}, {{row.1.index}}, 
+                        {{row.2.index}}, {{row.3.index}}, {{row.4.index}}],
+                {% endfor %}
+              ]);
+        
+              var options2 = {
+                title: 'Baidu Indexes',
+                //curveType: 'function',
+                hAxis: {
+                  title: 'Date',
+                  format:'M/d/y',
+                },
+                vAxis: {
+                  title: 'Index'
+                },
+                backgroundColor: '#f1f8e9',
+                height: 280,
+                pointSize: 10,
+                };
+                
+              var chart2 = new google.visualization.LineChart(document.getElementById('bd'));
+              chart2.draw(data2, options2);
+              
+              /*
+              var data3 = new google.visualization.DataTable();
+              data3.addColumn('date', 'month');
+              data3.addColumn('number', 'Yahoo Index(EN)');
+              data3.addColumn('number', 'Yahoo Index(JP)');
+              
+              data3.addRows([
+                {% for row in yh reversed %}
+                    [new Date("{{row.0.date}}"), {{row.0.index}}, {{row.1.index}}],
+                {% endfor %}
+              ]);
+        
+              var options3 = {
+                title: 'Yahoo Japan Indexes',
+                //curveType: 'function',
+                hAxis: {
+                  title: 'Date',
+                  format:'M/d/y',
+                },
+                vAxis: {
+                  title: 'Index'
+                },
+                backgroundColor: '#f1f8e9',
+                height: 300,
+                pointSize: 10,
+                };
+                
+              
+              var chart3 = new google.visualization.LineChart(document.getElementById('yh'));
+              chart3.draw(data3, options3);
+              */
+            }
+            
+            function redirectTo(num_days) {
+                var currURL = document.URL;
+                var arr = currURL.split('&');
+                for(var i = 0; i < arr.length; i++) {
+                    if(arr[i].indexOf("num_days") > -1) {
+                        arr[i] = "num_days=" + num_days;
+                        window.location = arr.join("&");
+                        return;
+                    }
+                }
+                window.location = currURL + "?num_days=" + num_days;
+            }
+            
+            function resize() {
+                drawBackgroundColor();
+            }
+            window.onload = resize();
+            window.onresize = resize;
+    </script>
