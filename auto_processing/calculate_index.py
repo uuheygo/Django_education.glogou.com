@@ -86,7 +86,13 @@ def process_data(filename, wf_list):
     # file to hold renormalized data, output name format will be: indexes_re_2015_07_09_09_00_02
     index_re_arr_file = 'indexes_re_' + '_'.join(filename.split('_')[1:])
 
-    with open(index_arr_file, 'w') as output_index_arr_file, open(index_re_arr_file, 'w') as output_index_re_arr_file:
+    # Note: the following line to open two files using 'with' does not work for Python 2.6.8, which is the version
+    # of Python on Linux crawler server. Python 2.6.8 only supports only one file using 'with'
+    #
+    # with open(index_arr_file, 'w') as output_index_arr_file, open(index_re_arr_file, 'w') as output_index_re_arr_file:
+    try:
+        output_index_arr_file = open(index_arr_file, 'w')
+        output_index_re_arr_file = open(index_re_arr_file, 'w')
 
         # calculate normalized index, return in two dimension array
         index_arr = calculate_normalized_index(count_arr, list_average)
@@ -99,6 +105,14 @@ def process_data(filename, wf_list):
 
         for i in range(len(index_re_arr)):
             output_index_re_arr_file.write(str(i + 1) + '\t' + '\t'.join(str(x) for x in index_re_arr[i]) + '\n')
+
+        # __FIX_ME__, The following two lines will not be needed if we upgrade python to a newer version
+        # so that we can use 'with' to open two files.
+        output_index_arr_file.close()
+        output_index_re_arr_file.close()
+
+    except:
+        print 'File creation error in process_data()'
 
     # calculate composite indexes and output to file, wf_list holds the weighted factor
     composite_index_list = calculate_composite_index(wf_list, index_arr)
