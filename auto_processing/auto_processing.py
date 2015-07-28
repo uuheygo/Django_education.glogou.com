@@ -30,13 +30,23 @@ from calculate_index import calculate_indexes
 from import_db import import_to_db
 from renormalization import update_db_with_renormlized_index
 
+print 'starting to crawl: %s'%(f_schools)
 # return a file name which contains the "raw, un-processed "crawled results.
 # the name of the file which contains the crawled results.
 # The name file contains time stamp, in the following way: 'success_2015_06_04_09_00_03'
-f_counts = crawl_search_counts(f_schools)
+# The error was log in 'error_2015_06_04_09_00_03'
+try:
+    f_counts = crawl_search_counts(f_schools)
+except:
+    print 'crawl has error for %s'%(f_schools)
+
+# Sometimes, crawling is not complete, only data has only crawled for some schools, not all schools.
+# but following step can still continue.
 
 # f_counts = 'success_2015_07_23_16_19_23'                          # __HARD_CODING_TESTING_PURPOSE__
+# f_counts = 'success_2015_07_27_23_44_39'                       # __HARD_CODING_TESTING_PURPOSE__
 
+print 'starting to calculate index: %s'%(f_counts)
 # return four file names,
 #         a file name of normalized index,
 #         a file name of composite index,
@@ -50,6 +60,8 @@ f_counts = crawl_search_counts(f_schools)
 #         the file name for renormalized index will be: indexes_re_2015_07_09_09_00_02
 #         the file name for renormlized composite index will be: composite_re_index_2015_07_09_09_00_02
 f_indexes, f_composite_indexes, f_indexes_re, f_composite_indexes_re = calculate_indexes(f_counts)
+
+print 'starting to write to database'
 
 #f_indexes = 'indexes_2015_06_04_09_00_03'
 #f_composite_indexes = 'composite_index_2015_06_04_09_00_03'
