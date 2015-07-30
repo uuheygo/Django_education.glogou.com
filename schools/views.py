@@ -300,7 +300,13 @@ def contact_view(request):
     form = ContactForm()
     return render(request, 'schools/contact_us.html', {'form': form})
     
-    
+def college_recruiting_view(request):
+   return render(request, 'schools/college_recruiting.html',{})
+
+def alumni_engagement_view(request):
+   return render(request, 'schools/alumni_engagement.html',{})
+
+
     
     
     

@@ -1,0 +1,1175 @@
+<body bgcolor="#ffffff" marginheight="0" marginwidth="0" topmargin="0">
+ <div id="gb">
+  <script>
+   window.gbar&&gbar.eli&&gbar.eli()
+  </script>
+  <div id="gbw">
+   <div id="gbz">
+    <span class="gbtcb">
+    </span>
+    <ol class="gbtc" id="gbzc">
+     <li class="gbt">
+      <a class="gbzt" href="https://plus.google.com/?gpsrc=ogpy0&amp;tab=wX" id="gb_119" onclick="gbar.logger.il(1,{t:119});">
+       <span class="gbtb2">
+       </span>
+       <span class="gbts">
+        +You
+       </span>
+      </a>
+     </li>
+     <li class="gbt">
+      <a class="gbzt gbz0l gbp1" href="https://www.google.com/webhp?tab=ww" id="gb_1" onclick="gbar.logger.il(1,{t:1});">
+       <span class="gbtb2">
+       </span>
+       <span class="gbts">
+        Search
+       </span>
+      </a>
+     </li>
+     <li class="gbt">
+      <a class="gbzt" href="http://www.google.com/search?hl=en&amp;q=University+of+California,+Davis&amp;gbv=1&amp;um=1&amp;ie=UTF-8&amp;tbm=isch&amp;source=og&amp;sa=N&amp;tab=wi" id="gb_2" onclick="gbar.qs(this);gbar.logger.il(1,{t:2});">
+       <span class="gbtb2">
+       </span>
+       <span class="gbts">
+        Images
+       </span>
+      </a>
+     </li>
+     <li class="gbt">
+      <a class="gbzt" href="http://maps.google.com/maps?hl=en&amp;q=University+of+California,+Davis&amp;gbv=1&amp;um=1&amp;ie=UTF-8&amp;sa=N&amp;tab=wl" id="gb_8" onclick="gbar.qs(this);gbar.logger.il(1,{t:8});">
+       <span class="gbtb2">
+       </span>
+       <span class="gbts">
+        Maps
+       </span>
+      </a>
+     </li>
+     <li class="gbt">
+      <a class="gbzt" href="https://play.google.com/?hl=en&amp;q=University+of+California,+Davis&amp;gbv=1&amp;um=1&amp;ie=UTF-8&amp;sa=N&amp;tab=w8" id="gb_78" onclick="gbar.qs(this);gbar.logger.il(1,{t:78});">
+       <span class="gbtb2">
+       </span>
+       <span class="gbts">
+        Play
+       </span>
+      </a>
+     </li>
+     <li class="gbt">
+      <a class="gbzt" href="http://www.youtube.com/results?hl=en&amp;q=University+of+California,+Davis&amp;gbv=1&amp;um=1&amp;ie=UTF-8&amp;sa=N&amp;tab=w1" id="gb_36" onclick="gbar.qs(this);gbar.logger.il(1,{t:36});">
+       <span class="gbtb2">
+       </span>
+       <span class="gbts">
+        YouTube
+       </span>
+      </a>
+     </li>
+     <li class="gbt">
+      <a class="gbzt" href="http://news.google.com/nwshp?hl=en&amp;tab=wn" id="gb_5" onclick="gbar.logger.il(1,{t:5});">
+       <span class="gbtb2">
+       </span>
+       <span class="gbts">
+        News
+       </span>
+      </a>
+     </li>
+     <li class="gbt">
+      <a class="gbzt" href="https://mail.google.com/mail/?tab=wm" id="gb_23" onclick="gbar.logger.il(1,{t:23});">
+       <span class="gbtb2">
+       </span>
+       <span class="gbts">
+        Gmail
+       </span>
+      </a>
+     </li>
+     <li class="gbt">
+      <a aria-haspopup="true" aria-owns="gbd" class="gbgt" href="http://www.google.com/intl/en/options/" id="gbztm" onclick="gbar.tg(event,this)">
+       <span class="gbtb2">
+       </span>
+       <span class="gbts gbtsa" id="gbztms">
+        <span id="gbztms1">
+         More
+        </span>
+        <span class="gbma">
+        </span>
+       </span>
+      </a>
+      <div aria-owner="gbztm" class="gbm" id="gbd">
+       <div class="gbmc gbsb gbsbis" id="gbmmb">
+        <ol class="gbmcc gbsbic" id="gbmm">
+         <li class="gbmtc">
+          <a class="gbmt" href="https://drive.google.com/?tab=wo" id="gb_49" onclick="gbar.logger.il(1,{t:49});">
+           Drive
+          </a>
+         </li>
+         <li class="gbmtc">
+          <a class="gbmt" href="https://www.google.com/calendar?tab=wc" id="gb_24" onclick="gbar.logger.il(1,{t:24});">
+           Calendar
+          </a>
+         </li>
+         <li class="gbmtc">
+          <a class="gbmt" href="http://translate.google.com/?hl=en&amp;q=University+of+California,+Davis&amp;gbv=1&amp;um=1&amp;ie=UTF-8&amp;sa=N&amp;tab=wT" id="gb_51" onclick="gbar.qs(this);gbar.logger.il(1,{t:51});">
+           Translate
+          </a>
+         </li>
+         <li class="gbmtc">
+          <a class="gbmt" href="http://www.google.com/mobile/?hl=en&amp;tab=wD" id="gb_17" onclick="gbar.logger.il(1,{t:17});">
+           Mobile
+          </a>
+         </li>
+         <li class="gbmtc">
+          <a class="gbmt" href="http://www.google.com/search?hl=en&amp;q=University+of+California,+Davis&amp;gbv=1&amp;um=1&amp;ie=UTF-8&amp;tbo=u&amp;tbm=bks&amp;source=og&amp;sa=N&amp;tab=wp" id="gb_10" onclick="gbar.qs(this);gbar.logger.il(1,{t:10});">
+           Books
+          </a>
+         </li>
+         <li class="gbmtc">
+          <a class="gbmt" href="https://wallet.google.com/manage/?tab=wa" id="gb_212" onclick="gbar.logger.il(1,{t:212});">
+           Wallet
+          </a>
+         </li>
+         <li class="gbmtc">
+          <a class="gbmt" href="http://www.google.com/search?hl=en&amp;q=University+of+California,+Davis&amp;gbv=1&amp;um=1&amp;ie=UTF-8&amp;tbo=u&amp;tbm=shop&amp;source=og&amp;sa=N&amp;tab=wf" id="gb_6" onclick="gbar.qs(this);gbar.logger.il(1,{t:6});">
+           Shopping
+          </a>
+         </li>
+         <li class="gbmtc">
+          <a class="gbmt" href="http://www.blogger.com/?tab=wj" id="gb_30" onclick="gbar.logger.il(1,{t:30});">
+           Blogger
+          </a>
+         </li>
+         <li class="gbmtc">
+          <a class="gbmt" href="http://www.google.com/finance?hl=en&amp;q=University+of+California,+Davis&amp;gbv=1&amp;um=1&amp;ie=UTF-8&amp;sa=N&amp;tab=we" id="gb_27" onclick="gbar.qs(this);gbar.logger.il(1,{t:27});">
+           Finance
+          </a>
+         </li>
+         <li class="gbmtc">
+          <a class="gbmt" href="https://plus.google.com/photos?hl=en&amp;q=University+of+California,+Davis&amp;gbv=1&amp;um=1&amp;ie=UTF-8&amp;sa=N&amp;tab=wq" id="gb_31" onclick="gbar.qs(this);gbar.logger.il(1,{t:31});">
+           Photos
+          </a>
+         </li>
+         <li class="gbmtc">
+          <a class="gbmt" href="http://www.google.com/search?hl=en&amp;q=University+of+California,+Davis&amp;gbv=1&amp;um=1&amp;ie=UTF-8&amp;tbo=u&amp;tbm=vid&amp;source=og&amp;sa=N&amp;tab=wv" id="gb_12" onclick="gbar.qs(this);gbar.logger.il(1,{t:12});">
+           Videos
+          </a>
+         </li>
+         <li class="gbmtc">
+          <a class="gbmt" href="https://docs.google.com/document/?usp=docs_alc" id="gb_25" onclick="gbar.logger.il(1,{t:25});">
+           Docs
+          </a>
+         </li>
+         <li class="gbmtc">
+          <div class="gbmt gbmh">
+          </div>
+         </li>
+         <li class="gbmtc">
+          <a class="gbmt" href="http://www.google.com/intl/en/options/" onclick="gbar.logger.il(1,{t:66});">
+           Even more »
+          </a>
+         </li>
+        </ol>
+        <div class="gbsbt">
+        </div>
+        <div class="gbsbb">
+        </div>
+       </div>
+      </div>
+     </li>
+    </ol>
+   </div>
+   <div id="gbg">
+    <h2 class="gbxx">
+     Account Options
+    </h2>
+    <span class="gbtcb">
+    </span>
+    <ol class="gbtc">
+     <li class="gbt">
+      <a class="gbgt" href="https://accounts.google.com/ServiceLogin?hl=en&amp;continue=http://www.google.com/search%3Fhl%3Den%26source%3Dhp%26q%3DUniversity%2Bof%2BCalifornia,%2BDavis%26btnG%3DGoogle%2BSearch%26gbv%3D1" id="gb_70" onclick="gbar.logger.il(9,{l:'i'})" target="_top">
+       <span class="gbtb2">
+       </span>
+       <span class="gbts" id="gbgs4">
+        <span id="gbi4s1">
+         Sign in
+        </span>
+       </span>
+      </a>
+     </li>
+     <li class="gbt gbtb">
+      <span class="gbts">
+      </span>
+     </li>
+     <li class="gbt">
+      <a aria-haspopup="true" aria-owns="gbd5" class="gbgt" href="http://www.google.com/preferences?hl=en" id="gbg5" onclick="gbar.tg(event,this)" title="Options">
+       <span class="gbtb2">
+       </span>
+       <span class="gbts" id="gbgs5">
+        <span id="gbi5">
+        </span>
+       </span>
+      </a>
+      <div aria-owner="gbg5" class="gbm" id="gbd5">
+       <div class="gbmc">
+        <ol class="gbmcc" id="gbom">
+         <li class="gbkc gbmtc">
+          <a class="gbmt" href="/preferences?hl=en">
+           Search settings
+          </a>
+         </li>
+         <li class="gbmtc">
+          <div class="gbmt gbmh">
+          </div>
+         </li>
+         <li class="gbkp gbmtc">
+          <a class="gbmt" href="http://www.google.com/history/optout?hl=en">
+           Web History
+          </a>
+         </li>
+        </ol>
+       </div>
+      </div>
+     </li>
+    </ol>
+   </div>
+  </div>
+  <div id="gbx3">
+  </div>
+  <div id="gbx4">
+  </div>
+  <script>
+   window.gbar&&gbar.elp&&gbar.elp()
+  </script>
+ </div>
+ <table border="0" cellpadding="0" cellspacing="0" id="mn" style="position:relative">
+  <tr>
+   <th width="132">
+   </th>
+   <th width="573">
+   </th>
+   <th width="278">
+   </th>
+   <th>
+   </th>
+  </tr>
+  <tr>
+   <td class="sfbgg" valign="top">
+    <div id="logocont">
+     <h1>
+      <a href="/webhp?hl=en" id="logo" style="background:url(/images/nav_logo176.png) no-repeat 0 -41px;height:37px;width:95px;display:block" title="Go to Google Home">
+      </a>
+     </h1>
+    </div>
+   </td>
+   <td class="sfbgg" colspan="2" style="padding-left:0px" valign="top">
+    <form action="/search" id="tsf" method="GET" name="gs" style="display:block;margin:0;background:none">
+     <table border="0" cellpadding="0" cellspacing="0" style="margin-top:20px;position:relative">
+      <tr>
+       <td>
+        <div class="lst-a">
+         <table cellpadding="0" cellspacing="0">
+          <tr>
+           <td class="lst-td" valign="bottom" width="555">
+            <div style="position:relative;zoom:1">
+             <input autocomplete="off" class="lst" id="sbhost" maxlength="2048" name="q" title="Search" type="text" value="University of California, Davis"/>
+            </div>
+           </td>
+          </tr>
+         </table>
+        </div>
+       </td>
+       <td>
+        <div class="ds">
+         <div class="lsbb">
+          <button class="lsb" name="btnG" type="submit" value="Search">
+           <span class="sbico" style="background:url(/images/nav_logo176.png) no-repeat -36px -111px;height:14px;width:13px;display:block">
+           </span>
+          </button>
+         </div>
+        </div>
+       </td>
+       <td style="font-size:11px;padding-left:13px">
+       </td>
+      </tr>
+     </table>
+     <input name="hl" type="hidden" value="en"/>
+     <input name="gbv" type="hidden" value="1"/>
+    </form>
+   </td>
+   <td class="sfbgg">
+   </td>
+  </tr>
+  <tr style="position:relative">
+   <td>
+    <div style="border-bottom:1px solid #ebebeb;height:59px">
+    </div>
+   </td>
+   <td colspan="2">
+    <div class="tn">
+     <div class="_UXb _Ihd _sxc _Hhd">
+      Web
+     </div>
+     <div class="_sxc">
+      <a class="_UXb _Jhd" href="/search?q=University+of+California,+Davis&amp;hl=en&amp;gbv=1&amp;prmd=ivnsp&amp;source=lnms&amp;tbm=isch&amp;sa=X&amp;ei=qzI1VbmFAZe0oQTxyoGIDw&amp;ved=0CAUQ_AU">
+       Images
+      </a>
+     </div>
+     <div class="_sxc">
+      <a class="_UXb _Jhd" href="/search?q=University+of+California,+Davis&amp;hl=en&amp;gbv=1&amp;prmd=ivnsp&amp;source=lnms&amp;tbm=vid&amp;sa=X&amp;ei=qzI1VbmFAZe0oQTxyoGIDw&amp;ved=0CAYQ_AU">
+       Videos
+      </a>
+     </div>
+     <div class="_sxc">
+      <a class="_UXb _Jhd" href="/search?q=University+of+California,+Davis&amp;hl=en&amp;gbv=1&amp;prmd=ivnsp&amp;source=lnms&amp;tbm=nws&amp;sa=X&amp;ei=qzI1VbmFAZe0oQTxyoGIDw&amp;ved=0CAcQ_AU">
+       News
+      </a>
+     </div>
+     <div class="_sxc">
+      <a class="_UXb _Jhd" href="/search?q=University+of+California,+Davis&amp;hl=en&amp;gbv=1&amp;prmd=ivnsp&amp;source=lnms&amp;tbm=shop&amp;sa=X&amp;ei=qzI1VbmFAZe0oQTxyoGIDw&amp;ved=0CAgQ_AU">
+       Shopping
+      </a>
+     </div>
+     <div class="_sxc">
+      <a class="_UXb _Jhd" href="http://maps.google.com/maps?hl=en&amp;q=University+of+California,+Davis&amp;gbv=1&amp;um=1&amp;ie=UTF-8&amp;sa=X&amp;ei=qzI1VbmFAZe0oQTxyoGIDw&amp;ved=0CAkQ_AU">
+       Maps
+      </a>
+     </div>
+     <div class="_sxc">
+      <a class="_UXb _Jhd" href="/search?q=University+of+California,+Davis&amp;hl=en&amp;gbv=1&amp;prmd=ivnsp&amp;source=lnms&amp;tbm=bks&amp;sa=X&amp;ei=qzI1VbmFAZe0oQTxyoGIDw&amp;ved=0CAoQ_AU">
+       Books
+      </a>
+     </div>
+    </div>
+    <div style="border-bottom:1px solid #ebebeb;height:59px">
+    </div>
+   </td>
+   <td>
+    <div style="border-bottom:1px solid #ebebeb;height:59px">
+    </div>
+   </td>
+  </tr>
+  <tbody data-jibp="h" data-jiis="uc" id="desktop-search">
+   <tr>
+    <td id="leftnav" valign="top">
+     <div>
+      <h2 class="hd">
+       Search Options
+      </h2>
+      <ul class="med" id="tbd">
+       <li>
+        <ul class="tbt">
+         <li class="tbos" id="qdr_">
+          Any time
+         </li>
+         <li class="tbou" id="qdr_h">
+          <a class="q" href="/search?q=University+of+California,+Davis&amp;hl=en&amp;gbv=1&amp;prmd=ivnsp&amp;source=lnt&amp;tbs=qdr:h&amp;sa=X&amp;ei=qzI1VbmFAZe0oQTxyoGIDw&amp;ved=0CA8QpwU">
+           Past hour
+          </a>
+         </li>
+         <li class="tbou" id="qdr_d">
+          <a class="q" href="/search?q=University+of+California,+Davis&amp;hl=en&amp;gbv=1&amp;prmd=ivnsp&amp;source=lnt&amp;tbs=qdr:d&amp;sa=X&amp;ei=qzI1VbmFAZe0oQTxyoGIDw&amp;ved=0CA8QpwU">
+           Past 24 hours
+          </a>
+         </li>
+         <li class="tbou" id="qdr_w">
+          <a class="q" href="/search?q=University+of+California,+Davis&amp;hl=en&amp;gbv=1&amp;prmd=ivnsp&amp;source=lnt&amp;tbs=qdr:w&amp;sa=X&amp;ei=qzI1VbmFAZe0oQTxyoGIDw&amp;ved=0CA8QpwU">
+           Past week
+          </a>
+         </li>
+         <li class="tbou" id="qdr_m">
+          <a class="q" href="/search?q=University+of+California,+Davis&amp;hl=en&amp;gbv=1&amp;prmd=ivnsp&amp;source=lnt&amp;tbs=qdr:m&amp;sa=X&amp;ei=qzI1VbmFAZe0oQTxyoGIDw&amp;ved=0CA8QpwU">
+           Past month
+          </a>
+         </li>
+         <li class="tbou" id="qdr_y">
+          <a class="q" href="/search?q=University+of+California,+Davis&amp;hl=en&amp;gbv=1&amp;prmd=ivnsp&amp;source=lnt&amp;tbs=qdr:y&amp;sa=X&amp;ei=qzI1VbmFAZe0oQTxyoGIDw&amp;ved=0CA8QpwU">
+           Past year
+          </a>
+         </li>
+        </ul>
+       </li>
+       <li>
+        <ul class="tbt">
+         <li class="tbos" id="rl_">
+          All results
+         </li>
+         <li class="tbou" id="li_1">
+          <a class="q" href="/search?q=University+of+California,+Davis&amp;hl=en&amp;gbv=1&amp;prmd=ivnsp&amp;source=lnt&amp;tbs=li:1&amp;sa=X&amp;ei=qzI1VbmFAZe0oQTxyoGIDw&amp;ved=0CA8QpwU">
+           Verbatim
+          </a>
+         </li>
+        </ul>
+       </li>
+      </ul>
+     </div>
+    </td>
+    <td valign="top">
+     <div id="center_col">
+      <div class="sd" id="resultStats">
+       About 17,400,000 results
+      </div>
+      <div id="res">
+       <div id="topstuff">
+       </div>
+       <div id="search">
+        <div id="ires">
+         <ol>
+          <li class="g">
+           <h3 class="r">
+            <a href="http://maps.google.com/maps?hl=en&amp;gbv=1&amp;um=1&amp;ie=UTF-8&amp;fb=1&amp;gl=us&amp;cid=17059559676938453812&amp;q=University+of+California,+Davis&amp;sa=X&amp;ei=qzI1VbmFAZe0oQTxyoGIDw&amp;ved=0CBUQtQMwAA">
+             Map for
+             <b>
+              University of California, Davis
+             </b>
+            </a>
+           </h3>
+           <div class="_m5c" style="margin:16px 0">
+            <a href="http://maps.google.com/maps?hl=en&amp;gbv=1&amp;um=1&amp;ie=UTF-8&amp;fb=1&amp;gl=us&amp;cid=17059559676938453812&amp;q=University+of+California,+Davis&amp;sa=X&amp;ei=qzI1VbmFAZe0oQTxyoGIDw&amp;ved=0CBYQtgMwAA">
+             <img height="233" src="/maps/vt/data=RfCSdfNZ0LFPrHSm0ublXdzhdrDFhtmHhN1u-gM,3CK3Xu-0nr6-iTTen3x-ou6FzYRJek0Djx_8kyFiQVJ_wcbOAwgBtrBrZtUXvhu8w_11Jt9nzCd9oo_qkvJ7ltapZ2LX6yN4hjn3X1YUsyBNbAdPY02UR7G9N35OJZe9vBpS" style="border:0;padding:1px" width="550"/>
+            </a>
+           </div>
+           <h3 class="r">
+            <a href="/url?q=http://ucdavis.edu/&amp;sa=U&amp;ei=qzI1VbmFAZe0oQTxyoGIDw&amp;ved=0CBgQFjAA&amp;usg=AFQjCNGeZFH7j8bEW6FKT5982u7yJfU31Q">
+             Welcome to the
+             <b>
+              University of California
+             </b>
+             ,
+             <b>
+              Davis
+             </b>
+             |
+             <b>
+              UC Davis
+             </b>
+            </a>
+           </h3>
+           <div class="s">
+            <div class="kv" style="margin-bottom:2px">
+             <cite>
+              <b>
+               ucdavis
+              </b>
+              .edu/
+             </cite>
+             <span class="_cD">
+              -
+              <a href="/url?q=http://webcache.googleusercontent.com/search%3Fhl%3Den%26q%3Dcache:za5ypAZZ7UUJ:http://ucdavis.edu/%252BUniversity%2Bof%2BCalifornia,%2BDavis%26gbv%3D1%26%26ct%3Dclnk&amp;sa=U&amp;ei=qzI1VbmFAZe0oQTxyoGIDw&amp;ved=0CBkQIDAA&amp;usg=AFQjCNHDYN7tONbJenuNnfzupt0WqkaBIQ">
+               Cached
+              </a>
+             </span>
+            </div>
+            <span class="st">
+             <b>
+              UC Davis
+             </b>
+             is one of the world's leading cross-disciplinary research and teaching
+             <br/>
+             institutions, located in Davis, California. Check out our latest videos and news.
+            </span>
+            <br/>
+            <div style="margin-top:13px">
+             <table width="100%">
+              <tr>
+               <td style="padding-right:4px;padding-top:1px" valign="top" width="24">
+                <img src="/mapfiles/marker-noalpha.png"/>
+               </td>
+               <td valign="top" width="485">
+                <span style="vertical-align:top">
+                 1 Shields Ave, Davis, CA 95616
+                 <br style="display:block"/>
+                 <span class="nobr">
+                  (530) 752-1011
+                 </span>
+                </span>
+                <div>
+                 <a class="fl" href="/url?q=http://www.judysbook.com/members/101311/posts/2009/2/561235/&amp;sa=U&amp;ei=qzI1VbmFAZe0oQTxyoGIDw&amp;ved=0CB0Q4wkoADAA&amp;usg=AFQjCNFdIWmymGMbsZREbW11qDBT7PTa5A">
+                  judysbook.com
+                 </a>
+                 - ‎
+                 <a class="fl" href="/url?q=http://www.cappex.com/colleges/University-of-California-Davis/tuition-and-costs&amp;sa=U&amp;ei=qzI1VbmFAZe0oQTxyoGIDw&amp;ved=0CB4Q4wkoATAA&amp;usg=AFQjCNESdr8qEFQwE5C_sqrU_ca-kD9niQ">
+                  cappex.com
+                 </a>
+                 - ‎
+                 <a class="fl" href="/url?q=http://www.locazu.com/university-california-davis/s1123&amp;sa=U&amp;ei=qzI1VbmFAZe0oQTxyoGIDw&amp;ved=0CB8Q4wkoAjAA&amp;usg=AFQjCNFenR1Y_SeaWCdZj2I1UYZxo6jauw">
+                  locazu.com
+                 </a>
+                 - ‎
+                 <a class="fl" href="/url?q=http://gocitykids.parentsconnect.com/attraction/uc-davis-one-shields-avenue-davis-ca-95616-us&amp;sa=U&amp;ei=qzI1VbmFAZe0oQTxyoGIDw&amp;ved=0CCAQ4wkoAzAA&amp;usg=AFQjCNGr5e-bFqLtDaawxl9TvRnbjtdI7Q">
+                  parentsconnect.com
+                 </a>
+                </div>
+               </td>
+               <td style="padding-top:2px;padding-left:9px" valign="top">
+                <div style="float:right">
+                 <div class="star" style="float:none">
+                  <div style="width:46px">
+                  </div>
+                 </div>
+                </div>
+                <div style="clear:both">
+                 <a class="fl nobr" href="/url?q=https://plus.google.com/102104060159207028227/about%3Fhl%3Den%26socfid%3Dweb:lu:unknown:localdetails%26socpid%3D1&amp;sa=U&amp;ei=qzI1VbmFAZe0oQTxyoGIDw&amp;ved=0CCEQ4gkwAA&amp;usg=AFQjCNFMaVYbxZK1q2lkVLWtmM5nHvTqZQ">
+                  138 reviews
+                 </a>
+                </div>
+               </td>
+              </tr>
+             </table>
+            </div>
+           </div>
+           <table cellpadding="0" cellspacing="0" class="slk" style="border-collapse:collapse;margin-top:1px">
+            <tr class="mslg">
+             <td style="padding-left:23px;vertical-align:top">
+              <div class="sld">
+               <h3 class="r">
+                <a class="sla" href="/url?q=http://ucdavis.edu/admissions/&amp;sa=U&amp;ei=qzI1VbmFAZe0oQTxyoGIDw&amp;ved=0CCQQjBAwAQ&amp;usg=AFQjCNHpzi4z8DDS4xfDAH-hXpcBSR4OEA">
+                 Admissions
+                </a>
+               </h3>
+               <div class="s st" style="width:220px;overflow:hidden">
+                The “Admissions” page is geared toward undergraduate, ...
+               </div>
+              </div>
+             </td>
+             <td style="padding-left:7px;vertical-align:top">
+              <div class="sld">
+               <h3 class="r">
+                <a class="sla" href="/url?q=https://gradstudies.ucdavis.edu/&amp;sa=U&amp;ei=qzI1VbmFAZe0oQTxyoGIDw&amp;ved=0CCYQjBAwBA&amp;usg=AFQjCNHPLpmam9l71H39UZS5TlEod2n17g">
+                 Graduate Studies
+                </a>
+               </h3>
+               <div class="s st" style="width:220px;overflow:hidden">
+                Graduate Programs - Admissions &amp; Application - Apply Online -
+                <b>
+                 ...
+                </b>
+               </div>
+              </div>
+             </td>
+            </tr>
+            <tr class="mslg">
+             <td style="padding-left:23px;vertical-align:top">
+              <div class="sld">
+               <h3 class="r">
+                <a class="sla" href="/url?q=http://admissions.ucdavis.edu/&amp;sa=U&amp;ei=qzI1VbmFAZe0oQTxyoGIDw&amp;ved=0CCgQjBAwAg&amp;usg=AFQjCNES0j8vaULznJvX08uCJ3VCwNgZkQ">
+                 Undergraduate Admissions
+                </a>
+               </h3>
+               <div class="s st" style="width:220px;overflow:hidden">
+                Admission Requirements - Majors - Contact Directory - How to Apply
+               </div>
+              </div>
+             </td>
+             <td style="padding-left:7px;vertical-align:top">
+              <div class="sld">
+               <h3 class="r">
+                <a class="sla" href="/url?q=http://ucdavis.edu/academics/&amp;sa=U&amp;ei=qzI1VbmFAZe0oQTxyoGIDw&amp;ved=0CCoQjBAwBQ&amp;usg=AFQjCNFvhDaCfppGcrVFLzD4p-8DEiTrgw">
+                 Academics
+                </a>
+               </h3>
+               <div class="s st" style="width:220px;overflow:hidden">
+                Academics at UC Davis challenge, stimulate and inspire.
+               </div>
+              </div>
+             </td>
+            </tr>
+            <tr class="mslg">
+             <td style="padding-left:23px;vertical-align:top">
+              <div class="sld">
+               <h3 class="r">
+                <a class="sla" href="/url?q=http://www.vetmed.ucdavis.edu/&amp;sa=U&amp;ei=qzI1VbmFAZe0oQTxyoGIDw&amp;ved=0CCwQjBAwAw&amp;usg=AFQjCNEeDS3ZwkFRL-OeMSmUAAZhpt1QeQ">
+                 School of Veterinary Medicine
+                </a>
+               </h3>
+               <div class="s st" style="width:220px;overflow:hidden">
+                DVM Program - Students - Contact Information - Faculty - Research
+               </div>
+              </div>
+             </td>
+             <td style="padding-left:7px;vertical-align:top">
+              <div class="sld">
+               <h3 class="r">
+                <a class="sla" href="/url?q=http://www.ucdmc.ucdavis.edu/&amp;sa=U&amp;ei=qzI1VbmFAZe0oQTxyoGIDw&amp;ved=0CC4QjBAwBg&amp;usg=AFQjCNHIueVryQHRDT_l-XGjfSf2diFBCw">
+                 UC Davis Health System
+                </a>
+               </h3>
+               <div class="s st" style="width:220px;overflow:hidden">
+                UC Davis Health System is charged with discovering and ...
+               </div>
+              </div>
+             </td>
+            </tr>
+           </table>
+          </li>
+          <li class="g">
+           <h3 class="r">
+            <a href="/url?q=http://en.wikipedia.org/wiki/University_of_California,_Davis&amp;sa=U&amp;ei=qzI1VbmFAZe0oQTxyoGIDw&amp;ved=0CDAQFjAH&amp;usg=AFQjCNFzXwHcWvzwJGKUfRIM5227iGw5GQ">
+             <b>
+              University of California
+             </b>
+             ,
+             <b>
+              Davis
+             </b>
+             - Wikipedia, the free encyclopedia
+            </a>
+           </h3>
+           <div class="s">
+            <div class="kv" style="margin-bottom:2px">
+             <cite>
+              en.wikipedia.org/wiki/
+              <b>
+               University_of_California
+              </b>
+              ,_
+              <b>
+               Davis
+              </b>
+             </cite>
+             <span class="_cD">
+              -
+              <a href="/url?q=http://webcache.googleusercontent.com/search%3Fhl%3Den%26q%3Dcache:Bw-OlYJAoz8J:http://en.wikipedia.org/wiki/University_of_California,_Davis%252BUniversity%2Bof%2BCalifornia,%2BDavis%26gbv%3D1%26%26ct%3Dclnk&amp;sa=U&amp;ei=qzI1VbmFAZe0oQTxyoGIDw&amp;ved=0CDEQIDAH&amp;usg=AFQjCNEE9v7yDhLihDy2pGGaaYsWE4bOYA">
+               Cached
+              </a>
+              -
+              <a href="/search?hl=en&amp;gbv=1&amp;q=related:en.wikipedia.org/wiki/University_of_California,_Davis+University+of+California,+Davis&amp;tbo=1&amp;sa=X&amp;ei=qzI1VbmFAZe0oQTxyoGIDw&amp;ved=0CDIQHzAH">
+               Similar
+              </a>
+             </span>
+            </div>
+            <span class="st">
+             The
+             <b>
+              University of California
+             </b>
+             ,
+             <b>
+              Davis
+             </b>
+             (also referred to as UCD,
+             <b>
+              UC Davis
+             </b>
+             , or Davis),
+             <br/>
+             is a public research university located in Davis, California, just west of ...
+            </span>
+            <br/>
+           </div>
+          </li>
+          <li class="g">
+           <h3 class="r">
+            <a href="/url?q=http://colleges.usnews.rankingsandreviews.com/best-colleges/uc-davis-1313&amp;sa=U&amp;ei=qzI1VbmFAZe0oQTxyoGIDw&amp;ved=0CDQQFjAI&amp;usg=AFQjCNGr3ZzMy0EreOPNG3VdFU9GBaD6Cw">
+             <b>
+              University of California
+             </b>
+             --
+             <b>
+              Davis
+             </b>
+             |
+             <b>
+              UC Davis
+             </b>
+             | Best College | US News
+            </a>
+           </h3>
+           <div class="s">
+            <div class="kv" style="margin-bottom:2px">
+             <cite>
+              colleges.usnews.rankingsandreviews.com/best.../
+              <b>
+               uc
+              </b>
+              -
+              <b>
+               davis
+              </b>
+              -1313
+             </cite>
+             <span class="_cD">
+              -
+              <a href="/url?q=http://webcache.googleusercontent.com/search%3Fhl%3Den%26q%3Dcache:_C0alO-F9dUJ:http://colleges.usnews.rankingsandreviews.com/best-colleges/uc-davis-1313%252BUniversity%2Bof%2BCalifornia,%2BDavis%26gbv%3D1%26%26ct%3Dclnk&amp;sa=U&amp;ei=qzI1VbmFAZe0oQTxyoGIDw&amp;ved=0CDUQIDAI&amp;usg=AFQjCNEHo8AooHdn87Ea-ptp1ZsFSOn2lA">
+               Cached
+              </a>
+             </span>
+            </div>
+            <span class="st">
+             Is
+             <b>
+              UC Davis
+             </b>
+             the best college for you? Find out at US News. See if
+             <b>
+              UC Davis
+             </b>
+             is
+             <br/>
+             ranked and get info on admission, tuition, student life, and more.
+            </span>
+            <br/>
+           </div>
+          </li>
+          <li class="g">
+           <div>
+            <h3 class="r">
+             <a href="/search?q=University+of+California,+Davis&amp;sa=G&amp;hl=en&amp;gbv=1&amp;prmd=ivnsp&amp;source=univ&amp;tbm=nws&amp;tbo=u&amp;ei=qzI1VbmFAZe0oQTxyoGIDw&amp;ved=0CDcQqAI">
+              News for
+              <b>
+               University of California, Davis
+              </b>
+             </a>
+            </h3>
+            <table class="ts">
+             <tr>
+              <td style="font-size:78%;line-height:normal;padding:7px 8px 0 0;text-align:center" valign="top">
+               <a href="/url?q=http://www.sacbee.com/community/yolo/article18858276.html&amp;sa=U&amp;ei=qzI1VbmFAZe0oQTxyoGIDw&amp;ved=0CDgQpwI&amp;usg=AFQjCNHq4IwLSyOgL0fcTjX9LAMvEegtag">
+                <img border="1" class="th" height="100" src="http://t2.gstatic.com/images?q=tbn:ANd9GcRARj-gflSHc61QGLSlLabJPS6qFe7UOHVep-7EyaoiciZEIe1WRgfORAwYbyG_vPTp4w" width="100"/>
+                <br/>
+               </a>
+               <span class="_pJb _yhd">
+                Sacramento Bee
+               </span>
+              </td>
+              <td valign="top">
+               <div style="margin-top:5px">
+                <a href="/url?q=http://www.sacbee.com/community/yolo/article18858276.html&amp;sa=U&amp;ei=qzI1VbmFAZe0oQTxyoGIDw&amp;ved=0CDoQqQIwCQ&amp;usg=AFQjCNHq4IwLSyOgL0fcTjX9LAMvEegtag">
+                 The two faces of
+                 <b>
+                  UC Davis
+                 </b>
+                 ' annual Picnic Day
+                </a>
+                <div style="padding-top:2px">
+                 <cite>
+                  Sacramento Bee
+                 </cite>
+                 <span class="f">
+                  -
+                  <span class="nobr">
+                   2 days ago
+                  </span>
+                  <span class="nobr">
+                  </span>
+                 </span>
+                </div>
+                <div class="j" style="margin-top:1px;margin-bottom:4px">
+                 <span class="st">
+                  <b>
+                   UC Davis
+                  </b>
+                  bills its annual Picnic Day celebration as an open house. It dresses its
+                  <br/>
+                  sprawling green campus in ribbons and balloons, lays out a ...
+                 </span>
+                </div>
+               </div>
+               <div style="margin-top:4px">
+                <a href="/url?q=http://news.ucdavis.edu/search/news_detail.lasso%3Fid%3D11158&amp;sa=U&amp;ei=qzI1VbmFAZe0oQTxyoGIDw&amp;ved=0CDwQqQIwCg&amp;usg=AFQjCNGZHV7EMYjPoL14el_xRSoqDlVbkg">
+                 Colorblind bilingual programs can perpetuate bias, study finds
+                </a>
+                <div style="padding-top:2px">
+                 <cite>
+                  UC Davis
+                 </cite>
+                 <span class="f">
+                  -
+                  <span class="nobr">
+                   55 mins ago
+                  </span>
+                  <span class="nobr">
+                  </span>
+                 </span>
+                </div>
+               </div>
+               <div style="margin-top:4px">
+                <a href="/url?q=http://news.yahoo.com/roadkill-map-finds-california-ring-death-131619703.html&amp;sa=U&amp;ei=qzI1VbmFAZe0oQTxyoGIDw&amp;ved=0CD4QqQIwCw&amp;usg=AFQjCNGsyMbycL0Ojf1TIBP5QDwjOOzXKA">
+                 New Roadkill Map Finds
+                 <b>
+                  California
+                 </b>
+                 'Ring of Death'
+                </a>
+                <div style="padding-top:2px">
+                 <cite>
+                  Yahoo News
+                 </cite>
+                 <span class="f">
+                  -
+                  <span class="nobr">
+                   4 hours ago
+                  </span>
+                  <span class="nobr">
+                  </span>
+                 </span>
+                </div>
+               </div>
+              </td>
+             </tr>
+            </table>
+           </div>
+          </li>
+          <li class="g">
+           <h3 class="r">
+            <a href="/url?q=http://www.ucdavisaggies.com/&amp;sa=U&amp;ei=qzI1VbmFAZe0oQTxyoGIDw&amp;ved=0CEAQFjAM&amp;usg=AFQjCNHW9Diq06tXqC7TzTA8Ez5KSdxttg">
+             <b>
+              UC Davis
+             </b>
+             Official Athletic Site -
+             <b>
+              UC Davis
+             </b>
+            </a>
+           </h3>
+           <div class="s">
+            <div class="kv" style="margin-bottom:2px">
+             <cite>
+              www.
+              <b>
+               ucdavis
+              </b>
+              aggies.com/
+             </cite>
+             <span class="_cD">
+              -
+              <a href="/url?q=http://webcache.googleusercontent.com/search%3Fhl%3Den%26q%3Dcache:cmDW1mtc8ycJ:http://www.ucdavisaggies.com/%252BUniversity%2Bof%2BCalifornia,%2BDavis%26gbv%3D1%26%26ct%3Dclnk&amp;sa=U&amp;ei=qzI1VbmFAZe0oQTxyoGIDw&amp;ved=0CEEQIDAM&amp;usg=AFQjCNEIIbAw6sdcYM2_P-br-3xCdiaGGA">
+               Cached
+              </a>
+              -
+              <a href="/search?hl=en&amp;gbv=1&amp;q=related:www.ucdavisaggies.com/+University+of+California,+Davis&amp;tbo=1&amp;sa=X&amp;ei=qzI1VbmFAZe0oQTxyoGIDw&amp;ved=0CEIQHzAM">
+               Similar
+              </a>
+             </span>
+            </div>
+            <span class="st">
+             Nathan Strum's third-place finish in the 800-meter run led three Aggies in the top
+             <br/>
+             16 as the
+             <b>
+              UC Davis
+             </b>
+             men's and women's track and field teams finished their stay ...
+            </span>
+            <br/>
+           </div>
+          </li>
+          <li class="g">
+           <h3 class="r">
+            <a href="/url?q=http://admission.universityofcalifornia.edu/campuses/davis/&amp;sa=U&amp;ei=qzI1VbmFAZe0oQTxyoGIDw&amp;ved=0CEQQFjAN&amp;usg=AFQjCNFzxc2_IY0fOGbLNKiV_NB4amXhbQ">
+             <b>
+              Davis
+             </b>
+             |
+             <b>
+              UC
+             </b>
+             Admissions -
+             <b>
+              University of California
+             </b>
+             - Admissions
+            </a>
+           </h3>
+           <div class="s">
+            <div class="kv" style="margin-bottom:2px">
+             <cite>
+              admission.
+              <b>
+               universityofcalifornia
+              </b>
+              .edu/campuses/
+              <b>
+               davis
+              </b>
+              /
+             </cite>
+             <span class="_cD">
+              -
+              <a href="/url?q=http://webcache.googleusercontent.com/search%3Fhl%3Den%26q%3Dcache:7WQNf0CFEf0J:http://admission.universityofcalifornia.edu/campuses/davis/%252BUniversity%2Bof%2BCalifornia,%2BDavis%26gbv%3D1%26%26ct%3Dclnk&amp;sa=U&amp;ei=qzI1VbmFAZe0oQTxyoGIDw&amp;ved=0CEUQIDAN&amp;usg=AFQjCNG0W13f3Xgg5mNDVezr7TfL9YcCsA">
+               Cached
+              </a>
+             </span>
+            </div>
+            <span class="st">
+             One of the top public research universities in the world,
+             <b>
+              UC Davis
+             </b>
+             offers top-
+             <br/>
+             ranked academics, global leadership, unparalleled research opportunities, and
+             <br/>
+             an ...
+            </span>
+            <br/>
+           </div>
+          </li>
+          <li class="g">
+           <h3 class="r">
+            <a href="/images?hl=en&amp;q=University+of+California,+Davis&amp;gbv=1&amp;sa=X&amp;oi=image_result_group&amp;ei=qzI1VbmFAZe0oQTxyoGIDw&amp;ved=0CEcQsAQ">
+             Images for
+             <b>
+              University of California, Davis
+             </b>
+            </a>
+           </h3>
+           <br/>
+           <div>
+            <a href="/url?q=https://gradstudies.ucdavis.edu/&amp;sa=U&amp;ei=qzI1VbmFAZe0oQTxyoGIDw&amp;ved=0CEkQ9QEwDg&amp;usg=AFQjCNHPLpmam9l71H39UZS5TlEod2n17g">
+             <img align="middle" alt="" border="0" height="31" src="http://t2.gstatic.com/images?q=tbn:ANd9GcTlZ7SnqYzR_YUtHucZhSmaKD-q54XYvkbIAqlcY2Zr7ES3UkH55khOy3w" style="margin:3px 0;margin-right:6px;padding:0" width="122"/>
+            </a>
+            <a href="/url?q=http://en.wikipedia.org/wiki/University_of_California,_Davis&amp;sa=U&amp;ei=qzI1VbmFAZe0oQTxyoGIDw&amp;ved=0CEsQ9QEwDw&amp;usg=AFQjCNFzXwHcWvzwJGKUfRIM5227iGw5GQ">
+             <img align="middle" alt="" border="0" height="90" src="http://t1.gstatic.com/images?q=tbn:ANd9GcRgpBdhOuaqF5HjdiNrhvUET_EIm2h46rDbjRcbrXe3n30lxEtGSYVSOKQ" style="margin:3px 0;margin-right:6px;padding:0" width="86"/>
+            </a>
+            <a href="/url?q=http://en.wikipedia.org/wiki/University_of_California,_Davis&amp;sa=U&amp;ei=qzI1VbmFAZe0oQTxyoGIDw&amp;ved=0CE0Q9QEwEA&amp;usg=AFQjCNFzXwHcWvzwJGKUfRIM5227iGw5GQ">
+             <img align="middle" alt="" border="0" height="90" src="http://t0.gstatic.com/images?q=tbn:ANd9GcSTPyFEjlwaUci0dyqvHKJPBVQw6WprT9YaRncyX4OQaq0HWCqfwfa2SA" style="margin:3px 0;margin-right:6px;padding:0" width="120"/>
+            </a>
+            <a href="/url?q=http://colleges.startclass.com/l/271/University-of-California-Davis&amp;sa=U&amp;ei=qzI1VbmFAZe0oQTxyoGIDw&amp;ved=0CE8Q9QEwEQ&amp;usg=AFQjCNEevhz1Btw0IiUdgM89k5HXKxFhLw">
+             <img align="middle" alt="" border="0" height="90" src="http://t2.gstatic.com/images?q=tbn:ANd9GcSwjqTov9OUXvyMLbmvimS3THjrIM_ubDbmT1n820iP4MdOp8KWEFpw3Q" style="margin:3px 0;margin-right:6px;padding:0" width="87"/>
+            </a>
+            <a href="/url?q=https://www.thefire.org/free-speech-in-two-year-deep-freeze-at-uc-davis-med-school/&amp;sa=U&amp;ei=qzI1VbmFAZe0oQTxyoGIDw&amp;ved=0CFEQ9QEwEg&amp;usg=AFQjCNErBFGqfGpN5uwRtSWvgkUo5mrj_A">
+             <img align="middle" alt="" border="0" height="90" src="http://t0.gstatic.com/images?q=tbn:ANd9GcT85esGk62sTl3vV4QWHjtIGkzlFLzVSzytUNZNy6A8QGgmQyXm6pj12jM" style="margin:3px 0;margin-right:6px;padding:0" width="87"/>
+            </a>
+           </div>
+          </li>
+         </ol>
+        </div>
+       </div>
+      </div>
+      <div style="clear:both;margin-bottom:17px;overflow:hidden">
+       <div style="font-size:16px;padding:0 8px 1px">
+        Searches related to
+        <b>
+         University of California, Davis
+        </b>
+       </div>
+       <table border="0" cellpadding="0" cellspacing="0">
+        <tr>
+         <td valign="top">
+          <p class="_Bmc" style="margin:3px 8px">
+           <a href="/search?hl=en&amp;gbv=1&amp;q=university+of+california,+irvine&amp;revid=966141393&amp;sa=X&amp;ei=qzI1VbmFAZe0oQTxyoGIDw&amp;ved=0CFQQ1QIoAA">
+            university of california,
+            <b>
+             irvine
+            </b>
+           </a>
+          </p>
+         </td>
+         <td style="padding-left:10px" valign="top">
+          <p class="_Bmc" style="margin:3px 8px">
+           <a href="/search?hl=en&amp;gbv=1&amp;q=rice+university&amp;revid=966141393&amp;sa=X&amp;ei=qzI1VbmFAZe0oQTxyoGIDw&amp;ved=0CFUQ1QIoAQ">
+            <b>
+             rice
+            </b>
+            university
+           </a>
+          </p>
+         </td>
+        </tr>
+        <tr>
+         <td valign="top">
+          <p class="_Bmc" style="margin:3px 8px">
+           <a href="/search?hl=en&amp;gbv=1&amp;q=stanford+university&amp;revid=966141393&amp;sa=X&amp;ei=qzI1VbmFAZe0oQTxyoGIDw&amp;ved=0CFYQ1QIoAg">
+            <b>
+             stanford
+            </b>
+            university
+           </a>
+          </p>
+         </td>
+         <td style="padding-left:10px" valign="top">
+          <p class="_Bmc" style="margin:3px 8px">
+           <a href="/search?hl=en&amp;gbv=1&amp;q=uc+davis&amp;revid=966141393&amp;sa=X&amp;ei=qzI1VbmFAZe0oQTxyoGIDw&amp;ved=0CFcQ1QIoAw">
+            <b>
+             uc
+            </b>
+            davis
+           </a>
+          </p>
+         </td>
+        </tr>
+        <tr>
+         <td valign="top">
+          <p class="_Bmc" style="margin:3px 8px">
+           <a href="/search?hl=en&amp;gbv=1&amp;q=cornell+university&amp;revid=966141393&amp;sa=X&amp;ei=qzI1VbmFAZe0oQTxyoGIDw&amp;ved=0CFgQ1QIoBA">
+            <b>
+             cornell
+            </b>
+            university
+           </a>
+          </p>
+         </td>
+         <td style="padding-left:10px" valign="top">
+          <p class="_Bmc" style="margin:3px 8px">
+           <a href="/search?hl=en&amp;gbv=1&amp;q=university+of+california+davis+medical+center&amp;revid=966141393&amp;sa=X&amp;ei=qzI1VbmFAZe0oQTxyoGIDw&amp;ved=0CFkQ1QIoBQ">
+            university of
+            <b>
+             california
+            </b>
+            davis
+            <b>
+             medical center
+            </b>
+           </a>
+          </p>
+         </td>
+        </tr>
+        <tr>
+         <td valign="top">
+          <p class="_Bmc" style="margin:3px 8px">
+           <a href="/search?hl=en&amp;gbv=1&amp;q=purdue+university&amp;revid=966141393&amp;sa=X&amp;ei=qzI1VbmFAZe0oQTxyoGIDw&amp;ved=0CFoQ1QIoBg">
+            <b>
+             purdue
+            </b>
+            university
+           </a>
+          </p>
+         </td>
+         <td style="padding-left:10px" valign="top">
+          <p class="_Bmc" style="margin:3px 8px">
+           <a href="/search?hl=en&amp;gbv=1&amp;q=university+of+california+davis+tuition&amp;revid=966141393&amp;sa=X&amp;ei=qzI1VbmFAZe0oQTxyoGIDw&amp;ved=0CFsQ1QIoBw">
+            university of
+            <b>
+             california
+            </b>
+            davis
+            <b>
+             tuition
+            </b>
+           </a>
+          </p>
+         </td>
+        </tr>
+       </table>
+      </div>
+     </div>
+     <div id="foot">
+      <table align="center" border="0" cellpadding="0" cellspacing="0" id="nav">
+       <tr valign="top">
+        <td align="left" class="b">
+         <span class="csb" style="background-position:-24px 0;width:28px">
+         </span>
+         <b>
+         </b>
+        </td>
+        <td>
+         <span class="csb" style="background-position:-53px 0;width:20px">
+         </span>
+         <b>
+          1
+         </b>
+        </td>
+        <td>
+         <a class="fl" href="/search?q=University+of+California,+Davis&amp;hl=en&amp;gbv=1&amp;prmd=ivnsp&amp;ei=qzI1VbmFAZe0oQTxyoGIDw&amp;start=10&amp;sa=N">
+          <span class="csb" style="background-position:-74px 0;width:20px">
+          </span>
+          2
+         </a>
+        </td>
+        <td>
+         <a class="fl" href="/search?q=University+of+California,+Davis&amp;hl=en&amp;gbv=1&amp;prmd=ivnsp&amp;ei=qzI1VbmFAZe0oQTxyoGIDw&amp;start=20&amp;sa=N">
+          <span class="csb" style="background-position:-74px 0;width:20px">
+          </span>
+          3
+         </a>
+        </td>
+        <td>
+         <a class="fl" href="/search?q=University+of+California,+Davis&amp;hl=en&amp;gbv=1&amp;prmd=ivnsp&amp;ei=qzI1VbmFAZe0oQTxyoGIDw&amp;start=30&amp;sa=N">
+          <span class="csb" style="background-position:-74px 0;width:20px">
+          </span>
+          4
+         </a>
+        </td>
+        <td>
+         <a class="fl" href="/search?q=University+of+California,+Davis&amp;hl=en&amp;gbv=1&amp;prmd=ivnsp&amp;ei=qzI1VbmFAZe0oQTxyoGIDw&amp;start=40&amp;sa=N">
+          <span class="csb" style="background-position:-74px 0;width:20px">
+          </span>
+          5
+         </a>
+        </td>
+        <td>
+         <a class="fl" href="/search?q=University+of+California,+Davis&amp;hl=en&amp;gbv=1&amp;prmd=ivnsp&amp;ei=qzI1VbmFAZe0oQTxyoGIDw&amp;start=50&amp;sa=N">
+          <span class="csb" style="background-position:-74px 0;width:20px">
+          </span>
+          6
+         </a>
+        </td>
+        <td>
+         <a class="fl" href="/search?q=University+of+California,+Davis&amp;hl=en&amp;gbv=1&amp;prmd=ivnsp&amp;ei=qzI1VbmFAZe0oQTxyoGIDw&amp;start=60&amp;sa=N">
+          <span class="csb" style="background-position:-74px 0;width:20px">
+          </span>
+          7
+         </a>
+        </td>
+        <td>
+         <a class="fl" href="/search?q=University+of+California,+Davis&amp;hl=en&amp;gbv=1&amp;prmd=ivnsp&amp;ei=qzI1VbmFAZe0oQTxyoGIDw&amp;start=70&amp;sa=N">
+          <span class="csb" style="background-position:-74px 0;width:20px">
+          </span>
+          8
+         </a>
+        </td>
+        <td>
+         <a class="fl" href="/search?q=University+of+California,+Davis&amp;hl=en&amp;gbv=1&amp;prmd=ivnsp&amp;ei=qzI1VbmFAZe0oQTxyoGIDw&amp;start=80&amp;sa=N">
+          <span class="csb" style="background-position:-74px 0;width:20px">
+          </span>
+          9
+         </a>
+        </td>
+        <td>
+         <a class="fl" href="/search?q=University+of+California,+Davis&amp;hl=en&amp;gbv=1&amp;prmd=ivnsp&amp;ei=qzI1VbmFAZe0oQTxyoGIDw&amp;start=90&amp;sa=N">
+          <span class="csb" style="background-position:-74px 0;width:20px">
+          </span>
+          10
+         </a>
+        </td>
+        <td class="b" style="text-align:left">
+         <a href="/search?q=University+of+California,+Davis&amp;hl=en&amp;gbv=1&amp;prmd=ivnsp&amp;ei=qzI1VbmFAZe0oQTxyoGIDw&amp;start=10&amp;sa=N" style="text-align:left">
+          <span class="csb" style="background-position:-96px 0;width:71px">
+          </span>
+          <span style="display:block;margin-left:53px">
+           Next
+          </span>
+         </a>
+        </td>
+       </tr>
+      </table>
+      <p class="_cD" id="bfl" style="margin:19px 0 0;text-align:center">
+       <a href="/advanced_search?q=University+of+California,+Davis&amp;hl=en&amp;gbv=1&amp;prmd=ivnsp">
+        Advanced search
+       </a>
+       <a href="/support/websearch/bin/answer.py?answer=134479&amp;hl=en">
+        Search Help
+       </a>
+       <a href="/tools/feedback/survey/html?productId=196&amp;query=University+of+California,+Davis&amp;hl=en">
+        Send feedback
+       </a>
+      </p>
+      <div class="_cD" id="fll" style="margin:19px auto 19px auto;text-align:center">
+       <a href="/">
+        Google Home
+       </a>
+       <a href="/intl/en/ads">
+        Advertising Programs
+       </a>
+       <a href="/services">
+        Business Solutions
+       </a>
+       <a href="/intl/en/policies/privacy/">
+        Privacy
+       </a>
+       <a href="/intl/en/policies/terms/">
+        Terms
+       </a>
+       <a href="/intl/en/about.html">
+        About Google
+       </a>
+      </div>
+     </div>
+    </td>
+    <td valign="top">
+    </td>
+   </tr>
+  </tbody>
+ </table>
+ <script src="/xjs/_/js/k=xjs.hp.en_US._McMKg_wp8s.O/m=d/rt=j/d=1/t=zcms/rs=ACT90oEFVRgvdkDwAX1sqN6MyeMZ1yw5xQ">
+ </script>
+ <script type="text/javascript">
+  google.ac&&google.ac.c({"agen":true,"cgen":true,"client":"heirloom-serp","dh":true,"ds":"","exp":"msedr","fl":true,"host":"google.com","jam":0,"jsonp":true,"msgs":{"cibl":"Clear Search","dym":"Did you mean:","lcky":"I\u0026#39;m Feeling Lucky","lml":"Learn more","oskt":"Input tools","psrc":"This search was removed from your \u003Ca href=\"/history\"\u003EWeb History\u003C/a\u003E","psrl":"Remove","sbit":"Search by image","srch":"Google Search"},"ovr":{},"pq":"University of California, Davis","refoq":true,"refpd":true,"rfs":["university of california, irvine","stanford university","cornell university","purdue university","rice university","uc davis","university of california davis medical center","university of california davis tuition"],"scd":10,"sce":5,"soff":true,"stok":"FWFojqtULG0khYN4cMLgTkpZ1KI"})
+ </script>
+</body>

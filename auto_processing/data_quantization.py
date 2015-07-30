@@ -57,18 +57,35 @@ def non_uniform_quantization(index):
 # Input: a two dimensional array which hold normalized data of collected count.
 # Output: a two dimensional array which hold quantized normalized data.
 def calculate_normalized_index_with_quantization(index_arr):
-    index_arr_quantized = []
+    index_quantized_arr = []
 
     for index_list in index_arr:
-        index_list = []
+        index_re_list = []
         for index in (index_list):
 
             quantized = non_uniform_quantization(index)
-            index_list.append(quantized)
+            index_re_list.append(quantized)
 
-        index_arr_quantized.append(index_list)
+        index_quantized_arr.append(index_re_list)
 
-    return index_arr_quantized
+    return index_quantized_arr
+
+
+# calculate composite index with quantization
+# Input: composite_index_list, one dimension array of composite_index_list.,
+# output: a one dimension array of composite_quantized index_list
+# __FIX__ME__, this method to calculate composite_index with quantization is debatable,
+# another option is to use: calculate_composite_index_with_quantization_version2()
+def calculate_composite_index_with_quantization(composite_index_list):
+
+    composite_index_with_quantization_list = [] #
+
+    for composite_index in composite_index_list:
+
+        composite_index_with_quantization  = non_uniform_quantization(composite_index)
+        composite_index_with_quantization_list.append(composite_index_with_quantization)
+
+    return composite_index_with_quantization_list
 
 # calculate composite index with weighted factors for quantized index.
 # Input: index_arr, a two dimension array of quantized normalized index, typically, it is non-uniform quantized
@@ -83,7 +100,7 @@ def calculate_normalized_index_with_quantization(index_arr):
 # the geometric average, not arithmetic average. Is this really what we want ?
 # Will geometric average of different media index is a better measurement of overall marketing influence ?
 #
-def calculate_composite_index_with_quantization(wf_list, index_arr):
+def calculate_composite_index_with_quantization_version2(wf_list, index_arr):
 
     composite_index_list = [] # composite indexes
 
