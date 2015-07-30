@@ -1,0 +1,259 @@
+/*
+
+My Custom CSS
+=============
+
+Author:  Min Wang
+Updated: Feb 2014
+
+
+*/
+
+
+/* --------------------------------------
+   Layout
+   -------------------------------------- */
+
+#features {
+	text-align: center;
+}
+
+#features img {
+	margin: 0 0 20px;
+}
+
+#inputMessage {
+	margin-bottom: 15px;
+}
+
+footer {
+	background: #333;
+	color: #eee;
+	font-size: 11px;
+	padding: 20px;
+}
+
+
+/* --------------------------------------
+   Typography
+   -------------------------------------- */
+
+body {
+/*	padding-top: 95px;*/
+	padding-top: 65px; 
+	-webkit-font-smoothing: antialiased;
+	text-rendering: optimizelegibility;
+}
+@media (max-width: 979px) {
+ 	body {
+ 		margin-top: 65px;
+ 	}
+}
+
+.well .page-header {
+	margin-top: 0;
+}
+
+.well .page-header h1 {
+	margin-top: 0;
+}
+
+ul.unstyled {
+	list-style: none;
+	padding: 0;
+}
+
+
+/* --------------------------------------
+   Navbar
+   -------------------------------------- */
+
+#searchInput {
+	width: 200px;
+}
+
+.navbar-brand {
+	padding: 13px 15px;
+}
+   
+   
+/* --------------------------------------
+   Carousel
+   -------------------------------------- */
+   #myCarousel{
+   	height: auto;
+   	border-bottom-style:solid;
+
+   }
+   .carousel-inner{
+  width:100%;
+  max-height: 250px !important;
+}
+.carousel-inner .active.left { left: -25%; }
+.carousel-inner .next        { left:  25%; }
+.carousel-control.left,.carousel-control.right {background-image:none;}
+
+
+/* --------------------------------------
+   Global Styles
+   -------------------------------------- */
+
+.alert {
+	margin-top: 20px;
+	display: none;
+}
+
+.well {
+	margin: 20px 0;
+}
+
+.tabbable img.thumbnail {
+	margin: 0 20px 10px 0;
+}
+
+.thumbnails {
+	margin: 20px 0;
+}
+
+.thumbnail {
+	position: relative;
+}
+
+.thumbnail h3 {
+	font-size: 16px;
+	margin: 0 0 10px;
+	line-height: 20px;
+}
+
+.thumbnail .price {
+	font-size: 22px;
+	position: absolute;
+	top: -10px;
+	right: -10px;
+	padding: 10px;
+}
+
+.thumbnail .price sup {
+	font-weight: normal;
+	font-size: 12px;
+}
+
+.thumbnail span.glyphicon {
+	margin-right: 5px;
+}
+
+
+/* --------------------------------------
+   Media Queries
+   -------------------------------------- */
+
+/* Portrait & landscape phone */
+@media (max-width: 480px) {
+	body {
+ 		padding-top: 25px;
+ 	}
+
+	.thumbnail .price {
+		font-size: 14px;
+	}
+	
+	.thumbnail .price sup {
+		font-size: 10px;
+	}
+	
+}
+
+/* Landscape phone to portrait tablet */
+@media (max-width: 768px) {
+	body {
+ 		padding-top: 65px;
+ 	}
+	#myCarousel .item { height: 210px; }
+	
+
+	
+}
+
+/* Large desktop */
+@media (min-width: 1200px) {
+
+	#myCarousel .item { height: 500px; }
+	
+	#slide1 {
+		background: url('../../images/carousel_large_01.jpg') top center no-repeat;
+	}
+	
+	#slide2 {
+		background: url('../../images/carousel_large_02.jpg') top center no-repeat;
+	}
+	
+	#slide3 {
+		background: url('../../images/carousel_large_03.jpg') top center no-repeat;
+	}
+
+}
+
+/* main product */
+#main_product{
+
+}
+
+
+/* --------------------------------------
+   added by Min
+   -------------------------------------- */
+html, body, .container .row, .col-md-3, .tabbable, .nav nav-tabs, .tab-content, .tab-pane { 
+	height: 100%;
+}
+#more_products{
+	border-top-style:solid;
+}
+.city_map{
+	width:100%;
+	height: 500px;
+
+}
+
+.user_map{
+	width:100%;
+	height: 500px;
+}
+#map-canvas {
+	width:100%;
+ 	height:400px;
+}
+#map-canvas_first {
+	width:100%;
+ 	height:400px;
+}
+.modal_btn{
+	width:100%;
+	height:100px;
+}
+.modal_btn a{
+	margin-bottom: 0px;
+}
+.col-md-9{
+	background-color: #f5f5f5;
+}
+.thumbnail{
+	display:none;
+}
+#pro_description-content{
+	position: absolute; 
+	bottom: 0; 
+	right: 0;
+}
+
+.nav-tabs>li.active>a:after {
+    position: absolute;
+    content: "";
+    width: auto;
+    height: auto;
+    border-style: none;
+    border-color: transparent transparent transparent #1f1f20;
+    border-width: 25px 22px;
+    right: -44px;
+    top: 0;
+}
+
