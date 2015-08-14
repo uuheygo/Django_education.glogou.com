@@ -41,7 +41,7 @@
         <!-- /search box -->
         
         
-        <!-- recommeded schools -->
+        recommeded schools
         <div style="margin-left: 10px;"><h4>Schools for Comparison:</h4></div>
         <div>
                 <div style="padding-left:20px;">
@@ -51,7 +51,7 @@
                             {% for school in comparison_list %}
                             <label><h5><input type="checkbox" name = "checked_{{school.school_compare.id}}" value = "{{school.school_compare.id}}">
                                 {{school.school_compare.name}}</h5></label><br>
-                            <!-- in backend, do some_var = request.POST.getlist('checked') -->
+                            in backend, do some_var = request.POST.getlist('checked')
                             {% endfor %}
                         </div>
                         <hr>
@@ -59,7 +59,7 @@
                     </form>
                 </div>
         </div>
-        <!-- /recommeded schools -->
+        /recommeded schools
     </div>
     <!-- /.sidebar-collapse -->
 </div>

@@ -162,11 +162,11 @@
             
             function redirectTo(num_days) {
                 var currURL = document.URL;
-                var arr = currURL.split('&');
+                var arr = currURL.split('?');
                 for(var i = 0; i < arr.length; i++) {
                     if(arr[i].indexOf("num_days") > -1) {
                         arr[i] = "num_days=" + num_days;
-                        window.location = arr.join("&");
+                        window.location = arr.join("?");
                         return;
                     }
                 }

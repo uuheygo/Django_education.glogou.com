@@ -148,49 +148,49 @@ def get_race_percentages(school_infor):
 def get_composite_index(school_id, num_days, index_category):
     composite = None
     if index_category == 'general':
-        composite = CompositeIndex.objects.filter(school=int(school_id)).order_by('-date')[:num_days]
+        composite = CompositeIndex.objects.filter(school=int(school_id)).order_by('-date')[:num_days/3]
     return composite
 
 # get google index for school in the period of last num_days days
 def get_gg_index(school_id, num_days, index_category):
     gg = [None] * 4
     if index_category == 'general':
-        gg[0] = GoogleIndexEn.objects.filter(school=int(school_id)).order_by('-date')[:num_days] # gg index en
-        gg[1] = GoogleIndexHk.objects.filter(school=int(school_id)).order_by('-date')[:num_days] # gg index hk
-        gg[2] = GoogleNews.objects.filter(school=int(school_id)).order_by('-date')[:num_days] # gg news
-        gg[3] = GoogleSite.objects.filter(school=int(school_id)).order_by('-date')[:num_days] # gg site
+        gg[0] = GoogleIndexEn.objects.filter(school=int(school_id)).order_by('-date')[:num_days/3] # gg index en
+        gg[1] = GoogleIndexHk.objects.filter(school=int(school_id)).order_by('-date')[:num_days/3] # gg index hk
+        gg[2] = GoogleNews.objects.filter(school=int(school_id)).order_by('-date')[:num_days/3] # gg news
+        gg[3] = GoogleSite.objects.filter(school=int(school_id)).order_by('-date')[:num_days/3] # gg site
     return [[a, b, c, d] for a, b, c, d in zip(gg[0], gg[1], gg[2], gg[3])]
     
 # get baidu index for school in the period of last num_days days
 def get_bd_index(school_id, num_days, index_category):
     bd = [None] * 5
     if index_category == 'general':
-        bd[0] = BaiduIndexCh.objects.filter(school=int(school_id)).order_by('-date')[:num_days] # bd index ch
-        bd[1] = BaiduIndexEn.objects.filter(school=int(school_id)).order_by('-date')[:num_days] # bd index en
-        bd[2] = BaiduNewsCh.objects.filter(school=int(school_id)).order_by('-date')[:num_days] # bd news ch
-        bd[3] = BaiduNewsEn.objects.filter(school=int(school_id)).order_by('-date')[:num_days] # bd news en
-        bd[4] = BaiduSite.objects.filter(school=int(school_id)).order_by('-date')[:num_days] # bd site
+        bd[0] = BaiduIndexCh.objects.filter(school=int(school_id)).order_by('-date')[:num_days/3] # bd index ch
+        bd[1] = BaiduIndexEn.objects.filter(school=int(school_id)).order_by('-date')[:num_days/3] # bd index en
+        bd[2] = BaiduNewsCh.objects.filter(school=int(school_id)).order_by('-date')[:num_days/3] # bd news ch
+        bd[3] = BaiduNewsEn.objects.filter(school=int(school_id)).order_by('-date')[:num_days/3] # bd news en
+        bd[4] = BaiduSite.objects.filter(school=int(school_id)).order_by('-date')[:num_days/3] # bd site
     return [[a, b, c, d, e] for a, b, c, d, e in zip(bd[0], bd[1], bd[2], bd[3], bd[4])]
         
 # get yahoo index for school in the period of last num_days days
 def get_yh_index(school_id, num_days):
     yh = [None] * 2
-    yh[0] = YahoojapIndexEn.objects.filter(school=int(school_id)).order_by('-date')[:num_days] # yh index en
-    yh[1] = YahoojapIndexJp.objects.filter(school=int(school_id)).order_by('-date')[:num_days] # yh index jp
+    yh[0] = YahoojapIndexEn.objects.filter(school=int(school_id)).order_by('-date')[:num_days/3] # yh index en
+    yh[1] = YahoojapIndexJp.objects.filter(school=int(school_id)).order_by('-date')[:num_days/3] # yh index jp
     return [[a, b] for a, b in zip(yh[0], yh[1])]
     
 # get all indexes of selected period for a School
 def get_all_indexes(school_id, num_days):
     indexes = [None] * 11
-    indexes[0] = GoogleIndexEn.objects.filter(school=school_id).order_by('-date')[:num_days] # gg index en
-    indexes[1] = GoogleIndexHk.objects.filter(school=school_id).order_by('-date')[:num_days] # gg index hk
-    indexes[2] = GoogleNews.objects.filter(school=school_id).order_by('-date')[:num_days] # gg news
-    indexes[3] = GoogleSite.objects.filter(school=school_id).order_by('-date')[:num_days] # gg site
-    indexes[4] = BaiduIndexCh.objects.filter(school=school_id).order_by('-date')[:num_days] # bd index ch
-    indexes[5] = BaiduIndexEn.objects.filter(school=school_id).order_by('-date')[:num_days] # bd index en
-    indexes[6] = BaiduNewsCh.objects.filter(school=school_id).order_by('-date')[:num_days] # bd news ch
-    indexes[7] = BaiduNewsEn.objects.filter(school=school_id).order_by('-date')[:num_days] # bd news en
-    indexes[8] = BaiduSite.objects.filter(school=school_id).order_by('-date')[:num_days] # bd site
+    indexes[0] = GoogleIndexEn.objects.filter(school=school_id).order_by('-date')[:num_days/3] # gg index en
+    indexes[1] = GoogleIndexHk.objects.filter(school=school_id).order_by('-date')[:num_days/3] # gg index hk
+    indexes[2] = GoogleNews.objects.filter(school=school_id).order_by('-date')[:num_days/3] # gg news
+    indexes[3] = GoogleSite.objects.filter(school=school_id).order_by('-date')[:num_days/3] # gg site
+    indexes[4] = BaiduIndexCh.objects.filter(school=school_id).order_by('-date')[:num_days/3] # bd index ch
+    indexes[5] = BaiduIndexEn.objects.filter(school=school_id).order_by('-date')[:num_days/3] # bd index en
+    indexes[6] = BaiduNewsCh.objects.filter(school=school_id).order_by('-date')[:num_days/3] # bd news ch
+    indexes[7] = BaiduNewsEn.objects.filter(school=school_id).order_by('-date')[:num_days/3] # bd news en
+    indexes[8] = BaiduSite.objects.filter(school=school_id).order_by('-date')[:num_days/3] # bd site
 #     indexes[9] = YahoojapIndexEn.objects.filter(school=school_id).order_by('-date')[:num_days] # yh index en
 #     indexes[10] = YahoojapIndexJp.objects.filter(school=school_id).order_by('-date')[:num_days] # yh index jp
     return indexes
@@ -199,25 +199,25 @@ def get_all_indexes(school_id, num_days):
 def get_index(school_id, index_name, num_days, index_category):
     if index_category == 'general':
         if index_name == 'composite_index':
-            return CompositeIndex.objects.filter(school=school_id).order_by('-date')[:num_days] # bd index en
+            return CompositeIndex.objects.filter(school=school_id).order_by('-date')[:num_days/3] # bd index en
         if index_name == 'bd_index_en' :
-            return BaiduIndexEn.objects.filter(school=school_id).order_by('-date')[:num_days] # bd index en
+            return BaiduIndexEn.objects.filter(school=school_id).order_by('-date')[:num_days/3] # bd index en
         if index_name == 'bd_index_ch' :
-            return BaiduIndexCh.objects.filter(school=school_id).order_by('-date')[:num_days]
+            return BaiduIndexCh.objects.filter(school=school_id).order_by('-date')[:num_days/3]
         if index_name == 'bd_news_en' :
-            return BaiduNewsEn.objects.filter(school=school_id).order_by('-date')[:num_days]
+            return BaiduNewsEn.objects.filter(school=school_id).order_by('-date')[:num_days/3]
         if index_name == 'bd_news_ch' :
-            return BaiduNewsCh.objects.filter(school=school_id).order_by('-date')[:num_days]
+            return BaiduNewsCh.objects.filter(school=school_id).order_by('-date')[:num_days/3]
         if index_name == 'bd_site' :
-            return BaiduSite.objects.filter(school=school_id).order_by('-date')[:num_days]
+            return BaiduSite.objects.filter(school=school_id).order_by('-date')[:num_days/3]
         if index_name == 'gg_index_en' :
-            return GoogleIndexEn.objects.filter(school=school_id).order_by('-date')[:num_days]
+            return GoogleIndexEn.objects.filter(school=school_id).order_by('-date')[:num_days/3]
         if index_name == 'gg_index_hk' :
-            return GoogleIndexHk.objects.filter(school=school_id).order_by('-date')[:num_days]
+            return GoogleIndexHk.objects.filter(school=school_id).order_by('-date')[:num_days/3]
         if index_name == 'gg_news_en' :
-            return GoogleNews.objects.filter(school=school_id).order_by('-date')[:num_days]
+            return GoogleNews.objects.filter(school=school_id).order_by('-date')[:num_days/3]
         if index_name == 'gg_site' :
-            return GoogleSite.objects.filter(school=school_id).order_by('-date')[:num_days]
+            return GoogleSite.objects.filter(school=school_id).order_by('-date')[:num_days/3]
     
 # convert list per school to list per chart
 def convert_to_chart_data(list_per_school):
