@@ -1,0 +1,60 @@
+{% extends "brands/base_glogou.html" %}
+{% load staticfiles %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block description %}{{ description }}{% endblock %}
+
+{% block keywords %}{{ keywords }}{% endblock %}
+{% block head_tags %}
+			
+{% endblock %}
+{% block content %}
+		<div class="row">
+		    <div class="col-md-12" id="category">
+			<div class="tabbale">
+			     <ul class="nav nav-tabs">
+			    {% load dictionaryIterator %}
+			    {% load changespace %}
+			    {% load getKey %}
+			    {% for cat in dic|getkey:'product_list'|dictionaryIterator %}			    
+				<li><a href="#tabs-{{cat|changespace}}" data-toggle="tab">{{cat}}</a></li>
+			    {% endfor %}
+			    </ul><!-- end nav-tabs -->
+			    <div class="tab-content">
+			    {% for cat in dic|getkey:'product_list'|dictionaryIterator %}
+				<div class="tab-pane" id="tabs-{{cat|changespace}}">
+				{% for cap in "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ" %}
+				    {% if dic|getkey:'product_list'|getkey:cat|getkey:cap %}
+				    <h1 class="cap" id="{{cat|changespace}}_{{cap}}">{{cap}}</h1>
+				    <div class="row">
+				    {% for brand in dic|getkey:'product_list'|getkey:cat|getkey:cap %}
+					<div class="col-xs-6 col-sm-4 col-md-2">
+					    <div class="thumbnail" style="display: block; height:250px; width:200px;">
+						<a href="{{cat.lower}}_{{brand.lower|safe}}.html">
+						    <img src="{% static 'images/'|add:cat|add:'/'|add:brand|add:'_resize.jpg'%}" style="height:150px; width:150px;">
+						    <div class="caption">
+							<h3 class="title">{{brand}}</h3>
+						    </div><!-- end of caption -->
+						</a>
+					    </div><!-- end of thumbnail -->
+					</div><!-- end of col-md-2 -->
+				    {% endfor %}
+				    </div><!-- end of row -->
+				    {% endif %}
+				{% endfor %}
+				</div><!-- end of tab-pane -->
+			    {% endfor %}				
+			    </div><!-- end tab-content -->
+			</div><!-- end tabbale tabs-left -->
+		    </div><!-- end col-md-12 side first nav -->
+		</div><!-- end second row -->
+		{% block foot_tag %}
+		<script>
+		var city="{{ city }}";
+		var brand="{{ brand }}";
+		var currentTab='Cosmetics'
+		</script>
+		{% endblock %}
+{% endblock %}
+	

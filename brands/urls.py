@@ -2,7 +2,8 @@ from django.conf.urls import include, url
 from django.contrib import admin
 
 urlpatterns = [
-    url(r'^$', 'brands.views.list_view', name = 'full_list'),
+    #url(r'^$', 'brands.views.list_view', name = 'full_list'),
+    url(r'^$', 'brands.views.brand_list', name = 'brand_list'),
     url(r'^page=(?P<page>\d+)/$', 'brands.views.list_view', name = 'page_list'),
     url(r'^brand_id=(?P<brand_id>\d+)/.+/media/$',
         'brands.views.media_view', name = 'brand_media'), # media details: search engine, site, language, social media
