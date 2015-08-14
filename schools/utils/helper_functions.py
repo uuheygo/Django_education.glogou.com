@@ -278,7 +278,7 @@ def get_index_data_col(school_ids, index_name, index_category):
             school_id = int(id)
             #print float(get_index(school_id, index_name, 1)[0].index)
             data_set.append([School.objects.get(id=school_id).name.encode('ascii','ignore'), 
-                             float(get_index(school_id, index_name, 1, index_category)[0].index)])
+                             float(get_index(school_id, index_name, 3, index_category)[0].index)])
     return data_set
 
 def get_index_report(school_id, num_days, index_category):
