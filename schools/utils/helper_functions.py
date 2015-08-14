@@ -309,9 +309,12 @@ def get_pie_data(school_infor):
     #gender enrollment
     male = -1
     female = -1
-    if school_infor.admission_percentage is not None:
+    if school_infor.enroll_male_percentage is not None:
         male = int(school_infor.enroll_male_percentage[:-1])
-        female = int(school_infor.enroll_female_percentage[:-1])
+        female = 100 - male
+    else:
+        male = 0
+        female = 100
     
     #Enrollment by Race
     #a_i_n, a_p, black, latino, white, unknown, n_r= -1, -1, -1, -1, -1, -1, -1
